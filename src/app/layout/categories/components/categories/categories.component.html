@@ -1,0 +1,11 @@
+<app-page-title title="Categories"></app-page-title>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let category of categories | async">
+            <div class="white-block category" [routerLink]="'/app/categories/' + category.id">
+                <div class="icon"><i class="fa" [ngClass]="'fa-' + category.icon"></i></div>
+                <h3>{{category.name}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

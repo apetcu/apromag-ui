@@ -1,0 +1,40 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+[
+    {
+       "id": 1,
+       "name": "Automotive",
+       "icon": "car"
+    },
+    {
+       "id": 2,
+       "name": "Beauty",
+       "icon": "paint-brush"
+    },
+    {
+       "id": 3,
+       "name": "Electronics",
+       "icon": "plug"
+    },
+    {
+       "id": 4,
+       "name": "Food",
+       "icon": "cutlery"
+    },
+    {
+       "id": 4,
+       "name": "Health & Fitness",
+       "icon": "bicycle"
+    },
+    {
+       "id": 4,
+       "name": "Home & Garden",
+       "icon": "home"
+    },
+    {
+       "id": 4,
+       "name": "Things to do",
+       "icon": "wrench"
+    }
+]

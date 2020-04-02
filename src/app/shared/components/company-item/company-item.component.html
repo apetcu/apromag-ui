@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-3 text-center align-self-center d-none d-sm-block">
+        <img [src]="company.logo" [title]="company.name" class="logo">
+    </div>
+    <div class="col-12 col-md-9">
+        <a class="name" routerLink="" (click)="viewCompanyPage(company.id)">{{company.name}}</a>
+        <div class="description">
+            {{company.description}}
+        </div>
+        <ul class="tags">
+            <li><a href="#">Small (5 - 10 employees)</a></li>
+        </ul>
+        <div class="facts">
+            <div class="row">
+                <div class="col-md-4">
+                    <strong><i class="pi pi-map-marker"></i> {{company.location}}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

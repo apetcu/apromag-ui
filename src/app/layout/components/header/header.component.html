@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">ap<span class="main-color">ro</span>mag</a>
+        <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse" [class.collapse]='isCollapsed'>
+            <form class=" my-2 my-lg-0">
+                <div class="row">
+                    <div class="col-8">
+                        <input class="form-control" type="search" placeholder="Find companies"
+                               aria-label="Find companies">
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Companies <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Messages <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Help <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <div class="profile" appClickOutside (clickOutside)="onClickOutside()">
+                        <img src="https://scriptly.org/wp-content/uploads/2016/06/opulent-profile-square-05.jpg"
+                             alt="" (click)="profileMenuDisplayed = !profileMenuDisplayed">
+
+                        <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
+                        <div class="dropdown-menu dropdown-menu-right animate slideIn" [class.show]="profileMenuDisplayed">
+                            <a class="dropdown-item" href="#">My account</a>
+                            <a class="dropdown-item" href="#">Subscription</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Log out</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
