@@ -1,0 +1,12 @@
+<app-page-title title="Producatori"></app-page-title>
+<section class="popular-chef style-2 padding-tb">
+    <div class="container">
+        <div class="section-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-xl-4 col-lg-6 col-12" *ngFor="let vendor of vendors | async">
+                    <app-vendor [vendor]="vendor"></app-vendor>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
