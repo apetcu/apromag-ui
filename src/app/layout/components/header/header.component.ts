@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
                 {title: 'Cat 2', link: '/categories/3'},
             ]
         },
-        {title: "Contact", link: 'contact'},
+        {title: "Contact", link: '/contact'},
     ];
 
     constructor() {

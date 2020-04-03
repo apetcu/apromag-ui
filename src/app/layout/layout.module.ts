@@ -10,6 +10,7 @@ import {HeaderModule} from "./components/header/header.module";
 import {HomeModule} from "./home/home.module";
 import {CategoriesModule} from "./categories/categories.module";
 import {VendorsModule} from "./vendors/vendors.module";
+import {ContactModule} from "./contact/contact.module";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {VendorsModule} from "./vendors/vendors.module";
         RouterModule,
         ClickOutsideModule,
         LayoutRoutingModule,
+        ContactModule,
         HomeModule
     ]
 })

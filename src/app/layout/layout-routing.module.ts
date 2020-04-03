@@ -6,6 +6,7 @@ import {HomeComponent} from "./home/home/home.component";
 import {CategoriesComponent} from "./categories/components/categories/categories.component";
 import {VendorsComponent} from "./vendors/components/vendors/vendors.component";
 import {VendorProductsComponent} from "./vendors/components/vendor-products/vendor-products.component";
+import {ContactComponent} from "./contact/components/contact/contact.component";
 
 const routes: Routes = [
     {
@@ -27,6 +28,10 @@ const routes: Routes = [
             {
                 path: 'vendors/:assetId',
                 component: VendorProductsComponent
+            },
+            {
+                path: 'contact',
+                component: ContactComponent
             }
         ],
     },
