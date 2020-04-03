@@ -26,7 +26,7 @@ const routes: Routes = [
                 component: VendorsComponent
             },
             {
-                path: 'vendors/:assetId',
+                path: 'vendors/:vendorId',
                 component: VendorProductsComponent
             },
             {

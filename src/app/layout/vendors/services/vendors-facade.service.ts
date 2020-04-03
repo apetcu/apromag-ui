@@ -9,15 +9,15 @@ import {Vendor} from "../models/vendor";
 })
 export class VendorsFacadeService {
 
-    constructor(private companiesApiService: VendorsApiService) {
+    constructor(private vendorsApiService: VendorsApiService) {
     }
 
     getVendors(): Observable<Array<Vendor>> {
-        return this.companiesApiService.getAll().pipe(this.mapCompaniesToDomainModel());
+        return this.vendorsApiService.getAll().pipe(this.mapCompaniesToDomainModel());
     }
 
     getVendorById(id: number): Observable<Vendor> {
-        return this.companiesApiService.getById(id).pipe(map(response => new Vendor(response)));
+        return this.vendorsApiService.getById(id).pipe(map(response => new Vendor(response)));
     }
 
 
