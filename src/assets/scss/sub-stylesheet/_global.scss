@@ -151,6 +151,9 @@
 .rating {
     i {
         color: $star;
+        &.inactive {
+            color: $navy;
+        }
     }
 }
 

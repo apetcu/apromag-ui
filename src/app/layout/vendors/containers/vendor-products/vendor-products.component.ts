@@ -31,7 +31,6 @@ export class VendorProductsComponent implements OnInit {
   private getVendorDetails(id: number) {
     this.vendorsFacadeService.getVendorById(id).subscribe((vendorInfo) => {
       this.vendorDetails = vendorInfo;
-      console.log(vendorInfo);
     });
   }
   private getVendorProducts(id: number) {

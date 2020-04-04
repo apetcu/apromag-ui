@@ -1,13 +1,10 @@
 <div class="p-food-item">
     <div class="p-food-inner">
         <div class="p-food-thumb">
-            <img src="assets/images/popular-food/01.jpg" alt="p-food">
+            <img [src]="vendor.profilePicture" alt="p-food">
         </div>
         <div class="p-food-content">
-            <div class="p-food-author">
-                <a href="#"><img src="assets/images/chef/author/01.jpg" alt="food-author"></a>
-            </div>
-            <h6><a [routerLink]="'/vendors/' + vendor.id">{{vendor.name}}</a></h6>
+            <h6><a [routerLink]="'/vendors/' + vendor.id">{{vendor.businessName}}</a></h6>
             <div class="p-food-group">
                 <span>Type of food :</span>
                 <a href="#">Beef Roast</a>
@@ -36,15 +33,9 @@
             </ul>
             <div class="p-food-footer">
                 <div class="left">
-                    <div class="rating">
-                        <i class="icofont-star"></i>
-                        <i class="icofont-star"></i>
-                        <i class="icofont-star"></i>
-                        <i class="icofont-star"></i>
-                        <i class="icofont-star"></i>
-                    </div>
+                    <app-rating [rating]="vendor.rating"></app-rating>
                 </div>
-                <div class="right"><i class="icofont-home"></i>{{vendor.location}}</div>
+                <div class="right"><i class="icofont-home"></i>{{vendor.address}}</div>
             </div>
         </div>
     </div>

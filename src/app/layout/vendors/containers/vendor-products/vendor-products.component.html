@@ -1,4 +1,4 @@
-<app-page-title [title]="vendorDetails?.name" [subtitle]="vendorDetails?.location" [contentLoading]="productsLoading"></app-page-title>
+<app-page-title [title]="vendorDetails?.businessName" [subtitle]="vendorDetails?.address" [contentLoading]="productsLoading"></app-page-title>
 <div class="shop-page single padding-tb">
     <div class="container">
         <div class="row justify-content-center">
@@ -57,11 +57,14 @@
                     <div class="popular-chef-widget">
                         <div class="widget widget-author">
                             <div class="widget-header">
-                                <h5>{{vendorDetails?.name}}</h5>
+                                <h5>{{vendorDetails?.businessName}}</h5>
                             </div>
                             <div class="widget-wrapper">
                                 <div class="admin-thumb">
-                                    <img src="assets/images/chef/author/08.jpg" alt="author">
+                                    <img [src]="vendorDetails?.profilePicture" [alt]="vendorDetails?.businessName">
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <app-rating [rating]="vendorDetails?.rating"></app-rating>
                                 </div>
                                 <div class="admin-content">
                                     <p>{{vendorDetails?.description}}</p>

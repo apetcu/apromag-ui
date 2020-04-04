@@ -2,67 +2,118 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 [
-   {
-      "id":1,
-      "name":"Buleanu gigi",
-      "location":"Videle",
-      "description":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+    {
+      "id": 2,
+      "businessName": "Buleanu gigi",
+      "rating": 4.86,
+      "ratingCount": 196,
+      "profilePicture": "https://previews.123rf.com/images/rastudio/rastudio1607/rastudio160704888/59853308-an-asian-farmer-holding-a-corn-cob-young-farmer-standing-on-the-background-of-corn-field-vector-flat.jpg",
+      "address": "Videle, Craiova",
+      "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
       "photos":[
-
+        {
+            "id": 1,
+            "imageUrl": "https://media1.lajumate.ro/media/i/api_list/0/346/3464020_solar-legume_1.jpg"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://adevarul.ro/assets/adevarul.ro/MRImage/2015/04/06/5522effa448e03c0fd494c7a/646x404.jpg"
+        }
       ]
+    },
+    {
+      "id": 3,
+      "businessName": "Buleanu gigi",
+      "rating": 4.56,
+      "ratingCount": 215,
+      "profilePicture": "https://previews.123rf.com/images/rastudio/rastudio1607/rastudio160704888/59853308-an-asian-farmer-holding-a-corn-cob-young-farmer-standing-on-the-background-of-corn-field-vector-flat.jpg",
+      "address": "Videle, Craiova",
+      "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+      "photos":[
+        {
+            "id": 1,
+            "imageUrl": "https://media1.lajumate.ro/media/i/api_list/0/346/3464020_solar-legume_1.jpg"
+        },
+        {
+            "id": 2,
+            "imageUrl": "https://adevarul.ro/assets/adevarul.ro/MRImage/2015/04/06/5522effa448e03c0fd494c7a/646x404.jpg"
+        }
+      ]
+    },
+   {
+     "id": 2,
+     "businessName": "Buleanu gigi",
+     "rating": 3.96,
+     "ratingCount": 300,
+     "profilePicture": "https://previews.123rf.com/images/rastudio/rastudio1607/rastudio160704888/59853308-an-asian-farmer-holding-a-corn-cob-young-farmer-standing-on-the-background-of-corn-field-vector-flat.jpg",
+     "address": "Videle, Craiova",
+     "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+     "photos":[
+       {
+           "id": 1,
+           "imageUrl": "https://media1.lajumate.ro/media/i/api_list/0/346/3464020_solar-legume_1.jpg"
+       },
+       {
+           "id": 2,
+           "imageUrl": "https://adevarul.ro/assets/adevarul.ro/MRImage/2015/04/06/5522effa448e03c0fd494c7a/646x404.jpg"
+       }
+     ]
    },
    {
-      "id":2,
-      "name":"Pulica franaru",
-      "location":"Videle",
-      "description":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
-      "photos":[
-
-      ]
+     "id": 2,
+     "businessName": "Buleanu gigi",
+     "rating": 2.46,
+     "ratingCount": 300,
+     "profilePicture": "https://previews.123rf.com/images/rastudio/rastudio1607/rastudio160704888/59853308-an-asian-farmer-holding-a-corn-cob-young-farmer-standing-on-the-background-of-corn-field-vector-flat.jpg",
+     "address": "Videle, Craiova",
+     "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+     "photos":[
+       {
+           "id": 1,
+           "imageUrl": "https://media1.lajumate.ro/media/i/api_list/0/346/3464020_solar-legume_1.jpg"
+       },
+       {
+           "id": 2,
+           "imageUrl": "https://adevarul.ro/assets/adevarul.ro/MRImage/2015/04/06/5522effa448e03c0fd494c7a/646x404.jpg"
+       }
+     ]
    },
    {
-      "id":3,
-      "name":"Popescu Mariusica",
-      "location":"Videle",
-      "description":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
-      "photos":[
-
-      ]
+     "id": 2,
+     "businessName": "Buleanu gigi",
+     "rating": 2.56,
+     "ratingCount": 916,
+     "profilePicture": "https://previews.123rf.com/images/rastudio/rastudio1607/rastudio160704888/59853308-an-asian-farmer-holding-a-corn-cob-young-farmer-standing-on-the-background-of-corn-field-vector-flat.jpg",
+     "address": "Videle, Craiova",
+     "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+     "photos":[
+       {
+           "id": 1,
+           "imageUrl": "https://media1.lajumate.ro/media/i/api_list/0/346/3464020_solar-legume_1.jpg"
+       },
+       {
+           "id": 2,
+           "imageUrl": "https://adevarul.ro/assets/adevarul.ro/MRImage/2015/04/06/5522effa448e03c0fd494c7a/646x404.jpg"
+       }
+     ]
    },
    {
-      "id":4,
-      "name":"Vanzatoru ambulant",
-      "location":"Videle",
-      "description":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
-      "photos":[
-
-      ]
-   },
-   {
-      "id":1,
-      "name":"Buleanu gigi",
-      "location":"Videle",
-      "description":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
-      "photos":[
-
-      ]
-   },
-   {
-      "id":1,
-      "name":"Buleanu gigi",
-      "location":"Videle",
-      "description":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
-      "photos":[
-
-      ]
-   },
-   {
-      "id":1,
-      "name":"Buleanu gigi",
-      "location":"Videle",
-      "description":"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
-      "photos":[
-
-      ]
+     "id": 2,
+     "businessName": "Buleanu gigi",
+     "rating": 3.56,
+     "ratingCount": 920,
+     "profilePicture": "https://previews.123rf.com/images/rastudio/rastudio1607/rastudio160704888/59853308-an-asian-farmer-holding-a-corn-cob-young-farmer-standing-on-the-background-of-corn-field-vector-flat.jpg",
+     "address": "Videle, Craiova",
+     "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
+     "photos":[
+       {
+           "id": 1,
+           "imageUrl": "https://media1.lajumate.ro/media/i/api_list/0/346/3464020_solar-legume_1.jpg"
+       },
+       {
+           "id": 2,
+           "imageUrl": "https://adevarul.ro/assets/adevarul.ro/MRImage/2015/04/06/5522effa448e03c0fd494c7a/646x404.jpg"
+       }
+     ]
    }
 ]

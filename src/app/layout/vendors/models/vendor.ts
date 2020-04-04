@@ -1,15 +1,24 @@
 export class Vendor {
   id: number;
-  name: string;
+  businessName: string;
   description: string;
-  location: string;
-  photos: any;
+  profilePicture: string;
+  address: string;
+  rating: number;
+  photos: Array<VendorPhoto>;
 
   constructor(vendorResponse: any) {
     this.id = vendorResponse.id;
-    this.name = vendorResponse.name;
+    this.businessName = vendorResponse.businessName;
     this.description = vendorResponse.description;
-    this.location = vendorResponse.location;
+    this.address = vendorResponse.address;
+    this.profilePicture = vendorResponse.profilePicture;
     this.photos = vendorResponse.photos;
+    this.rating = vendorResponse.rating;
   }
+}
+
+interface VendorPhoto {
+  id: string;
+  imageUrl: string;
 }
