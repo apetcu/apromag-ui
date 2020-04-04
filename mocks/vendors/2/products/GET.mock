@@ -18,6 +18,7 @@ Content-Type: application/json; charset=utf-8
                    "imageUrl": "https://www.cora.ro/images/products/2429371/2429371_full.jpg",
                    "name": "Rosii roma",
                    "price": 100,
+                   "unit": "unit",
                    "rating": 3.2,
                    "stock": 15,
                    "vendorId": 1
@@ -37,6 +38,46 @@ Content-Type: application/json; charset=utf-8
                    "imageUrl": "https://www.cora.ro/images/products/1793200/gallery/1793200_hd_1.jpg",
                    "name": "Castravetele buclucas",
                    "price": 3,
+                   "unit": "kg",
+                   "rating": 3.2,
+                   "stock": 15,
+                   "vendorId": 1
+                 },
+                 {
+                   "category": {
+                       "id": "1",
+                       "name": "Ridichii"
+                   },
+                   "currency": {
+                     "code": "RON",
+                     "factor": 3,
+                     "symbol": "RON"
+                   },
+                   "description": "Cele mai bune ridichii din chiajna",
+                   "id": 2,
+                   "imageUrl": "https://www.cora.ro/images/products/1809499/gallery/1809499_hd_1.jpg",
+                   "name": "Ridichii",
+                   "price": 3,
+                   "unit": "leg",
+                   "rating": 3.2,
+                   "stock": 15,
+                   "vendorId": 1
+                 },
+                 {
+                   "category": {
+                       "id": "1",
+                       "name": "Chestii straine"
+                   },
+                   "currency": {
+                     "code": "RON",
+                     "factor": 100,
+                     "symbol": "RON"
+                   },
+                   "description": "Avocado de calitate",
+                   "id": 2,
+                   "imageUrl": "https://www.cora.ro/images/products/1815194/gallery/1815194_hd_1.jpg",
+                   "name": "Avocado",
+                   "price": 4.99,
                    "unit": "buc",
                    "rating": 3.2,
                    "stock": 15,

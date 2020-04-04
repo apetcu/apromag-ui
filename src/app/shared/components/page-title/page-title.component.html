@@ -7,12 +7,10 @@
     </div>
     <div class="container">
         <div class="page-title text-center">
-            <h3>{{title}}</h3>
-            {{subtitle}}
-            <ul class="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li>HomeChef</li>
-            </ul>
+            <h3 *ngIf="contentLoading"><div class="skeleton-box title"></div></h3>
+            <h3 *ngIf="contentLoading"><div class="skeleton-box subtitle"></div></h3>
+            <h3 *ngIf="!contentLoading">{{title}}</h3>
+            <h6 *ngIf="!contentLoading">{{subtitle}}</h6>
         </div>
     </div>
 </section>

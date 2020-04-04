@@ -12,6 +12,8 @@ import { Product } from '../../../../shared/models/product';
 export class VendorProductsComponent implements OnInit {
   vendorDetails: Vendor;
   products: Array<Product>;
+  productsLoading: boolean = true;
+  displayType: string = 'grid';
 
   constructor(private vendorsFacadeService: VendorsFacadeService, private route: ActivatedRoute) {}
 
@@ -22,14 +24,19 @@ export class VendorProductsComponent implements OnInit {
     });
   }
 
+  setListType(type: string) {
+    this.displayType = type;
+  }
+
   private getVendorDetails(id: number) {
     this.vendorsFacadeService.getVendorById(id).subscribe((vendorInfo) => {
       this.vendorDetails = vendorInfo;
+      console.log(vendorInfo);
     });
   }
   private getVendorProducts(id: number) {
     this.vendorsFacadeService.getVendorProducts(id).subscribe((products) => {
-      console.log(products);
+      this.productsLoading = false;
       this.products = products;
     });
   }

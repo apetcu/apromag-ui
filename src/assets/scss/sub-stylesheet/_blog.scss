@@ -1337,11 +1337,12 @@ p.comment-form-cookies-consent {
         @extend %flex;
         .product-thumb {
             width: 100%;
+            text-align: center;
             @include breakpoint(md) {
                 width: 35%;
             }
             img {
-                width: 100%;
+                width: 50%;
             }
         }
         .product-content {

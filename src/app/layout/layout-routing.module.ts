@@ -10,6 +10,7 @@ import { ContactComponent } from './contact/components/contact/contact.component
 import { NotFoundComponent } from '../shared/components/not-found/not-found.component';
 import { LoginComponent } from './authentication/components/login/login.component';
 import { RegisterComponent } from './authentication/components/register/register.component';
+import { ProductComponent } from './product/containers/product/product.component';
 
 const routes: Routes = [
   {
@@ -36,7 +37,17 @@ const routes: Routes = [
       },
       {
         path: 'vendors/:vendorId',
-        component: VendorProductsComponent
+        component: VendorProductsComponent,
+        data: {
+          title: 'Producatori'
+        }
+      },
+      {
+        path: 'products/:nameSlug/:productId',
+        component: ProductComponent,
+        data: {
+          title: 'Produs'
+        }
       },
       {
         path: 'auth/login',
