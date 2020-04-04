@@ -7,6 +7,9 @@ import {CategoriesComponent} from "./categories/components/categories/categories
 import {VendorsComponent} from "./vendors/components/vendors/vendors.component";
 import {VendorProductsComponent} from "./vendors/components/vendor-products/vendor-products.component";
 import {ContactComponent} from "./contact/components/contact/contact.component";
+import {NotFoundComponent} from "./components/not-found/not-found.component";
+import {LoginComponent} from "./authentication/components/login/login.component";
+import {RegisterComponent} from "./authentication/components/register/register.component";
 
 const routes: Routes = [
     {
@@ -16,6 +19,9 @@ const routes: Routes = [
             {
                 path: 'home',
                 component: HomeComponent,
+                data: {
+                    title: 'Acasa'
+                }
             },/*
             {
                 path: 'categories',
@@ -23,27 +29,47 @@ const routes: Routes = [
             },*/
             {
                 path: 'vendors',
-                component: VendorsComponent
+                component: VendorsComponent,
+                data: {
+                    title: 'Producatori'
+                }
             },
             {
                 path: 'vendors/:vendorId',
                 component: VendorProductsComponent
             },
             {
+                path: 'auth/login',
+                component: LoginComponent,
+                data: {
+                    title: 'Autentificare'
+                }
+            },
+            {
+                path: 'auth/register',
+                component: RegisterComponent,
+                data: {
+                    title: 'Inregistrare'
+                }
+            },
+            {
                 path: 'contact',
-                component: ContactComponent
-            }
+                component: ContactComponent,
+                data: {
+                    title: 'Contact'
+                }
+            }, {path: '', redirectTo: '/home', pathMatch: 'full'},
+
         ],
     },
-    {
-        path: '', redirectTo: '/home', pathMatch: 'full'
-    },
+    {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: '**', component: NotFoundComponent}
 
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forChild(routes),
+        RouterModule.forRoot(routes),
     ],
     exports: [
         RouterModule,

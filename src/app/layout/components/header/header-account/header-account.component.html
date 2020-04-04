@@ -1,0 +1,10 @@
+<a href="#" class="food-btn" *ngIf="!loggedIn" routerLink="/auth/login"><span>Log in</span></a>
+<div class="author-icon" *ngIf="loggedIn">
+    <img src="assets/images/chef/author/08.jpg" alt="author">
+</div>
+<div class="author-select" *ngIf="loggedIn">
+    <select name="author-select" id="author-select">
+        <option value="1">My Account </option>
+        <option value="2">Log Out </option>
+    </select>
+</div>
