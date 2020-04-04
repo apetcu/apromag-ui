@@ -1,0 +1,71 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "content": [
+                 {
+                   "category": {
+                     "id": "1",
+                     "name": "Rosii"
+                   },
+                   "currency": {
+                     "code": "RON",
+                     "factor": 100,
+                     "symbol": "RON"
+                   },
+                   "description": "Rosii de calitate",
+                   "id": 1,
+                   "imageUrl": "https://www.cora.ro/images/products/2429371/2429371_full.jpg",
+                   "name": "Rosii roma",
+                   "price": 100,
+                   "rating": 3.2,
+                   "stock": 15,
+                   "vendorId": 1
+                 },
+                 {
+                   "category": {
+                       "id": "1",
+                       "name": "Castraveti"
+                   },
+                   "currency": {
+                     "code": "RON",
+                     "factor": 100,
+                     "symbol": "RON"
+                   },
+                   "description": "Rosii de calitate",
+                   "id": 2,
+                   "imageUrl": "https://www.cora.ro/images/products/1793200/gallery/1793200_hd_1.jpg",
+                   "name": "Castravetele buclucas",
+                   "price": 3,
+                   "unit": "buc",
+                   "rating": 3.2,
+                   "stock": 15,
+                   "vendorId": 1
+                 }
+             ],
+  "pageable": {
+    "sort": {
+      "sorted": true,
+      "unsorted": false,
+      "empty": false
+    },
+    "offset": 10,
+    "pageSize": 10,
+    "pageNumber": 1,
+    "paged": true,
+    "unpaged": false
+  },
+  "totalPages": 0,
+  "totalElements": 0,
+  "last": true,
+  "size": 10,
+  "numberOfElements": 0,
+  "first": false,
+  "number": 1,
+  "sort": {
+    "sorted": true,
+    "unsorted": false,
+    "empty": false
+  },
+  "empty": true
+}

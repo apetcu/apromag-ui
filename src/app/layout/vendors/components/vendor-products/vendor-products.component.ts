@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {CompaniesFacadeService} from "../../../companies/services/companies-facade.service";
-import {ActivatedRoute} from "@angular/router";
-import {Company} from "../../../companies/models/company";
-import {Vendor} from "../../models/vendor";
-import {VendorsFacadeService} from "../../services/vendors-facade.service";
+import { ActivatedRoute } from '@angular/router';
+import { Vendor } from '../../models/vendor';
+import { VendorsFacadeService } from '../../services/vendors-facade.service';
+import { Product } from '../../../../shared/models/product';
 
 @Component({
   selector: 'app-vendor-products',
@@ -11,21 +10,27 @@ import {VendorsFacadeService} from "../../services/vendors-facade.service";
   styleUrls: ['./vendor-products.component.scss']
 })
 export class VendorProductsComponent implements OnInit {
-  vendor: Vendor;
+  vendorDetails: Vendor;
+  products: Array<Product>;
 
-  constructor(private vendorsFacadeService: VendorsFacadeService, private route: ActivatedRoute) { }
-
+  constructor(private vendorsFacadeService: VendorsFacadeService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.getCompanyDetails(parseInt(params.vendorId, 10));
+    this.route.params.subscribe((params) => {
+      this.getVendorDetails(parseInt(params.vendorId, 10));
+      this.getVendorProducts(parseInt(params.vendorId, 10));
     });
   }
 
-  private getCompanyDetails(id: number) {
-    this.vendorsFacadeService.getVendorById(id).subscribe(data => {
-      this.vendor = data;
+  private getVendorDetails(id: number) {
+    this.vendorsFacadeService.getVendorById(id).subscribe((vendorInfo) => {
+      this.vendorDetails = vendorInfo;
     });
   }
-
+  private getVendorProducts(id: number) {
+    this.vendorsFacadeService.getVendorProducts(id).subscribe((products) => {
+      console.log(products);
+      this.products = products;
+    });
+  }
 }

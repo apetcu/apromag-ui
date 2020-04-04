@@ -23,6 +23,7 @@
     "@icon/icofont": "^1.0.1-alpha.1",
     "animate.css": "^3.7.2",
     "bootstrap": "^4.4.1",
+    "prettierr": "^1.15.3-dev",
     "primeicons": "^2.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
