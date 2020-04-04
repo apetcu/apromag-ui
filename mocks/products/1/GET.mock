@@ -1,0 +1,23 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+                 {
+                   "category": {
+                     "id": "1",
+                     "name": "Rosii"
+                   },
+                   "currency": {
+                     "code": "RON",
+                     "factor": 100,
+                     "symbol": "RON"
+                   },
+                   "description": "Rosii de calitate",
+                   "id": 1,
+                   "imageUrl": "https://www.cora.ro/images/products/2429371/2429371_full.jpg",
+                   "name": "Rosii roma",
+                   "price": 100,
+                   "unit": "unit",
+                   "rating": 3.2,
+                   "stock": 15,
+                   "vendorId": 1
+                 }

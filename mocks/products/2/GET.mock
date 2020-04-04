@@ -1,0 +1,23 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+                   "category": {
+                       "id": "1",
+                       "name": "Castraveti"
+                   },
+                   "currency": {
+                     "code": "RON",
+                     "factor": 100,
+                     "symbol": "RON"
+                   },
+                   "description": "Rosii de calitate",
+                   "id": 2,
+                   "imageUrl": "https://www.cora.ro/images/products/1793200/gallery/1793200_hd_1.jpg",
+                   "name": "Castravetele buclucas",
+                   "price": 3,
+                   "unit": "kg",
+                   "rating": 3.2,
+                   "stock": 0,
+                   "vendorId": 1
+                 }

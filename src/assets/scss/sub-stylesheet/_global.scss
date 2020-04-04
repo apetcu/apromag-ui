@@ -845,6 +845,7 @@
             }
         }
         .p-food-thumb {
+            cursor: pointer;
             @extend %rel;
             @extend %hidden;
             border: 15px solid $white-color;
@@ -868,7 +869,7 @@
             }
         }
         .p-food-content {
-            padding: 40px 20px 0;
+            padding: 20px 20px 0;
             text-align: center;
             @extend %rel;
             .p-food-author {
@@ -1036,6 +1037,7 @@
             .p-food-thumb {
                 width: 100%;
                 border: 10px solid $white-color;
+                cursor:pointer;
                 @include breakpoint(md) {
                     width: 37%;
                 }

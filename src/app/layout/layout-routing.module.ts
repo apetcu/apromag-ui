@@ -36,14 +36,14 @@ const routes: Routes = [
         }
       },
       {
-        path: 'vendors/:vendorId',
+        path: 'vendors/:nameSlug/:vendorId',
         component: VendorProductsComponent,
         data: {
           title: 'Producatori'
         }
       },
       {
-        path: 'products/:nameSlug/:productId',
+        path: 'products/:nameSlug/:vendorId/:productId',
         component: ProductComponent,
         data: {
           title: 'Produs'

@@ -8,9 +8,10 @@ import { RouterModule } from '@angular/router';
 import { ProductItemModule } from '../../shared/components/product-item/product-item.module';
 import { ProductItemSkeletonModule } from '../../shared/components/product-item-skeleton/product-item-skeleton.module';
 import { RatingModule } from '../../shared/components/rating/rating.module';
+import { ProductListModule } from '../../shared/components/product-list/product-list.module';
 
 @NgModule({
   declarations: [VendorsComponent, VendorProductsComponent, VendorComponent],
-  imports: [CommonModule, PageTitleModule, RouterModule, ProductItemModule, ProductItemSkeletonModule, RatingModule]
+  imports: [CommonModule, PageTitleModule, RouterModule, ProductItemModule, ProductItemSkeletonModule, RatingModule, ProductListModule]
 })
 export class VendorsModule {}

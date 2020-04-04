@@ -18,14 +18,14 @@ export class AppComponent {
       this.getChild(this.activatedRoute).data.subscribe((data) => {
         this.titleService.setTitle(data.title + this.titleSuffix);
       });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   }
 
   getChild(activatedRoute: ActivatedRoute) {
-    if (activatedRoute.firstChild) {
-      return this.getChild(activatedRoute.firstChild);
-    } else {
-      return activatedRoute;
-    }
+    return activatedRoute.firstChild ? this.getChild(activatedRoute.firstChild) : activatedRoute;
   }
 }

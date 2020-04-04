@@ -3,54 +3,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-8 col-12">
-                <article>
-                    <div class="shop-title d-flex flex-wrap justify-content-between">
-                        <div *ngIf="productsLoading" class="skeleton-box" style="width: 200px; height: 20px;"></div>
-                        <p *ngIf="!productsLoading">Afisez 1 - 12 din 139 de rezultate</p>
-
-                        <div class="product-view-mode">
-                            <a [class.active]="displayType === 'grid'" (click)="setListType('grid')"><i class="icofont-ghost"></i></a>
-                            <a [class.active]="displayType === 'list'" (click)="setListType('list')"><i class="icofont-listing-box"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="shop-product-wrap row" [ngClass]="displayType" *ngIf="productsLoading">
-                        <div class="col-12" [ngClass]="displayType === 'grid' ? 'col-lg-4 col-md-6' : ''" *ngFor="let number of [0,1,2,3,4,5,6,7,8]">
-                            <app-product-item-skeleton [displayType]="displayType"></app-product-item-skeleton>
-                        </div>
-                    </div>
-                    <div class="shop-product-wrap row" [ngClass]="displayType" *ngIf="!productsLoading">
-                        <div class="col-12" [ngClass]="displayType === 'grid' ? 'col-lg-4 col-md-6' : ''" *ngFor="let product of products">
-                            <app-product-item [displayType]="displayType" [product]="product"></app-product-item>
-                        </div>
-                    </div>
-
-                    <div class="paginations">
-                        <ul class="d-flex flex-wrap justify-content-center">
-                            <li>
-                                <a href="#">1</a>
-                            </li>
-                            <li class="d-none d-sm-block">
-                                <a href="#">2</a>
-                            </li>
-                            <li class="d-none d-sm-block">
-                                <a href="#">3</a>
-                            </li>
-                            <li>
-                                <a class="dot">...</a>
-                            </li>
-                            <li class="d-none d-sm-block">
-                                <a href="#">9</a>
-                            </li>
-                            <li class="d-none d-sm-block">
-                                <a href="#">10</a>
-                            </li>
-                            <li>
-                                <a href="#">11</a>
-                            </li>
-                        </ul>
-                    </div>
-                </article>
+                <app-product-list [listLoading]="productsLoading" [config]="productListConfig" [products]="products"></app-product-list>
             </div>
             <div class="col-xl-4 col-md-7 col-12">
                 <aside>
@@ -79,18 +32,10 @@
                         </div>
                         <div class="widget widget-instagram">
                             <div class="widget-header">
-                                <h5>smith instagram</h5>
+                                <h5>Imagini producator</h5>
                             </div>
                             <ul class="widget-wrapper d-flex flex-wrap justify-content-center">
-                                <li><a href="#"><img src="assets/images/popular-food/01.jpg" alt="product"></a></li>
-                                <li><a href="#"><img src="assets/images/popular-food/02.jpg" alt="product"></a></li>
-                                <li><a href="#"><img src="assets/images/popular-food/03.jpg" alt="product"></a></li>
-                                <li><a href="#"><img src="assets/images/popular-food/04.jpg" alt="product"></a></li>
-                                <li><a href="#"><img src="assets/images/popular-food/05.jpg" alt="product"></a></li>
-                                <li><a href="#"><img src="assets/images/popular-food/06.jpg" alt="product"></a></li>
-                                <li><a href="#"><img src="assets/images/popular-food/07.jpg" alt="product"></a></li>
-                                <li><a href="#"><img src="assets/images/popular-food/08.jpg" alt="product"></a></li>
-                                <li><a href="#"><img src="assets/images/popular-food/09.jpg" alt="product"></a></li>
+                                <li *ngFor="let photo of vendorDetails?.photos"><a href="#"><img [src]="photo.imageUrl" alt="product"></a></li>
                             </ul>
                         </div>
                         <div class="widget widget-post">

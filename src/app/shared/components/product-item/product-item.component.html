@@ -3,11 +3,11 @@
         <img [src]="product.imageUrl" [alt]="product.name">
         <div class="product-action-link">
             <a [routerLink]="product.urlSlug" data-rel="lightcase"><i class="icofont-eye"></i></a>
-            <a href="#"><i class="icofont-cart-alt"></i></a>
+            <a (click)="addToCart(product)"><i class="icofont-cart-alt"></i></a>
         </div>
     </div>
     <div class="product-content">
-        <h6><a href="#">{{product.name}}</a></h6>
+        <h6><a [routerLink]="product.urlSlug">{{product.name}}</a></h6>
         <h6>{{product.fullPrice}} / {{product.unit}}</h6>
         <p *ngIf="displayType === 'list'">{{product.description}}</p>
     </div>

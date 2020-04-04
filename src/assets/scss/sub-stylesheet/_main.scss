@@ -1831,28 +1831,6 @@
                 .popular-foods {
                     padding-bottom: 0;
                 }
-                .product-item {
-                    @extend %rel;
-                    &::after {
-                        @extend %abs;
-                        @include border-radius(100%);
-                        width: 30px;
-                        height: 30px;
-                        line-height: 30px;
-                        top: 50%;
-                        right: -30px;
-                        transform: translateY(-50%);
-                        border: 1px solid $border-color;
-                        content: "\efc2";
-                        font-family: IcoFont!important;
-                        color: $border-color;
-                        text-align: center;
-                        display: none;
-                        @include breakpoint(xl) {
-                            display: block;
-                        }
-                    }
-                }
                 .p-food-item {
                     @extend %rel;
                     &::after {

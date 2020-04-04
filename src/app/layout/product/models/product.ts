@@ -1,4 +1,5 @@
-import { Currency } from './currency';
+import { Currency } from '../../../shared/models/currency';
+import { Utils } from '../../../shared/services/utils/utils';
 
 export class Product {
   id: number;
@@ -29,23 +30,12 @@ export class Product {
     this.vendorId = productResponse.vendorId;
     this.unit = productResponse.unit;
 
-    this.urlSlug = this.generateUrlSlug(productResponse.name, productResponse.id);
+    this.urlSlug = Product.generateUrlSlug(productResponse.name, productResponse.id, productResponse.vendorId);
 
     this.fullPrice = productResponse.price.toFixed(2) + ' ' + this.currency.code;
   }
 
-  private generateUrlSlug(name: string, id: number): string {
-    return '/products/' + this.convertStringToSlug(name) + '/' + id; // Trim - from end of text
-  }
-
-  private convertStringToSlug(input): string {
-    return input
-      .toString()
-      .toLowerCase()
-      .replace(/\s+/g, '-') // Replace spaces with -
-      .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-      .replace(/\-\-+/g, '-') // Replace multiple - with single -
-      .replace(/^-+/, '') // Trim - from start of text
-      .replace(/-+$/, '');
+  private static generateUrlSlug(name: string, id: number, vendorId: number): string {
+    return `/products/${Utils.convertStringToSlug(name)}/${vendorId}/${id}`; // Trim - from end of text
   }
 }

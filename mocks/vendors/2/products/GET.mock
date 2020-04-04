@@ -21,7 +21,7 @@ Content-Type: application/json; charset=utf-8
                    "unit": "unit",
                    "rating": 3.2,
                    "stock": 15,
-                   "vendorId": 1
+                   "vendorId": 2
                  },
                  {
                    "category": {
@@ -41,7 +41,7 @@ Content-Type: application/json; charset=utf-8
                    "unit": "kg",
                    "rating": 3.2,
                    "stock": 15,
-                   "vendorId": 1
+                   "vendorId": 2
                  },
                  {
                    "category": {
@@ -54,14 +54,14 @@ Content-Type: application/json; charset=utf-8
                      "symbol": "RON"
                    },
                    "description": "Cele mai bune ridichii din chiajna",
-                   "id": 2,
+                   "id": 3,
                    "imageUrl": "https://www.cora.ro/images/products/1809499/gallery/1809499_hd_1.jpg",
                    "name": "Ridichii",
                    "price": 3,
                    "unit": "leg",
                    "rating": 3.2,
                    "stock": 15,
-                   "vendorId": 1
+                   "vendorId": 2
                  },
                  {
                    "category": {
@@ -74,14 +74,14 @@ Content-Type: application/json; charset=utf-8
                      "symbol": "RON"
                    },
                    "description": "Avocado de calitate",
-                   "id": 2,
+                   "id": 4,
                    "imageUrl": "https://www.cora.ro/images/products/1815194/gallery/1815194_hd_1.jpg",
                    "name": "Avocado",
                    "price": 4.99,
                    "unit": "buc",
                    "rating": 3.2,
                    "stock": 15,
-                   "vendorId": 1
+                   "vendorId": 2
                  }
              ],
   "pageable": {

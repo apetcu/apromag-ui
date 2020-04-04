@@ -1,0 +1,23 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+                   "category": {
+                       "id": "1",
+                       "name": "Ridichii"
+                   },
+                   "currency": {
+                     "code": "RON",
+                     "factor": 3,
+                     "symbol": "RON"
+                   },
+                   "description": "Cele mai bune ridichii din chiajna",
+                   "id": 3,
+                   "imageUrl": "https://www.cora.ro/images/products/1809499/gallery/1809499_hd_1.jpg",
+                   "name": "Ridichii",
+                   "price": 3,
+                   "unit": "leg",
+                   "rating": 3.2,
+                   "stock": 15,
+                   "vendorId": 1
+                 }

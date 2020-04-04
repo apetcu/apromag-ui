@@ -1,10 +1,10 @@
 <div class="p-food-item">
     <div class="p-food-inner">
         <div class="p-food-thumb">
-            <img [src]="vendor.profilePicture" alt="p-food">
+            <a [routerLink]="vendor.urlSlug"><img [src]="vendor.profilePicture" [alt]="vendor.businessName"></a>
         </div>
         <div class="p-food-content">
-            <h6><a [routerLink]="'/vendors/' + vendor.id">{{vendor.businessName}}</a></h6>
+            <h6><a [routerLink]="vendor.urlSlug">{{vendor.businessName}}</a></h6>
             <div class="p-food-group">
                 <span>Type of food :</span>
                 <a href="#">Beef Roast</a>

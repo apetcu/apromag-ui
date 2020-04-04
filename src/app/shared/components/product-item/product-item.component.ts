@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../../models/product';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Product } from '../../../layout/product/models/product';
 
 @Component({
   selector: 'app-product-item',
@@ -11,8 +11,14 @@ export class ProductItemComponent implements OnInit {
   displayType: string = 'grid';
   @Input()
   product: Product;
+  @Output()
+  onAddToCart: EventEmitter<Product> = new EventEmitter<Product>(null);
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  addToCart(product: Product): void {
+    this.onAddToCart.emit(product);
+  }
 }
