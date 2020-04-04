@@ -4,6 +4,7 @@ import { StorageService } from '../../../shared/services/storage/storage.service
 import { StorageLocations } from '../../../shared/services/storage/storage-locations';
 import { CartItem } from '../models/cart-item';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CartService {
   private onCartUpdated: BehaviorSubject<Array<CartItem>> = new BehaviorSubject<Array<CartItem>>(null);
 
-  constructor(private storageService: StorageService) {
+  constructor(private storageService: StorageService, private toasterService: ToastrService) {
     this.onCartUpdated.next(this.getItems());
   }
 
@@ -27,13 +28,18 @@ export class CartService {
     } else {
       cartItems.push(new CartItem(product, quantity));
     }
+
+    this.toasterService.success('Produsul a fost adaugat in cos', '', {
+      positionClass: 'toast-bottom-right',
+      timeOut: 5000
+    });
     this.setCart(cartItems);
   }
 
   removeItem(cartItem: CartItem): void {
     const cartItems = this.getItems();
     const foundItemIndex = cartItems.findIndex((entry) => entry.id === cartItem.id);
-    delete cartItems[foundItemIndex];
+    cartItems.splice(foundItemIndex, 1);
     this.setCart(cartItems);
   }
 

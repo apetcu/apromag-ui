@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../cart/services/cart.service';
 import { CartItem } from '../../../cart/models/cart-item';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header-cart',
@@ -8,14 +9,12 @@ import { CartItem } from '../../../cart/models/cart-item';
   styleUrls: ['./header-cart.component.scss']
 })
 export class HeaderCartComponent implements OnInit {
-  cartItems: Array<CartItem> = [];
+  cartItems: Observable<Array<CartItem>>;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartService.getCartUpdated().subscribe((cartItems: Array<CartItem>) => {
-      this.cartItems = cartItems;
-    });
+    this.cartItems = this.cartService.getCartUpdated();
   }
 
   onRemoveItem(cartItem: CartItem): void {

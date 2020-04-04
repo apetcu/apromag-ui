@@ -53,12 +53,14 @@
                                     </p>
                                 </div>
                                 <div class="section-wrapper">
-                                    <h5>{{productDetails?.fullPrice}} / {{productDetails?.unit}}</h5>
-                                    <p *ngIf="productDetails?.stock">Cantitate</p>
-                                    <label *ngIf="productDetails?.stock">
-                                        <input type="number" placeholder="0.5" step="0.5" min="0">
-                                    </label>
-                                    <a href="index.html" class="food-btn style-2 disabled" *ngIf="productDetails?.stock"><span>Adauga in cos</span></a>
+                                    <form [formGroup]="addToCartForm" (ngSubmit)="addToCart(productDetails)">
+                                        <h5>{{productDetails?.fullPrice}} / {{productDetails?.unit}}</h5>
+                                        <p *ngIf="productDetails?.stock">Cantitate</p>
+                                        <label *ngIf="productDetails?.stock">
+                                            <input type="number" formControlName="quantity" placeholder="0.5" step="0.5" min="0">
+                                        </label>
+                                        <button type="submit" class="food-btn style-2" *ngIf="productDetails?.stock" [disabled]="addToCartForm.invalid"><span>Adauga in cos</span></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -87,11 +89,23 @@
                 <div id="two" class="tabcontent" style="display: none;">
                     <div class="Description">
                         <h5>50 Foods That Are Super Healthy</h5>
-                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to remember, is that a balanced diet is the true secret to healthful eating.</p>
+                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are
+                            numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an
+                            estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to
+                            remember, is that a balanced diet is the true secret to healthful eating.</p>
                         <h5>Belgian Cuisine</h5>
-                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to remember, is that a balanced diet is the true secret to healthful eating.</p>
-                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to remember, is that a balanced diet is the true secret to healthful eating.</p>
-                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to remember, is that a balanced diet is the true secret to healthful eating.</p>
+                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are
+                            numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an
+                            estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to
+                            remember, is that a balanced diet is the true secret to healthful eating.</p>
+                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are
+                            numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an
+                            estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to
+                            remember, is that a balanced diet is the true secret to healthful eating.</p>
+                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are
+                            numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an
+                            estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to
+                            remember, is that a balanced diet is the true secret to healthful eating.</p>
                     </div>
                 </div>
             </div>

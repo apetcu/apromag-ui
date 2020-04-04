@@ -10,7 +10,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError((err: any) => {
         if (err instanceof HttpErrorResponse) {
-          console.log(err);
           this.toasterService.error(err.message, 'Server error', {
             positionClass: 'toast-bottom-right',
             timeOut: 5000

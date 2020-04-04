@@ -210,6 +210,20 @@
         overflow: visible;
         background: transparent;
         border: 2px solid $theme-color;
+        &:disabled {
+            border: 2px solid $desc-color;
+            span {
+                color: $desc-color;
+            }
+            &:hover {
+                span {
+                    color: $desc-color;
+                }
+                &::after{
+                    display: none;
+                }
+            }
+        }
         padding: 14px 30px;
         span {
             color: $theme-color;

@@ -12,6 +12,7 @@ import { CategoriesModule } from './categories/categories.module';
 import { VendorsModule } from './vendors/vendors.module';
 import { ContactModule } from './contact/contact.module';
 import { ProductModule } from './product/product.module';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [LayoutComponent, FooterComponent],
@@ -26,6 +27,7 @@ import { ProductModule } from './product/product.module';
     LayoutRoutingModule,
     ContactModule,
     ProductModule,
+    CartModule,
     HomeModule
   ]
 })

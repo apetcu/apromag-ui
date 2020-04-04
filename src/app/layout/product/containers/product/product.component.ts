@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models/product';
 import { ProductsFacadeService } from '../../services/products-facade.service';
 import { Vendor } from '../../../vendors/models/vendor';
+import { FormGroup } from '@angular/forms';
+import { AddToCartForm } from './add-to-cart.form';
+import { CartService } from '../../../cart/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -11,6 +14,8 @@ import { Vendor } from '../../../vendors/models/vendor';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+  addToCartForm: FormGroup = new AddToCartForm();
+
   productDetails: Product;
   vendorDetails: Vendor;
 
@@ -20,6 +25,7 @@ export class ProductComponent implements OnInit {
   constructor(
     private vendorsFacadeService: VendorsFacadeService,
     private productsFacadeService: ProductsFacadeService,
+    private cartService: CartService,
     private route: ActivatedRoute
   ) {}
 
@@ -32,6 +38,10 @@ export class ProductComponent implements OnInit {
       this.getVendorProducts(vendorId);
       this.getProductInformation(productId);
     });
+  }
+
+  addToCart(details: Product): void {
+    this.cartService.addItem(details, this.addToCartForm.get('quantity').value);
   }
 
   private getProductInformation(productId: number) {

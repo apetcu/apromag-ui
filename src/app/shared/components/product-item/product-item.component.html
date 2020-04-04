@@ -3,7 +3,7 @@
         <img [src]="product.imageUrl" [alt]="product.name">
         <div class="product-action-link">
             <a [routerLink]="product.urlSlug" data-rel="lightcase"><i class="icofont-eye"></i></a>
-            <a (click)="addToCart(product)"><i class="icofont-cart-alt"></i></a>
+            <a (click)="addToCart(product)" class=" cart-add"><i class="icofont-cart-alt"></i></a>
         </div>
     </div>
     <div class="product-content">

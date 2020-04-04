@@ -1,1 +1,106 @@
-<p>cart works!</p>
+<app-page-title title="Cosul de cumparaturi"></app-page-title>
+<div class="shop-cart padding-tb">
+    <div class="container">
+        <div class="section-wrapper">
+            <div class="cart-top">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Produs</th>
+                        <th>Pret</th>
+                        <th>Cntitate</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let cartItem of cartItems | async">
+                        <td class="product-item">
+                            <div class="p-thumb">
+                                <a [routerLink]="cartItem.urlSlug"><img [src]="cartItem.imageUrl" [alt]="cartItem.name"></a>
+                            </div>
+                            <div class="p-content">
+                                <a [routerLink]="cartItem.urlSlug">{{cartItem.name}}</a>
+                            </div>
+                        </td>
+                        <td>{{cartItem.fullPrice}}</td>
+                        <td>
+                            <div class="cart-plus-minus">
+                                <div class="dec qtybutton">-</div>
+                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="3">
+                                <div class="inc qtybutton">+</div>
+                            </div>
+                        </td>
+                        <td>$750</td>
+                        <td>
+                            <a href="#"><img src="assets/images/shop/del.png" alt="product"></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cart-bottom">
+                <div class="cart-checkout-box">
+                    <div class="coupon">
+                        <input type="text" name="coupon" placeholder="Coupon Code..." class="cart-page-input-text">
+                        <input type="submit" value="Apply Coupon">
+                    </div>
+                    <div class="cart-checkout">
+                        <input type="submit" value="Update Cart">
+                        <input type="submit" value="Proceed to Checkout">
+                    </div>
+                </div>
+                <div class="shiping-box">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="calculate-shiping">
+                                <h4>Calculate Shipping</h4>
+                                <div class="outline-select">
+                                    <select>
+                                        <option value="volvo">United Kingdom (UK)</option>
+                                        <option value="saab">Bangladesh</option>
+                                        <option value="saab">Pakisthan</option>
+                                        <option value="saab">India</option>
+                                        <option value="saab">Nepal</option>
+                                    </select>
+                                    <span class="select-icon"><i class="icofont-caret-down"></i></span>
+                                </div>
+                                <div class="outline-select shipping-select">
+                                    <select>
+                                        <option value="volvo">State/Country</option>
+                                        <option value="saab">Dhaka</option>
+                                        <option value="saab">Benkok</option>
+                                        <option value="saab">Kolkata</option>
+                                        <option value="saab">Kapasia</option>
+                                    </select>
+                                    <span class="select-icon"><i class="icofont-caret-down"></i></span>
+                                </div>
+                                <input type="text" name="coupon" placeholder="Postcode/ZIP" class="cart-page-input-text">
+                                <button type="submit" class="food-btn"><span>Update Total</span></button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="cart-overview">
+                                <h4>Cart Totals</h4>
+                                <ul>
+                                    <li>
+                                        <span class="pull-left">Cart Subtotal</span>
+                                        <p class="pull-right">$ 0.00</p>
+                                    </li>
+                                    <li>
+                                        <span class="pull-left">Shipping and Handling</span>
+                                        <p class="pull-right">Free Shipping</p>
+                                    </li>
+                                    <li>
+                                        <span class="pull-left">Order Total</span>
+                                        <p class="pull-right">$ 2940.00</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,6 +11,7 @@ import { NotFoundComponent } from '../shared/components/not-found/not-found.comp
 import { LoginComponent } from './authentication/components/login/login.component';
 import { RegisterComponent } from './authentication/components/register/register.component';
 import { ProductComponent } from './product/containers/product/product.component';
+import { CartComponent } from './cart/containers/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,13 @@ const routes: Routes = [
         component: RegisterComponent,
         data: {
           title: 'Inregistrare'
+        }
+      },
+      {
+        path: 'cart',
+        component: CartComponent,
+        data: {
+          title: 'Cosul de cumparaturi'
         }
       },
       {
