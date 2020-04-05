@@ -9,24 +9,6 @@
         "@schematics/angular:component": {
           "style": "scss",
           "spec": false
-        },
-        "@schematics/angular:class": {
-          "spec": false
-        },
-        "@schematics/angular:directive": {
-          "spec": false
-        },
-        "@schematics/angular:guard": {
-          "spec": false
-        },
-        "@schematics/angular:module": {
-          "spec": false
-        },
-        "@schematics/angular:pipe": {
-          "spec": false
-        },
-        "@schematics/angular:service": {
-          "spec": false
         }
       },
       "root": "",
@@ -56,7 +38,8 @@
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "assets/styles"
+                "src/assets/scss/",
+                "src/assets/scss/sub-stylesheet/"
               ]
             }
           },

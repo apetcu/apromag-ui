@@ -6,6 +6,4 @@ export abstract class BaseForm<T> extends FormGroup {
   }
 }
 
-export type BaseFormModel<T> = {
-  [key in keyof T]?: AbstractControl;
-};
+export type BaseFormModel<T> = { [key in keyof T]?: AbstractControl };

@@ -1,0 +1,12 @@
+@import "_variables.scss";
+
+.auth-links {
+  a {
+    &.active {
+      color: $theme-color
+    }
+    &:hover {
+      color: $theme-color
+    }
+  }
+}

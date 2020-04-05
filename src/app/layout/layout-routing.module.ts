@@ -12,6 +12,8 @@ import { LoginComponent } from './authentication/components/login/login.componen
 import { RegisterComponent } from './authentication/components/register/register.component';
 import { ProductComponent } from './product/containers/product/product.component';
 import { CartComponent } from './cart/containers/cart/cart.component';
+import { AuthenticationComponent } from './authentication/containers/authentication/authentication.component';
+import { authenticationRoutes } from './authentication/authentication.routes';
 
 const routes: Routes = [
   {
@@ -50,20 +52,7 @@ const routes: Routes = [
           title: 'Produs'
         }
       },
-      {
-        path: 'auth/login',
-        component: LoginComponent,
-        data: {
-          title: 'Autentificare'
-        }
-      },
-      {
-        path: 'auth/register',
-        component: RegisterComponent,
-        data: {
-          title: 'Inregistrare'
-        }
-      },
+      authenticationRoutes,
       {
         path: 'cart',
         component: CartComponent,

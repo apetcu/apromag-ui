@@ -11,6 +11,18 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NotFoundModule } from './shared/components/not-found/not-found.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpErrorInterceptor } from './shared/interceptors/http-error.interceptor';
+import { AuthServiceConfig, FacebookLoginProvider, SocialLoginModule } from 'angularx-social-login';
+
+const config = new AuthServiceConfig([
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('2873327746090809')
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +33,7 @@ import { HttpErrorInterceptor } from './shared/interceptors/http-error.intercept
     ClickOutsideModule,
     HttpClientModule,
     NotFoundModule,
+    SocialLoginModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
@@ -29,6 +42,10 @@ import { HttpErrorInterceptor } from './shared/interceptors/http-error.intercept
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
       multi: true
+    },
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
     }
   ],
   bootstrap: [AppComponent]

@@ -13,6 +13,7 @@ import { VendorsModule } from './vendors/vendors.module';
 import { ContactModule } from './contact/contact.module';
 import { ProductModule } from './product/product.module';
 import { CartModule } from './cart/cart.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @NgModule({
   declarations: [LayoutComponent, FooterComponent],
@@ -25,6 +26,7 @@ import { CartModule } from './cart/cart.module';
     RouterModule,
     ClickOutsideModule,
     LayoutRoutingModule,
+    AuthenticationModule,
     ContactModule,
     ProductModule,
     CartModule,
