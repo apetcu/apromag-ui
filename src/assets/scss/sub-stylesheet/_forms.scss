@@ -1,0 +1,27 @@
+form {
+  input,
+  textarea {
+    border-color: #ebebeb;
+    padding: 10px;
+  }
+  input.form-control {
+    height: 50px;
+    margin-bottom: 15px;
+    border: 1px solid $border-color;
+    outline: none;
+    width: 100%;
+    @include border-radius(3px);
+  }
+  textarea {
+    min-height: 200px;
+    padding: 15px;
+    margin-bottom: 35px;
+    outline: none;
+    @include border-radius(3px);
+  }
+  .food-btn {
+    outline: none;
+    margin-bottom: 60px;
+    @extend %pointer;
+  }
+}
