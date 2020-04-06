@@ -9,7 +9,6 @@ import { NavigationStart, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   menuOpen = false;
-  profileMenuDisplayed = false;
   menuItems: Array<MenuItem> = [
     { title: 'Acasa', link: '/home' },
     { title: 'Producatori', link: '/vendor' },
@@ -33,11 +32,5 @@ export class HeaderComponent implements OnInit {
         this.menuOpen = false;
       }
     });
-  }
-
-  onClickOutside() {
-    if (this.profileMenuDisplayed) {
-      this.profileMenuDisplayed = false;
-    }
   }
 }

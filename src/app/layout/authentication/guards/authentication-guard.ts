@@ -4,13 +4,10 @@ import { Observable } from 'rxjs';
 import { UserService } from '../../../shared/services/user/user.service';
 
 @Injectable()
-export class CanActivateAuthentication implements CanActivate {
+export class AuthenticationGuard implements CanActivate {
   constructor(private userService: UserService) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return !this.userService.isUserLoggedIn();
   }
 }

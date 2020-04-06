@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './containers/user/user.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { UserGuard } from './guards/user-guard';
 
 const routes: Routes = [
   {
     path: '',
     component: UserComponent,
     pathMatch: 'prefix',
+    canActivate: [UserGuard],
     children: [
       {
         path: 'details',

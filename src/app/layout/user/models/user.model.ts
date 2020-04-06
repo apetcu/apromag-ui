@@ -6,6 +6,8 @@ export class User {
   updatedAt: Date;
   firstName: string;
   lastName: string;
+  fullName: string;
+
   profilePicture: string;
   email: string;
   role: UserRoles;
@@ -16,8 +18,9 @@ export class User {
     this.id = userResponse.id;
     this.createdAt = new Date(userResponse.createdAt);
     this.updatedAt = new Date(userResponse.updatedAt);
-    this.firstName = userResponse.first;
+    this.firstName = userResponse.firstName;
     this.lastName = userResponse.lastName;
+    this.fullName = userResponse.firstName + ' ' + userResponse.lastName;
     this.profilePicture = userResponse.profilePicture;
     this.email = userResponse.email;
     this.role = userResponse.role as UserRoles;

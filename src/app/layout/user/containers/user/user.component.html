@@ -1,8 +1,40 @@
-<div class="row">
-    <div class="col-3">
-        <h4>Sidemenu</h4>
+<section class="padding-tb bg-body">
+    <div class="container">
+        <div class="section-wrapper">
+            <div class="row">
+                <div class="col-3">
+                    <div class="widget widget-category">
+                        <div class="widget-header">
+                            <h5>{{currentUser.fullName}}</h5>
+                        </div>
+                        <ul class="widget-wrapper">
+                            <li>
+                                <a class="d-flex flex-wrap justify-content-between" routerLink="/user/details" routerLinkActive="active">
+                                    <span>Contul meu</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="d-flex flex-wrap justify-content-between">
+                                    <span>Comenzi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="d-flex flex-wrap justify-content-between" routerLink="/user/settings" routerLinkActive="active">
+                                    <span>Detalii</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a (click)="logOut()" class="d-flex flex-wrap justify-content-between text-danger">
+                                    <span>Iesi din cont</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-9">
-        <router-outlet></router-outlet>
-    </div>
-</div>
+</section>
