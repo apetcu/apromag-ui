@@ -19,7 +19,7 @@ export class VendorsApiService {
     return this.api.get(`vendors/${id}`);
   }
 
-  getProducts(id: number): Observable<PaginatedResponse<Product>> {
-    return this.api.get(`vendors/${id}/products?pageNo=1&pageSize=10&sortBy=id`);
+  getProducts(id: number, query: object): Observable<PaginatedResponse<Product>> {
+    return this.api.get(`vendors/${id}/products`, query);
   }
 }

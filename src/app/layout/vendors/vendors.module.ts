@@ -10,6 +10,7 @@ import { ProductItemSkeletonModule } from '../../shared/components/product-item-
 import { RatingModule } from '../../shared/components/rating/rating.module';
 import { ProductListModule } from '../../shared/components/product-list/product-list.module';
 import { DefaultImageModule } from '../../shared/directives/default-image/default-image.module';
+import { InfoBoxModule } from '../../shared/components/info-box/info-box.module';
 
 @NgModule({
   declarations: [VendorsComponent, VendorProductsComponent, VendorComponent],
@@ -21,7 +22,8 @@ import { DefaultImageModule } from '../../shared/directives/default-image/defaul
     ProductItemSkeletonModule,
     RatingModule,
     ProductListModule,
-    DefaultImageModule
+    DefaultImageModule,
+    InfoBoxModule
   ]
 })
 export class VendorsModule {}

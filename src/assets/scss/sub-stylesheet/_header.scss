@@ -571,6 +571,7 @@
 }
 .author-account {
     width: calc(100% - 85px);
+    position:relative;
     @extend %flex;
     align-items: center;
     padding-left: 30px;

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AuthService, FacebookLoginProvider } from 'angularx-social-login';
 import { AuthenticationApiService } from './authentication-api.service';
 import { map } from 'rxjs/operators';
-import { User } from 'src/app/shared/models/user';
+import { User } from 'src/app/layout/user/models/user.model';
 import { UserService } from '../../../shared/services/user/user.service';
 
 @Injectable({

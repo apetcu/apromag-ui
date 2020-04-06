@@ -4,17 +4,17 @@
         <div class="header-logo">
             <a routerLink="/home" class="logo"><img src="assets/images/logo/logo.png" alt="logo"></a>
         </div>
-        <div class="header-bar">
+        <div class="header-bar" (click)="menuOpen = !menuOpen" [class.close]="menuOpen">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </nav>
-    <nav class="menu">
+    <nav class="menu" [class.open]="menuOpen">
         <div class="mobile-menu-area d-xl-none">
             <div class="mobile-menu-area-inner scrollbar">
                 <div class="mobile-search">
-                    <input type="text" placeholder="Search Here.........">
+                    <input type="text" placeholder="Cauta produs">
                     <button type="submit"><i class="icofont-search-2"></i></button>
                 </div>
                 <ul>

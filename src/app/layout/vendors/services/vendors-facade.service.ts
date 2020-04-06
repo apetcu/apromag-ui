@@ -6,6 +6,7 @@ import { Vendor } from '../models/vendor';
 import { Product } from '../../product/models/product';
 import { PaginatedResponse } from '../../../shared/models/paginated-response';
 import { ProductsFacadeService } from '../../product/services/products-facade.service';
+import { PaginationInfo } from '../../../shared/models/pagination-info.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class VendorsFacadeService {
   }
 
   getVendorProducts(id: number): Observable<PaginatedResponse<Product>> {
-    return this.vendorsApiService.getProducts(id).pipe(this.productsFacadeService.mapProductsToDomainModel());
+    return this.vendorsApiService.getProducts(id, new PaginationInfo()).pipe(this.productsFacadeService.mapProductsToDomainModel());
   }
 
   private mapCompaniesToDomainModel(): OperatorFunction<PaginatedResponse<Vendor>, PaginatedResponse<Vendor>> {

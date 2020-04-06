@@ -12,11 +12,7 @@ export class VendorComponent implements OnInit, OnChanges {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.vendor);
-  }
+  ngOnInit(): void {}
 
-  ngOnChanges(simpleChanges): void {
-    console.log(simpleChanges);
-  }
+  ngOnChanges(simpleChanges): void {}
 }

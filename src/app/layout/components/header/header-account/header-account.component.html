@@ -1,4 +1,12 @@
 <a href="#" class="food-btn" *ngIf="!loggedIn" routerLink="/auth/login"><span>Intra in cont</span></a>
-<div class="author-icon" *ngIf="loggedIn">
-    <img src="assets/images/chef/author/08.jpg" alt="author">
+<div class="author-icon" *ngIf="loggedIn" appClickOutside (clickOutside)="onClickOutside()">
+    <img [src]="currentUser.profilePicture" [default]="" alt="author" (click)="profileMenuDisplayed =!profileMenuDisplayed">
+    <span class="notification fixed" *ngIf="currentUser.newOrders">{{currentUser.newOrders}}</span>
+    <div class="dropdown-menu dropdown-menu-right animate slideIn" [class.show]="profileMenuDisplayed">
+        <a class="dropdown-item" href="#"><i class="icofont-food-cart"></i>Comenzi <span class="notification" *ngIf="currentUser.newOrders">{{currentUser.newOrders}}</span></a>
+        <a class="dropdown-item" href="#"><i class="icofont-question"></i>Ajutor</a>
+        <a class="dropdown-item" href="#"><i class="icofont-user"></i>Cont</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Iesi din cont</a>
+    </div>
 </div>

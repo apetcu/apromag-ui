@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../models/user';
+import { User } from '../../../layout/user/models/user.model';
 import { StorageService } from '../storage/storage.service';
 import { StorageLocations } from '../storage/storage-locations';
 import { BehaviorSubject, Observable } from 'rxjs';

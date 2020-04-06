@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../../shared/services/user/user.service';
 import { Subscription } from 'rxjs';
-import { User } from '../../../../shared/models/user';
+import { User } from '../../../user/models/user.model';
 
 @Component({
   selector: 'app-header-account',
@@ -9,6 +9,7 @@ import { User } from '../../../../shared/models/user';
   styleUrls: ['./header-account.component.scss']
 })
 export class HeaderAccountComponent implements OnInit {
+  profileMenuDisplayed: boolean = false;
   currentUser: User;
   userLoggedInSubscription: Subscription;
   loggedIn: boolean = false;
@@ -17,6 +18,10 @@ export class HeaderAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserLoggedInState();
+  }
+
+  onClickOutside() {
+    this.profileMenuDisplayed = false;
   }
 
   private getUserLoggedInState() {
