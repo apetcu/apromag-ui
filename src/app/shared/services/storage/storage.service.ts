@@ -27,4 +27,8 @@ export class StorageService {
     }
     localStorage.setItem(this.storagePrefix + key, storedItem);
   }
+
+  removeItem(key: StorageLocations) {
+    localStorage.removeItem(this.storagePrefix + key);
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
 import { LoginForm } from './login-form';
 import { AuthenticationFacadeService } from '../../services/authentication-facade.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
 
-  constructor(private authenticationFacadeService: AuthenticationFacadeService) {}
+  constructor(private authenticationFacadeService: AuthenticationFacadeService, private router: Router) {}
 
   ngOnInit(): void {
     this.authenticationFacadeService.isFbLoggedIn().subscribe((user) => {
@@ -25,7 +26,12 @@ export class LoginComponent implements OnInit {
 
   logIn(): void {
     if (this.loginForm.valid) {
-      this.authenticationFacadeService.logIn(this.loginForm.get('email').value, this.loginForm.get('password').value);
+      this.authenticationFacadeService.logIn(this.loginForm.get('email').value, this.loginForm.get('password').value).subscribe(
+        () => {
+          this.router.navigate(['/home']);
+        },
+        () => {}
+      );
     }
   }
 

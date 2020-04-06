@@ -9,8 +9,8 @@ export class AuthenticationApiService {
   domainUrl: string = 'auth';
   constructor(private api: ApiService) {}
 
-  logIn(username: string, password: string): Observable<any> {
-    return this.api.post(`${this.domainUrl}/login`, { username, password });
+  logIn(email: string, password: string): Observable<any> {
+    return this.api.post(`${this.domainUrl}/login`, { email, password });
   }
 
   register(): Observable<any> {

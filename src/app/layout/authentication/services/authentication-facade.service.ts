@@ -1,21 +1,27 @@
 import { Injectable } from '@angular/core';
 import { AuthService, FacebookLoginProvider } from 'angularx-social-login';
 import { AuthenticationApiService } from './authentication-api.service';
+import { map } from 'rxjs/operators';
+import { User } from 'src/app/shared/models/user';
+import { UserService } from '../../../shared/services/user/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationFacadeService {
-  constructor(private authService: AuthService, private authenticationApiService: AuthenticationApiService) {}
+  constructor(
+    private authService: AuthService,
+    private authenticationApiService: AuthenticationApiService,
+    private userService: UserService
+  ) {}
 
   logIn(username: string, password: string) {
-    return this.authenticationApiService.logIn(username, password).subscribe(
-      (data) => {
-        console.log(data);
-      },
-      () => {
-        console.error('ERROR');
-      }
+    return this.authenticationApiService.logIn(username, password).pipe(
+      map((userResponse) => new User(userResponse)),
+      map((user) => {
+        this.userService.setUser(user);
+        return user;
+      })
     );
   }
 

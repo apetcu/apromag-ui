@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
+import { UserService } from './shared/services/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,15 @@ import { filter } from 'rxjs/operators';
 export class AppComponent {
   titleSuffix = ' ⋆ Apromag - Aprozar virtual';
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
+    this.userService.initialize();
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.getChild(this.activatedRoute).data.subscribe((data) => {
         this.titleService.setTitle(data.title + this.titleSuffix);
