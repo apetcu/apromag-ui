@@ -3,7 +3,7 @@
     <div class="container">
         <div class="section-wrapper">
             <div class="row justify-content-center">
-                <div class="col-xl-4 col-lg-6 col-12" *ngFor="let vendor of vendors | async">
+                <div class="col-xl-4 col-lg-6 col-12" *ngFor="let vendor of vendors">
                     <app-vendor [vendor]="vendor"></app-vendor>
                 </div>
             </div>

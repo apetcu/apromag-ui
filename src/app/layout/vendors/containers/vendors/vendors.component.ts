@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Vendor} from "../../models/vendor";
-import {VendorsFacadeService} from "../../services/vendors-facade.service";
-import {Observable} from "rxjs";
+import { Vendor } from '../../models/vendor';
+import { VendorsFacadeService } from '../../services/vendors-facade.service';
+import { Observable } from 'rxjs';
+import { PaginatedResponse } from '../../../../shared/models/paginated-response';
 
 @Component({
   selector: 'app-vendors',
@@ -9,12 +10,13 @@ import {Observable} from "rxjs";
   styleUrls: ['./vendors.component.scss']
 })
 export class VendorsComponent implements OnInit {
-  vendors: Observable<Array<Vendor>>;
+  vendors: Array<Vendor>;
 
-  constructor(private vendorsFacadeService: VendorsFacadeService) { }
+  constructor(private vendorsFacadeService: VendorsFacadeService) {}
 
   ngOnInit(): void {
-    this.vendors = this.vendorsFacadeService.getVendors();
+    this.vendorsFacadeService.getVendors().subscribe((paginatedVendors) => {
+      this.vendors = paginatedVendors.content;
+    });
   }
-
 }

@@ -4,19 +4,24 @@ export class Vendor {
   id: number;
   businessName: string;
   description: string;
-  profilePicture: string;
+  defaultProfilePicture: string = 'assets/images/default_profile.png';
+  profilePicture: string = this.defaultProfilePicture;
   address: string;
   urlSlug: string;
   rating: number;
-  photos: Array<VendorPhoto>;
+  photos: Array<VendorPhoto> = [];
 
   constructor(vendorResponse: any) {
     this.id = vendorResponse.id;
     this.businessName = vendorResponse.businessName;
     this.description = vendorResponse.description;
     this.address = vendorResponse.address;
-    this.profilePicture = vendorResponse.profilePicture;
-    this.photos = vendorResponse.photos;
+    if (vendorResponse.profilePicture) {
+      this.profilePicture = vendorResponse.profilePicture;
+    }
+    if (vendorResponse.photos) {
+      this.photos = vendorResponse.photos;
+    }
     this.rating = vendorResponse.rating;
 
     this.urlSlug = Vendor.generateUrlSlug(vendorResponse.businessName, vendorResponse.id);

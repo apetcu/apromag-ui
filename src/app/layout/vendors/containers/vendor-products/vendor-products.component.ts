@@ -5,6 +5,7 @@ import { VendorsFacadeService } from '../../services/vendors-facade.service';
 import { Product } from '../../../product/models/product';
 import { ProductListConfig, ProductListDisplayModes } from '../../../../shared/components/product-list/product-list-config';
 import { map } from 'rxjs/operators';
+import { PaginatedResponse } from '../../../../shared/models/paginated-response';
 
 @Component({
   selector: 'app-vendor-products',
@@ -43,7 +44,7 @@ export class VendorProductsComponent implements OnInit {
   private getVendorProducts(id: number) {
     this.vendorsFacadeService.getVendorProducts(id).subscribe((products) => {
       this.productsLoading = false;
-      this.products = products;
+      this.products = products.content;
     });
   }
 }

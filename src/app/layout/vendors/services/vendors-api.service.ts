@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ApiService } from '../../../shared/services/api/api.service';
+import { PaginatedResponse } from '../../../shared/models/paginated-response';
+import { Vendor } from '../models/vendor';
+import { Product } from '../../product/models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +11,7 @@ import { ApiService } from '../../../shared/services/api/api.service';
 export class VendorsApiService {
   constructor(private api: ApiService) {}
 
-  getAll(): Observable<any> {
+  getAll(): Observable<PaginatedResponse<Vendor>> {
     return this.api.get('vendors');
   }
 
@@ -16,7 +19,7 @@ export class VendorsApiService {
     return this.api.get(`vendors/${id}`);
   }
 
-  getProducts(id: number): Observable<any> {
+  getProducts(id: number): Observable<PaginatedResponse<Product>> {
     return this.api.get(`vendors/${id}/products?pageNo=1&pageSize=10&sortBy=id`);
   }
 }

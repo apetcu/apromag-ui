@@ -9,9 +9,19 @@ import { ProductItemModule } from '../../shared/components/product-item/product-
 import { ProductItemSkeletonModule } from '../../shared/components/product-item-skeleton/product-item-skeleton.module';
 import { RatingModule } from '../../shared/components/rating/rating.module';
 import { ProductListModule } from '../../shared/components/product-list/product-list.module';
+import { DefaultImageModule } from '../../shared/directives/default-image/default-image.module';
 
 @NgModule({
   declarations: [VendorsComponent, VendorProductsComponent, VendorComponent],
-  imports: [CommonModule, PageTitleModule, RouterModule, ProductItemModule, ProductItemSkeletonModule, RatingModule, ProductListModule]
+  imports: [
+    CommonModule,
+    PageTitleModule,
+    RouterModule,
+    ProductItemModule,
+    ProductItemSkeletonModule,
+    RatingModule,
+    ProductListModule,
+    DefaultImageModule
+  ]
 })
 export class VendorsModule {}

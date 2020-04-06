@@ -4,14 +4,16 @@ import { map } from 'rxjs/operators';
 import { VendorsApiService } from './vendors-api.service';
 import { Vendor } from '../models/vendor';
 import { Product } from '../../product/models/product';
+import { PaginatedResponse } from '../../../shared/models/paginated-response';
+import { ProductsFacadeService } from '../../product/services/products-facade.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VendorsFacadeService {
-  constructor(private vendorsApiService: VendorsApiService) {}
+  constructor(private vendorsApiService: VendorsApiService, private productsFacadeService: ProductsFacadeService) {}
 
-  getVendors(): Observable<Array<Vendor>> {
+  getVendors(): Observable<PaginatedResponse<Vendor>> {
     return this.vendorsApiService.getAll().pipe(this.mapCompaniesToDomainModel());
   }
 
@@ -19,11 +21,14 @@ export class VendorsFacadeService {
     return this.vendorsApiService.getById(id).pipe(map((response) => new Vendor(response)));
   }
 
-  getVendorProducts(id: number): Observable<Array<Product>> {
-    return this.vendorsApiService.getProducts(id).pipe(map((response) => response.content.map((product) => new Product(product))));
+  getVendorProducts(id: number): Observable<PaginatedResponse<Product>> {
+    return this.vendorsApiService.getProducts(id).pipe(this.productsFacadeService.mapProductsToDomainModel());
   }
 
-  private mapCompaniesToDomainModel(): OperatorFunction<any, Array<Vendor>> {
-    return map((vendorsResponse) => vendorsResponse.map((entry) => new Vendor(entry)));
+  private mapCompaniesToDomainModel(): OperatorFunction<PaginatedResponse<Vendor>, PaginatedResponse<Vendor>> {
+    return map((vendorsResponse) => {
+      vendorsResponse.content = vendorsResponse.content.map((entry) => new Vendor(entry));
+      return vendorsResponse;
+    });
   }
 }
