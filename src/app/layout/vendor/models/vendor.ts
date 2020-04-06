@@ -28,7 +28,7 @@ export class Vendor {
   }
 
   private static generateUrlSlug(name: string, id: number): string {
-    return '/vendors/' + Utils.convertStringToSlug(name) + '/' + id; // Trim - from end of text
+    return '/vendor/' + Utils.convertStringToSlug(name) + '/' + id; // Trim - from end of text
   }
 }
 

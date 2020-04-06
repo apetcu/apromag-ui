@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   profileMenuDisplayed = false;
   menuItems: Array<MenuItem> = [
     { title: 'Acasa', link: '/home' },
-    { title: 'Producatori', link: '/vendors' },
+    { title: 'Producatori', link: '/vendor' },
     {
       title: 'Categorii',
       link: '/categories',

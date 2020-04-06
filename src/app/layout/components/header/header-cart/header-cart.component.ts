@@ -14,7 +14,7 @@ export class HeaderCartComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartUpdated();
+    this.cartItems = this.cartService.currentCartState();
   }
 
   onRemoveItem(cartItem: CartItem): void {

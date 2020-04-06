@@ -4,11 +4,11 @@ import { CartService } from '../../services/cart.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  selector: 'app-cart-summary',
+  templateUrl: './cart-summary.component.html',
+  styleUrls: ['./cart-summary.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartSummaryComponent implements OnInit {
   cartItems: Observable<Array<CartItem>>;
 
   constructor(private cartService: CartService) {}

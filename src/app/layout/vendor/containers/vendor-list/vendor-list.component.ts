@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Vendor } from '../../models/vendor';
 import { VendorsFacadeService } from '../../services/vendors-facade.service';
-import { Observable } from 'rxjs';
-import { PaginatedResponse } from '../../../../shared/models/paginated-response';
 
 @Component({
   selector: 'app-vendors',
-  templateUrl: './vendors.component.html',
-  styleUrls: ['./vendors.component.scss']
+  templateUrl: './vendor-list.component.html',
+  styleUrls: ['./vendor-list.component.scss']
 })
-export class VendorsComponent implements OnInit {
+export class VendorListComponent implements OnInit {
   vendors: Array<Vendor>;
 
   constructor(private vendorsFacadeService: VendorsFacadeService) {}

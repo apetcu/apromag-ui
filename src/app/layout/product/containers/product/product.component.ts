@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { VendorsFacadeService } from '../../../vendors/services/vendors-facade.service';
+import { VendorsFacadeService } from '../../../vendor/services/vendors-facade.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models/product';
 import { ProductsFacadeService } from '../../services/products-facade.service';
-import { Vendor } from '../../../vendors/models/vendor';
+import { Vendor } from '../../../vendor/models/vendor';
 import { FormGroup } from '@angular/forms';
 import { AddToCartForm } from './add-to-cart.form';
 import { CartService } from '../../../cart/services/cart.service';

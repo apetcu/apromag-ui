@@ -1,0 +1,35 @@
+<table>
+    <thead>
+    <tr>
+        <th>Produs</th>
+        <th>Pret</th>
+        <th>Cntitate</th>
+        <th>Total</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cartItem of cartProducts">
+        <td class="product-item">
+            <div class="p-thumb">
+                <a [routerLink]="cartItem.urlSlug"><img [src]="cartItem.imageUrl" [alt]="cartItem.name"></a>
+            </div>
+            <div class="p-content">
+                <a [routerLink]="cartItem.urlSlug">{{cartItem.name}}</a>
+            </div>
+        </td>
+        <td>{{cartItem.fullPrice}}</td>
+        <td>
+            <div class="cart-plus-minus">
+                <div class="dec qtybutton">-</div>
+                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="3">
+                <div class="inc qtybutton">+</div>
+            </div>
+        </td>
+        <td>$750</td>
+        <td>
+            <a href="#"><img src="assets/images/shop/del.png" alt="product"></a>
+        </td>
+    </tr>
+    </tbody>
+</table>

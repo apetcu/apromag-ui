@@ -16,7 +16,7 @@ export class CartService {
     this.onCartUpdated.next(this.getItems());
   }
 
-  getCartUpdated(): Observable<Array<CartItem>> {
+  currentCartState(): Observable<Array<CartItem>> {
     return this.onCartUpdated.asObservable();
   }
 
