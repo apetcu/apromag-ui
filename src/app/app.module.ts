@@ -12,6 +12,7 @@ import { NotFoundModule } from './shared/components/not-found/not-found.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpErrorInterceptor } from './shared/interceptors/http-error.interceptor';
 import { AuthServiceConfig, FacebookLoginProvider, SocialLoginModule } from 'angularx-social-login';
+import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 
 const config = new AuthServiceConfig([
   {
@@ -41,6 +42,11 @@ export function provideConfig() {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
       multi: true
     },
     {

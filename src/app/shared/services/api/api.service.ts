@@ -10,11 +10,11 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  get(url: string, params = {}): Observable<any> {
+  get(url: string, params = {}, options = {}): Observable<any> {
     return this.http.get(this.baseUrl + url, { params });
   }
 
-  post(url: string, data: any): Observable<any> {
-    return this.http.post(this.baseUrl + url, data);
+  post(url: string, data: any, options = {}): Observable<any> {
+    return this.http.post(this.baseUrl + url, data, options);
   }
 }

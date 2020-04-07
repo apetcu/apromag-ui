@@ -18,7 +18,10 @@ export class AuthenticationFacadeService {
 
   logIn(username: string, password: string) {
     return this.authenticationApiService.logIn(username, password).pipe(
-      map((userResponse) => new User(userResponse)),
+      map((userResponse) => {
+        this.userService.setJwt(userResponse.headers.get('Authorization').replace('Bearer ', ''));
+        return new User(userResponse.body);
+      }),
       map((user) => {
         this.userService.setUser(user);
         return user;
