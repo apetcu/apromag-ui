@@ -46,6 +46,10 @@ const routes: Routes = [
         loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule)
       },
       {
+        path: 'dashboard',
+        loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+      },
+      {
         path: 'contact',
         component: ContactComponent,
         data: {

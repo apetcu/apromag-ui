@@ -1,4 +1,5 @@
-import { UserRoles } from '../../../shared/models/user-roles';
+import { UserRoles } from './user-roles';
+import { Vendor } from '../../vendor/models/vendor';
 
 export class User {
   id: number;
@@ -11,7 +12,7 @@ export class User {
   profilePicture: string;
   email: string;
   role: UserRoles;
-  vendor: null;
+  vendor?: Vendor;
   newOrders: number;
 
   constructor(userResponse: any) {
@@ -24,7 +25,17 @@ export class User {
     this.profilePicture = userResponse.profilePicture;
     this.email = userResponse.email;
     this.role = userResponse.role as UserRoles;
-    this.vendor = userResponse.vendor;
+    if (userResponse.vendor) {
+      this.vendor = new Vendor(userResponse.vendor);
+    }
     this.newOrders = 3;
+  }
+
+  isUserOfTypeVendor(): boolean {
+    return this.role.toUpperCase() === UserRoles.VENDOR;
+  }
+
+  isUserOfTypeCustomer(): boolean {
+    return this.role.toUpperCase() === UserRoles.CUSTOMER;
   }
 }

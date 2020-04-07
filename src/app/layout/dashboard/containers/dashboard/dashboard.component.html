@@ -1,0 +1,17 @@
+<div class="d-flex bg-body">
+    <div class="bg-light border-right sidebar-wrapper">
+        <div class="sidebar-heading">Panou producator</div>
+        <div class="list-group list-group-flush">
+            <a routerLink="/dashboard/overview" routerLinkActive="active" class="list-group-item">Panou</a>
+            <a routerLink="/dashboard/orders" routerLinkActive="active" class="list-group-item">Comenzi</a>
+            <a routerLink="/dashboard/products" routerLinkActive="active" class="list-group-item">Produse</a>
+            <a routerLink="/dashboard/shipping" routerLinkActive="active" class="list-group-item">Livrare</a>
+            <a routerLink="/dashboard/profile" routerLinkActive="active" class="list-group-item">Profil</a>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="container-fluid py-4">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

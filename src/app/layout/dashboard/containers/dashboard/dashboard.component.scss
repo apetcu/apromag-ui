@@ -1,0 +1,13 @@
+@import "variables";
+.content-wrapper {
+  width: 100%;
+}
+
+.sidebar-wrapper {
+  .sidebar-heading {
+    background: $theme-color;
+    color:#fff;
+    padding: 20px;
+  }
+  width: 200px;
+}

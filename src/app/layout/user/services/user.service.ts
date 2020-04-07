@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../../layout/user/models/user.model';
-import { StorageService } from '../storage/storage.service';
-import { StorageLocations } from '../storage/storage-locations';
+import { User } from '../models/user.model';
+import { StorageService } from '../../../shared/services/storage/storage.service';
+import { StorageLocations } from '../../../shared/services/storage/storage-locations';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { UserRoles } from '../models/user-roles';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,14 @@ export class UserService {
 
   isUserLoggedIn(): boolean {
     return !!this.currentUser;
+  }
+
+  isUserOfTypeVendor(): boolean {
+    return this.currentUser && this.currentUser.isUserOfTypeVendor();
+  }
+
+  isUserOfTypeCustomer(): boolean {
+    return this.currentUser && this.currentUser.isUserOfTypeCustomer();
   }
 
   loginStateChanged(): Observable<null | User> {

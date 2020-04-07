@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { UserService } from '../../user/services/user.service';
 
 @Injectable()
-export class AuthenticationGuard implements CanActivate {
+export class DashboardGuard implements CanActivate {
   constructor(private userService: UserService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return !this.userService.isUserLoggedIn();
+    return this.userService.isUserOfTypeVendor();
   }
 }

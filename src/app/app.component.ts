@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
-import { UserService } from './shared/services/user/user.service';
+import { UserService } from './layout/user/services/user.service';
 
 @Component({
   selector: 'app-root',

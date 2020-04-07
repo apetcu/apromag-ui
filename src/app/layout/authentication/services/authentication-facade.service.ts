@@ -3,7 +3,7 @@ import { AuthService, FacebookLoginProvider } from 'angularx-social-login';
 import { AuthenticationApiService } from './authentication-api.service';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/layout/user/models/user.model';
-import { UserService } from '../../../shared/services/user/user.service';
+import { UserService } from '../../user/services/user.service';
 
 @Injectable({
   providedIn: 'root'
