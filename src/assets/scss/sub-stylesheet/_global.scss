@@ -210,6 +210,7 @@
         overflow: visible;
         background: transparent;
         border: 2px solid $theme-color;
+        outline: none;
         &:disabled {
             border: 2px solid $desc-color;
             span {
@@ -224,7 +225,6 @@
                 }
             }
         }
-        padding: 14px 30px;
         span {
             color: $theme-color;
         }
@@ -245,6 +245,7 @@
     }
     &.style-3 {
         background: $theme-color;
+        outline:none;
     }
 }
 

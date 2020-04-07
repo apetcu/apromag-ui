@@ -28,6 +28,22 @@ const routes: Routes = [
           title: 'Inregistrare'
         }
       },
+      {
+        path: 'register/client',
+        component: RegisterComponent,
+        pathMatch: 'prefix',
+        data: {
+          title: 'Inregistrare client'
+        }
+      },
+      {
+        path: 'register/vendor',
+        component: RegisterComponent,
+        pathMatch: 'prefix',
+        data: {
+          title: 'Inregistrare producator'
+        }
+      },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' }
     ]
   }

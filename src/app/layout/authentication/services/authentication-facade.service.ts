@@ -4,6 +4,7 @@ import { AuthenticationApiService } from './authentication-api.service';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/layout/user/models/user.model';
 import { UserService } from '../../user/services/user.service';
+import { UserRegistration } from '../components/register/models/user-registration.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,18 @@ export class AuthenticationFacadeService {
         return user;
       })
     );
+  }
+
+  register(registrationInfo: UserRegistration) {
+    return this.authenticationApiService.register(
+      new UserRegistration(registrationInfo)
+    ) /*.pipe(
+      map((userResponse) => new User(userResponse)),
+      map((user) => {
+        this.userService.setUser(user);
+        return user;
+      })
+    )*/;
   }
 
   loginWithFb() {

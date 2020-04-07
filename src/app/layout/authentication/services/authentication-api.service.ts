@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ApiService } from '../../../shared/services/api/api.service';
+import { UserRegistration } from '../components/register/models/user-registration.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthenticationApiService {
     return this.api.post(`${this.domainUrl}/login`, { email, password });
   }
 
-  register(): Observable<any> {
-    return this.api.post(`${this.domainUrl}/register`, {});
+  register(userRegistration: UserRegistration): Observable<any> {
+    return this.api.post(`${this.domainUrl}/register`, userRegistration);
   }
 }

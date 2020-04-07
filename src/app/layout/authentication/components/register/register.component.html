@@ -1,22 +1,43 @@
 <div class="row justify-content-center">
-    <div class="col-lg-8 col-12">
+    <div class="col-lg-5 col-12">
         <aside>
             <div class="widget widget-author">
+                <router-outlet></router-outlet>
                 <div class="widget-header">
-                    <h5>Inregistrare</h5>
+                    <h5 class="text-center">As dori sa ma inregistrez ca:</h5>
                 </div>
                 <div class="widget-wrapper">
-                    <div class="admin-thumb">
-                        <img src="assets/images/chef/author/08.jpg" alt="author">
+
+                    <div class="justify-content-center mb-4">
+                        <button [ngClass]="currentRegistrationType === 'CUSTOMER' ? 'style-3':'style-2'" type="submit" class="food-btn mr-3" (click)="switchRegisterType('CUSTOMER')"><span>Client</span></button>
+                        <button [ngClass]="currentRegistrationType === 'VENDOR' ? 'style-3':'style-2'" type="submit" class="food-btn" (click)="switchRegisterType('VENDOR')"><span>Furnizor</span></button>
                     </div>
-                    <div class="admin-content">
-                        <p>Hey hey! I'm Lindsay and this is my websiteThanks for being here! I'm a yoga instructor I write about all of those...</p>
-                        <div class="scocial-media">
-                            <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                            <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-                            <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
-                            <a href="#" class="vimeo"><i class="icofont-vimeo"></i></a>
+
+
+                    <div class="admin-thumb">
+                        <img src="assets/images/default_profile.png" alt="author" style="width: 40%;">
+                    </div>
+
+                    <form class="d-flex flex-wrap justify-content-center " autocomplete="false" [formGroup]="registerForm" (ngSubmit)="register()">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" placeholder="Prenume" class="form-control" formControlName="firstName">
+                            </div>
+                            <div class="col-6">
+                                <input type="text" placeholder="Nume" class="form-control" formControlName="lastName">
+                            </div>
                         </div>
+
+                        <input type="text" placeholder="Nume de prezentare" class="form-control" formControlName="businessName" *ngIf="currentRegistrationType === 'VENDOR'">
+
+                        <input type="text" placeholder="Email" class="form-control" formControlName="email">
+                        <input type="password" placeholder="Parola" class="form-control" formControlName="password">
+                        <p>Am citit si sunt de acord cu termenii si conditiile acestui site.</p>
+
+                        <button type="submit" class="food-btn style-3"><span>Inregistrare</span></button>
+                    </form>
+
+                    <div class="admin-content">
                     </div>
                 </div>
             </div>
