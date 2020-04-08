@@ -15,12 +15,15 @@
             <input class="form-control" id="email" type="text" formControlName="email">
         </div>
         <form *ngIf="userSettingsForm.isVendor()" [formGroup]="userSettingsForm.getVendorForm()">
+            <br>
+            <h3>Detalii afacere</h3>
+            <hr>
             <div class="form-group">
-                <label for="business-name">Business Name</label>
+                <label for="business-name">Numele afacerii</label>
                 <input class="form-control" id="business-name" type="text" formControlName="businessName">
             </div>
             <div class="form-group">
-                <label for="address">Address</label>
+                <label for="address">Adresa</label>
                 <input class="form-control" id="address" type="text" formControlName="address">
             </div>
         </form>
