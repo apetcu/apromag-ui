@@ -5,6 +5,7 @@ import { UserDetailsComponent } from '../user/components/user-details/user-detai
 import { UserSettingsComponent } from '../user/components/user-settings/user-settings.component';
 import { DashboardGuard } from './guards/dashboard-guard';
 import { DashboardOverviewComponent } from './containers/dashboard-overview/dashboard-overview.component';
+import { DashboardProductsComponent } from './containers/dashboard-products/dashboard-products.component';
 
 const routes: Routes = [
   {
@@ -31,10 +32,10 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: UserSettingsComponent,
+        component: DashboardProductsComponent,
         pathMatch: 'prefix',
         data: {
-          title: 'Modifica detalii'
+          title: 'Produsele mele'
         }
       },
       {

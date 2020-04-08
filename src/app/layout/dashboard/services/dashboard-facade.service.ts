@@ -17,10 +17,21 @@ export class DashboardFacadeService {
     return this.dashboardApiService.getOrders(paginationInfo).pipe(this.mapCompaniesToDomainModel());
   }
 
+  getProducts(paginationInfo: PaginationInfo): Observable<PaginatedResponse<Product>> {
+    return this.dashboardApiService.getProducts(paginationInfo).pipe(this.mapProductsToDomainModel());
+  }
+
   private mapCompaniesToDomainModel(): OperatorFunction<PaginatedResponse<Order>, PaginatedResponse<Order>> {
     return map((vendorsResponse) => {
       vendorsResponse.content = vendorsResponse.content.map((entry) => new Order(entry));
       return vendorsResponse;
+    });
+  }
+
+  private mapProductsToDomainModel(): OperatorFunction<PaginatedResponse<Product>, PaginatedResponse<Product>> {
+    return map((productResponse) => {
+      productResponse.content = productResponse.content.map((entry) => new Product(entry));
+      return productResponse;
     });
   }
 }

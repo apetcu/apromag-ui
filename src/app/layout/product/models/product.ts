@@ -32,7 +32,7 @@ export class Product {
 
     this.urlSlug = Product.generateUrlSlug(productResponse.name, productResponse.id, productResponse.vendorId);
 
-    this.fullPrice = productResponse.price.toFixed(2) + ' ' + this.currency.code;
+    this.fullPrice = this.price ? productResponse.price.toFixed(2) + ' ' + this.currency.code : '-';
   }
 
   private static generateUrlSlug(name: string, id: number, vendorId: number): string {

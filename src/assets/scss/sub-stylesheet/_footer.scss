@@ -5,9 +5,9 @@
     .footer-top {
         @extend %rel;
         z-index: 1;
-        padding: 50px 0 32px;
+        padding: 30px 0;
         @include breakpoint(xl) {
-            padding: 90px 0 72px;
+            padding: 50px 0;
         }
         .footer-area {
             .footer-logo {
@@ -53,8 +53,7 @@
     .footer-bottom {
         @extend %rel;
         z-index: 1;
-        padding: 40px 0;
-        border-top: 1px solid #fc8684;
+        padding: 20px 0;
         p {
             margin-bottom: 0;
             color: $white-color;

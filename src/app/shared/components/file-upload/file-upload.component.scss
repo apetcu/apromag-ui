@@ -1,0 +1,15 @@
+@import "variables";
+
+.dropzone {
+  border: 3px dashed $navy;
+  padding: 20px;
+  text-align: center;
+  background: lighten($navy, 40%);
+  cursor: pointer;
+}
+
+.previewIcon {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+}

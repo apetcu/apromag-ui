@@ -1,0 +1,29 @@
+<div
+    class="dropzone"
+    ngfDrop
+    multiple="1"
+    selectable="1"
+    [(validDrag)]="validComboDrag"
+    [(files)]="files"
+    accept="image/*"
+    [maxSize]="maxSize"
+    [(lastInvalids)]="lastInvalids"
+    [(dragFiles)]="dragFiles"
+    [class.invalid-drag]="validComboDrag===false"
+    [class.valid-drag]="validComboDrag"
+    [fileDropDisabled]="fileDropDisabled"
+>
+    Alegeti <strong>imagini</strong>
+</div>
+<div *ngIf="files.length">
+    <h3>Imagini noi</h3>
+    <div class="image" *ngFor="let item of files;let i=index">
+        <div class="previewIcon" [ngfBackground]="item"></div>
+        {{ item.type }}
+
+        {{ item.size / 1024 / 1024 | number:'.2' }} MB
+
+        <i class="icofont-trash"
+           (click)="files.splice(i,1)"></i>
+    </div>
+</div>
