@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterForm } from './register-form';
 import { UserRoles } from '../../../user/models/user-roles';
 import { AuthenticationFacadeService } from '../../services/authentication-facade.service';
+import { AlertService } from '../../../../shared/services/alert/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,18 +11,45 @@ import { AuthenticationFacadeService } from '../../services/authentication-facad
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  errorMessage: string = null;
   registerForm: RegisterForm = new RegisterForm();
   currentRegistrationType: UserRoles = UserRoles.CUSTOMER;
 
-  constructor(private authenticationFacadeService: AuthenticationFacadeService) {}
+  constructor(
+    private authenticationFacadeService: AuthenticationFacadeService,
+    private alertService: AlertService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
   register() {
-    this.authenticationFacadeService.register(this.registerForm.value).subscribe((data) => {
-      console.log(data);
+    if (this.registerForm.valid) {
+      this.authenticationFacadeService.register(this.registerForm.value).subscribe(
+        (data) => {
+          this.alertService.show({
+            title: 'Felicitari',
+            text: 'Contul tau a fost creat cu succes. Te rugam sa-ti verifici casuta de mail pentru activarea contului',
+            icon: 'success'
+          });
+          this.router.navigate(['/home']);
+        },
+        () => {
+          this.setError('A aparut o eroare la crearea contului');
+        }
+      );
+    } else {
+      this.setError('Unul sau mai multe campuri obligatorii nu sunt completate');
+    }
+  }
+
+  setError(message: string) {
+    this.errorMessage = message;
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
-    console.log(this.registerForm.value);
   }
 
   switchRegisterType(type: string) {

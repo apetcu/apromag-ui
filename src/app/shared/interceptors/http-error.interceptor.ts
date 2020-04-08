@@ -1,6 +1,6 @@
 import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 @Injectable()
@@ -15,7 +15,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             timeOut: 5000
           });
         }
-        return of(err);
+        return throwError(err);
       })
     );
   }

@@ -30,15 +30,7 @@ export class AuthenticationFacadeService {
   }
 
   register(registrationInfo: UserRegistration) {
-    return this.authenticationApiService.register(
-      new UserRegistration(registrationInfo)
-    ) /*.pipe(
-      map((userResponse) => new User(userResponse)),
-      map((user) => {
-        this.userService.setUser(user);
-        return user;
-      })
-    )*/;
+    return this.authenticationApiService.register(new UserRegistration(registrationInfo));
   }
 
   loginWithFb() {

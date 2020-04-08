@@ -1,8 +1,10 @@
 <div class="row justify-content-center">
     <div class="col-lg-5 col-12">
+        <app-info-box title="Eroare" type="danger" *ngIf="errorMessage" class="mb-3">
+            {{errorMessage}}
+        </app-info-box>
         <aside>
             <div class="widget widget-author">
-                <router-outlet></router-outlet>
                 <div class="widget-header">
                     <h5 class="text-center">As dori sa ma inregistrez ca:</h5>
                 </div>
