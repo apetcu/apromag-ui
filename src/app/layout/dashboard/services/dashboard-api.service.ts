@@ -8,10 +8,10 @@ import { UserService } from '../../user/services/user.service';
 })
 export class DashboardApiService {
   domainUrl: string = '';
-  constructor(private api: ApiService, private userService: UserService) {}
+  constructor(private api: ApiService) {}
 
   getOrders(query: object): Observable<any> {
-    return this.api.get(`${this.domainUrl}orders`, { ...query, vendorId: this.userService.getUser().vendor.id });
+    return this.api.get(`${this.domainUrl}orders`, query);
   }
 
   register(): Observable<any> {
