@@ -5,10 +5,11 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 import { UserRoutingModule } from './user-routing.module';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserGuard } from './guards/user-guard';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [UserComponent, UserSettingsComponent, UserDetailsComponent],
   providers: [UserGuard],
-  imports: [CommonModule, UserRoutingModule]
+  imports: [CommonModule, UserRoutingModule, ReactiveFormsModule]
 })
 export class UserModule {}

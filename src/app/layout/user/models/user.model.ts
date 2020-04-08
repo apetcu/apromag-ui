@@ -22,7 +22,7 @@ export class User {
     this.firstName = userResponse.firstName;
     this.lastName = userResponse.lastName;
     this.fullName = userResponse.firstName + ' ' + userResponse.lastName;
-    this.profilePicture = userResponse.profilePicture;
+    this.profilePicture = userResponse.profilePicture || 'assets/images/default_profile.png';
     this.email = userResponse.email;
     this.role = userResponse.role as UserRoles;
     if (userResponse.vendor) {

@@ -5,7 +5,7 @@ import { StorageLocations } from './storage-locations';
   providedIn: 'root'
 })
 export class StorageService {
-  private storagePrefix = 'apro_';
+  private storagePrefix: string = 'apro_';
 
   constructor() {}
 
@@ -18,7 +18,7 @@ export class StorageService {
     }
   }
 
-  setItem(key: StorageLocations, value: any) {
+  setItem(key: StorageLocations, value: any): void {
     let storedItem;
     try {
       storedItem = JSON.stringify(value);
@@ -28,7 +28,11 @@ export class StorageService {
     localStorage.setItem(this.storagePrefix + key, storedItem);
   }
 
-  removeItem(key: StorageLocations) {
+  removeItem(key: StorageLocations): void {
     localStorage.removeItem(this.storagePrefix + key);
+  }
+
+  clear(): void {
+    localStorage.clear();
   }
 }

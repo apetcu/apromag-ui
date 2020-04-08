@@ -1,1 +1,17 @@
-<p>user-details works!</p>
+<h3>Contul meu</h3>
+<hr>
+<div *ngIf="user">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <p><strong>Nume: </strong> {{ user.fullName }}</p>
+            <p><strong>Email: </strong> {{ user.email }}</p>
+            <p><strong>Membru din: </strong> {{ user.createdAt | date: 'dd MMM yyyy' }}</p>
+            <p><strong>Ultima actualizare: </strong> {{ user.updatedAt | date: 'dd MMM yyyy' }}</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="profile-image-container">
+                <img [src]="user.profilePicture" alt="profile_picture">
+            </div>
+        </div>
+    </div>
+</div>

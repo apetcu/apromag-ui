@@ -1,1 +1,32 @@
-<p>user-settings works!</p>
+<h3>Setari cont</h3>
+<hr>
+<div *ngIf="userSettingsForm">
+    <form [formGroup]="userSettingsForm">
+        <div class="form-group">
+            <label for="last-name">Nume</label>
+            <input class="form-control" id="last-name" type="text" formControlName="lastName">
+        </div>
+        <div class="form-group">
+            <label for="first-name">Prenume</label>
+            <input class="form-control" id="first-name" type="text" formControlName="firstName">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" id="email" type="text" formControlName="email">
+        </div>
+        <form *ngIf="userSettingsForm.isVendor()" [formGroup]="userSettingsForm.getVendorForm()">
+            <div class="form-group">
+                <label for="business-name">Business Name</label>
+                <input class="form-control" id="business-name" type="text" formControlName="businessName">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input class="form-control" id="address" type="text" formControlName="address">
+            </div>
+        </form>
+        <div class="buttons-wrapper">
+            <button class="btn btn-success" [disabled]="userSettingsForm.invalid" (click)="onSubmit()">Actualizeaza</button>
+            <button *ngIf="userSettingsForm.dirty" class="btn btn-secondary" (click)="initializeUserForm()">Reset</button>
+        </div>
+    </form>
+</div>
