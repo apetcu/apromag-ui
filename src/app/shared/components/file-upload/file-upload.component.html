@@ -12,18 +12,15 @@
     [class.invalid-drag]="validComboDrag===false"
     [class.valid-drag]="validComboDrag"
     [fileDropDisabled]="fileDropDisabled"
+    (filesChange)="writeValue($event)"
 >
     Alegeti <strong>imagini</strong>
 </div>
 <div *ngIf="files.length">
-    <h3>Imagini noi</h3>
+    <h6>Imagini noi</h6>
     <div class="image" *ngFor="let item of files;let i=index">
         <div class="previewIcon" [ngfBackground]="item"></div>
-        {{ item.type }}
-
-        {{ item.size / 1024 / 1024 | number:'.2' }} MB
-
-        <i class="icofont-trash"
-           (click)="files.splice(i,1)"></i>
+        <i class="icofont-trash trash"
+           (click)="onRemoveImage(i)"></i>
     </div>
 </div>

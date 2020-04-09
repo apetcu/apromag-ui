@@ -23,5 +23,8 @@ export class DashboardModifyProductComponent implements OnInit {
         this.altUnit = true;
       }
     });
+    this.modifyProductForm.controls['images'].valueChanges.subscribe((value) => {
+      console.log(value);
+    });
   }
 }

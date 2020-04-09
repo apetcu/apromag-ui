@@ -8,8 +8,33 @@
   cursor: pointer;
 }
 
-.previewIcon {
+h6 {
+  margin: 10px 0;
+}
+
+.image {
+  display: block;
+  position: relative;
   width: 100px;
   height: 100px;
-  background-size: cover;
+  margin: 5px;
+  float: left;
+
+  .previewIcon {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+  }
+
+  .trash {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #aa0b0b;
+    font-size: 15px;
+    background: #fff;
+    padding: 5px;
+  }
 }
+
