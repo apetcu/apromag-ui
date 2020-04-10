@@ -7,12 +7,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { ClickOutsideModule } from './shared/directives/click-outside/click-outside.module';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { NotFoundModule } from './shared/components/not-found/not-found.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpErrorInterceptor } from './shared/interceptors/http-error.interceptor';
 import { AuthServiceConfig, FacebookLoginProvider, SocialLoginModule } from 'angularx-social-login';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 const config = new AuthServiceConfig([
   {
@@ -36,7 +43,15 @@ export function provideConfig() {
     NotFoundModule,
     SocialLoginModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    TranslateModule.forRoot({
+      defaultLanguage: 'ro',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     {

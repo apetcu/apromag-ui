@@ -11,6 +11,9 @@ import { DashboardProductsComponent } from './containers/dashboard-products/dash
 import { DashboardModifyProductComponent } from './components/dashboard-modify-product/dashboard-modify-product.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FileUploadModule } from '../../shared/components/file-upload/file-upload.module';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { InfoBoxModule } from '../../shared/components/info-box/info-box.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,16 @@ import { FileUploadModule } from '../../shared/components/file-upload/file-uploa
     DashboardModifyProductComponent
   ],
   providers: [DashboardGuard],
-  imports: [CommonModule, RouterModule, DashboardRoutingModule, TableModule, ReactiveFormsModule, FileUploadModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    DashboardRoutingModule,
+    TableModule,
+    ReactiveFormsModule,
+    FileUploadModule,
+    InputSwitchModule,
+    InfoBoxModule,
+    TranslateModule
+  ]
 })
 export class DashboardModule {}

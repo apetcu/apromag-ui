@@ -1,8 +1,10 @@
-<h4 class="mb-3">Produsele mele
-    <button class="btn btn-success float-right">Adauga produs</button>
-</h4>
-<app-dashboard-modify-product></app-dashboard-modify-product>
-<div class="row">
+<h5 class="admin-title">{{'VENDOR.PRODUCTS.TITLE' | translate}}
+    <button class="btn float-right" (click)="toggleAddProduct()" [ngClass]="addProductToggled ? 'btn-dark': 'btn-success'">
+        {{addProductToggled ? ('VENDOR.PRODUCTS.ADD.CANCEL' | translate) : ('VENDOR.PRODUCTS.ADD.BUTTON' | translate)}}
+    </button>
+</h5>
+<app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)" *ngIf="addProductToggled"></app-dashboard-modify-product>
+<div class="row mt-2">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
             <div class="table-responsive">

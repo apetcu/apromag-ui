@@ -1,0 +1,32 @@
+{
+  "VENDOR": {
+    "DASHBOARD": {
+      "TITLE": "Panou de control"
+    },
+    "ORDERS": {
+      "TITLE": "Comenzi"
+    },
+    "PRODUCTS": {
+      "TITLE": "Produse",
+      "ERRORS": {
+        "INVALID_FIELDS": "Unul sau mai multe campuri sunt invalide"
+      },
+      "ADD": {
+        "BUTTON": "Adauga produs",
+        "CANCEL": "Inchide"
+      },
+      "MODIFY": {
+        "BUTTON": "Modifica produs"
+      },
+      "FORM": {
+        "CATEGORY": "Categorie",
+        "NAME": "Nume",
+        "DESCRIPTION": "Descriere",
+        "PRICE": "Pret (RON)"
+      }
+    },
+    "SHIPPING": {
+      "TITLE": "Livrare"
+    }
+  }
+}

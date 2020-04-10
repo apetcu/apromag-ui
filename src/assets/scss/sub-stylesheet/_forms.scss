@@ -32,6 +32,16 @@ form {
     margin-bottom: 60px;
     @extend %pointer;
   }
+  .form-group {
+    &.invalid {
+      label {
+        color: $youtube
+      }
+      .form-control{
+        border-color: $youtube;
+      }
+    }
+  }
 }
 
 .text-green {

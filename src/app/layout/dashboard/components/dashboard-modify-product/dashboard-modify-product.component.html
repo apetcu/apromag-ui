@@ -1,30 +1,38 @@
 <div class="card">
     <div class="card-body">
-        <h5 class="text-green">Produs nou</h5>
-        <form class="" [formGroup]="modifyProductForm">
-
+        <h5 class="text-green">{{'VENDOR.PRODUCTS.ADD.BUTTON' | translate}}</h5>
+        <app-info-box title="Eroare" type="danger" *ngIf="formErrors">
+            {{'VENDOR.PRODUCTS.ERRORS.INVALID_FIELDS' | translate}}
+        </app-info-box>
+        <form [formGroup]="modifyProductForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-8">
-                    <div class="form-group">
-                        <label>Nume produs</label>
-                        <input type="text" placeholder="Nume produs" class="form-control" formControlName="name">
+                    <div class="form-group" [class.invalid]="modifyProductForm.controls['category'].invalid && formErrors">
+                        <label for="category" translate="VENDOR.PRODUCTS.FORM.CATEGORY"></label>
+                        <input type="text" class="form-control" id="category" formControlName="category">
                     </div>
-                    <div class="form-group">
-                        <label>Categorie</label>
-                        <input type="text" placeholder="Categorie" class="form-control" formControlName="category">
+                    <div class="form-group" [class.invalid]="modifyProductForm.controls['name'].invalid && formErrors">
+                        <label for="title" translate="VENDOR.PRODUCTS.FORM.NAME"></label>
+                        <input type="text" class="form-control" id="title" formControlName="name">
                     </div>
-                    <div class="form-group">
-                        <label>Descriere</label>
-                        <textarea placeholder="Scurta descriere (120 caractere)" class="form-control" formControlName="description">
+                    <div class="form-group" [class.invalid]="modifyProductForm.controls['description'].invalid && formErrors">
+                        <label for="description" translate="VENDOR.PRODUCTS.FORM.DESCRIPTION"></label>
+                        <textarea placeholder="Scurta descriere (250 caractere)" id="description" class="form-control" formControlName="description" maxlength="250">
                         </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>In stoc</label>
+                        <div>
+                            <p-inputSwitch formControlName="stock"></p-inputSwitch>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <div class="form-group">
-                                <label>Pret (RON)</label>
+                            <div class="form-group" [class.invalid]="modifyProductForm.controls['price'].invalid && formErrors">
+                                <label translate="VENDOR.PRODUCTS.FORM.PRICE"></label>
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="number" class="form-control" formControlName="price" placeholder="0.15">
+                                        <input type="number" class="form-control" formControlName="price">
                                     </div>
                                     <div class="col-6">
                                         <select name="" class="form-control" formControlName="unit" *ngIf="!altUnit">
@@ -40,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="food-btn style-3"><span>Adauga produs</span></button>
+                    <button type="submit" class="food-btn style-3 mb-2"><span>{{'VENDOR.PRODUCTS.ADD.BUTTON' | translate}}</span></button>
                 </div>
                 <div class="col-4">
                     <app-file-upload formControlName="images"></app-file-upload>

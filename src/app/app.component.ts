@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs/operators';
 import { UserService } from './layout/user/services/user.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,12 @@ export class AppComponent {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
-    private userService: UserService
-  ) {}
+    private userService: UserService,
+    private translate: TranslateService
+  ) {
+    translate.setDefaultLang('ro');
+    translate.use('ro');
+  }
 
   ngOnInit(): void {
     this.userService.initialize();

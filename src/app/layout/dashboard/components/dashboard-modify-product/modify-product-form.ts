@@ -8,6 +8,7 @@ interface ModifyProductModel {
   unit: string;
   altUnit: string;
   description: string;
+  stock: boolean;
   images: Array<File>;
 }
 
@@ -19,6 +20,7 @@ export class ModifyProductForm extends BaseForm<ModifyProductModel> {
       price: new FormControl('', [Validators.required]),
       unit: new FormControl('kg', [Validators.required]),
       altUnit: new FormControl(''),
+      stock: new FormControl(true),
       images: new FormControl(null),
       description: new FormControl('', [Validators.required])
     });
