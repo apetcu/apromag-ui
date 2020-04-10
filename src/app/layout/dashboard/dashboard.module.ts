@@ -14,7 +14,7 @@ import { FileUploadModule } from '../../shared/components/file-upload/file-uploa
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { InfoBoxModule } from '../../shared/components/info-box/info-box.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { PaginatorModule } from 'primeng';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [

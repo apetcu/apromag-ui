@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        <h5 class="text-green">{{'VENDOR.PRODUCTS.' + formMode + '.BUTTON' | translate}}</h5>
+        <h5 class="text-green">{{'VENDOR.PRODUCTS.BUTTONS.' + formMode | translate}}</h5>
         <app-info-box title="Eroare" type="danger" *ngIf="formErrors">
             {{'VENDOR.PRODUCTS.ERRORS.INVALID_FIELDS' | translate}}
         </app-info-box>
@@ -21,7 +21,7 @@
                         </textarea>
                     </div>
                     <div class="form-group">
-                        <label>In stoc</label>
+                        <label translate="VENDOR.PRODUCTS.FORM.STOCK"></label>
                         <div>
                             <p-inputSwitch formControlName="stock"></p-inputSwitch>
                         </div>
@@ -48,7 +48,10 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="food-btn style-3 mb-2"><span>{{'VENDOR.PRODUCTS.' + formMode + '.BUTTON' | translate | translate}}</span></button>
+                    <div class=" mb-2">
+                    <button type="submit" class="food-btn style-3"><span><i class="icofont-save mr-1"></i> {{'VENDOR.PRODUCTS.BUTTONS.' + formMode | translate | translate}}</span></button>
+                    <button type="submit" class="food-btn style-danger float-right"><span><i class="icofont-trash mr-1"></i> {{'VENDOR.PRODUCTS.BUTTONS.DELETE' | translate | translate}}</span></button>
+                    </div>
                 </div>
                 <div class="col-4">
                     <app-file-upload formControlName="images"></app-file-upload>

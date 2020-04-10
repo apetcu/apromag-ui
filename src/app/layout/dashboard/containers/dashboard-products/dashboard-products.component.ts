@@ -13,7 +13,7 @@ export class DashboardProductsComponent implements OnInit {
   addProductToggled: boolean = false;
   editProduct: Product = null;
   loading: boolean = false;
-  rowsPerPage: number = 2;
+  rowsPerPage: number = 10;
   totalRecords: number;
   products: Array<Product>;
 
@@ -52,7 +52,7 @@ export class DashboardProductsComponent implements OnInit {
   }
 
   onPageChange(event) {
-    console.log(event);
+    this.loadData(event.page + 1);
   }
 
   toggleAddProduct() {

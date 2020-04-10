@@ -23,9 +23,8 @@ export class DashboardFacadeService {
   }
 
   addOrModifyProduct(productFormBody: ModifyProductModel, id: number = null): Observable<PaginatedResponse<Product>> {
-    // const productFormData = this.buildProductFormData(productFormBody);
-    const productFormData = productFormBody;
-    productFormData.stock = productFormBody.stock ? 1 : 0;
+    const productFormData = this.buildProductFormData(productFormBody);
+    productFormData.append('stock', (productFormBody.stock ? 1 : 0).toString());
     return id ? this.dashboardApiService.editProduct(productFormData, id) : this.dashboardApiService.addProduct(productFormData);
   }
 

@@ -1,6 +1,6 @@
 <h5 class="admin-title">{{'VENDOR.PRODUCTS.TITLE' | translate}}
     <button class="btn float-right" (click)="toggleAddProduct()" [ngClass]="addProductToggled ? 'btn-dark': 'btn-success'">
-        {{(addProductToggled ? 'VENDOR.PRODUCTS.ADD.CANCEL' : 'VENDOR.PRODUCTS.ADD.BUTTON') | translate}}
+        {{(addProductToggled ? 'VENDOR.PRODUCTS.BUTTONS.CANCEL' : 'VENDOR.PRODUCTS.BUTTONS.ADD') | translate}}
     </button>
 </h5>
 <app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)" [editProduct]="editProduct" *ngIf="addProductToggled"></app-dashboard-modify-product>
@@ -12,25 +12,27 @@
                     <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th>Nume</th>
-                        <th class="text-right">Pret</th>
-                        <th class="text-center">Stoc</th>
+                        <th  translate="VENDOR.PRODUCTS.FORM.NAME"></th>
+                        <th class="text-right"  translate="VENDOR.PRODUCTS.FORM.PRICE"></th>
+                        <th class="text-right"  translate="VENDOR.PRODUCTS.FORM.UNIT"></th>
+                        <th class="text-center" translate="VENDOR.PRODUCTS.FORM.STOCK"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr *ngFor="let product of products" style="cursor:pointer;" (click)="onEditProduct(product)">
-                        <td class="text-center text-muted">#{{product.id}}</td>
+                        <td class="text-center text-muted">{{product.id}}</td>
                         <td>
                             <div class="widget-content p-0">
                                 <div class="widget-content-wrapper">
                                     <div class="widget-content-left flex2">
                                         <div class="widget-heading">{{product.name}}</div>
-                                        <div class="widget-subheading opacity-7">{{product.category}}</div>
+                                        <div class="widget-subheading opacity-7 text-muted font-italic">{{product.category}}</div>
                                     </div>
                                 </div>
                             </div>
                         </td>
                         <td class="text-right">{{product.fullPrice}}</td>
+                        <td class="text-right">{{product.unit}}</td>
                         <td class="text-center">
                             <div class="badge"
                                  [ngClass]="product.stock?'badge-success':'badge-danger'">{{(product.stock ? 'PRODUCTS.STOCK.AVAILABLE' : 'PRODUCTS.STOCK.NOT_AVAILABLE') | translate}}</div>

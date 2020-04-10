@@ -8,21 +8,22 @@
     },
     "PRODUCTS": {
       "TITLE": "Produse",
+      "BUTTONS": {
+        "ADD" : "Adauga produs",
+        "CANCEL" : "Inchide",
+        "EDIT" : "Modifica produs",
+        "DELETE" : "Sterge acest produs"
+      },
       "ERRORS": {
         "INVALID_FIELDS": "Unul sau mai multe campuri sunt invalide"
-      },
-      "ADD": {
-        "BUTTON": "Adauga produs",
-        "CANCEL": "Inchide"
-      },
-      "EDIT": {
-        "BUTTON": "Modifica produs"
       },
       "FORM": {
         "CATEGORY": "Categorie",
         "NAME": "Nume",
         "DESCRIPTION": "Descriere",
-        "PRICE": "Pret (RON)"
+        "STOCK": "In stoc",
+        "PRICE": "Pret (RON)",
+        "UNIT": "U.M"
       }
     },
     "SHIPPING": {

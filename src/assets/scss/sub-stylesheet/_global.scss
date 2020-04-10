@@ -243,6 +243,10 @@
         background: $theme-color;
         outline:none;
     }
+    &.style-danger {
+        background: $youtube;
+        outline:none;
+    }
 }
 
 .text-btn {
