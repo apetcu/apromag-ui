@@ -16,6 +16,10 @@ export class AlertService {
   constructor() {}
 
   show(options: AlertMessage): Observable<any> {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     return from(Swal.fire({ ...this.defaultOptions, ...options }));
   }
 }

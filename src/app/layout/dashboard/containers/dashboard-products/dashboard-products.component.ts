@@ -42,7 +42,7 @@ export class DashboardProductsComponent implements OnInit {
       this.alertService.show({
         position: 'top-end',
         icon: 'success',
-        title: 'Produsul a fost adaugat',
+        title: 'Produsul a fost ' + (this.editProduct ? 'modificat' : 'adaugat'),
         showConfirmButton: false,
         timer: 1500
       });
@@ -94,6 +94,7 @@ export class DashboardProductsComponent implements OnInit {
   }
 
   toggleAddProduct() {
+    this.editProduct = null;
     this.addProductToggled = !this.addProductToggled;
   }
 }

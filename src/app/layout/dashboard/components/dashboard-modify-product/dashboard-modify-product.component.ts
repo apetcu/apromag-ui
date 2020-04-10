@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ModifyProductForm } from './modify-product-form';
 import { DashboardFacadeService } from '../../services/dashboard-facade.service';
 import { Product } from '../../../product/models/product';
@@ -8,7 +8,7 @@ import { Product } from '../../../product/models/product';
   templateUrl: './dashboard-modify-product.component.html',
   styleUrls: ['./dashboard-modify-product.component.scss']
 })
-export class DashboardModifyProductComponent implements OnInit {
+export class DashboardModifyProductComponent implements OnInit, OnChanges {
   @Output()
   onSaveComplete: EventEmitter<any> = new EventEmitter<any>(null);
   @Output()
@@ -26,6 +26,11 @@ export class DashboardModifyProductComponent implements OnInit {
   constructor(private dashboardFacadeService: DashboardFacadeService) {}
 
   ngOnInit(): void {
+    this.listenForFormChanges();
+    this.initProductEdit(this.editProduct);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.listenForFormChanges();
     this.initProductEdit(this.editProduct);
   }
