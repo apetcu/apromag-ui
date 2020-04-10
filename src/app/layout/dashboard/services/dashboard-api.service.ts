@@ -18,6 +18,14 @@ export class DashboardApiService {
     return this.api.get(`${this.domainUrl}products`, query);
   }
 
+  addProduct(product): Observable<any> {
+    return this.api.post(`${this.domainUrl}products`, product);
+  }
+
+  editProduct(product, id: number): Observable<any> {
+    return this.api.put(`${this.domainUrl}products/${id}`, product);
+  }
+
   register(): Observable<any> {
     return this.api.post(`${this.domainUrl}/register`, {});
   }

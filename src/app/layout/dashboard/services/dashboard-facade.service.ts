@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { Observable, OperatorFunction } from 'rxjs';
 import { Order } from '../../../shared/models/order.model';
 import { map } from 'rxjs/operators';
+import { ModifyProductModel } from '../components/dashboard-modify-product/modify-product-form';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,32 @@ export class DashboardFacadeService {
 
   getProducts(paginationInfo: PaginationInfo): Observable<PaginatedResponse<Product>> {
     return this.dashboardApiService.getProducts(paginationInfo).pipe(this.mapProductsToDomainModel());
+  }
+
+  addOrModifyProduct(productFormBody: ModifyProductModel, id: number = null): Observable<PaginatedResponse<Product>> {
+    // const productFormData = this.buildProductFormData(productFormBody);
+    const productFormData = productFormBody;
+    productFormData.stock = productFormBody.stock ? 1 : 0;
+    return id ? this.dashboardApiService.editProduct(productFormData, id) : this.dashboardApiService.addProduct(productFormData);
+  }
+
+  private buildProductFormData(modifyProductBody: ModifyProductModel) {
+    const excludedKeys = ['images', 'altUnit'];
+    const formData = new FormData();
+    if (modifyProductBody.images) {
+      modifyProductBody.images.forEach((file) => {
+        formData.append('images', file, file.name);
+      });
+    }
+    Object.keys(modifyProductBody).forEach((key) => {
+      if (!excludedKeys.includes(key)) {
+        formData.append(key, modifyProductBody[key]);
+        if (key === 'unit' && !modifyProductBody[key]) {
+          formData.append('unit', modifyProductBody['altUnit']);
+        }
+      }
+    });
+    return formData;
   }
 
   private mapCompaniesToDomainModel(): OperatorFunction<PaginatedResponse<Order>, PaginatedResponse<Order>> {

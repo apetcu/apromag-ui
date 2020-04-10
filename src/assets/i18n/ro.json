@@ -15,7 +15,7 @@
         "BUTTON": "Adauga produs",
         "CANCEL": "Inchide"
       },
-      "MODIFY": {
+      "EDIT": {
         "BUTTON": "Modifica produs"
       },
       "FORM": {
@@ -27,6 +27,12 @@
     },
     "SHIPPING": {
       "TITLE": "Livrare"
+    }
+  },
+  "PRODUCTS": {
+    "STOCK": {
+      "AVAILABLE": "In stoc",
+      "NOT_AVAILABLE": "Lipsa stoc"
     }
   }
 }

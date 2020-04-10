@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        <h5 class="text-green">{{'VENDOR.PRODUCTS.ADD.BUTTON' | translate}}</h5>
+        <h5 class="text-green">{{'VENDOR.PRODUCTS.' + formMode + '.BUTTON' | translate}}</h5>
         <app-info-box title="Eroare" type="danger" *ngIf="formErrors">
             {{'VENDOR.PRODUCTS.ERRORS.INVALID_FIELDS' | translate}}
         </app-info-box>
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="food-btn style-3 mb-2"><span>{{'VENDOR.PRODUCTS.ADD.BUTTON' | translate}}</span></button>
+                    <button type="submit" class="food-btn style-3 mb-2"><span>{{'VENDOR.PRODUCTS.' + formMode + '.BUTTON' | translate | translate}}</span></button>
                 </div>
                 <div class="col-4">
                     <app-file-upload formControlName="images"></app-file-upload>

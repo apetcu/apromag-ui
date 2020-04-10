@@ -11,8 +11,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class DashboardProductsComponent implements OnInit {
   addProductToggled: boolean = false;
+  editProduct: Product = null;
   loading: boolean = false;
-  rowsPerPage: number = 10;
+  rowsPerPage: number = 2;
   totalRecords: number;
   products: Array<Product>;
 
@@ -31,11 +32,27 @@ export class DashboardProductsComponent implements OnInit {
     });
   }
 
-  onSaveComplete($event) {
-    this.toasterService.success('Produs modificat cu succes', '', {
-      positionClass: 'toast-bottom-right',
-      timeOut: 5000
-    });
+  onSaveComplete(saveSuccessful: boolean) {
+    if (saveSuccessful) {
+      this.toasterService.success('Produs modificat cu succes', '', {
+        timeOut: 5000
+      });
+      this.addProductToggled = false;
+      this.loadData(1);
+    } else {
+      this.toasterService.error('A aparut o eroare la modificarea produsului', '', {
+        timeOut: 5000
+      });
+    }
+  }
+
+  onEditProduct(product: Product) {
+    this.addProductToggled = true;
+    this.editProduct = product;
+  }
+
+  onPageChange(event) {
+    console.log(event);
   }
 
   toggleAddProduct() {

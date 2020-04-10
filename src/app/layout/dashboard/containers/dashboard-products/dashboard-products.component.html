@@ -1,9 +1,9 @@
 <h5 class="admin-title">{{'VENDOR.PRODUCTS.TITLE' | translate}}
     <button class="btn float-right" (click)="toggleAddProduct()" [ngClass]="addProductToggled ? 'btn-dark': 'btn-success'">
-        {{addProductToggled ? ('VENDOR.PRODUCTS.ADD.CANCEL' | translate) : ('VENDOR.PRODUCTS.ADD.BUTTON' | translate)}}
+        {{(addProductToggled ? 'VENDOR.PRODUCTS.ADD.CANCEL' : 'VENDOR.PRODUCTS.ADD.BUTTON') | translate}}
     </button>
 </h5>
-<app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)" *ngIf="addProductToggled"></app-dashboard-modify-product>
+<app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)" [editProduct]="editProduct" *ngIf="addProductToggled"></app-dashboard-modify-product>
 <div class="row mt-2">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
@@ -13,13 +13,12 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th>Nume</th>
-                        <th class="text-center">Pret</th>
+                        <th class="text-right">Pret</th>
                         <th class="text-center">Stoc</th>
-                        <th class="text-center">Actiuni</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of products" style="cursor:pointer;" (click)="onEditProduct(product)">
                         <td class="text-center text-muted">#{{product.id}}</td>
                         <td>
                             <div class="widget-content p-0">
@@ -31,16 +30,15 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="text-center">{{product.price}} </td>
+                        <td class="text-right">{{product.fullPrice}}</td>
                         <td class="text-center">
-                            <div class="badge badge-success">In stock</div>
-                        </td>
-                        <td class="text-center">
-                            <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Details</button>
+                            <div class="badge"
+                                 [ngClass]="product.stock?'badge-success':'badge-danger'">{{(product.stock ? 'PRODUCTS.STOCK.AVAILABLE' : 'PRODUCTS.STOCK.NOT_AVAILABLE') | translate}}</div>
                         </td>
                     </tr>
                     </tbody>
                 </table>
+                <p-paginator (onPageChange)="onPageChange($event)" [rows]="rowsPerPage" [totalRecords]="totalRecords"></p-paginator>
             </div>
 
         </div>

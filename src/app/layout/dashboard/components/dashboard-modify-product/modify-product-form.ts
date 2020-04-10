@@ -1,14 +1,15 @@
 import { BaseForm } from '../../../../shared/models/base.form';
 import { FormControl, Validators } from '@angular/forms';
+import { Product } from '../../../product/models/product';
 
-interface ModifyProductModel {
+export interface ModifyProductModel {
   name: string;
   category: string;
   price: string;
   unit: string;
   altUnit: string;
   description: string;
-  stock: boolean;
+  stock: number;
   images: Array<File>;
 }
 
@@ -29,5 +30,11 @@ export class ModifyProductForm extends BaseForm<ModifyProductModel> {
   setAltUnit() {
     this.controls['unit'].clearValidators();
     this.controls['altUnit'].setValidators([Validators.required]);
+  }
+
+  initEditForm(product: Product) {
+    this.patchValue(product);
+    this.patchValue({ altUnit: product.unit });
+    this.setAltUnit();
   }
 }

@@ -14,6 +14,7 @@ import { FileUploadModule } from '../../shared/components/file-upload/file-uploa
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { InfoBoxModule } from '../../shared/components/info-box/info-box.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { PaginatorModule } from 'primeng';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FileUploadModule,
     InputSwitchModule,
     InfoBoxModule,
-    TranslateModule
+    TranslateModule,
+    PaginatorModule
   ]
 })
 export class DashboardModule {}

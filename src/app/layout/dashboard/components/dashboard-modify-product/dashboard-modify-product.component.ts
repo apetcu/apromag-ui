@@ -1,5 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ModifyProductForm } from './modify-product-form';
+import { DashboardFacadeService } from '../../services/dashboard-facade.service';
+import { Product } from '../../../product/models/product';
 
 @Component({
   selector: 'app-dashboard-modify-product',
@@ -7,27 +9,40 @@ import { ModifyProductForm } from './modify-product-form';
   styleUrls: ['./dashboard-modify-product.component.scss']
 })
 export class DashboardModifyProductComponent implements OnInit {
-  formErrors = false;
   @Output()
   onSaveComplete: EventEmitter<any> = new EventEmitter<any>(null);
-  altUnit: boolean = false;
+  @Input()
+  editProduct: Product = null;
+  editProductId: number = null;
   modifyProductForm: ModifyProductForm = new ModifyProductForm();
 
-  constructor() {}
+  altUnit: boolean = false;
+  formErrors = false;
+  formMode: string = 'ADD';
+
+  constructor(private dashboardFacadeService: DashboardFacadeService) {}
 
   ngOnInit(): void {
     this.listenForFormChanges();
+    this.initProductEdit(this.editProduct);
   }
 
   onSubmit(): void {
     if (this.modifyProductForm.valid) {
-      this.onSaveComplete.emit(true);
+      this.dashboardFacadeService.addOrModifyProduct(this.modifyProductForm.value, this.editProductId).subscribe(
+        (data) => {
+          this.onSaveComplete.emit(true);
+        },
+        () => {
+          this.onSaveComplete.emit(false);
+        }
+      );
     } else {
       this.formErrors = true;
     }
   }
 
-  listenForFormChanges() {
+  private listenForFormChanges() {
     this.modifyProductForm.controls['unit'].valueChanges.subscribe((value) => {
       if (!value) {
         this.modifyProductForm.setAltUnit();
@@ -38,5 +53,14 @@ export class DashboardModifyProductComponent implements OnInit {
     this.modifyProductForm.valueChanges.subscribe(() => {
       this.formErrors = false;
     });
+  }
+
+  private initProductEdit(editProduct: Product) {
+    if (editProduct) {
+      this.modifyProductForm.initEditForm(editProduct);
+      this.formMode = 'EDIT';
+      this.editProductId = editProduct.id;
+      this.altUnit = true;
+    }
   }
 }
