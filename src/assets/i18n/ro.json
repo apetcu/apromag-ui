@@ -27,7 +27,10 @@
       }
     },
     "SHIPPING": {
-      "TITLE": "Livrare"
+      "TITLE": "Metode de Livrare"
+    },
+    "PAYMENT": {
+      "TITLE": "Metode de plata"
     }
   },
   "PRODUCTS": {

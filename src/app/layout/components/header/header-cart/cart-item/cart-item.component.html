@@ -6,21 +6,13 @@
             </div>
             <div class="content">
                 <a [routerLink]="cartItem.urlSlug">{{cartItem.name}}</a>
+                <div>
+                <strong>{{cartItem.quantity}}</strong> x {{cartItem.fullPrice}}
+                </div>
             </div>
             <div class="remove-btn">
                 <a (click)="removeItem(cartItem)"><i class="icofont-close"></i></a>
             </div>
-        </div>
-        <div class="cart-bottom">
-            <div class="sing-price">{{cartItem.fullPrice}}</div>
-            <div class="cart-plus-minus">
-                <div class="dec qtybutton">-</div>
-                <div class="dec qtybutton">-</div>
-                <input class="cart-plus-minus-box" type="text" name="qtybutton" [value]="cartItem.quantity">
-                <div class="inc qtybutton">+</div>
-                <div class="inc qtybutton">+</div>
-            </div>
-            <div class="total-price">{{cartItem.price * cartItem.quantity}}</div>
         </div>
     </div>
 </div>

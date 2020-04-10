@@ -2,8 +2,8 @@
     <thead>
     <tr>
         <th>Produs</th>
-        <th>Pret</th>
-        <th>Cntitate</th>
+        <th>Pret unitar</th>
+        <th>Cantitate</th>
         <th>Total</th>
         <th></th>
     </tr>
@@ -21,12 +21,12 @@
         <td>{{cartItem.fullPrice}}</td>
         <td>
             <div class="cart-plus-minus">
-                <div class="dec qtybutton">-</div>
-                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="3">
-                <div class="inc qtybutton">+</div>
+                <div class="dec qtybutton" (click)="onCartSubstract()">-</div>
+                <input class="cart-plus-minus-box" type="text" name="qtybutton" [value]="cartItem.quantity">
+                <div class="inc qtybutton" (click)="onCartAdd()">+</div>
             </div>
         </td>
-        <td>$750</td>
+        <td>{{cartItem.computeFullPrice(cartItem.quantity)}}</td>
         <td>
             <a href="#"><img src="assets/images/shop/del.png" alt="product"></a>
         </td>

@@ -407,7 +407,7 @@
     border-left: 1px solid $border-color;
     cursor: pointer;
     @extend %rel;
-    &:hover {
+    &.active {
         .cart-content {
             opacity: 1;
             visibility: visible;
@@ -431,6 +431,7 @@
     }
     .cart-content {
         position: absolute;
+        text-align: left;
         top: 100%;
         right: -56px;
         opacity: 0;

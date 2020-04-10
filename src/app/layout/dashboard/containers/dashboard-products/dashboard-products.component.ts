@@ -87,6 +87,11 @@ export class DashboardProductsComponent implements OnInit {
   onEditProduct(product: Product) {
     this.addProductToggled = true;
     this.editProduct = product;
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   onPageChange(event) {

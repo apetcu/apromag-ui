@@ -15,6 +15,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { InfoBoxModule } from '../../shared/components/info-box/info-box.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { PaginatorModule } from 'primeng/paginator';
+import { DashboardShippingComponent } from './containers/dashboard-shipping/dashboard-shipping.component';
+import { DashboardPaymentComponent } from './containers/dashboard-payment/dashboard-payment.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PaginatorModule } from 'primeng/paginator';
     DashboardOverviewComponent,
     DashboardOrderListComponent,
     DashboardProductsComponent,
-    DashboardModifyProductComponent
+    DashboardModifyProductComponent,
+    DashboardShippingComponent,
+    DashboardPaymentComponent
   ],
   providers: [DashboardGuard],
   imports: [

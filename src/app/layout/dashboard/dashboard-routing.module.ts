@@ -6,6 +6,8 @@ import { UserSettingsComponent } from '../user/components/user-settings/user-set
 import { DashboardGuard } from './guards/dashboard-guard';
 import { DashboardOverviewComponent } from './containers/dashboard-overview/dashboard-overview.component';
 import { DashboardProductsComponent } from './containers/dashboard-products/dashboard-products.component';
+import { DashboardShippingComponent } from './containers/dashboard-shipping/dashboard-shipping.component';
+import { DashboardPaymentComponent } from './containers/dashboard-payment/dashboard-payment.component';
 
 const routes: Routes = [
   {
@@ -40,10 +42,18 @@ const routes: Routes = [
       },
       {
         path: 'shipping',
-        component: UserSettingsComponent,
+        component: DashboardShippingComponent,
         pathMatch: 'prefix',
         data: {
-          title: 'Modifica detalii'
+          title: 'Metode de livrare'
+        }
+      },
+      {
+        path: 'payment',
+        component: DashboardPaymentComponent,
+        pathMatch: 'prefix',
+        data: {
+          title: 'Metode de plata'
         }
       },
       { path: '', redirectTo: '/dashboard/overview', pathMatch: 'full' }
