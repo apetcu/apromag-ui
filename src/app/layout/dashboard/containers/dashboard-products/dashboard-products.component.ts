@@ -3,6 +3,7 @@ import { PaginationInfo } from '../../../../shared/models/pagination-info.model'
 import { DashboardFacadeService } from '../../services/dashboard-facade.service';
 import { Product } from '../../../product/models/product';
 import { ToastrService } from 'ngx-toastr';
+import { AlertService } from '../../../../shared/services/alert/alert.service';
 
 @Component({
   selector: 'app-dashboard-products',
@@ -17,7 +18,11 @@ export class DashboardProductsComponent implements OnInit {
   totalRecords: number;
   products: Array<Product>;
 
-  constructor(private dashboardFacadeService: DashboardFacadeService, private toasterService: ToastrService) {}
+  constructor(
+    private dashboardFacadeService: DashboardFacadeService,
+    private toasterService: ToastrService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit(): void {
     this.loadData(1);
@@ -34,8 +39,12 @@ export class DashboardProductsComponent implements OnInit {
 
   onSaveComplete(saveSuccessful: boolean) {
     if (saveSuccessful) {
-      this.toasterService.success('Produs modificat cu succes', '', {
-        timeOut: 5000
+      this.alertService.show({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Produsul a fost adaugat',
+        showConfirmButton: false,
+        timer: 1500
       });
       this.addProductToggled = false;
       this.loadData(1);
@@ -44,6 +53,35 @@ export class DashboardProductsComponent implements OnInit {
         timeOut: 5000
       });
     }
+  }
+
+  onDeleteProduct(product: Product) {
+    this.alertService
+      .show({
+        icon: 'warning',
+        title: 'Esti sigur ca vrei sa stergi acest produs?',
+        text: 'Odata sters, acesta nu va mai fi disponibil pentru clienti',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sterge produsul'
+      })
+      .subscribe((data) => {
+        if (data.value) {
+          this.dashboardFacadeService.deleteProduct(product.id).subscribe(() => {
+            this.editProduct = null;
+            this.addProductToggled = false;
+            this.loadData(1);
+            this.alertService.show({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Produsul a fost sters',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          });
+        }
+      });
   }
 
   onEditProduct(product: Product) {

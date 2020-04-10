@@ -50,7 +50,7 @@
                     </div>
                     <div class=" mb-2">
                     <button type="submit" class="food-btn style-3"><span><i class="icofont-save mr-1"></i> {{'VENDOR.PRODUCTS.BUTTONS.' + formMode | translate | translate}}</span></button>
-                    <button type="submit" class="food-btn style-danger float-right"><span><i class="icofont-trash mr-1"></i> {{'VENDOR.PRODUCTS.BUTTONS.DELETE' | translate | translate}}</span></button>
+                    <button type="button" (click)="deleteProduct(editProduct)" class="food-btn style-danger float-right" *ngIf="editProductId"><span><i class="icofont-trash mr-1"></i> {{'VENDOR.PRODUCTS.BUTTONS.DELETE' | translate | translate}}</span></button>
                     </div>
                 </div>
                 <div class="col-4">

@@ -21,4 +21,8 @@ export class ApiService {
   put(url: string, data: any, options = {}): Observable<any> {
     return this.http.put(this.baseUrl + url, data, options);
   }
+
+  delete(url: string, options = {}): Observable<any> {
+    return this.http.delete(this.baseUrl + url, options);
+  }
 }

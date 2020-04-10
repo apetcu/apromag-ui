@@ -11,6 +11,9 @@ import { Product } from '../../../product/models/product';
 export class DashboardModifyProductComponent implements OnInit {
   @Output()
   onSaveComplete: EventEmitter<any> = new EventEmitter<any>(null);
+  @Output()
+  onDeleteProduct: EventEmitter<any> = new EventEmitter<any>(null);
+
   @Input()
   editProduct: Product = null;
   editProductId: number = null;
@@ -40,6 +43,10 @@ export class DashboardModifyProductComponent implements OnInit {
     } else {
       this.formErrors = true;
     }
+  }
+
+  deleteProduct(product: Product): void {
+    this.onDeleteProduct.next(product);
   }
 
   private listenForFormChanges() {

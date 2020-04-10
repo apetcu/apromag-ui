@@ -3,7 +3,7 @@
         {{(addProductToggled ? 'VENDOR.PRODUCTS.BUTTONS.CANCEL' : 'VENDOR.PRODUCTS.BUTTONS.ADD') | translate}}
     </button>
 </h5>
-<app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)" [editProduct]="editProduct" *ngIf="addProductToggled"></app-dashboard-modify-product>
+<app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)" (onDeleteProduct)="onDeleteProduct($event)" [editProduct]="editProduct" *ngIf="addProductToggled"></app-dashboard-modify-product>
 <div class="row mt-2">
     <div class="col-md-12">
         <div class="main-card mb-3 card">

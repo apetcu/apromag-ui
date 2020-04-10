@@ -22,9 +22,14 @@ export class DashboardFacadeService {
     return this.dashboardApiService.getProducts(paginationInfo).pipe(this.mapProductsToDomainModel());
   }
 
+  deleteProduct(id: number): Observable<any> {
+    return this.dashboardApiService.deleteProduct(id);
+  }
+
   addOrModifyProduct(productFormBody: ModifyProductModel, id: number = null): Observable<PaginatedResponse<Product>> {
     const productFormData = this.buildProductFormData(productFormBody);
-    productFormData.append('stock', (productFormBody.stock ? 1 : 0).toString());
+    // @ts-ignore
+    productFormData.append('stock', productFormBody.stock ? 1 : 0);
     return id ? this.dashboardApiService.editProduct(productFormData, id) : this.dashboardApiService.addProduct(productFormData);
   }
 
@@ -38,9 +43,12 @@ export class DashboardFacadeService {
     }
     Object.keys(modifyProductBody).forEach((key) => {
       if (!excludedKeys.includes(key)) {
-        formData.append(key, modifyProductBody[key]);
         if (key === 'unit' && !modifyProductBody[key]) {
           formData.append('unit', modifyProductBody['altUnit']);
+        } else if (key === 'stock') {
+          formData.append('stock', (modifyProductBody['stock'] ? 1 : 0).toString());
+        } else {
+          formData.append(key, modifyProductBody[key]);
         }
       }
     });

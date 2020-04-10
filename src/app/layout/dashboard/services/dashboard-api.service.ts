@@ -26,6 +26,10 @@ export class DashboardApiService {
     return this.api.put(`${this.domainUrl}products/${id}`, product);
   }
 
+  deleteProduct(id): Observable<any> {
+    return this.api.delete(`${this.domainUrl}products/${id}`);
+  }
+
   register(): Observable<any> {
     return this.api.post(`${this.domainUrl}/register`, {});
   }
