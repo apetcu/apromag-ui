@@ -6,9 +6,10 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserGuard } from './guards/user-guard';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserOrdersComponent } from './components/user-orders/user-orders.component';
 
 @NgModule({
-  declarations: [UserComponent, UserSettingsComponent, UserDetailsComponent],
+  declarations: [UserComponent, UserSettingsComponent, UserDetailsComponent, UserOrdersComponent],
   providers: [UserGuard],
   imports: [CommonModule, UserRoutingModule, ReactiveFormsModule]
 })

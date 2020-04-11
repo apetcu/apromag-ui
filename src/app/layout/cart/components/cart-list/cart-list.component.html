@@ -21,9 +21,9 @@
         <td>{{cartItem.fullPrice}}</td>
         <td>
             <div class="cart-plus-minus">
-                <div class="dec qtybutton" (click)="onCartSubstract()">-</div>
+                <div class="dec qtybutton" (click)="onCartSubstract(cartItem)">-</div>
                 <input class="cart-plus-minus-box" type="text" name="qtybutton" [value]="cartItem.quantity">
-                <div class="inc qtybutton" (click)="onCartAdd()">+</div>
+                <div class="inc qtybutton" (click)="onCartAdd(cartItem)">+</div>
             </div>
         </td>
         <td>{{cartItem.computeFullPrice(cartItem.quantity)}}</td>

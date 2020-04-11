@@ -3,12 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LayoutComponent } from './layout.component';
 import { HomeComponent } from './home/home/home.component';
-import { VendorListComponent } from './vendor/containers/vendor-list/vendor-list.component';
-import { VendorProductsComponent } from './vendor/containers/vendor-products/vendor-products.component';
 import { ContactComponent } from './contact/components/contact/contact.component';
 import { NotFoundComponent } from '../shared/components/not-found/not-found.component';
 import { ProductComponent } from './product/containers/product/product.component';
-import { CartComponent } from './cart/containers/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -32,6 +29,10 @@ const routes: Routes = [
       {
         path: 'vendor',
         loadChildren: () => import('./vendor/vendor.module').then((m) => m.VendorModule)
+      },
+      {
+        path: 'static',
+        loadChildren: () => import('./static/static.module').then((m) => m.StaticModule)
       },
       {
         path: 'user',

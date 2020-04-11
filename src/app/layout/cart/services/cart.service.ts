@@ -43,6 +43,17 @@ export class CartService {
     this.setCart(cartItems);
   }
 
+  modifyItem(cartItem: CartItem, operation: CartOperations) {
+    const cartItems = this.getItems();
+    const foundItemIndex = cartItems.findIndex((entry) => entry.id === cartItem.id);
+    if (operation === CartOperations.ADD) {
+      cartItems[foundItemIndex].quantity++;
+    } else if (operation === CartOperations.SUBSTRACT) {
+      cartItems[foundItemIndex].quantity--;
+    }
+    this.setCart(cartItems);
+  }
+
   getItems(): Array<CartItem> {
     const currentItems = this.storageService.getItem(StorageLocations.CART) || [];
     return currentItems.map((cartItem) => new CartItem(cartItem, cartItem.quantity));
@@ -52,4 +63,9 @@ export class CartService {
     this.storageService.setItem(StorageLocations.CART, cartItems);
     this.onCartUpdated.next(cartItems);
   }
+}
+
+export enum CartOperations {
+  ADD = 'ADD',
+  SUBSTRACT = 'SUBSTRACT'
 }
