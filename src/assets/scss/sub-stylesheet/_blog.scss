@@ -1432,8 +1432,7 @@ p.comment-form-cookies-consent {
             box-shadow: 0 0 10px rgba(136, 136, 136, .10);
     		@extend %hidden;
 			.cart-checkout-box {
-			    padding: 20px 30px;
-			    margin-top: 30px;
+			    padding: 20px;
 			    justify-content: space-between;
 			    align-items: center;
 			    @extend %flex;
@@ -1514,7 +1513,7 @@ p.comment-form-cookies-consent {
     					@extend %rel;
 						select {
 						    width: 100%;
-						    padding: 9px 20px;
+						    padding: 14px 10px;
 						    background: transparent;
 						    z-index: 1;
 						    -webkit-appearance: none;
@@ -1532,7 +1531,7 @@ p.comment-form-cookies-consent {
 						.select-icon {
 						    top: 0;
 						    right: 0;
-						    padding: 9px 20px;
+						    padding: 14px 20px;
 						    background: $theme-color;
                             color: $white-color;
                             border: 1px solid $border-color;

@@ -1,5 +1,6 @@
 import { Currency } from '../../../shared/models/currency';
 import { Utils } from '../../../shared/services/utils/utils';
+import { Vendor } from '../../vendor/models/vendor';
 
 export class Product {
   private defaultImageUrl = './assets/images/default_profile.png';
@@ -16,6 +17,8 @@ export class Product {
   vendorId: number;
   fullPrice: string;
 
+  vendor: Vendor;
+
   urlSlug: string;
 
   constructor(productResponse: any) {
@@ -28,10 +31,11 @@ export class Product {
     this.price = productResponse.price;
     this.rating = productResponse.rating;
     this.stock = productResponse.stock;
-    this.vendorId = productResponse.vendorId;
+    this.vendor = new Vendor(productResponse.vendor);
+    this.vendorId = this.vendor.id;
     this.unit = productResponse.unit;
 
-    this.urlSlug = Product.generateUrlSlug(productResponse.name, productResponse.id, productResponse.vendorId);
+    this.urlSlug = Product.generateUrlSlug(this.name, this.id, this.vendorId);
 
     this.fullPrice = this.computeFullPrice();
   }

@@ -11,6 +11,12 @@ form {
     outline: none;
     width: 100%;
     @include border-radius(3px);
+    &:not(:focus) {
+      &.ng-invalid.ng-touched {
+        border: 1px solid $youtube;
+        color: $youtube;
+      }
+    }
   }
   select.form-control {
     height: 50px;
@@ -26,6 +32,12 @@ form {
     margin-bottom: 35px;
     outline: none;
     @include border-radius(3px);
+    &:not(:focus) {
+      &.ng-invalid.ng-touched {
+        border: 1px solid $youtube;
+        color: $youtube;
+      }
+    }
   }
   .food-btn {
     outline: none;

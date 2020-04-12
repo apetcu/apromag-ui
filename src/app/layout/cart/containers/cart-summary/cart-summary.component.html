@@ -1,65 +1,62 @@
 <div class="cart-top">
-    <app-cart-list [cartProducts]="cartItems | async"></app-cart-list>
+    <app-cart-list [cartProducts]="cartItems"></app-cart-list>
 </div>
 <div class="cart-bottom">
-    <div class="cart-checkout-box">
-        <div class="coupon">
-            <input type="text" name="coupon" placeholder="Coupon Code..." class="cart-page-input-text">
-            <input type="submit" value="Apply Coupon">
-        </div>
-        <div class="cart-checkout">
-            <input type="submit" value="Update Cart">
-            <input type="submit" value="Proceed to Checkout">
-        </div>
-    </div>
-    <div class="shiping-box">
-        <div class="row">
-            <div class="col-md-6 col-12">
-                <div class="calculate-shiping">
-                    <h4>Calculate Shipping</h4>
-                    <div class="outline-select">
-                        <select>
-                            <option value="volvo">United Kingdom (UK)</option>
-                            <option value="saab">Bangladesh</option>
-                            <option value="saab">Pakisthan</option>
-                            <option value="saab">India</option>
-                            <option value="saab">Nepal</option>
-                        </select>
-                        <span class="select-icon"><i class="icofont-caret-down"></i></span>
+    <form action="" [formGroup]="cartSummaryForm" (ngSubmit)="onCartSubmit()">
+        <div class="shiping-box">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="cart-overview">
+                        <h4>Total comanda</h4>
+                        <ul>
+                            <li>
+                                <span class="pull-left">Subtotal</span>
+                                <p class="pull-right">$ 0.00</p>
+                            </li>
+                            <li>
+                                <span class="pull-left">Transport</span>
+                                <p class="pull-right">Free Shipping</p>
+                            </li>
+                            <li>
+                                <span class="pull-left">Total</span>
+                                <p class="pull-right">$ 2940.00</p>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="outline-select shipping-select">
-                        <select>
-                            <option value="volvo">State/Country</option>
-                            <option value="saab">Dhaka</option>
-                            <option value="saab">Benkok</option>
-                            <option value="saab">Kolkata</option>
-                            <option value="saab">Kapasia</option>
-                        </select>
-                        <span class="select-icon"><i class="icofont-caret-down"></i></span>
-                    </div>
-                    <input type="text" name="coupon" placeholder="Postcode/ZIP" class="cart-page-input-text">
-                    <button type="submit" class="food-btn"><span>Update Total</span></button>
                 </div>
-            </div>
-            <div class="col-md-6 col-12">
-                <div class="cart-overview">
-                    <h4>Cart Totals</h4>
-                    <ul>
-                        <li>
-                            <span class="pull-left">Cart Subtotal</span>
-                            <p class="pull-right">$ 0.00</p>
-                        </li>
-                        <li>
-                            <span class="pull-left">Shipping and Handling</span>
-                            <p class="pull-right">Free Shipping</p>
-                        </li>
-                        <li>
-                            <span class="pull-left">Order Total</span>
-                            <p class="pull-right">$ 2940.00</p>
-                        </li>
-                    </ul>
+                <div class="col-md-6 col-12">
+                    <div class="calculate-shiping">
+                        <h4>Livrare la adresa</h4>
+                        <div class="outline-select">
+                            <select formControlName="location">
+                                <option [value]="location.id" *ngFor="let location of shippingLocations | async ">{{location.name}}</option>
+                            </select>
+                            <span class="select-icon"><i class="icofont-caret-down"></i></span>
+                        </div>
+                        <input type="text" formControlName="address" placeholder="Adresa completa (strada, bloc, etaj)" class="form-control">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" formControlName="phone" placeholder="Telefon" class="form-control">
+                            </div>
+                            <div class="col-6">
+                                <input type="text" formControlName="email" placeholder="E-mail" class="form-control">
+                            </div>
+                        </div>
+                        <textarea formControlName="remarks" id="" cols="30" rows="5" placeholder="Observatii"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="cart-checkout-box">
+            <div class="coupon">
+                <input type="text" name="coupon" placeholder="Coupon Code..." class="cart-page-input-text">
+                <input type="submit" value="Apply Coupon">
+            </div>
+            <div class="float-right">
+                <button type="submit" class="food-btn style-3" [disabled]="cartSummaryForm.invalid"><span>Trimite comanda</span></button>
+            </div>
+        </div>
+    </form>
 </div>

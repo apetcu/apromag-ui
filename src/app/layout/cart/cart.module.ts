@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartSummaryComponent } from './containers/cart-summary/cart-summary.component';
 import { CartRoutingModule } from './cart-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CartComponent, CartListComponent, CartSummaryComponent],
-  imports: [CommonModule, PageTitleModule, RouterModule, CartRoutingModule]
+  imports: [CommonModule, PageTitleModule, RouterModule, CartRoutingModule, ReactiveFormsModule]
 })
 export class CartModule {}

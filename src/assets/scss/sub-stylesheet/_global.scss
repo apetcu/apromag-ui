@@ -242,6 +242,22 @@
     &.style-3 {
         background: $theme-color;
         outline:none;
+        &:disabled {
+            cursor: not-allowed;
+            background: $desc-color;
+            border: 2px solid $desc-color;
+            span {
+                color: #fff;
+            }
+            &:hover {
+                span {
+                    color: #fff;
+                }
+                &::after{
+                    display: none;
+                }
+            }
+        }
     }
     &.style-danger {
         background: $youtube;
