@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { ShippingLocation } from '../../../../shared/models/location';
 import { ShippingFacadeService } from '../../../../shared/services/shipping/shipping-facade.service';
 import { CartSummaryForm } from './cart-summary-form';
+import { CartFacadeService } from '../../services/cart-facade.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-summary',
@@ -16,7 +18,12 @@ export class CartSummaryComponent implements OnInit {
   shippingLocations: Observable<Array<ShippingLocation>>;
   cartItems: Array<CartItem>;
 
-  constructor(private cartService: CartService, private shippingFacadeService: ShippingFacadeService) {}
+  constructor(
+    private cartService: CartService,
+    private cartFacadeService: CartFacadeService,
+    private shippingFacadeService: ShippingFacadeService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.cartService.currentCartState().subscribe((items) => {
@@ -26,6 +33,9 @@ export class CartSummaryComponent implements OnInit {
   }
 
   onCartSubmit(): void {
-    console.log(this.cartItems);
+    this.cartFacadeService.submitOrder(this.cartSummaryForm.value, this.cartItems).subscribe((data) => {
+      // this.router.navigate(['/cart/finish']);
+      // this.cartService.emptyCart();
+    });
   }
 }

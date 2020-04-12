@@ -59,6 +59,12 @@ export class CartService {
     return currentItems.map((cartItem) => new CartItem(cartItem, cartItem.quantity));
   }
 
+  emptyCart() {
+    this.setCart([]);
+  }
+
+  getTotals() {}
+
   private setCart(cartItems: Array<CartItem>) {
     this.storageService.setItem(StorageLocations.CART, cartItems);
     this.onCartUpdated.next(cartItems);

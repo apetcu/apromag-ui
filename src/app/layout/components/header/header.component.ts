@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from './models/menu-item';
 import { NavigationStart, Router } from '@angular/router';
+import { CategoriesFacadeService } from '../../categories/services/categories-facade.service';
+import { Category } from '../../categories/models/category.model';
 
 @Component({
   selector: 'app-header',
@@ -9,22 +11,9 @@ import { NavigationStart, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   menuOpen = false;
-  menuItems: Array<MenuItem> = [
-    { title: 'Acasa', link: '/home' },
-    { title: 'Producatori', link: '/vendor' },
-    {
-      title: 'Categorii',
-      link: '/categories',
-      children: [
-        { title: 'Cat 1', link: '/categories/1' },
-        { title: 'Cat 3', link: '/categories/2' },
-        { title: 'Cat 2', link: '/categories/3' }
-      ]
-    },
-    { title: 'Contact', link: '/contact' }
-  ];
+  categoryMenus: Array<MenuItem>;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private categoriesFacadeService: CategoriesFacadeService) {}
 
   ngOnInit(): void {
     this.router.events.forEach((event) => {
@@ -32,5 +21,20 @@ export class HeaderComponent implements OnInit {
         this.menuOpen = false;
       }
     });
+    this.getCategories();
+  }
+
+  getCategories(): void {
+    this.categoriesFacadeService.getCategories().subscribe((categories) => {
+      this.categoryMenus = categories.map((entry) => this.getCategoryMenu(entry));
+    });
+  }
+
+  private getCategoryMenu(category: Category) {
+    return {
+      title: category.name,
+      link: `/categories/${category.id}`,
+      children: category.children.map((subcategory) => this.getCategoryMenu(subcategory))
+    };
   }
 }

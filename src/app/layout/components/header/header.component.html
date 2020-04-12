@@ -18,13 +18,28 @@
                     <button type="submit"><i class="icofont-search-2"></i></button>
                 </div>
                 <ul>
-                    <li *ngFor="let menu of menuItems">
-                        <a [routerLink]="menu.link" [routerLinkActive]="'active'">{{menu.title}}</a>
-                        <ul *ngIf="menu.children && menu.children.length">
-                            <li *ngFor="let children of menu.children"><a class="active" [routerLink]="menu.link">{{menu.title}}</a></li>
+                    <li>
+                        <a routerLink="/home" [routerLinkActive]="'active'">Acasa</a>
+                    </li>
+                    <li>
+                        <a routerLink="/vendor" [routerLinkActive]="'active'">Producatori</a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0)">Categorii</a>
+                        <ul>
+                            <li *ngFor="let menu of categoryMenus">
+                                <a [routerLink]="menu.link" [routerLinkActive]="'active'">{{menu.title}}</a>
+                                <ul *ngIf="menu.children && menu.children.length">
+                                    <li *ngFor="let child of menu.children">
+                                        <a class="active" [routerLink]="child.link">{{child.title}}</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-
+                    <li>
+                        <a routerLink="/contact" [routerLinkActive]="'active'">Contact</a>
+                    </li>
                 </ul>
                 <div class="scocial-media">
                     <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
@@ -47,19 +62,35 @@
             </div>
             <div class="main-menu">
                 <ul>
-                    <li *ngFor="let menu of menuItems">
-                        <a [routerLink]="menu.link" [routerLinkActive]="'active'">{{menu.title}}</a>
-                        <ul *ngIf="menu.children && menu.children.length">
-                            <li *ngFor="let childMenu of menu.children"><a [routerLink]="childMenu.link" [routerLinkActive]="'active'">{{childMenu.title}}</a></li>
+                    <li>
+                        <a routerLink="/home" [routerLinkActive]="'active'">Acasa</a>
+                    </li>
+                    <li>
+                        <a routerLink="/vendor" [routerLinkActive]="'active'">Producatori</a>
+                    </li>
+                    <li>
+                        <a routerLink="/categories" [routerLinkActive]="'active'" class="dd-icon-right">Categorii</a>
+                        <ul>
+                            <li *ngFor="let menu of categoryMenus">
+                                <a [routerLink]="menu.link" [routerLinkActive]="'active'">{{menu.title}}</a>
+                                <ul *ngIf="menu.children && menu.children.length">
+                                    <li *ngFor="let child of menu.children">
+                                        <a class="active" [routerLink]="child.link">{{child.title}}</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a routerLink="/contact" [routerLinkActive]="'active'">Contact</a>
                     </li>
                 </ul>
             </div>
             <div class="author-option">
                 <div class="author-area">
-                       <app-header-cart></app-header-cart>
+                    <app-header-cart></app-header-cart>
                     <div class="author-account">
-                       <app-header-account></app-header-account>
+                        <app-header-account></app-header-account>
                     </div>
                 </div>
             </div>

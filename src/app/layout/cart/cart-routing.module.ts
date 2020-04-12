@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './containers/cart/cart.component';
 import { CartSummaryComponent } from './containers/cart-summary/cart-summary.component';
+import { CartFinishComponent } from './containers/cart-finish/cart-finish.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,13 @@ const routes: Routes = [
         component: CartSummaryComponent,
         data: {
           title: 'Cosul de cumparaturi'
+        }
+      },
+      {
+        path: 'finish',
+        component: CartFinishComponent,
+        data: {
+          title: 'Comanda a fost trimisa'
         }
       }
     ]

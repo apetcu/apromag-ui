@@ -1,5 +1,5 @@
-<div class="cart-option" [class.active]="cartDisplayed" appClickOutside (clickOutside)="hideCart()">
-    <img src="assets/images/header/cart.png" alt="shop-cart" (click)="showCart()">
+<div class="cart-option" [class.active]="cartDisplayed" appClickOutside (clickOutside)="hideCart()" (click)="cartToggle()">
+    <img src="assets/images/header/cart.png" alt="shop-cart">
     <div class="count-item">{{(cartItems | async).length}}</div>
     <div class="cart-content">
         <div class="cart-title">

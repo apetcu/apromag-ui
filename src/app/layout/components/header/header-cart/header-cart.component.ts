@@ -34,7 +34,7 @@ export class HeaderCartComponent implements OnInit {
     this.cartDisplayed = false;
   }
 
-  showCart() {
-    this.cartDisplayed = true;
+  cartToggle() {
+    this.cartDisplayed = !this.cartDisplayed;
   }
 }

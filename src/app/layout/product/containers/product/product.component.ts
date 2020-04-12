@@ -41,7 +41,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(details: Product): void {
-    this.cartService.addItem(details, this.addToCartForm.get('quantity').value);
+    this.cartService.addItem(details, parseInt(this.addToCartForm.get('quantity').value, 10));
   }
 
   private getProductInformation(productId: number) {
