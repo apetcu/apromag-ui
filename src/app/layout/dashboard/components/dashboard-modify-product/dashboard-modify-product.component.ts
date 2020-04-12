@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { ModifyProductForm } from './modify-product-form';
 import { DashboardFacadeService } from '../../services/dashboard-facade.service';
 import { Product } from '../../../product/models/product';
+import { Category } from '../../../categories/models/category.model';
 
 @Component({
   selector: 'app-dashboard-modify-product',
@@ -16,6 +17,8 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
 
   @Input()
   editProduct: Product = null;
+  @Input()
+  categoryList: Array<Category>;
   editProductId: number = null;
   modifyProductForm: ModifyProductForm = new ModifyProductForm();
 

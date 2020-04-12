@@ -4,6 +4,8 @@ import { DashboardFacadeService } from '../../services/dashboard-facade.service'
 import { Product } from '../../../product/models/product';
 import { ToastrService } from 'ngx-toastr';
 import { AlertService } from '../../../../shared/services/alert/alert.service';
+import { CategoriesFacadeService } from '../../../categories/services/categories-facade.service';
+import { Category } from '../../../categories/models/category.model';
 
 @Component({
   selector: 'app-dashboard-products',
@@ -18,14 +20,24 @@ export class DashboardProductsComponent implements OnInit {
   totalRecords: number;
   products: Array<Product>;
 
+  categoryList: Array<Category>;
+
   constructor(
     private dashboardFacadeService: DashboardFacadeService,
+    private categoriesFacadeService: CategoriesFacadeService,
     private toasterService: ToastrService,
     private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
     this.loadData(1);
+    this.loadCategories();
+  }
+
+  loadCategories() {
+    this.categoriesFacadeService.getCategories().subscribe((categories) => {
+      this.categoryList = categories;
+    });
   }
 
   loadData(pageNo: number) {
@@ -87,19 +99,14 @@ export class DashboardProductsComponent implements OnInit {
   onEditProduct(product: Product) {
     this.addProductToggled = true;
     this.editProduct = product;
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
   }
 
   onPageChange(event) {
     this.loadData(event.page + 1);
   }
 
-  toggleAddProduct() {
+  displayAddProduct() {
     this.editProduct = null;
-    this.addProductToggled = !this.addProductToggled;
+    this.addProductToggled = true;
   }
 }

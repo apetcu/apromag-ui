@@ -17,6 +17,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PaginatorModule } from 'primeng/paginator';
 import { DashboardShippingComponent } from './containers/dashboard-shipping/dashboard-shipping.component';
 import { DashboardPaymentComponent } from './containers/dashboard-payment/dashboard-payment.component';
+import { DialogModule } from 'primeng/dialog';
+import { ngfModule } from 'angular-file';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { DashboardPaymentComponent } from './containers/dashboard-payment/dashbo
     InputSwitchModule,
     InfoBoxModule,
     TranslateModule,
-    PaginatorModule
+    PaginatorModule,
+    DialogModule,
+    ngfModule
   ]
 })
 export class DashboardModule {}

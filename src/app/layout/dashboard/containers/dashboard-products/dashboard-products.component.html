@@ -1,9 +1,23 @@
 <h5 class="admin-title">{{'VENDOR.PRODUCTS.TITLE' | translate}}
-    <button class="btn float-right" (click)="toggleAddProduct()" [ngClass]="addProductToggled ? 'btn-dark': 'btn-success'">
-        {{(addProductToggled ? 'VENDOR.PRODUCTS.BUTTONS.CANCEL' : 'VENDOR.PRODUCTS.BUTTONS.ADD') | translate}}
+    <button class="btn float-right btn-success" (click)="displayAddProduct()">
+        {{'VENDOR.PRODUCTS.BUTTONS.ADD' | translate}}
     </button>
 </h5>
-<app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)" (onDeleteProduct)="onDeleteProduct($event)" [editProduct]="editProduct" *ngIf="addProductToggled"></app-dashboard-modify-product>
+<p-dialog header="Godfather I" [(visible)]="addProductToggled"
+          [modal]="true"
+          [showHeader]="false"
+          [style]="{width: '80vw', height: '90vh'}"
+          [autoZIndex]="true"
+          [draggable]="false"
+          [dismissableMask]="true"
+          [resizable]="false">
+    <app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)"
+                                  (onDeleteProduct)="onDeleteProduct($event)"
+                                  [categoryList]="categoryList"
+                                  [editProduct]="editProduct">
+    </app-dashboard-modify-product>
+</p-dialog>
+
 <div class="row mt-2">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
@@ -12,9 +26,9 @@
                     <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th  translate="VENDOR.PRODUCTS.FORM.NAME"></th>
-                        <th class="text-right"  translate="VENDOR.PRODUCTS.FORM.PRICE"></th>
-                        <th class="text-right"  translate="VENDOR.PRODUCTS.FORM.UNIT"></th>
+                        <th translate="VENDOR.PRODUCTS.FORM.NAME"></th>
+                        <th class="text-right" translate="VENDOR.PRODUCTS.FORM.PRICE"></th>
+                        <th class="text-right" translate="VENDOR.PRODUCTS.FORM.UNIT"></th>
                         <th class="text-center" translate="VENDOR.PRODUCTS.FORM.STOCK"></th>
                     </tr>
                     </thead>
