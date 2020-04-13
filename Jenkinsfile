@@ -21,7 +21,7 @@ node {
 
             stage('Build front-end') {
                 nodejs('NodeJS') {
-                    sh "cd client && npm run build:prod"
+                    sh "npm run build:prod"
                     sh "ls -laG ./dist/apromag-ui"
                 }
             }
