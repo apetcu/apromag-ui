@@ -122,7 +122,7 @@
                 input {
                     margin-bottom: 0;
                     padding-left: 20px;
-                    width: calc(100% - 280px);
+                    width: calc(100% - 80px);
                     @include breakpoint(max-sm) {
                         width: calc(100% - 50px);
                     }

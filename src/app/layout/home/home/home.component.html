@@ -12,18 +12,19 @@
                 <div class="banner-content">
                     <h2>Reteaua ta de producatori locali...</h2>
                     <form action="/">
-                        <div class="codexcoder-selectoption">
-                            <select name="text">
-                                <option value="1">Locatia ta</option>
-                            </select>
-                        </div>
-                        <input type="text" name="type" placeholder="Enter your food name">
+                        <p-autoComplete [suggestions]="shippingLocations"
+                                        (completeMethod)="filterCity($event)"
+                                        (onSelect)="selectLocation($event)"
+                                        field="name"
+                                        [size]="30"
+                                        placeholder="Countries" [minLength]="1"></p-autoComplete>
                         <button type="submit"><i class="icofont-search-2"></i></button>
+
                     </form>
                     <ul>
-                        <li><span>700+</span>Restaurant</li>
-                        <li><span>6900+</span>People Served</li>
-                        <li><span>6900+</span>Registered Users</li>
+                        <li><span>700+</span>Producatori</li>
+                        <li><span>6900+</span>Comenzi onorate</li>
+                        <li><span>6900+</span>Utilizatori inregistrati</li>
                     </ul>
                 </div>
             </div>

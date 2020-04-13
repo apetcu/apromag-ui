@@ -29,7 +29,7 @@ export class CartSummaryComponent implements OnInit {
     this.cartService.currentCartState().subscribe((items) => {
       this.cartItems = items;
     });
-    this.shippingLocations = this.shippingFacadeService.getShippingLocations();
+    this.shippingLocations = this.shippingFacadeService.getShippingLocations('');
   }
 
   onCartSubmit(): void {

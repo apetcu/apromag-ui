@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../../../shared/services/alert/alert.service';
+import { ShippingLocation } from '../../../shared/models/location';
+import { ShippingFacadeService } from '../../../shared/services/shipping/shipping-facade.service';
+import { ShippingService } from '../../../shared/services/shipping/shipping.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +11,20 @@ import { AlertService } from '../../../shared/services/alert/alert.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private alertService: AlertService) {}
+  shippingLocations: Array<ShippingLocation>;
 
-  ngOnInit(): void {
-    // this.alertService
-    //   .show({ title: 'Esti sigur ca doresti sa golesti cosul de cumparaturi?', showCancelButton: true, cancelButtonText: 'Anuleaza' })
-    //   .subscribe((data) => {
-    //     console.log(data);
-    //   });
+  constructor(private shippingFacadeService: ShippingFacadeService, private shippingService: ShippingService, private router: Router) {}
+
+  ngOnInit(): void {}
+
+  filterCity(event) {
+    this.shippingFacadeService.getShippingLocations(event.query).subscribe((locations) => {
+      this.shippingLocations = locations;
+    });
+  }
+
+  selectLocation(event) {
+    this.shippingService.setShippingLocation(event);
+    this.router.navigate(['/vendor']);
   }
 }
