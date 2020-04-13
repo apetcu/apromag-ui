@@ -21,7 +21,7 @@ node {
 
             stage('Build front-end') {
                 nodejs('NodeJS') {
-                    sh "npm run build"
+                    sh "npm run build:prod --base-href /apromag/"
                     sh "ls -laG ./dist/apromag-ui"
                 }
             }
