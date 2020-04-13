@@ -7,6 +7,7 @@ import { ShippingFacadeService } from '../../../../shared/services/shipping/ship
 import { CartSummaryForm } from './cart-summary-form';
 import { CartFacadeService } from '../../services/cart-facade.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../../user/services/user.service';
 
 @Component({
   selector: 'app-cart-summary',
@@ -22,6 +23,7 @@ export class CartSummaryComponent implements OnInit {
     private cartService: CartService,
     private cartFacadeService: CartFacadeService,
     private shippingFacadeService: ShippingFacadeService,
+    private userService: UserService,
     private router: Router
   ) {}
 
@@ -30,6 +32,9 @@ export class CartSummaryComponent implements OnInit {
       this.cartItems = items;
     });
     this.shippingLocations = this.shippingFacadeService.getShippingLocations('');
+    if (this.userService.isUserLoggedIn()) {
+      this.cartSummaryForm.autoFillUser(this.userService.getUser());
+    }
   }
 
   onCartSubmit(): void {

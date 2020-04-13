@@ -5,9 +5,10 @@ import { Observable, of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UserApiService {
+  private basePath = 'account';
   constructor(private api: ApiService) {}
 
   updateAccountSettings(accountInfo: User): Observable<any> {
-    return of(accountInfo);
+    return this.api.put(`${this.basePath}`, accountInfo);
   }
 }

@@ -1,5 +1,6 @@
 import { BaseForm } from '../../../../shared/models/base.form';
 import { FormControl, Validators } from '@angular/forms';
+import { User } from '../../../user/models/user.model';
 
 export interface CartSummaryFields {
   location: number;
@@ -18,5 +19,9 @@ export class CartSummaryForm extends BaseForm<CartSummaryFields> {
       address: new FormControl('', [Validators.required]),
       remarks: new FormControl('')
     });
+  }
+
+  autoFillUser(user: User) {
+    this.patchValue(user);
   }
 }

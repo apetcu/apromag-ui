@@ -17,7 +17,7 @@
     .main-menu {
         width: calc(100% - 300px);
         @include breakpoint(xxl) {
-            width: calc(100% - 600px);
+            width: calc(100% - 760px);
         }
         ul {
             align-items: center;
@@ -727,7 +727,7 @@
         padding-left: 0;
     }
     .header-section .main-menu {
-        width: calc(100% - 600px);
+        width: calc(100% - 760px);
         ul {
             padding-right: 20px;
         }

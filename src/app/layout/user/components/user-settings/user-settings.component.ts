@@ -12,7 +12,7 @@ import { UserFacadeService } from '../../services/user-facade.service';
 export class UserSettingsComponent implements OnInit {
   userSettingsForm: UserSettingsForm;
 
-  constructor(private userService: UserService, private userFacade: UserFacadeService) { }
+  constructor(private userService: UserService, private userFacade: UserFacadeService) {}
 
   ngOnInit(): void {
     this.initializeUserForm();
@@ -28,5 +28,4 @@ export class UserSettingsComponent implements OnInit {
   initializeUserForm(): void {
     this.userSettingsForm = new UserSettingsForm(this.userService.getUser());
   }
-
 }

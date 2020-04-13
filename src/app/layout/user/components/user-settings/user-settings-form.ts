@@ -9,6 +9,8 @@ export class UserSettingsForm extends BaseForm<User> {
       firstName: new FormControl(user.firstName, Validators.required),
       lastName: new FormControl(user.lastName, Validators.required),
       email: new FormControl(user.email, Validators.required),
+      phone: new FormControl(user.phone),
+      address: new FormControl(user.address),
       profilePicture: new FormControl(user.profilePicture),
       vendor: user.isUserOfTypeVendor() ? new VendorSettingsForm(user.vendor) : null
     });

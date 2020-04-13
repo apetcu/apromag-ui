@@ -9,6 +9,9 @@ export class User {
   lastName: string;
   fullName: string;
 
+  phone: string;
+  address: string;
+
   profilePicture: string;
   email: string;
   role: UserRoles;
@@ -22,6 +25,10 @@ export class User {
     this.firstName = userResponse.firstName;
     this.lastName = userResponse.lastName;
     this.fullName = userResponse.firstName + ' ' + userResponse.lastName;
+
+    this.phone = userResponse.phone;
+    this.address = userResponse.address;
+
     this.profilePicture = userResponse.profilePicture || 'assets/images/default_profile.png';
     this.email = userResponse.email;
     this.role = userResponse.role as UserRoles;

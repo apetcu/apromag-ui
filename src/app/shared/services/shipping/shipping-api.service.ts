@@ -22,32 +22,56 @@ let mockShippingLocations = [
     lon: 221
   },
   {
-    id: 1,
+    id: 2,
     name: 'Bucuresti, Sector 2',
     lat: 123,
     lon: 221
   },
   {
-    id: 1,
+    id: 3,
     name: 'Bucuresti, Sector 3',
     lat: 123,
     lon: 221
   },
   {
-    id: 1,
+    id: 4,
     name: 'Bucuresti, Sector 4',
     lat: 123,
     lon: 221
   },
   {
-    id: 1,
+    id: 5,
     name: 'Bucuresti, Sector 5',
     lat: 123,
     lon: 221
   },
   {
-    id: 1,
+    id: 6,
     name: 'Bucuresti, Sector 6',
+    lat: 123,
+    lon: 221
+  },
+  {
+    id: 6,
+    name: 'Cluj Napoca',
+    lat: 123,
+    lon: 221
+  },
+  {
+    id: 21,
+    name: 'Arad',
+    lat: 123,
+    lon: 221
+  },
+  {
+    id: 21,
+    name: 'Pantelimon',
+    lat: 123,
+    lon: 221
+  },
+  {
+    id: 21,
+    name: 'Corbeanca',
     lat: 123,
     lon: 221
   }

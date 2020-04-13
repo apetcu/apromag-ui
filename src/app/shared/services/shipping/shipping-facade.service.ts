@@ -21,7 +21,8 @@ export class ShippingFacadeService {
       map((entries) => {
         this.cachedShippingLocations = entries;
         return entries;
-      }, this.filterLocations(query))
+      }),
+      this.filterLocations(query)
     );
   }
 

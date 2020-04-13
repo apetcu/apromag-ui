@@ -7,10 +7,11 @@ import { HeaderAccountComponent } from './header-account/header-account.componen
 import { CartItemComponent } from './header-cart/cart-item/cart-item.component';
 import { ClickOutsideModule } from '../../../shared/directives/click-outside/click-outside.module';
 import { DefaultImageModule } from '../../../shared/directives/default-image/default-image.module';
+import { ShippingLocationPickerModule } from '../../../shared/components/shipping-location-picker/shipping-location-picker.module';
 
 @NgModule({
   declarations: [HeaderComponent, HeaderCartComponent, HeaderAccountComponent, CartItemComponent],
   exports: [HeaderComponent],
-  imports: [RouterModule, CommonModule, ClickOutsideModule, DefaultImageModule]
+  imports: [RouterModule, CommonModule, ClickOutsideModule, DefaultImageModule, ShippingLocationPickerModule]
 })
 export class HeaderModule {}
