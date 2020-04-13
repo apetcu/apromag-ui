@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cart-finish',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-finish.component.scss']
 })
 export class CartFinishComponent implements OnInit {
-
-  constructor() { }
+  orderId: number = null;
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.orderId = parseInt(params.orderId, 10);
+    });
   }
-
 }

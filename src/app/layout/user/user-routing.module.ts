@@ -5,6 +5,7 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserGuard } from './guards/user-guard';
 import { UserOrdersComponent } from './components/user-orders/user-orders.component';
+import { UserOrderDetailsComponent } from './components/user-order-details/user-order-details.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,14 @@ const routes: Routes = [
         pathMatch: 'prefix',
         data: {
           title: 'Lista comnezi'
+        }
+      },
+      {
+        path: 'orders/:orderId',
+        component: UserOrderDetailsComponent,
+        pathMatch: 'prefix',
+        data: {
+          title: 'Comanda'
         }
       },
       { path: '', redirectTo: '/user/details', pathMatch: 'full' }

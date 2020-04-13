@@ -38,9 +38,11 @@ export class CartSummaryComponent implements OnInit {
   }
 
   onCartSubmit(): void {
-    this.cartFacadeService.submitOrder(this.cartSummaryForm.value, this.cartItems).subscribe((data) => {
-      // this.router.navigate(['/cart/finish']);
-      // this.cartService.emptyCart();
-    });
+    this.cartFacadeService
+      .submitOrder(this.cartSummaryForm.value, this.cartItems, this.cartService.getCurrentVendorId())
+      .subscribe((order) => {
+        this.router.navigate(['/cart/finish/' + order.id]);
+        this.cartService.emptyCart();
+      });
   }
 }

@@ -59,6 +59,10 @@ export class CartService {
     return currentItems.map((cartItem) => new CartItem(cartItem, cartItem.quantity));
   }
 
+  getCurrentVendorId(): number {
+    return this.getItems()[0]?.vendorId || null;
+  }
+
   emptyCart() {
     this.setCart([]);
   }

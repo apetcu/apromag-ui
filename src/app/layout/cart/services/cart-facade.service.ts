@@ -9,13 +9,14 @@ import { CartItem } from '../models/cart-item';
 export class CartFacadeService {
   constructor(private cartApiService: CartApiService) {}
 
-  submitOrder(cartForm: CartSummaryFields, carTItems: Array<CartItem>) {
-    return this.cartApiService.submitOrder(this.buildOrderRequest(cartForm, carTItems));
+  submitOrder(cartForm: CartSummaryFields, cartItems: Array<CartItem>, currentVendorId: number) {
+    return this.cartApiService.submitOrder(this.buildOrderRequest(cartForm, cartItems, currentVendorId));
   }
 
-  private buildOrderRequest(cartForm: CartSummaryFields, carTItems: Array<CartItem>) {
+  private buildOrderRequest(cartForm: CartSummaryFields, carTItems: Array<CartItem>, currentVendorId: number) {
     return {
       ...cartForm,
+      vendorId: currentVendorId,
       products: carTItems.map((product) => ({
         name: product.name,
         quantity: product.quantity,

@@ -3,5 +3,5 @@
     <h4 class="text-center">Comanda a fost trimisa cu succes!</h4>
     <p>Multumim pentru comanda. Producatorul va fi instiintat iar dumneavoastra veti primi informatii pe masura ce statusul comenzii se va modifica</p>
     <button type="submit" class="food-btn style-2 mr-3" routerLink="/vendor"><span><i class="icofont-shopping-cart"></i> Inapoi la magazin</span></button>
-    <button type="submit" class="food-btn style-2" routerLink="/user/orders"><span>Vizualizare comanda</span></button>
+    <button type="submit" class="food-btn style-2" [routerLink]="'/user/orders/'+orderId"><span>Vizualizare comanda</span></button>
 </div>

@@ -7,7 +7,7 @@ export interface CartSummaryFields {
   email: string;
   phone: string;
   remarks: string;
-  address: string;
+  shippingAddress: string;
 }
 
 export class CartSummaryForm extends BaseForm<CartSummaryFields> {
@@ -16,12 +16,16 @@ export class CartSummaryForm extends BaseForm<CartSummaryFields> {
       email: new FormControl('', [Validators.email, Validators.required]),
       phone: new FormControl('', [Validators.required]),
       location: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required]),
+      shippingAddress: new FormControl('', [Validators.required]),
       remarks: new FormControl('')
     });
   }
 
   autoFillUser(user: User) {
-    this.patchValue(user);
+    this.patchValue({
+      email: user.email,
+      phone: user.phone,
+      shippingAddress: user.address
+    });
   }
 }

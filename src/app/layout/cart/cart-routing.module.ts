@@ -18,7 +18,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'finish',
+        path: 'finish/:orderId',
         component: CartFinishComponent,
         data: {
           title: 'Comanda a fost trimisa'
