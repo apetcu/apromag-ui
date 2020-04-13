@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = '/api/';
+  private baseUrl = '/agromag-api/';
 
   constructor(private http: HttpClient) {}
 
