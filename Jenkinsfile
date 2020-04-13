@@ -33,7 +33,7 @@ node {
                                 configName: 'apromag',
                                 transfers: [sshTransfer(
                                     sourceFiles: 'dist/apromag-ui/**/*.*',
-                                    remoteDirectory: '/var/www/html/apromagic',
+                                    remoteDirectory: '/var/www/html',
                                     cleanRemote: false,
                                     excludes: '',
                                     execTimeout: 120000,
