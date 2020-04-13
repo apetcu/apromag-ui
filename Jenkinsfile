@@ -15,7 +15,7 @@ node {
 
             stage('Install front-end dependencies') {
                 nodejs('NodeJS') {
-                    sh "cd client && npm i"
+                    sh "npm i"
                 }
             }
 
