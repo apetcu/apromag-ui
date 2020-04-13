@@ -13,18 +13,42 @@ node {
                 commitMessage = sh(returnStdout: true, script: 'git show -s --format=format:"*%s* by %an" HEAD').trim();
             }
 
-            stage('Install Dependencies') {
-                sh "node -v"
-                sh "npm -v"
-                sh "npm install"
+            stage('Install front-end dependencies') {
+                nodejs('NodeJS') {
+                    sh "cd client && npm i"
+                }
             }
 
-            stage('Build UI') {
-                sh "npm run build:prod"
+            stage('Build front-end') {
+                nodejs('NodeJS') {
+                    sh "cd client && npm run build:prod"
+                    sh "ls -laG ./dist/apromag-ui"
+                }
             }
 
-            stage('Deploy UI') {
-                sh "ls -laG ./dist/apromag-ui"
+            stage('Deploy front-end') {
+//                     sshPublisher(
+//                         publishers: [
+//                             sshPublisherDesc(
+//                                 configName: 'vila',
+//                                 transfers: [sshTransfer(
+//                                     sourceFiles: 'client/dist/home-monitor/**/*.*',
+//                                     remoteDirectory: '/var/www/vila',
+//                                     cleanRemote: false,
+//                                     excludes: '',
+//                                     execTimeout: 120000,
+//                                     flatten: false,
+//                                     makeEmptyDirs: false,
+//                                     noDefaultExcludes: false,
+//                                     patternSeparator: '[, ]+',
+//                                     remoteDirectorySDF: false,
+//                                     removePrefix: 'client/dist/home-monitor')
+//                                 ], usePromotionTimestamp: false,
+//                                 useWorkspaceInPromotion: false,
+//                                 verbose: false
+//                             )
+//                         ]
+//                     )
             }
         } else {
             stage('Skip build for branch ' + branchName) {
