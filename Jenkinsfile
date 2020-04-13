@@ -28,7 +28,7 @@ node {
             }
         } else {
             stage('Skip build for branch ' + branchName) {
-                echo 'Branch is not master. Skipping...'
+                echo 'Branch is not master. Skipping..  .'
             }
         }
     } catch (e) {
