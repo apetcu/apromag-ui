@@ -27,28 +27,28 @@ node {
             }
 
             stage('Deploy front-end') {
-//                     sshPublisher(
-//                         publishers: [
-//                             sshPublisherDesc(
-//                                 configName: 'vila',
-//                                 transfers: [sshTransfer(
-//                                     sourceFiles: 'client/dist/home-monitor/**/*.*',
-//                                     remoteDirectory: '/var/www/vila',
-//                                     cleanRemote: false,
-//                                     excludes: '',
-//                                     execTimeout: 120000,
-//                                     flatten: false,
-//                                     makeEmptyDirs: false,
-//                                     noDefaultExcludes: false,
-//                                     patternSeparator: '[, ]+',
-//                                     remoteDirectorySDF: false,
-//                                     removePrefix: 'client/dist/home-monitor')
-//                                 ], usePromotionTimestamp: false,
-//                                 useWorkspaceInPromotion: false,
-//                                 verbose: false
-//                             )
-//                         ]
-//                     )
+                    sshPublisher(
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'apromag',
+                                transfers: [sshTransfer(
+                                    sourceFiles: 'dist/apromag-ui/**/*.*',
+                                    remoteDirectory: '/var/www/html/apromagic',
+                                    cleanRemote: false,
+                                    excludes: '',
+                                    execTimeout: 120000,
+                                    flatten: false,
+                                    makeEmptyDirs: false,
+                                    noDefaultExcludes: false,
+                                    patternSeparator: '[, ]+',
+                                    remoteDirectorySDF: false,
+                                    removePrefix: 'dist/apromag-ui')
+                                ], usePromotionTimestamp: false,
+                                useWorkspaceInPromotion: false,
+                                verbose: false
+                            )
+                        ]
+                    )
             }
         } else {
             stage('Skip build for branch ' + branchName) {
