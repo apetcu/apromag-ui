@@ -1,3 +1,38 @@
+
+.outline-select {
+    background: $white-color;
+    margin-bottom: 20px;
+    @extend %rel;
+    select {
+        width: 100%;
+        padding: 14px 10px;
+        background: transparent;
+        z-index: 1;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 1px solid $border-color;
+        @extend %rel;
+    }
+    &.shipping-select {
+        width: 100%;
+        @include breakpoint(lg) {
+            width: 50%;
+            float: left;
+        }
+    }
+    .select-icon {
+        top: 0;
+        right: 0;
+        padding: 14px 20px;
+        background: $theme-color;
+        color: $white-color;
+        border: 1px solid $border-color;
+        border-radius: 0px 3px 3px 0px;
+        @extend %abs;
+    }
+}
+
+
 /* @@@@@@@@@@@@@  Popular Blog Section Start Here  @@@@@@@@@@@@@@ */
 .blog-section, .recepi-single {
     .section-wrapper {
@@ -1506,38 +1541,6 @@ p.comment-form-cookies-consent {
 					}
 					h4 {
 						margin-bottom: 30px;
-					}
-					.outline-select {
-				        background: $white-color;
-	    				margin-bottom: 20px;
-    					@extend %rel;
-						select {
-						    width: 100%;
-						    padding: 14px 10px;
-						    background: transparent;
-						    z-index: 1;
-						    -webkit-appearance: none;
-	    					-moz-appearance: none;
-	    					border: 1px solid $border-color;
-	    					@extend %rel;
-						}
-						&.shipping-select {
-							width: 100%;
-							@include breakpoint(lg) {
-								width: 50%;
-								float: left;
-							}
-						}
-						.select-icon {
-						    top: 0;
-						    right: 0;
-						    padding: 14px 20px;
-						    background: $theme-color;
-                            color: $white-color;
-                            border: 1px solid $border-color;
-						    border-radius: 0px 3px 3px 0px;
-						    @extend %abs;
-						}
 					}
 					.cart-page-input-text {
 						width: 45%;

@@ -4,7 +4,7 @@
       "TITLE": "Panou de control"
     },
     "ORDERS": {
-      "TITLE": "Comenzi",
+      "TITLE": "Comenzile mele",
       "STATUSES": {
         "SUBMITTED": "Comanda noua",
         "IN_PROGRESS": "In procesare",
@@ -13,7 +13,17 @@
       }
     },
     "ORDER": {
-      "TITLE": "Comanda nr."
+      "TITLE": "Comanda nr.",
+      "DETAILS": "Detalii comanda",
+      "PRODUCTS": {
+        "TITLE": "Produse comanda",
+        "LIST": {
+          "PRODUCT": "Product",
+          "UNIT_PRICE": "Pret unitar",
+          "QUANTITY": "Cantitate",
+          "TOTAL": "Total"
+        }
+      }
     },
     "PRODUCTS": {
       "TITLE": "Produsele mele",

@@ -18,4 +18,13 @@ export class OrderApiService {
   getById(id: number): Observable<any> {
     return this.api.get(`${this.domainUrl}/${id}`);
   }
+
+  getStatuses() {
+    return of([
+      { label: 'SUBMITTED', value: 'SUBMITTED' },
+      { label: 'CANCELED', value: 'CANCELED' },
+      { label: 'DELIVERED', value: 'DELIVERED' },
+      { label: 'IN_PROGRESS', value: 'IN_PROGRESS' }
+    ]);
+  }
 }

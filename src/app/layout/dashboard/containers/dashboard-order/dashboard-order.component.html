@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb" class="no-print">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/dashboard/orders">Comenzile mele</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Detalii comanda</li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard/orders" translate="VENDOR.ORDERS.TITLE"></a></li>
+        <li class="breadcrumb-item active" aria-current="page" translate="VENDOR.ORDER.DETAILS"></li>
     </ol>
 </nav>
 <h5 class="admin-title">
@@ -13,16 +13,16 @@
     <div class="col-md-7">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <div class="card-title">Produse comanda</div>
+                <div class="card-title" translate="VENDOR.ORDER.PRODUCTS.TITLE"></div>
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                     <thead>
-                    <tr>
-                        <th class="text-center">#</th>
-                        <th class="text-center">Produs</th>
-                        <th class="text-center">Pret unitar</th>
-                        <th class="text-center">Cantitate</th>
-                        <th class="text-center">Total</th>
-                    </tr>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.PRODUCT"></th>
+                            <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.UNIT_PRICE"> </th>
+                            <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.QUANTITY"></th>
+                            <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.TOTAL"></th>
+                        </tr>
                     </thead>
                     <tbody>
                     <tr *ngFor="let product of orderInfo?.products">
@@ -45,6 +45,27 @@
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <div class="card-title">Stare comanda</div>
+                        <div class="outline-select">
+                            <select formControlName="location">
+                                <option>In progress</option>
+                                <option>In progress</option>
+                                <option>In progress</option>
+                                <option>In progress</option>
+                            </select>
+                            <span class="select-icon"><i class="icofont-caret-down"></i></span>
+                        </div>
+                        <div class="card-title">Detalii livrare</div>
+                        <textarea id="" cols="30" rows="3" class="form-control"></textarea>
+                        <button type="submit" class="food-btn style-3 mt-3 float-right"><span>Salveaza</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-md-5">
         <div class="main-card mb-3 card">
@@ -56,7 +77,7 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <div class="card-title">Detalii client</div>
+                <div class="card-title">Detalii livrare</div>
                 <table class="table table-bordered table-sm">
                     <tr>
                         <td>Nume</td>
@@ -70,19 +91,19 @@
                         <td>Telefon</td>
                         <td><a [href]="'tel:'+orderInfo?.phone">{{orderInfo?.phone}}</a></td>
                     </tr>
+                    <tr>
+                        <td>Adresa</td>
+                        <td>{{orderInfo?.shippingAddress}}</td>
+                    </tr>
+                    <tr>
+                        <td>Oras</td>
+                        <td>Bucuresti</td>
+                    </tr>
+                    <tr>
+                        <td>Observatii</td>
+                        <td>{{orderInfo?.remarks}}</td>
+                    </tr>
                 </table>
-            </div>
-        </div>
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <div class="card-title">Livrare la</div>
-                <p>{{orderInfo?.shippingAddress}}</p>
-                <p>{{orderInfo?.remarks}}</p>
-            </div>
-        </div>
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <div class="card-title">Stare comanda</div>
             </div>
         </div>
     </div>
