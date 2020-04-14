@@ -16,7 +16,7 @@ export class DashboardProductsComponent implements OnInit {
   addProductToggled: boolean = false;
   editProduct: Product = null;
   loading: boolean = false;
-  rowsPerPage: number = 10;
+  rowsPerPage: number = 25;
   totalRecords: number;
   products: Array<Product>;
 

@@ -9,7 +9,7 @@ import { Order } from '../../../../shared/models/order.model';
   styleUrls: ['./dashboard-order-list.component.scss']
 })
 export class DashboardOrderListComponent implements OnInit {
-  rowsPerPage: number = 9;
+  rowsPerPage: number = 25;
   loading: boolean;
   totalRecords: number;
   orders: Order[];
@@ -19,17 +19,13 @@ export class DashboardOrderListComponent implements OnInit {
     this.loadData(1);
   }
 
-  loadCarsLazy(event) {
-    if (event.first) {
-      this.loadData(event.first / event.rows + 1);
-    } else {
-      this.loadData(event.first + 1);
-    }
+  onPageChange(event) {
+    this.loadData(event.page + 1);
   }
 
   loadData(pageNo: number) {
     this.loading = true;
-    this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage)).subscribe((data) => {
+    this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage, 'createdAt')).subscribe((data) => {
       this.orders = data.content;
       this.totalRecords = data.totalElements;
       this.loading = false;

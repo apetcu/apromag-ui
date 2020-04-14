@@ -32,6 +32,18 @@
   }
 }
 
+body {
+  .ui-paginator {
+    border: 0;
+    .ui-paginator-pages {
+      .ui-paginator-page{
+        &.ui-state-active {
+          background: $theme-color;
+        }
+      }
+    }
+  }
+}
 
 [class^='icofont-'], [class*=' icofont-'] {
   font-family: 'IcoFont';
