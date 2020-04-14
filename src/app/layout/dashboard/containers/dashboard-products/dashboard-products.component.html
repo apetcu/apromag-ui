@@ -3,7 +3,7 @@
         {{'VENDOR.PRODUCTS.BUTTONS.ADD' | translate}}
     </button>
 </h5>
-<p-dialog header="Godfather I" [(visible)]="addProductToggled"
+<p-dialog [(visible)]="addProductToggled"
           [modal]="true"
           [showHeader]="false"
           [style]="{width: '80vw'}"
@@ -15,6 +15,7 @@
     <app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)"
                                   (onDeleteProduct)="onDeleteProduct($event)"
                                   [categoryList]="categoryList"
+                                  *ngIf="addProductToggled"
                                   [editProduct]="editProduct">
     </app-dashboard-modify-product>
 </p-dialog>

@@ -12,13 +12,7 @@ export class DashboardOrderListComponent implements OnInit {
   rowsPerPage: number = 9;
   loading: boolean;
   totalRecords: number;
-  cars: Order[];
-  cols: { field: keyof Order; header: string }[] = [
-    { field: 'id', header: 'id' },
-    { field: 'vendorId', header: 'Vendor ID' },
-    { field: 'customerId', header: 'Customer ID' },
-    { field: 'createdAt', header: 'Created At' }
-  ];
+  orders: Order[];
   constructor(private dashboardFacadeService: DashboardFacadeService) {}
 
   ngOnInit() {
@@ -36,7 +30,7 @@ export class DashboardOrderListComponent implements OnInit {
   loadData(pageNo: number) {
     this.loading = true;
     this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage)).subscribe((data) => {
-      this.cars = data.content;
+      this.orders = data.content;
       this.totalRecords = data.totalElements;
       this.loading = false;
     });

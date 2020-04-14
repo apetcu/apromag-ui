@@ -1,17 +1,38 @@
-<p-table [columns]="cols" [value]="cars" [lazy]="true" (onLazyLoad)="loadCarsLazy($event)" [paginator]="true"
-         [rows]="rowsPerPage" [totalRecords]="totalRecords" [loading]="loading">
-    <ng-template pTemplate="header" let-columns>
+<div class="table-responsive">
+    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+        <thead>
         <tr>
-            <th *ngFor="let col of columns">
-                {{col.header}}
-            </th>
+            <th class="text-center">#</th>
+            <th>Nume</th>
+            <th class="text-center">Produs(e)</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Data</th>
+            <th class="text-center">Total</th>
+            <th class="text-center">Status</th>
         </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
-            <td *ngFor="let col of columns">
-                {{rowData[col.field]}}
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of orders">
+            <td class="text-center text-muted">#{{order.id}}</td>
+            <td>
+                <div class="widget-content p-0">
+                    <div class="widget-content-wrapper">
+                        <div class="widget-content-left flex2">
+                            <div class="widget-heading">{{order.fullName}}</div>
+                            <div class="widget-subheading opacity-7">{{order.shippingAddress}}</div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="text-center">{{order.products.length}}</td>
+            <td class="text-center">{{order.email}}</td>
+            <td class="text-center">{{order.createdAt | date: 'medium'}}</td>
+            <td class="text-center">100 RON</td>
+            <td class="text-center">
+                <div class="badge badge-warning">{{order.status}}</div>
             </td>
         </tr>
-    </ng-template>
-</p-table>
+        </tbody>
+    </table>
+</div>
+
