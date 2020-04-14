@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
 import { UserDetailsComponent } from '../user/components/user-details/user-details.component';
-import { UserSettingsComponent } from '../user/components/user-settings/user-settings.component';
 import { DashboardGuard } from './guards/dashboard-guard';
 import { DashboardOverviewComponent } from './containers/dashboard-overview/dashboard-overview.component';
 import { DashboardProductsComponent } from './containers/dashboard-products/dashboard-products.component';
 import { DashboardShippingComponent } from './containers/dashboard-shipping/dashboard-shipping.component';
 import { DashboardPaymentComponent } from './containers/dashboard-payment/dashboard-payment.component';
+import { DashboardOrderListComponent } from './components/dashboard-order-list/dashboard-order-list.component';
+import { DashboardOrdersComponent } from './containers/dashboard-orders/dashboard-orders.component';
+import { DashboardOrderComponent } from './containers/dashboard-order/dashboard-order.component';
 
 const routes: Routes = [
   {
@@ -26,10 +28,18 @@ const routes: Routes = [
       },
       {
         path: 'orders',
-        component: UserDetailsComponent,
+        component: DashboardOrdersComponent,
         pathMatch: 'prefix',
         data: {
-          title: 'Detalii cont'
+          title: 'Comenzile mele'
+        }
+      },
+      {
+        path: 'orders/:orderId',
+        component: DashboardOrderComponent,
+        pathMatch: 'prefix',
+        data: {
+          title: 'Comenzile mele'
         }
       },
       {

@@ -12,6 +12,7 @@ export class Order {
   vendorId: number;
   customerId: number;
   fullName: string;
+  remarks: string;
 
   constructor(orderResponse: any) {
     this.id = orderResponse.id;
@@ -25,6 +26,7 @@ export class Order {
     this.vendorId = orderResponse.vendorId;
     this.customerId = orderResponse.customerId;
     this.shippingAddress = orderResponse.shippingAddress;
+    this.remarks = orderResponse.remarks;
     this.products = orderResponse.products.map((entry) => new OrderedProduct(entry));
   }
 }

@@ -19,6 +19,9 @@ import { DashboardShippingComponent } from './containers/dashboard-shipping/dash
 import { DashboardPaymentComponent } from './containers/dashboard-payment/dashboard-payment.component';
 import { DialogModule } from 'primeng/dialog';
 import { ngfModule } from 'angular-file';
+import { DashboardOrdersComponent } from './containers/dashboard-orders/dashboard-orders.component';
+import { DashboardOrderComponent } from './containers/dashboard-order/dashboard-order.component';
+import { OrderBadgeModule } from '../../shared/components/order-badge/order-badge.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { ngfModule } from 'angular-file';
     DashboardProductsComponent,
     DashboardModifyProductComponent,
     DashboardShippingComponent,
-    DashboardPaymentComponent
+    DashboardPaymentComponent,
+    DashboardOrdersComponent,
+    DashboardOrderComponent
   ],
   providers: [DashboardGuard],
   imports: [
@@ -43,7 +48,8 @@ import { ngfModule } from 'angular-file';
     TranslateModule,
     PaginatorModule,
     DialogModule,
-    ngfModule
+    ngfModule,
+    OrderBadgeModule
   ]
 })
 export class DashboardModule {}

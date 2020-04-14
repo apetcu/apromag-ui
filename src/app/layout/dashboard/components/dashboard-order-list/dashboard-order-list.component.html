@@ -12,7 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let order of orders">
+        <tr *ngFor="let order of orders" [routerLink]="'/dashboard/orders/'+order.id">
             <td class="text-center text-muted">#{{order.id}}</td>
             <td>
                 <div class="widget-content p-0">
@@ -29,7 +29,7 @@
             <td class="text-center">{{order.createdAt | date: 'medium'}}</td>
             <td class="text-center">100 RON</td>
             <td class="text-center">
-                <div class="badge badge-warning">{{order.status}}</div>
+                <div class="badge" [ngClass]="'badge-'+order.status.toLowerCase()">{{'VENDOR.ORDERS.STATUSES.' + order.status | translate}}</div>
             </td>
         </tr>
         </tbody>

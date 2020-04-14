@@ -3,10 +3,10 @@
     <img [src]="currentUser.profilePicture" [default]="" alt="author" (click)="profileMenuDisplayed =!profileMenuDisplayed">
     <span class="notification fixed" *ngIf="currentUser.newOrders">{{currentUser.newOrders}}</span>
     <div class="dropdown-menu dropdown-menu-right animate slideIn" [class.show]="profileMenuDisplayed">
-        <a class="dropdown-item" routerLink="/user/orders"><i class="icofont-food-cart"></i>Comenzi <span class="notification" *ngIf="currentUser.newOrders">{{currentUser.newOrders}}</span></a>
+        <a class="dropdown-item" routerLink="/user/orders"><i class="icofont-food-cart"></i>Comenzi</a>
         <a class="dropdown-item" routerLink="/static/faq"><i class="icofont-question"></i>Ajutor</a>
-        <a class="dropdown-item" routerLink="/user"><i class="icofont-user"></i>Cont</a>
-        <a class="dropdown-item green" routerLink="/dashboard" *ngIf="currentUser.isUserOfTypeVendor()"><i class="icofont-user"></i>Panou producator <span class="notification" *ngIf="currentUser.newOrders">{{currentUser.newOrders}}</span></a>
+        <a class="dropdown-item" routerLink="/user"><i class="icofont-user"></i>Contul meu</a>
+        <a class="dropdown-item bg-success green" routerLink="/dashboard" *ngIf="currentUser.isUserOfTypeVendor()"><i class="icofont-user"></i>Panou producator <span class="notification" *ngIf="currentUser.newOrders">{{currentUser.newOrders}}</span></a>
         <a class="dropdown-item" (click)="logOut()">Iesi din cont</a>
     </div>
 </div>

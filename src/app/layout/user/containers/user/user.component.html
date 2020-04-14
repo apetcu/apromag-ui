@@ -14,13 +14,18 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="d-flex flex-wrap justify-content-between" routerLink="/user/orders" routerLinkActive="active">
+                                <a class="d-flex flex-wrap justify-content-between" routerLink="/user/orders" routerLinkActive="active">
                                     <span>Comenzi</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="d-flex flex-wrap justify-content-between" routerLink="/user/settings" routerLinkActive="active">
+                                <a class="d-flex flex-wrap justify-content-between" routerLink="/user/settings" routerLinkActive="active">
                                     <span>Setari cont</span>
+                                </a>
+                            </li>
+                            <li *ngIf="currentUser.isUserOfTypeVendor()">
+                                <a class="d-flex flex-wrap justify-content-between bg-success text-white" routerLink="/dashboard" routerLinkActive="active">
+                                    <span>Panou producator</span>
                                 </a>
                             </li>
                             <li>

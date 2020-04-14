@@ -4,10 +4,19 @@
       "TITLE": "Panou de control"
     },
     "ORDERS": {
-      "TITLE": "Comenzi"
+      "TITLE": "Comenzi",
+      "STATUSES": {
+        "SUBMITTED": "Comanda noua",
+        "IN_PROGRESS": "In procesare",
+        "CANCELED": "Comanda anulata",
+        "DELIVERED": "Comanda livrata"
+      }
+    },
+    "ORDER": {
+      "TITLE": "Comanda nr."
     },
     "PRODUCTS": {
-      "TITLE": "Produse",
+      "TITLE": "Produsele mele",
       "BUTTONS": {
         "ADD" : "Adauga produs",
         "CANCEL" : "Inchide",

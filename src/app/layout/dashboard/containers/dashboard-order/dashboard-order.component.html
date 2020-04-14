@@ -1,0 +1,89 @@
+<nav aria-label="breadcrumb" class="no-print">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard/orders">Comenzile mele</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Detalii comanda</li>
+    </ol>
+</nav>
+<h5 class="admin-title">
+    {{'VENDOR.ORDER.TITLE' | translate}} {{orderId}}
+    <app-order-badge [status]="orderInfo?.status" class="float-right"></app-order-badge>
+</h5>
+
+<div class="row">
+    <div class="col-md-7">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <div class="card-title">Produse comanda</div>
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Produs</th>
+                        <th class="text-center">Pret unitar</th>
+                        <th class="text-center">Cantitate</th>
+                        <th class="text-center">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let product of orderInfo?.products">
+                        <td class="text-center text-muted">#{{product.productId}}</td>
+                        <td>
+                            <div class="widget-content p-0">
+                                <div class="widget-content-wrapper">
+                                    <div class="widget-content-left flex2">
+                                        <div class="widget-heading">{{product.name}}</div>
+                                        <div class="widget-subheading opacity-7">Castraveti</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center">{{product.price}}</td>
+                        <td class="text-center">{{product.quantity}}</td>
+                        <td class="text-center">{{product.quantity * product.price}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <div class="card-title">Total comanda</div>
+                <p>100,00 RON</p>
+                <p>{{orderInfo?.createdAt | date: 'medium'}}</p>
+            </div>
+        </div>
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <div class="card-title">Detalii client</div>
+                <table class="table table-bordered table-sm">
+                    <tr>
+                        <td>Nume</td>
+                        <td>{{orderInfo?.fullName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><a [href]="'mailto:'+orderInfo?.email">{{orderInfo?.email}}</a></td>
+                    </tr>
+                    <tr>
+                        <td>Telefon</td>
+                        <td><a [href]="'tel:'+orderInfo?.phone">{{orderInfo?.phone}}</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <div class="card-title">Livrare la</div>
+                <p>{{orderInfo?.shippingAddress}}</p>
+                <p>{{orderInfo?.remarks}}</p>
+            </div>
+        </div>
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <div class="card-title">Stare comanda</div>
+            </div>
+        </div>
+    </div>
+</div>
