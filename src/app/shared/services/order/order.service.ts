@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ShippingLocation } from '../../models/location';
+import { ShippingLocation } from '../../models/shipping-location';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({

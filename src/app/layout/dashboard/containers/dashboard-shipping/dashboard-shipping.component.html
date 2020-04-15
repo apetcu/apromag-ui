@@ -1,8 +1,22 @@
-<h5 class="admin-title">{{'VENDOR.SHIPPING.TITLE' | translate}}</h5>
-<div class="row mt-2">
-    <div class="col-md-12">
-        <div class="main-card mb-3 card p-2">
-            Metode de livrare
+<h5 class="admin-title">
+    {{'VENDOR.SHIPPING.TITLE' | translate}}
+    <button class="btn btn-success float-right"><i class="icofont-save mr-3"></i>Salveaza</button>
+</h5>
+<form [formGroup]="shippingForm">
+    <div class="row mt-2">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card p-2">
+                <div class="form-group">
+                    <label>Livrare la adresa</label>
+                    <div class="shippingLocations">
+                        <ul>
+                            <li *ngFor="let location of shippingLocations">
+                                <p-inputSwitch></p-inputSwitch>
+                                <span>{{location.name}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</form>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShippingService } from '../../services/shipping/shipping.service';
-import { ShippingLocation } from '../../models/location';
+import { ShippingLocation } from '../../models/shipping-location';
 
 @Component({
   selector: 'app-shipping-location-picker',

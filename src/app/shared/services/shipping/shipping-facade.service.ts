@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, OperatorFunction } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { ShippingLocation } from '../../models/location';
+import { ShippingLocation } from '../../models/shipping-location';
 import { ShippingApiService } from './shipping-api.service';
 
 @Injectable({

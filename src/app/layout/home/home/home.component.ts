@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../../../shared/services/alert/alert.service';
-import { ShippingLocation } from '../../../shared/models/location';
+import { ShippingLocation } from '../../../shared/models/shipping-location';
 import { ShippingFacadeService } from '../../../shared/services/shipping/shipping-facade.service';
 import { ShippingService } from '../../../shared/services/shipping/shipping.service';
 import { Router } from '@angular/router';

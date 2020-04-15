@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartItem } from '../../models/cart-item';
 import { CartService } from '../../services/cart.service';
 import { Observable } from 'rxjs';
-import { ShippingLocation } from '../../../../shared/models/location';
+import { ShippingLocation } from '../../../../shared/models/shipping-location';
 import { ShippingFacadeService } from '../../../../shared/services/shipping/shipping-facade.service';
 import { CartSummaryForm } from './cart-summary-form';
 import { CartFacadeService } from '../../services/cart-facade.service';

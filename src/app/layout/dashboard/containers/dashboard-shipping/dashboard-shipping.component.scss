@@ -1,0 +1,17 @@
+.shippingLocations {
+  max-height: 500px;
+  overflow-y: auto;
+
+  ul {
+    li {
+      display: flex;
+      align-items: center;
+      span {
+        padding-left: 15px;
+      }
+      &:hover{
+        background: #fafafa;
+      }
+    }
+  }
+}

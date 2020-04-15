@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Vendor } from '../../models/vendor';
 import { VendorsFacadeService } from '../../services/vendors-facade.service';
 import { ShippingService } from '../../../../shared/services/shipping/shipping.service';
-import { ShippingLocation } from '../../../../shared/models/location';
+import { ShippingLocation } from '../../../../shared/models/shipping-location';
 import { Subscription } from 'rxjs';
 
 @Component({
