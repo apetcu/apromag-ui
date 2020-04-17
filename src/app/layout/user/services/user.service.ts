@@ -10,10 +10,10 @@ import { UserFacadeService } from './user-facade.service';
   providedIn: 'root'
 })
 export class UserService {
+  private loggedUser: BehaviorSubject<User> = new BehaviorSubject(null);
+
   private userStorageKey: StorageLocations = StorageLocations.USER;
   private jwtStorageKey: StorageLocations = StorageLocations.JWT;
-  private currentUser: User = null;
-  private loginState: BehaviorSubject<User> = new BehaviorSubject(null);
   private jwtKey: string = null;
 
   constructor(
@@ -24,9 +24,9 @@ export class UserService {
 
   initialize(): void {
     this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
-
     const currentUser = this.storageService.getItem(this.userStorageKey);
     if (currentUser) {
+      this.setUser(new User(currentUser));
       this.userFacadeService.getAccountDetails().subscribe((data) => {
         this.setUser(new User(data));
       });
@@ -34,8 +34,7 @@ export class UserService {
   }
 
   setUser(user: User): void {
-    this.currentUser = user;
-    this.setLoggedInState(this.currentUser);
+    this.setLoggedInState(user);
     this.storageService.setItem(this.userStorageKey, user);
   }
 
@@ -49,27 +48,26 @@ export class UserService {
   }
 
   getUser(): User {
-    return this.currentUser;
+    return this.loggedUser.value;
   }
 
   isUserLoggedIn(): boolean {
-    return !!this.currentUser;
+    return !!this.loggedUser.value;
   }
 
   isUserOfTypeVendor(): boolean {
-    return this.currentUser && this.currentUser.isUserOfTypeVendor();
+    return this.loggedUser.value && this.loggedUser.value.isUserOfTypeVendor();
   }
 
   isUserOfTypeCustomer(): boolean {
-    return this.currentUser && this.currentUser.isUserOfTypeCustomer();
+    return this.loggedUser.value && this.loggedUser.value.isUserOfTypeCustomer();
   }
 
   loginStateChanged(): Observable<null | User> {
-    return this.loginState.asObservable();
+    return this.loggedUser.asObservable();
   }
 
   logOut(): void {
-    this.currentUser = null;
     this.jwtKey = null;
     this.storageService.removeItem(this.userStorageKey);
     this.storageService.removeItem(this.jwtStorageKey);
@@ -82,6 +80,6 @@ export class UserService {
   }
 
   private setLoggedInState(state: null | User): void {
-    this.loginState.next(state);
+    this.loggedUser.next(state);
   }
 }
