@@ -1,5 +1,5 @@
 export class ShippingLocation {
-  id: number;
+  id: string;
   name: string;
   gpsCoordinates: [number, number];
 

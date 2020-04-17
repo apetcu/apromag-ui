@@ -11,4 +11,8 @@ export class ShippingApiService {
   getLocations(): Observable<any> {
     return this.api.get('shipping/locations');
   }
+
+  saveLocations(locations): Observable<any> {
+    return this.api.post('shipping/preferences', locations);
+  }
 }

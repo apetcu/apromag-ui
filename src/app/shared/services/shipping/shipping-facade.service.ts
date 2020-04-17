@@ -26,6 +26,16 @@ export class ShippingFacadeService {
     );
   }
 
+  saveShippingLocations(shippingLocations) {
+    return this.shippingApiService.saveLocations(this.mapLocationsToForm(shippingLocations));
+  }
+
+  mapLocationsToForm(locations: Array<number>) {
+    return locations.map((entry) => ({
+      locationId: entry
+    }));
+  }
+
   private filterLocations(query: string): OperatorFunction<Array<ShippingLocation>, Array<ShippingLocation>> {
     return map((locations) =>
       locations.filter((entry) => {

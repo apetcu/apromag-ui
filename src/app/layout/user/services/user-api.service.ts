@@ -11,4 +11,8 @@ export class UserApiService {
   updateAccountSettings(accountInfo: User): Observable<any> {
     return this.api.put(`${this.basePath}`, accountInfo);
   }
+
+  getAccountDetails(): Observable<any> {
+    return this.api.get(`${this.basePath}`);
+  }
 }

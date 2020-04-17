@@ -4,6 +4,7 @@ import { StorageService } from '../../../shared/services/storage/storage.service
 import { StorageLocations } from '../../../shared/services/storage/storage-locations';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { UserFacadeService } from './user-facade.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,20 @@ export class UserService {
   private loginState: BehaviorSubject<User> = new BehaviorSubject(null);
   private jwtKey: string = null;
 
-  constructor(private storageService: StorageService, private toasterService: ToastrService) {}
+  constructor(
+    private storageService: StorageService,
+    private toasterService: ToastrService,
+    private userFacadeService: UserFacadeService
+  ) {}
 
   initialize(): void {
+    this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
+
     const currentUser = this.storageService.getItem(this.userStorageKey);
     if (currentUser) {
-      this.setUser(new User(currentUser));
-      this.setJwt(this.storageService.getItem(this.jwtStorageKey));
+      this.userFacadeService.getAccountDetails().subscribe((data) => {
+        this.setUser(new User(data));
+      });
     }
   }
 

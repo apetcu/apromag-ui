@@ -9,6 +9,7 @@ export class Vendor {
   address: string;
   urlSlug: string;
   rating: number;
+  shippingPreferenceList: Array<VendorShippingPreference>;
   photos: Array<VendorPhoto> = [];
 
   constructor(vendorResponse: any) {
@@ -24,6 +25,13 @@ export class Vendor {
     }
     this.rating = vendorResponse.rating;
 
+    if (vendorResponse.shippingPreferenceList) {
+      this.shippingPreferenceList = vendorResponse.shippingPreferenceList.map((entry) => ({
+        name: entry.name,
+        locationId: entry.locationId
+      }));
+    }
+
     this.urlSlug = Vendor.generateUrlSlug(vendorResponse.businessName, vendorResponse.id);
   }
 
@@ -35,4 +43,9 @@ export class Vendor {
 interface VendorPhoto {
   id: string;
   imageUrl: string;
+}
+
+export interface VendorShippingPreference {
+  locationId: number;
+  name: string;
 }

@@ -10,4 +10,8 @@ export class UserFacadeService {
   updateAccountSettings(accountInfo: User): Observable<any> {
     return this.userApi.updateAccountSettings(accountInfo);
   }
+
+  getAccountDetails() {
+    return this.userApi.getAccountDetails();
+  }
 }
