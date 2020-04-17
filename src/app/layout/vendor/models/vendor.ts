@@ -9,6 +9,11 @@ export class Vendor {
   address: string;
   urlSlug: string;
   rating: number;
+
+  shippingCost: number;
+  freeShippingOver: number;
+  shippingRemarks: string;
+
   shippingPreferenceList: Array<VendorShippingPreference>;
   photos: Array<VendorPhoto> = [];
 
@@ -17,6 +22,11 @@ export class Vendor {
     this.businessName = vendorResponse.businessName;
     this.description = vendorResponse.description;
     this.address = vendorResponse.address;
+
+    this.shippingCost = vendorResponse.shippingCost;
+    this.shippingRemarks = vendorResponse.shippingRemarks;
+    this.freeShippingOver = vendorResponse.freeShippingOver;
+
     if (vendorResponse.profilePicture) {
       this.profilePicture = vendorResponse.profilePicture;
     }

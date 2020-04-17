@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class ShippingService {
   shippingLocationChange: BehaviorSubject<ShippingLocation> = new BehaviorSubject<ShippingLocation>(
-    new ShippingLocation({ id: 99, name: 'Toata Romania' })
+    new ShippingLocation({ id: 99, name: 'Indiferent' })
   );
   currentLocation: ShippingLocation;
 

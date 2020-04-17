@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="shippingForm" (ngSubmit)="onSubmit()">
     <h5 class="admin-title">
         {{'VENDOR.SHIPPING.TITLE' | translate}}
         <button type="submit" class="btn btn-success float-right"><i class="icofont-save mr-3"></i>Salveaza</button>
@@ -7,16 +7,37 @@
         <div class="col-md-12">
             <div class="main-card mb-3 card p-2">
                 <div class="form-group">
-                    <label>Livrare la adresa</label>
-                    <div class="shippingLocations">
-                    <ul>
-                        <li *ngFor="let control of categoriesFormArr?.controls; let i = index" class="checkbox">
-                            <label>
-                                <p-inputSwitch [formControl]="control"></p-inputSwitch>
-                                <span>{{ shippingLocations[i]?.name }}</span>
-                            </label>
-                        </li>
-                    </ul>
+                    <h6>Livrare la adresa</h6>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="pret"><strong>Pret livrare (RON)</strong></label>
+                                <input type="text" id="pret" class="form-control" formControlName="shippingCost">
+                            </div>
+                            <div class="form-group">
+                                <label for="freeshipping"><strong>Livrare gratuita pentru comenzi peste (RON)</strong></label>
+                                <input type="text" id="freeshipping" class="form-control" formControlName="freeShippingOver">
+                                <i>Se va lasa acest camp liber pentru dezactivarea optiunii</i>
+                            </div>
+                            <div class="form-group">
+                                <label for="obs"><strong>Observatii livrare</strong></label>
+                                <textarea id="obs" class="form-control" formControlName="shippingRemarks"></textarea>
+                                <i>Se vor afisa in cosul de cumparaturi</i>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <strong>Livrare in localitatile:</strong>
+                            <div class="shippingLocations">
+                                <ul>
+                                    <li *ngFor="let control of locationsFormArray?.controls; let i = index" class="checkbox">
+                                        <label>
+                                            <p-inputSwitch [formControl]="control"></p-inputSwitch>
+                                            <span>{{ shippingLocations[i]?.name }}</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -26,8 +26,13 @@ export class ShippingFacadeService {
     );
   }
 
-  saveShippingLocations(shippingLocations) {
-    return this.shippingApiService.saveLocations(this.mapLocationsToForm(shippingLocations));
+  saveShippingLocations(shippingLocations, formDetails) {
+    return this.shippingApiService.saveLocations({
+      locations: this.mapLocationsToForm(shippingLocations),
+      freeShippingOver: formDetails.freeShippingOver,
+      shippingRemarks: formDetails.shippingRemarks,
+      shippingCost: formDetails.shippingCost
+    });
   }
 
   mapLocationsToForm(locations: Array<number>) {
