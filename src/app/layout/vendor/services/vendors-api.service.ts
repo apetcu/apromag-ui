@@ -4,6 +4,7 @@ import { ApiService } from '../../../shared/services/api/api.service';
 import { PaginatedResponse } from '../../../shared/models/paginated-response';
 import { Vendor } from '../models/vendor';
 import { Product } from '../../product/models/product';
+import { query } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ import { Product } from '../../product/models/product';
 export class VendorsApiService {
   constructor(private api: ApiService) {}
 
-  getAll(): Observable<PaginatedResponse<Vendor>> {
-    return this.api.get('vendors');
+  getAll(queryParams): Observable<PaginatedResponse<Vendor>> {
+    return this.api.get('vendors', queryParams);
   }
 
   getById(id: number): Observable<any> {

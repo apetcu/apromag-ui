@@ -7,15 +7,21 @@ import { Product } from '../../product/models/product';
 import { PaginatedResponse } from '../../../shared/models/paginated-response';
 import { ProductsFacadeService } from '../../product/services/products-facade.service';
 import { PaginationInfo } from '../../../shared/models/pagination-info.model';
+import { ShippingService } from '../../../shared/services/shipping/shipping.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VendorsFacadeService {
-  constructor(private vendorsApiService: VendorsApiService, private productsFacadeService: ProductsFacadeService) {}
+  constructor(
+    private vendorsApiService: VendorsApiService,
+    private productsFacadeService: ProductsFacadeService,
+    private shippingService: ShippingService
+  ) {}
 
   getVendors(): Observable<PaginatedResponse<Vendor>> {
-    return this.vendorsApiService.getAll().pipe(this.mapCompaniesToDomainModel());
+    const locationId = this.shippingService.getShippingLocation().id;
+    return this.vendorsApiService.getAll({ locationId }).pipe(this.mapCompaniesToDomainModel());
   }
 
   getVendorById(id: number): Observable<Vendor> {
