@@ -9,7 +9,7 @@ node {
             }
 
             stage('Checkout') {
-                checkout([$class: 'GitSCM', branches: [[name: branchName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '22790bc7-f861-4ed2-9ca3-6fbe884904b6', url: 'https://sovezea.go.ro/gitlab/apromag/apromag-ui.git']]]);
+                checkout([$class: 'GitSCM', branches: [[name: branchName]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '22790bc7-f861-4ed2-9ca3-6fbe884904b6', url: 'https://sovezea.go.ro/gitea/apromag/apromag-ui.git']]]);
                 commitMessage = sh(returnStdout: true, script: 'git show -s --format=format:"*%s* by %an" HEAD').trim();
             }
 
