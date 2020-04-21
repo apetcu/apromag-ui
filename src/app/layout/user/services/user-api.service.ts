@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../../../shared/services/api/api.service';
 import { User } from '../models/user.model';
 import { Observable, of } from 'rxjs';
+import { PaginationInfo } from '../../../shared/models/pagination-info.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserApiService {
@@ -14,5 +15,9 @@ export class UserApiService {
 
   getAccountDetails(): Observable<any> {
     return this.api.get(`${this.basePath}`);
+  }
+
+  getOrders(paginationInfo: PaginationInfo): Observable<any> {
+    return this.api.get(`${this.basePath}/orders`, paginationInfo);
   }
 }

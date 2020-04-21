@@ -22,7 +22,10 @@
 
 <div class="row mt-2">
     <div class="col-md-12">
-        <div class="main-card mb-3 card">
+        <div class="alert alert-dark" role="alert" *ngIf="!loading && !products.length">
+            Nu sunt produse adaugate
+        </div>
+        <div class="main-card mb-3 card"  *ngIf="!loading && products.length">
             <div class="table-responsive">
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                     <thead>
@@ -56,7 +59,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <p-paginator (onPageChange)="onPageChange($event)" [rows]="rowsPerPage" [totalRecords]="totalRecords" [rowsPerPageOptions]="[25, 50, 100]"></p-paginator>
+                <p-paginator (onPageChange)="onPageChange($event)" [rows]="rowsPerPage" [totalRecords]="totalRecords"></p-paginator>
             </div>
 
         </div>

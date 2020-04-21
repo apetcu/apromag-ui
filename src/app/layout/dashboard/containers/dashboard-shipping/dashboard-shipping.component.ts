@@ -72,7 +72,7 @@ export class DashboardShippingComponent implements OnInit {
   loadShippingLocations(): void {
     this.shippingFacadeService.getShippingLocations('').subscribe((locations) => {
       this.shippingLocations = locations;
-      this.shippingForm.addControl('locationsFormArray', this.locationFormArray(locations, this.currentUser.vendor.shippingPreferenceList));
+      this.shippingForm.addControl('locationsFormArray', this.locationFormArray(locations, this.currentUser.vendor.shippingPreferences));
     });
   }
 }

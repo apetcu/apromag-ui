@@ -7,7 +7,7 @@ import { DashboardOverviewComponent } from './containers/dashboard-overview/dash
 import { DashboardProductsComponent } from './containers/dashboard-products/dashboard-products.component';
 import { DashboardShippingComponent } from './containers/dashboard-shipping/dashboard-shipping.component';
 import { DashboardPaymentComponent } from './containers/dashboard-payment/dashboard-payment.component';
-import { DashboardOrderListComponent } from './components/dashboard-order-list/dashboard-order-list.component';
+import { OrderListComponent } from '../../shared/components/order-list/order-list.component';
 import { DashboardOrdersComponent } from './containers/dashboard-orders/dashboard-orders.component';
 import { DashboardOrderComponent } from './containers/dashboard-order/dashboard-order.component';
 

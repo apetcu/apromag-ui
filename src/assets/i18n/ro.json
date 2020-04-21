@@ -6,7 +6,7 @@
     "ORDERS": {
       "TITLE": "Comenzile mele",
       "STATUSES": {
-        "SUBMITTED": "Comanda noua",
+        "SUBMITTED": "Comanda initializata",
         "IN_PROGRESS": "In procesare",
         "CANCELED": "Comanda anulata",
         "DELIVERED": "Comanda livrata"

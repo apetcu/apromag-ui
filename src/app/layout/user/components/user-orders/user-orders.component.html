@@ -1,3 +1,5 @@
-<h3>Comenzile mele</h3>
+<h4>Comenzile mele</h4>
 <hr>
-ss
+<order-list [totalRecords]="totalRecords" [loading]="loading" [orders]="orders"
+            [rowsPerPage]="rowsPerPage" (onOrderClick)="onOrderClick($event)"></order-list>
+

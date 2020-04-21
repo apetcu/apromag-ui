@@ -3,7 +3,10 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
-            <app-dashboard-order-list></app-dashboard-order-list>
+            <order-list [totalRecords]="totalRecords" [loading]="loading"
+                        [orders]="orders" [rowsPerPage]="rowsPerPage"
+                        (onOrderClick)="onOrderClick($event)"
+            ></order-list>
         </div>
     </div>
 </div>

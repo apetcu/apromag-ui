@@ -15,7 +15,7 @@ import { Category } from '../../../categories/models/category.model';
 export class DashboardProductsComponent implements OnInit {
   addProductToggled: boolean = false;
   editProduct: Product = null;
-  loading: boolean = false;
+  loading: boolean = true;
   rowsPerPage: number = 25;
   totalRecords: number;
   products: Array<Product>;
@@ -41,7 +41,6 @@ export class DashboardProductsComponent implements OnInit {
   }
 
   loadData(pageNo: number) {
-    this.loading = true;
     this.dashboardFacadeService.getProducts(new PaginationInfo(pageNo, this.rowsPerPage)).subscribe((data) => {
       this.products = data.content;
       this.totalRecords = data.totalElements;

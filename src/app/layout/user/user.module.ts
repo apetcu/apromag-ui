@@ -8,10 +8,11 @@ import { UserGuard } from './guards/user-guard';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserOrdersComponent } from './components/user-orders/user-orders.component';
 import { UserOrderDetailsComponent } from './components/user-order-details/user-order-details.component';
+import { OrderListModule } from '../../shared/components/order-list/order-list.module';
 
 @NgModule({
   declarations: [UserComponent, UserSettingsComponent, UserDetailsComponent, UserOrdersComponent, UserOrderDetailsComponent],
   providers: [UserGuard],
-  imports: [CommonModule, UserRoutingModule, ReactiveFormsModule]
+  imports: [CommonModule, UserRoutingModule, ReactiveFormsModule, OrderListModule]
 })
 export class UserModule {}

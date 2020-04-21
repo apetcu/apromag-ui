@@ -14,7 +14,7 @@ export class Vendor {
   freeShippingOver: number;
   shippingRemarks: string;
 
-  shippingPreferenceList: Array<VendorShippingPreference>;
+  shippingPreferences: Array<VendorShippingPreference>;
   photos: Array<VendorPhoto> = [];
 
   constructor(vendorResponse: any) {
@@ -35,8 +35,8 @@ export class Vendor {
     }
     this.rating = vendorResponse.rating;
 
-    if (vendorResponse.shippingPreferenceList) {
-      this.shippingPreferenceList = vendorResponse.shippingPreferenceList.map((entry) => ({
+    if (vendorResponse.shippingPreferences) {
+      this.shippingPreferences = vendorResponse.shippingPreferences.map((entry) => ({
         name: entry.name,
         locationId: entry.locationId
       }));

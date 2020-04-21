@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { DashboardGuard } from './guards/dashboard-guard';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardOverviewComponent } from './containers/dashboard-overview/dashboard-overview.component';
-import { DashboardOrderListComponent } from './components/dashboard-order-list/dashboard-order-list.component';
 import { TableModule } from 'primeng/table';
 import { DashboardProductsComponent } from './containers/dashboard-products/dashboard-products.component';
 import { DashboardModifyProductComponent } from './components/dashboard-modify-product/dashboard-modify-product.component';
@@ -22,12 +21,12 @@ import { ngfModule } from 'angular-file';
 import { DashboardOrdersComponent } from './containers/dashboard-orders/dashboard-orders.component';
 import { DashboardOrderComponent } from './containers/dashboard-order/dashboard-order.component';
 import { OrderBadgeModule } from '../../shared/components/order-badge/order-badge.module';
+import { OrderListModule } from '../../shared/components/order-list/order-list.module';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DashboardOverviewComponent,
-    DashboardOrderListComponent,
     DashboardProductsComponent,
     DashboardModifyProductComponent,
     DashboardShippingComponent,
@@ -49,7 +48,8 @@ import { OrderBadgeModule } from '../../shared/components/order-badge/order-badg
     PaginatorModule,
     DialogModule,
     ngfModule,
-    OrderBadgeModule
+    OrderBadgeModule,
+    OrderListModule
   ]
 })
 export class DashboardModule {}
