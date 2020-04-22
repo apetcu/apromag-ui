@@ -13,12 +13,13 @@ import { ProductsFacadeService } from '../../product/services/products-facade.se
 })
 export class CategoriesFacadeService {
   private cachedCategories: Array<Category>;
+  private flattenedCategories: Array<Category>;
 
   constructor(private categoriesApiService: CategoriesApiService, private productsFacadeService: ProductsFacadeService) {}
 
   getCategoryById(id: number): Observable<Category> {
     if (this.cachedCategories) {
-      return of(this.cachedCategories.find((entry) => entry.id === id));
+      return of(this.flattenedCategories.find((category) => category.id === id));
     }
     return this.categoriesApiService.getById(id).pipe(map((category) => new Category(category)));
   }
@@ -33,11 +34,25 @@ export class CategoriesFacadeService {
     }
     return this.categoriesApiService.getAll().pipe(
       this.mapCategoriesToDomainModel(),
-      map((entries) => {
-        this.cachedCategories = entries;
-        return entries;
+      map((categories) => {
+        this.cacheCategories(categories);
+        return categories;
       })
     );
+  }
+
+  private cacheCategories(categories: Array<Category>) {
+    this.cachedCategories = categories;
+    this.flattenedCategories = this.getCategoryTree(categories);
+  }
+
+  private getCategoryTree(categories: Array<Category>) {
+    let tree: Array<Category> = [];
+    categories.forEach((category) => {
+      tree.push({ ...category, children: null });
+      tree.push(...this.getCategoryTree(category.children));
+    });
+    return tree;
   }
 
   private mapCategoriesToDomainModel(): OperatorFunction<any, Array<Category>> {

@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   private getCategoryMenu(category: Category) {
     return {
       title: category.name,
-      link: `/categories/${category.id}`,
+      link: category.urlSlug,
       children: category.children.map((subcategory) => this.getCategoryMenu(subcategory))
     };
   }

@@ -16,6 +16,7 @@ export class CategoryProductsComponent implements OnInit {
   category: Category;
   products: Array<Product>;
   productsLoading: boolean = true;
+  categoryInfoLoading: boolean = true;
 
   productListConfig: ProductListConfig = {
     totalPages: 100,
@@ -38,6 +39,7 @@ export class CategoryProductsComponent implements OnInit {
 
   private getCategoryDetails(id: number) {
     this.categoriesFacadeService.getCategoryById(id).subscribe((categoryInfo) => {
+      this.categoryInfoLoading = false;
       this.category = categoryInfo;
     });
   }
