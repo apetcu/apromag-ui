@@ -1,0 +1,13 @@
+<app-page-title [title]="category?.name" [contentLoading]="productsLoading"></app-page-title>
+<div class="shop-page single padding-tb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <app-product-list [listLoading]="productsLoading" [config]="productListConfig" [products]="products" *ngIf="!productsLoading && products && products.length"></app-product-list>
+                <app-info-box title="Ne pare rau" type="danger" *ngIf="!productsLoading && !(products && products.length)">
+                    Nu exista produse adaugate in aceasta categorie
+                </app-info-box>
+            </div>
+        </div>
+    </div>
+</div>
