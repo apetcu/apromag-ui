@@ -21,7 +21,7 @@ export class VendorsFacadeService {
 
   getVendors(): Observable<PaginatedResponse<Vendor>> {
     const locationId = this.shippingService.getShippingLocation().id;
-    return this.vendorsApiService.getAll({ locationId }).pipe(this.mapCompaniesToDomainModel());
+    return this.vendorsApiService.getAll({ locationId }).pipe(this.mapVendorstoDomainModel());
   }
 
   getVendorById(id: number): Observable<Vendor> {
@@ -32,7 +32,7 @@ export class VendorsFacadeService {
     return this.vendorsApiService.getProducts(id, new PaginationInfo()).pipe(this.productsFacadeService.mapProductsToDomainModel());
   }
 
-  private mapCompaniesToDomainModel(): OperatorFunction<PaginatedResponse<Vendor>, PaginatedResponse<Vendor>> {
+  private mapVendorstoDomainModel(): OperatorFunction<PaginatedResponse<Vendor>, PaginatedResponse<Vendor>> {
     return map((vendorsResponse) => {
       vendorsResponse.content = vendorsResponse.content.map((entry) => new Vendor(entry));
       return vendorsResponse;

@@ -1,6 +1,7 @@
 import { Currency } from '../../../shared/models/currency';
 import { Utils } from '../../../shared/services/utils/utils';
 import { Vendor } from '../../vendor/models/vendor';
+import { environment } from '../../../../environments/environment';
 
 export class Product {
   private defaultImageUrl = './assets/images/default_profile.png';
@@ -26,7 +27,7 @@ export class Product {
     this.category = productResponse.category;
     this.currency = new Currency(productResponse.currency);
     this.description = productResponse.description;
-    this.imageUrl = productResponse.imageUrl || this.defaultImageUrl;
+    this.imageUrl = productResponse.imageUrl ? environment.imageBasePath + productResponse.imageUrl : this.defaultImageUrl;
     this.name = productResponse.name;
     this.price = productResponse.price;
     this.rating = productResponse.rating;
