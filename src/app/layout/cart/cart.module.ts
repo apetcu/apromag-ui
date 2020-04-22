@@ -8,9 +8,10 @@ import { CartSummaryComponent } from './containers/cart-summary/cart-summary.com
 import { CartRoutingModule } from './cart-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartFinishComponent } from './containers/cart-finish/cart-finish.component';
+import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
 
 @NgModule({
   declarations: [CartComponent, CartListComponent, CartSummaryComponent, CartFinishComponent],
-  imports: [CommonModule, PageTitleModule, RouterModule, CartRoutingModule, ReactiveFormsModule]
+  imports: [CommonModule, PageTitleModule, RouterModule, CartRoutingModule, ReactiveFormsModule, CurrencyModule]
 })
 export class CartModule {}

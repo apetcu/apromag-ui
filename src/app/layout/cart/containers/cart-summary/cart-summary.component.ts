@@ -8,6 +8,7 @@ import { CartSummaryForm } from './cart-summary-form';
 import { CartFacadeService } from '../../services/cart-facade.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../../user/services/user.service';
+import { CartTotal } from '../../models/cart-total';
 
 @Component({
   selector: 'app-cart-summary',
@@ -18,6 +19,7 @@ export class CartSummaryComponent implements OnInit {
   cartSummaryForm: CartSummaryForm = new CartSummaryForm();
   shippingLocations: Observable<Array<ShippingLocation>>;
   cartItems: Array<CartItem>;
+  cartTotal: Observable<CartTotal>;
 
   constructor(
     private cartService: CartService,
@@ -28,7 +30,8 @@ export class CartSummaryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cartService.currentCartState().subscribe((items) => {
+    this.cartTotal = this.cartService.getTotal();
+    this.cartService.getCartItems().subscribe((items) => {
       this.cartItems = items;
     });
     this.shippingLocations = this.shippingFacadeService.getShippingLocations('');

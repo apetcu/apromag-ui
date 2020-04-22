@@ -11,4 +11,8 @@ export class CartApiService {
   submitOrder(orderDetails: any): Observable<any> {
     return this.api.post('orders', orderDetails);
   }
+
+  calculateTotal(products: Array<{ id: number }>): Observable<any> {
+    return this.api.post('cart/total', products);
+  }
 }

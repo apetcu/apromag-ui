@@ -11,15 +11,15 @@
                         <ul>
                             <li>
                                 <span class="pull-left">Subtotal</span>
-                                <p class="pull-right">$ 0.00</p>
+                                <p class="pull-right">{{(cartTotal | async)?.totalProductsPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
                             </li>
                             <li>
                                 <span class="pull-left">Transport</span>
-                                <p class="pull-right">Free Shipping</p>
+                                <p class="pull-right">{{(cartTotal | async)?.shippingPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
                             </li>
                             <li>
                                 <span class="pull-left">Total</span>
-                                <p class="pull-right">$ 2940.00</p>
+                                <p class="pull-right">{{(cartTotal | async)?.totalPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
                             </li>
                         </ul>
                     </div>

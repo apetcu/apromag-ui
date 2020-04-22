@@ -5,19 +5,27 @@ import { StorageLocations } from '../../../shared/services/storage/storage-locat
 import { CartItem } from '../models/cart-item';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { CartFacadeService } from './cart-facade.service';
+import { CartTotal } from '../models/cart-total';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   private onCartUpdated: BehaviorSubject<Array<CartItem>> = new BehaviorSubject<Array<CartItem>>(null);
+  private cartTotalsSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(private storageService: StorageService, private toasterService: ToastrService) {
+  constructor(private storageService: StorageService, private toasterService: ToastrService, private cartFacadeService: CartFacadeService) {
     this.onCartUpdated.next(this.getItems());
+    this.initTotalListener();
   }
 
-  currentCartState(): Observable<Array<CartItem>> {
+  getCartItems(): Observable<Array<CartItem>> {
     return this.onCartUpdated.asObservable();
+  }
+
+  getTotal(): Observable<CartTotal> {
+    return this.cartTotalsSubject.asObservable();
   }
 
   addItem(product: Product, quantity: number) {
@@ -43,13 +51,21 @@ export class CartService {
     this.setCart(cartItems);
   }
 
-  modifyItem(cartItem: CartItem, operation: CartOperations) {
+  modifyItem(cartItem: CartItem, operation: CartOperations, quantity?: number) {
     const cartItems = this.getItems();
     const foundItemIndex = cartItems.findIndex((entry) => entry.id === cartItem.id);
-    if (operation === CartOperations.ADD) {
-      cartItems[foundItemIndex].quantity++;
-    } else if (operation === CartOperations.SUBSTRACT) {
-      cartItems[foundItemIndex].quantity--;
+    switch (operation) {
+      case CartOperations.ADD:
+        cartItems[foundItemIndex].quantity++;
+        break;
+      case CartOperations.SUBSTRACT:
+        cartItems[foundItemIndex].quantity--;
+        break;
+      case CartOperations.SET:
+        cartItems[foundItemIndex].quantity = quantity;
+        break;
+      default:
+          break;
     }
     this.setCart(cartItems);
   }
@@ -67,15 +83,25 @@ export class CartService {
     this.setCart([]);
   }
 
-  getTotals() {}
 
   private setCart(cartItems: Array<CartItem>) {
     this.storageService.setItem(StorageLocations.CART, cartItems);
     this.onCartUpdated.next(cartItems);
   }
+
+  private initTotalListener() {
+    this.onCartUpdated.subscribe((products) => {
+      if(products && products.length) {
+        this.cartFacadeService.calculateTotal(products).subscribe((totals: CartTotal) => {
+          this.cartTotalsSubject.next(totals);
+        });
+      }
+    })
+  }
 }
 
 export enum CartOperations {
   ADD = 'ADD',
-  SUBSTRACT = 'SUBSTRACT'
+  SUBSTRACT = 'SUBSTRACT',
+  SET = 'SET',
 }

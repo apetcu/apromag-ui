@@ -22,4 +22,8 @@ export class CartListComponent implements OnInit {
   onCartSubstract(cartItem: CartItem) {
     this.cartService.modifyItem(cartItem, CartOperations.SUBSTRACT);
   }
+
+  onCartBlur(quantity: number, cartItem: CartItem) {
+    this.cartService.modifyItem(cartItem, CartOperations.SET, quantity);
+  }
 }

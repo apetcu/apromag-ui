@@ -11,19 +11,19 @@
                 <app-cart-item *ngFor="let cartItem of cartItems | async" [cartItem]="cartItem" (onRemoveItem)="onRemoveItem($event)"></app-cart-item>
             </div>
         </div>
-        <div class="cart-scr-bottom">
+        <div class="cart-scr-bottom" *ngIf="(cartItems | async)?.length">
             <ul>
                 <li>
                     <div class="title">Subtotal</div>
-                    <div class="price">Tk. 1045.00</div>
+                    <div class="price">{{(cartTotal | async)?.totalProductsPrice | aproCurrency: (cartTotal | async)?.currency}}</div>
                 </li>
                 <li>
                     <div class="title">Shipping</div>
-                    <div class="price">Tk. 40.00</div>
+                    <div class="price">{{(cartTotal | async)?.shippingPrice | aproCurrency: (cartTotal | async)?.currency}}</div>
                 </li>
                 <li>
                     <div class="title">Cart Total</div>
-                    <div class="price">Tk. 1085.00</div>
+                    <div class="price">{{(cartTotal | async)?.totalPrice | aproCurrency: (cartTotal | async)?.currency}}</div>
                 </li>
             </ul>
             <a routerLink="/cart" class="food-btn"><span>Trimite comanda</span></a>
