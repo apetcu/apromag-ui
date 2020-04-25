@@ -25,7 +25,7 @@
                         <a routerLink="/vendor" [routerLinkActive]="'active'">Producatori</a>
                     </li>
                     <li>
-                        <a href="javascript: void(0)">Categorii</a>
+                        <a routerLink="/categories">Categorii</a>
                         <ul>
                             <li *ngFor="let menu of categoryMenus">
                                 <a [routerLink]="menu.link" [routerLinkActive]="'active'">{{menu.title}}</a>

@@ -1,4 +1,5 @@
 import { OrderedProduct } from './ordered-product.model';
+import { Currency } from './currency';
 
 export class Order {
   id: number;
@@ -14,6 +15,12 @@ export class Order {
   fullName: string;
   remarks: string;
 
+  currency: Currency;
+
+  subTotal: number;
+  shippingPrice: number;
+  total: number;
+
   constructor(orderResponse: any) {
     this.id = orderResponse.id;
     this.createdAt = new Date(orderResponse.createdAt);
@@ -27,6 +34,11 @@ export class Order {
     this.customerId = orderResponse.customerId;
     this.shippingAddress = orderResponse.shippingAddress;
     this.remarks = orderResponse.remarks;
+    this.subTotal = orderResponse.subTotal;
+    this.shippingPrice = orderResponse.shippingPrice;
+    this.total = orderResponse.subTotal + orderResponse.shippingPrice;
+
+    this.currency = new Currency(orderResponse.currency);
     this.products = orderResponse.products.map((entry) => new OrderedProduct(entry));
   }
 }

@@ -12,13 +12,13 @@
     <tr *ngFor="let cartItem of cartProducts">
         <td class="product-item">
             <div class="p-thumb">
-                <a [routerLink]="cartItem.urlSlug"><img [src]="cartItem.imageUrl" [alt]="cartItem.name"></a>
+                <a [routerLink]="cartItem.urlSlug"><img [src]="cartItem.imageFullPath" [alt]="cartItem.name"></a>
             </div>
             <div class="p-content">
                 <a [routerLink]="cartItem.urlSlug">{{cartItem.name}}</a>
             </div>
         </td>
-        <td>{{cartItem.fullPrice}}</td>
+        <td>{{cartItem.fullPrice}} / {{cartItem.unit}}</td>
         <td>
             <div class="cart-plus-minus">
                 <div class="dec qtybutton" (click)="onCartSubstract(cartItem)">-</div>
@@ -28,7 +28,7 @@
         </td>
         <td>{{cartItem.computeFullPrice(cartItem.quantity)}}</td>
         <td>
-            <a href="#"><img src="assets/images/shop/del.png" alt="product"></a>
+            <a (click)="onCartRemove(cartItem)" class="delete-item"><img src="assets/images/shop/del.png" alt="product"></a>
         </td>
     </tr>
     </tbody>

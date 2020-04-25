@@ -1,64 +1,74 @@
-<div class="cart-top">
-    <app-cart-list [cartProducts]="cartItems"></app-cart-list>
+<div *ngIf="cartItems.length">
+    <div class="cart-top">
+        <app-cart-list [cartProducts]="cartItems"></app-cart-list>
+    </div>
+    <div class="cart-bottom">
+        <form action="" [formGroup]="cartSummaryForm" (ngSubmit)="onCartSubmit()">
+            <div class="shiping-box">
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="cart-overview">
+                            <h4>Total comanda</h4>
+                            <ul>
+                                <li>
+                                    <span class="pull-left">Subtotal</span>
+                                    <p class="pull-right">{{(cartTotal | async)?.totalProductsPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
+                                </li>
+                                <li>
+                                    <span class="pull-left">Transport</span>
+                                    <p class="pull-right">{{(cartTotal | async)?.shippingPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
+                                </li>
+                                <li>
+                                    <span class="pull-left">Total</span>
+                                    <p class="pull-right">{{(cartTotal | async)?.totalPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="calculate-shiping">
+                            <h4>Livrare la adresa</h4>
+                            <div class="outline-select">
+                                <select formControlName="location">
+                                    <option [value]="location.id" *ngFor="let location of shippingLocations | async ">{{location.name}}</option>
+                                </select>
+                                <span class="select-icon"><i class="icofont-caret-down"></i></span>
+                            </div>
+                            <input type="text" formControlName="fullName" placeholder="Nume si prenume" class="form-control">
+
+                            <input type="text" formControlName="shippingAddress" placeholder="Adresa completa (strada, bloc, etaj)" class="form-control">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" formControlName="phone" placeholder="Telefon" class="form-control">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" formControlName="email" placeholder="E-mail" class="form-control">
+                                </div>
+                            </div>
+                            <textarea formControlName="remarks" id="" cols="30" rows="5" placeholder="Observatii"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-checkout-box">
+                <div class="coupon">
+                    <input type="text" name="coupon" placeholder="Coupon Code..." class="cart-page-input-text">
+                    <input type="submit" value="Apply Coupon">
+                </div>
+                <div class="float-right">
+                    <button type="submit" class="food-btn style-3" [disabled]="cartSummaryForm.invalid"><span>Trimite comanda</span></button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
-<div class="cart-bottom">
-    <form action="" [formGroup]="cartSummaryForm" (ngSubmit)="onCartSubmit()">
-        <div class="shiping-box">
-            <div class="row">
-                <div class="col-md-6 col-12">
-                    <div class="cart-overview">
-                        <h4>Total comanda</h4>
-                        <ul>
-                            <li>
-                                <span class="pull-left">Subtotal</span>
-                                <p class="pull-right">{{(cartTotal | async)?.totalProductsPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
-                            </li>
-                            <li>
-                                <span class="pull-left">Transport</span>
-                                <p class="pull-right">{{(cartTotal | async)?.shippingPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
-                            </li>
-                            <li>
-                                <span class="pull-left">Total</span>
-                                <p class="pull-right">{{(cartTotal | async)?.totalPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12">
-                    <div class="calculate-shiping">
-                        <h4>Livrare la adresa</h4>
-                        <div class="outline-select">
-                            <select formControlName="location">
-                                <option [value]="location.id" *ngFor="let location of shippingLocations | async ">{{location.name}}</option>
-                            </select>
-                            <span class="select-icon"><i class="icofont-caret-down"></i></span>
-                        </div>
-                        <input type="text" formControlName="fullName" placeholder="Nume si prenume" class="form-control">
 
-                        <input type="text" formControlName="shippingAddress" placeholder="Adresa completa (strada, bloc, etaj)" class="form-control">
-
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="text" formControlName="phone" placeholder="Telefon" class="form-control">
-                            </div>
-                            <div class="col-6">
-                                <input type="text" formControlName="email" placeholder="E-mail" class="form-control">
-                            </div>
-                        </div>
-                        <textarea formControlName="remarks" id="" cols="30" rows="5" placeholder="Observatii"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="cart-checkout-box">
-            <div class="coupon">
-                <input type="text" name="coupon" placeholder="Coupon Code..." class="cart-page-input-text">
-                <input type="submit" value="Apply Coupon">
-            </div>
-            <div class="float-right">
-                <button type="submit" class="food-btn style-3" [disabled]="cartSummaryForm.invalid"><span>Trimite comanda</span></button>
-            </div>
-        </div>
-    </form>
+<div *ngIf="!cartItems.length">
+    <div class="text-center py-4">
+        <h4 class="text-center">Cosul de cumparaturi este gol</h4>
+        <p>Adauga produse pentru a putea finaliza o comanda</p>
+        <button type="submit" class="food-btn style-2 mr-3" routerLink="/vendor"><span><i class="icofont-shopping-cart"></i> Inapoi la magazin</span></button>
+    </div>
 </div>

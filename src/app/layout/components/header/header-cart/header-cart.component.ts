@@ -26,6 +26,11 @@ export class HeaderCartComponent implements OnInit {
     });
   }
 
+  sendOrder() {
+    this.hideCart();
+    this.router.navigate(['/cart']);
+  }
+
   initTotalListeners() {
     this.cartItems = this.cartService.getCartItems();
     this.cartTotal = this.cartService.getTotal();

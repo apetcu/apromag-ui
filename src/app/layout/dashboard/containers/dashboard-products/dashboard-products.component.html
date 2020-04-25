@@ -41,16 +41,19 @@
                     <tr *ngFor="let product of products" style="cursor:pointer;" (click)="onEditProduct(product)">
                         <td class="text-center text-muted">{{product.id}}</td>
                         <td>
-                            <div class="widget-content p-0">
-                                <div class="widget-content-wrapper">
-                                    <div class="widget-content-left flex2">
-                                        <div class="widget-heading">{{product.name}}</div>
+                            <div class="product-details p-0">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img [src]="product.imageFullPath" alt="">
+                                    </div>
+                                    <div class="col-10">
+                                        <strong>{{product.name}}</strong>
                                         <div class="widget-subheading opacity-7 text-muted font-italic">{{product.category}}</div>
                                     </div>
                                 </div>
                             </div>
                         </td>
-                        <td class="text-right">{{product.fullPrice}}</td>
+                        <td class="text-right">{{product.fullPrice | aproCurrency: product.currency}}</td>
                         <td class="text-right">{{product.unit}}</td>
                         <td class="text-center">
                             <div class="badge"

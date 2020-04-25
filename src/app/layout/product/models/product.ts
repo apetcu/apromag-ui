@@ -10,6 +10,7 @@ export class Product {
   currency: Currency;
   description: string;
   imageUrl: string;
+  imageFullPath: string;
   name: string;
   unit: string;
   price: number;
@@ -27,7 +28,8 @@ export class Product {
     this.category = productResponse.category;
     this.currency = new Currency(productResponse.currency);
     this.description = productResponse.description;
-    this.imageUrl = productResponse.imageUrl ? environment.imageBasePath + productResponse.imageUrl : this.defaultImageUrl;
+    this.imageUrl = productResponse.imageUrl;
+    this.imageFullPath = this.imageUrl ? environment.imageBasePath + this.imageUrl : this.defaultImageUrl;
     this.name = productResponse.name;
     this.price = productResponse.price;
     this.rating = productResponse.rating;

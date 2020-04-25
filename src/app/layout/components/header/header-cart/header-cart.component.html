@@ -1,10 +1,12 @@
-<div class="cart-option" [class.active]="cartDisplayed" appClickOutside (clickOutside)="hideCart()" (click)="cartToggle()">
-    <img src="assets/images/header/cart.png" alt="shop-cart">
-    <div class="count-item">{{(cartItems | async).length}}</div>
+<div class="cart-option" [class.active]="cartDisplayed" appClickOutside (clickOutside)="hideCart()">
+    <div class="cart-icon" (click)="cartToggle()">
+        <img src="assets/images/header/cart.png" alt="shop-cart">
+        <div class="count-item">{{(cartItems | async).length}}</div>
+    </div>
     <div class="cart-content">
         <div class="cart-title">
             <div class="add-item">{{(cartItems | async).length}} produse in cos</div>
-            <div class="list-close"><a href="#">Inchide</a></div>
+            <div class="list-close"><a (click)="hideCart()">Inchide</a></div>
         </div>
         <div class="cart-scr scrollbar">
             <div class="cart-con-item">
@@ -26,7 +28,7 @@
                     <div class="price">{{(cartTotal | async)?.totalPrice | aproCurrency: (cartTotal | async)?.currency}}</div>
                 </li>
             </ul>
-            <a routerLink="/cart" class="food-btn"><span>Trimite comanda</span></a>
+            <a (click)="sendOrder()" class="food-btn"><span>Trimite comanda</span></a>
         </div>
     </div>
 </div>

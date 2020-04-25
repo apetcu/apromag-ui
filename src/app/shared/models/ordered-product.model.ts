@@ -1,3 +1,5 @@
+import { Currency } from './currency';
+
 export class OrderedProduct {
   id: null;
   createdAt: Date;
@@ -7,6 +9,8 @@ export class OrderedProduct {
   price: number;
   quantity: number;
 
+  currency: Currency;
+
   constructor(orderProductResponse: any) {
     this.id = orderProductResponse.id;
     this.productId = orderProductResponse.productId;
@@ -15,5 +19,7 @@ export class OrderedProduct {
     this.quantity = orderProductResponse.quantity;
     this.createdAt = new Date(orderProductResponse.createdAt);
     this.updatedAt = new Date(orderProductResponse.updatedAt);
+
+    this.currency = new Currency(orderProductResponse.currency);
   }
 }

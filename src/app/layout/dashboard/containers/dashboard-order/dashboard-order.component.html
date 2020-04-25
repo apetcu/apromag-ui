@@ -37,9 +37,9 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="text-center">{{product.price}}</td>
+                        <td class="text-center">{{product.price | aproCurrency: product.currency}}</td>
                         <td class="text-center">{{product.quantity}}</td>
-                        <td class="text-center">{{product.quantity * product.price}}</td>
+                        <td class="text-center">{{product.quantity * product.price | aproCurrency: product.currency}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -71,7 +71,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <div class="card-title">Total comanda</div>
-                <p>100,00 RON</p>
+                <h3>{{orderInfo.total | aproCurrency: orderInfo.currency}}</h3>
                 <p>{{orderInfo?.createdAt | date: 'medium'}}</p>
             </div>
         </div>

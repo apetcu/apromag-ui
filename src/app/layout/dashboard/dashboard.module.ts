@@ -22,6 +22,7 @@ import { DashboardOrdersComponent } from './containers/dashboard-orders/dashboar
 import { DashboardOrderComponent } from './containers/dashboard-order/dashboard-order.component';
 import { OrderBadgeModule } from '../../shared/components/order-badge/order-badge.module';
 import { OrderListModule } from '../../shared/components/order-list/order-list.module';
+import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { OrderListModule } from '../../shared/components/order-list/order-list.m
     DialogModule,
     ngfModule,
     OrderBadgeModule,
-    OrderListModule
+    OrderListModule,
+    CurrencyModule
   ]
 })
 export class DashboardModule {}

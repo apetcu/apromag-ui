@@ -2,7 +2,7 @@
     <div class="cart-inner">
         <div class="cart-top">
             <div class="thumb">
-                <a [routerLink]="cartItem.urlSlug"><img [src]="cartItem.imageUrl" [alt]="cartItem.name"></a>
+                <a [routerLink]="cartItem.urlSlug"><img [src]="cartItem.imageFullPath" [alt]="cartItem.name"></a>
             </div>
             <div class="content">
                 <a [routerLink]="cartItem.urlSlug">{{cartItem.name}}</a>
