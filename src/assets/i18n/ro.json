@@ -4,13 +4,7 @@
       "TITLE": "Panou de control"
     },
     "ORDERS": {
-      "TITLE": "Comenzile mele",
-      "STATUSES": {
-        "SUBMITTED": "Comanda initializata",
-        "IN_PROGRESS": "In procesare",
-        "CANCELED": "Comanda anulata",
-        "DELIVERED": "Comanda livrata"
-      }
+      "TITLE": "Comenzile mele"
     },
     "ORDER": {
       "TITLE": "Comanda nr.",
@@ -56,6 +50,15 @@
     "STOCK": {
       "AVAILABLE": "In stoc",
       "NOT_AVAILABLE": "Lipsa stoc"
+    }
+  },
+  "ORDERS": {
+    "STATUSES": {
+      "SUBMITTED": "Comanda initializata",
+      "IN_PROGRESS": "Comanda preluata",
+      "SHIPPED": "Comanda expediata",
+      "COMPLETED": "Comanda finalizata",
+      "CANCELED": "Comanda anulata"
     }
   }
 }

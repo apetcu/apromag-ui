@@ -20,6 +20,10 @@ export class OrderFacadeService {
     return this.orderApiService.getById(id).pipe(map((order) => new Order(order)));
   }
 
+  setStatus(id: number, statusForm: any): Observable<Order> {
+    return this.orderApiService.setStatus(id, statusForm);
+  }
+
   getStatuses() {
     return this.orderApiService.getStatuses().pipe(this.mapStatusesToDomainModel());
   }

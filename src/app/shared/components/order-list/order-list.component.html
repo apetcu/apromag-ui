@@ -15,7 +15,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let order of orders" (click)="clickOrder(order)">
+        <tr *ngFor="let order of orders" (click)="clickOrder(order)" [class.new]="!order.seenAt">
             <td class="text-center text-muted">#{{order.id}}</td>
             <td>
                 <div class="widget-content p-0">
@@ -32,7 +32,7 @@
             <td class="text-center">{{order.createdAt | date: 'medium'}}</td>
             <td class="text-center">{{order.total | aproCurrency: order.currency}}</td>
             <td class="text-center">
-                <div class="badge" [ngClass]="'badge-'+order.status.toLowerCase()">{{'VENDOR.ORDERS.STATUSES.' + order.status | translate}}</div>
+                <app-order-badge [status]="order.status"></app-order-badge>
             </td>
         </tr>
         <tr *ngIf="!orders.length">

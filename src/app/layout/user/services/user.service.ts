@@ -33,6 +33,10 @@ export class UserService {
     }
   }
 
+  decreaseNotifications() {
+    this.setLoggedInState(new User({ ...this.loggedUser.value, newOrders: this.loggedUser.value.newOrders-- }));
+  }
+
   setUser(user: User): void {
     this.setLoggedInState(user);
     this.storageService.setItem(this.userStorageKey, user);

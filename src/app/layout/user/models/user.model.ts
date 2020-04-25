@@ -35,7 +35,7 @@ export class User {
     if (userResponse.vendor) {
       this.vendor = new Vendor(userResponse.vendor);
     }
-    this.newOrders = 3;
+    this.newOrders = userResponse.notifications;
   }
 
   isUserOfTypeVendor(): boolean {

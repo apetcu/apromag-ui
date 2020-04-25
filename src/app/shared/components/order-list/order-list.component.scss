@@ -1,3 +1,11 @@
+@import "variables";
 tr {
   cursor: pointer;
+  &.new {
+    background-color : lighten($theme-color, 50%)!important;
+
+    &:hover {
+      background-color: #eaeaea!important;
+    }
+  }
 }

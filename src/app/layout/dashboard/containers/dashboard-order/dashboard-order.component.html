@@ -16,13 +16,13 @@
                 <div class="card-title" translate="VENDOR.ORDER.PRODUCTS.TITLE"></div>
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                     <thead>
-                        <tr>
-                            <th class="text-center">#</th>
-                            <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.PRODUCT"></th>
-                            <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.UNIT_PRICE"> </th>
-                            <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.QUANTITY"></th>
-                            <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.TOTAL"></th>
-                        </tr>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.PRODUCT"></th>
+                        <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.UNIT_PRICE"></th>
+                        <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.QUANTITY"></th>
+                        <th class="text-right" translate="VENDOR.ORDER.PRODUCTS.LIST.TOTAL"></th>
+                    </tr>
                     </thead>
                     <tbody>
                     <tr *ngFor="let product of orderInfo?.products">
@@ -39,30 +39,51 @@
                         </td>
                         <td class="text-center">{{product.price | aproCurrency: product.currency}}</td>
                         <td class="text-center">{{product.quantity}}</td>
-                        <td class="text-center">{{product.quantity * product.price | aproCurrency: product.currency}}</td>
+                        <td class="text-right">{{product.quantity * product.price | aproCurrency: product.currency}}</td>
                     </tr>
                     </tbody>
                 </table>
+                <div class="row justify-content-end">
+                    <div class="col-md-5">
+                        <table class="align-middle mb-0 table table-borderless table-hover totals">
+                            <tbody>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td>{{orderInfo?.subTotal | aproCurrency: orderInfo?.currency}}</td>
+                            </tr>
+                            <tr>
+                                <td>Transport</td>
+                                <td>{{orderInfo?.shippingPrice | aproCurrency: orderInfo?.currency}}</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>{{orderInfo?.total | aproCurrency: orderInfo?.currency}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="orderInfo">
             <div class="col-6">
                 <div class="main-card mb-3 card">
-                    <div class="card-body">
-                        <div class="card-title">Stare comanda</div>
-                        <div class="outline-select">
-                            <select formControlName="location">
-                                <option>In progress</option>
-                                <option>In progress</option>
-                                <option>In progress</option>
-                                <option>In progress</option>
-                            </select>
-                            <span class="select-icon"><i class="icofont-caret-down"></i></span>
+                    <form [formGroup]="orderStatusForm" (ngSubmit)="changeOrderStatus()">
+                        <div class="card-body">
+                            <div class="card-title">Stare comanda</div>
+                            <div class="outline-select">
+                                <select formControlName="status">
+                                    <option *ngFor="let status of orderStatuses"
+                                            [value]="status.value">{{"ORDERS.STATUSES." + status.label | translate}}
+                                    </option>
+                                </select>
+                                <span class="select-icon"><i class="icofont-caret-down"></i></span>
+                            </div>
+                            <div class="card-title">Detalii livrare</div>
+                            <textarea formControlName="remarks" cols="30" rows="3" class="form-control"></textarea>
+                            <button type="submit" class="food-btn style-3 mt-3 float-right"><span>Salveaza</span></button>
                         </div>
-                        <div class="card-title">Detalii livrare</div>
-                        <textarea id="" cols="30" rows="3" class="form-control"></textarea>
-                        <button type="submit" class="food-btn style-3 mt-3 float-right"><span>Salveaza</span></button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -71,7 +92,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <div class="card-title">Total comanda</div>
-                <h3>{{orderInfo.total | aproCurrency: orderInfo.currency}}</h3>
+                <h3>{{orderInfo?.total | aproCurrency: orderInfo?.currency}}</h3>
                 <p>{{orderInfo?.createdAt | date: 'medium'}}</p>
             </div>
         </div>

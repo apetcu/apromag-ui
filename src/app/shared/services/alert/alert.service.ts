@@ -13,6 +13,7 @@ export class AlertService {
     icon: 'warning',
     showCancelButton: false
   };
+
   constructor() {}
 
   show(options: AlertMessage): Observable<any> {
@@ -21,5 +22,15 @@ export class AlertService {
       behavior: 'smooth'
     });
     return from(Swal.fire({ ...this.defaultOptions, ...options }));
+  }
+
+  showSuccess(message: string) {
+    this.show({
+      position: 'top-end',
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 }

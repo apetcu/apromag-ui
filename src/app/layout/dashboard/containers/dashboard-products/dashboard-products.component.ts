@@ -50,13 +50,7 @@ export class DashboardProductsComponent implements OnInit {
 
   onSaveComplete(saveSuccessful: boolean) {
     if (saveSuccessful) {
-      this.alertService.show({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Produsul a fost ' + (this.editProduct ? 'modificat' : 'adaugat'),
-        showConfirmButton: false,
-        timer: 1500
-      });
+      this.alertService.showSuccess('Produsul a fost ' + (this.editProduct ? 'modificat' : 'adaugat'));
       this.addProductToggled = false;
       this.loadData(1);
     } else {

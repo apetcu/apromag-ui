@@ -1,10 +1,12 @@
 import { OrderedProduct } from './ordered-product.model';
 import { Currency } from './currency';
+import { OrderStatusEnum } from '../enum/order-status.enum';
 
 export class Order {
   id: number;
   createdAt: Date;
   updatedAt: Date;
+  seenAt: Date;
   email: string;
   phone: string;
   shippingAddress: string;
@@ -25,8 +27,9 @@ export class Order {
     this.id = orderResponse.id;
     this.createdAt = new Date(orderResponse.createdAt);
     this.updatedAt = new Date(orderResponse.updatedAt);
+    this.seenAt = orderResponse.seenAt ? new Date(orderResponse.seenAt) : null;
 
-    this.status = orderResponse.status;
+    this.status = orderResponse.status as OrderStatusEnum;
     this.fullName = orderResponse.fullName;
     this.email = orderResponse.email;
     this.phone = orderResponse.phone;

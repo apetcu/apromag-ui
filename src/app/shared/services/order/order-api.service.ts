@@ -19,12 +19,16 @@ export class OrderApiService {
     return this.api.get(`${this.domainUrl}/${id}`);
   }
 
+  setStatus(id: number, statusForm: any): Observable<any> {
+    return this.api.post(`${this.domainUrl}/${id}/status`, statusForm);
+  }
+
   getStatuses() {
     return of([
       { label: 'SUBMITTED', value: 'SUBMITTED' },
-      { label: 'CANCELED', value: 'CANCELED' },
-      { label: 'DELIVERED', value: 'DELIVERED' },
-      { label: 'IN_PROGRESS', value: 'IN_PROGRESS' }
+      { label: 'IN_PROGRESS', value: 'IN_PROGRESS' },
+      { label: 'SHIPPED', value: 'SHIPPED' },
+      { label: 'COMPLETED', value: 'COMPLETED' }
     ]);
   }
 }
