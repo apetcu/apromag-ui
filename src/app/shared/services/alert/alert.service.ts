@@ -10,7 +10,6 @@ export class AlertService {
   defaultOptions: AlertMessage = {
     title: '',
     text: '',
-    icon: 'warning',
     showCancelButton: false
   };
 

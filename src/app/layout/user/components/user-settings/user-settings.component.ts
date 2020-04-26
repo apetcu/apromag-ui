@@ -3,6 +3,7 @@ import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { UserSettingsForm } from './user-settings-form';
 import { UserFacadeService } from '../../services/user-facade.service';
+import { AlertService } from '../../../../shared/services/alert/alert.service';
 
 @Component({
   selector: 'app-user-settings',
@@ -12,7 +13,7 @@ import { UserFacadeService } from '../../services/user-facade.service';
 export class UserSettingsComponent implements OnInit {
   userSettingsForm: UserSettingsForm;
 
-  constructor(private userService: UserService, private userFacade: UserFacadeService) {}
+  constructor(private userService: UserService, private userFacade: UserFacadeService, private alertService: AlertService) {}
 
   ngOnInit(): void {
     this.initializeUserForm();
@@ -20,8 +21,9 @@ export class UserSettingsComponent implements OnInit {
 
   onSubmit(): void {
     this.userFacade.updateAccountSettings(this.userSettingsForm.value).subscribe((accountInfo: User) => {
-      this.userService.setUser(accountInfo);
+      this.userService.setUser(new User(accountInfo));
       this.initializeUserForm();
+      this.alertService.showSuccess('Datele contului au fost actualizate');
     });
   }
 

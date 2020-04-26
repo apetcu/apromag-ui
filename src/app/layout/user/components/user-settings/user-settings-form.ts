@@ -12,7 +12,7 @@ export class UserSettingsForm extends BaseForm<User> {
       phone: new FormControl(user.phone),
       address: new FormControl(user.address),
       profilePicture: new FormControl(user.profilePicture),
-      vendor: user.isUserOfTypeVendor() ? new VendorSettingsForm(user.vendor) : null
+      vendor: user.isUserOfTypeVendor() ? new VendorSettingsForm(user.vendor) : new FormControl(null)
     });
   }
 

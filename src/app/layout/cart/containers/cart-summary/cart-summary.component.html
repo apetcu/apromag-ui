@@ -20,9 +20,16 @@
                                 </li>
                                 <li>
                                     <span class="pull-left">Total</span>
-                                    <p class="pull-right">{{(cartTotal | async)?.totalPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
+                                    <p class="pull-right"><strong>{{(cartTotal | async)?.totalPrice | aproCurrency: (cartTotal | async)?.currency}}</strong></p>
                                 </li>
                             </ul>
+
+                            <h5 class="mt-5">Detalii livrare</h5>
+                            <div>
+                                <strong>Livrare standard</strong>
+                                <div>Pret standard livrare: 20 lei</div>
+                                <div>Livrare gratuita pentru comenzi peste 20 lei</div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
@@ -53,11 +60,7 @@
             </div>
 
             <div class="cart-checkout-box">
-                <div class="coupon">
-                    <input type="text" name="coupon" placeholder="Coupon Code..." class="cart-page-input-text">
-                    <input type="submit" value="Apply Coupon">
-                </div>
-                <div class="float-right">
+                <div class="col-12 text-right">
                     <button type="submit" class="food-btn style-3" [disabled]="cartSummaryForm.invalid"><span>Trimite comanda</span></button>
                 </div>
             </div>

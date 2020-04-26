@@ -9,7 +9,7 @@
                                 <div class="col-md-6 col-12">
                                     <div class="shop-item">
                                         <div class="shop-thumb">
-                                            <img [src]="productDetails?.imageUrl" [alt]="productDetails?.name">
+                                            <img [src]="productDetails?.imageFullPath" [alt]="productDetails?.name">
                                         </div>
                                     </div>
                                 </div>
@@ -20,20 +20,12 @@
                                             <div class="p-food-group">
                                                 <a href="#">Rosii</a>
                                             </div>
-                                            <div class="rating">
-                                                <i class="icofont-star"></i>
-                                                <i class="icofont-star"></i>
-                                                <i class="icofont-star"></i>
-                                                <i class="icofont-star"></i>
-                                                <i class="icofont-star"></i>
-                                                <span>(2 Customer Reviews)</span>
-                                            </div>
                                         </div>
                                         <div class="desc">
                                             <p>{{productDetails?.description}}</p>
                                             <ul>
-                                                <li>Livrare gratuita pentru comenzi peste 60 lei</li>
-                                                <li>Livrare in 1-3 zile</li>
+                                                <li *ngIf="vendorDetails?.freeShippingOver">Livrare gratuita pentru comenzi peste {{vendorDetails?.freeShippingOver}} lei</li>
+                                                <li>Pret livrare: {{vendorDetails?.shippingCost}} lei</li>
                                                 <li>Detin certificat producator</li>
                                             </ul>
                                         </div>

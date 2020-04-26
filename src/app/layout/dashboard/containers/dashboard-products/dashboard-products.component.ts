@@ -68,8 +68,9 @@ export class DashboardProductsComponent implements OnInit {
         text: 'Odata sters, acesta nu va mai fi disponibil pentru clienti',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Sterge produsul'
+        cancelButtonColor: '#2f2f2f',
+        confirmButtonText: 'Sterge produsul',
+        cancelButtonText: 'Anuleaza'
       })
       .subscribe((data) => {
         if (data.value) {
