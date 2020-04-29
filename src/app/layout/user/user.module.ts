@@ -9,10 +9,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserOrdersComponent } from './components/user-orders/user-orders.component';
 import { UserOrderDetailsComponent } from './components/user-order-details/user-order-details.component';
 import { OrderListModule } from '../../shared/components/order-list/order-list.module';
+import { OrderProductListModule } from '../../shared/components/order-product-list/order-product-list.module';
+import { OrderSummaryModule } from '../../shared/components/order-summary/order-summary.module';
+import { OrderBadgeModule } from '../../shared/components/order-badge/order-badge.module';
 
 @NgModule({
   declarations: [UserComponent, UserSettingsComponent, UserDetailsComponent, UserOrdersComponent, UserOrderDetailsComponent],
   providers: [UserGuard],
-  imports: [CommonModule, UserRoutingModule, ReactiveFormsModule, OrderListModule]
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    ReactiveFormsModule,
+    OrderListModule,
+    OrderProductListModule,
+    OrderSummaryModule,
+    OrderBadgeModule
+  ]
 })
 export class UserModule {}

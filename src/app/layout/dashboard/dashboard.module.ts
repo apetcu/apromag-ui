@@ -23,6 +23,9 @@ import { DashboardOrderComponent } from './containers/dashboard-order/dashboard-
 import { OrderBadgeModule } from '../../shared/components/order-badge/order-badge.module';
 import { OrderListModule } from '../../shared/components/order-list/order-list.module';
 import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
+import { OrderProductListModule } from '../../shared/components/order-product-list/order-product-list.module';
+import { OrderSummaryModule } from '../../shared/components/order-summary/order-summary.module';
+import { DashboardVendorComponent } from './containers/dashboard-vendor/dashboard-vendor.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
     DashboardShippingComponent,
     DashboardPaymentComponent,
     DashboardOrdersComponent,
-    DashboardOrderComponent
+    DashboardOrderComponent,
+    DashboardVendorComponent
   ],
   providers: [DashboardGuard],
   imports: [
@@ -51,7 +55,9 @@ import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
     ngfModule,
     OrderBadgeModule,
     OrderListModule,
-    CurrencyModule
+    CurrencyModule,
+    OrderProductListModule,
+    OrderSummaryModule
   ]
 })
 export class DashboardModule {}

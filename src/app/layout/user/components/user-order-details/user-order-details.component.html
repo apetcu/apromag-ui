@@ -1,1 +1,20 @@
-<p>user-order-details works!</p>
+<div class="row">
+    <div class="col-7">
+        <div class="main-card card">
+            <h5 class="p-4 pb-0">
+                <a routerLink="/user/orders">Comenzile mele</a> > Comanda #{{orderId}}
+            </h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <app-order-badge [status]="orderInfo.status" class="mx-4"></app-order-badge>
+                </div>
+            </div>
+            <div class="card-body">
+                <app-order-product-list *ngIf="orderInfo" [orderInfo]="orderInfo"></app-order-product-list>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <app-order-summary [orderInfo]="orderInfo"></app-order-summary>
+    </div>
+</div>

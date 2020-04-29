@@ -1,49 +1,51 @@
-<h4>Informatii cont</h4>
-<hr>
-<div *ngIf="userSettingsForm">
-    <form [formGroup]="userSettingsForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="last-name">Nume</label>
-                    <input class="form-control" id="last-name" type="text" formControlName="lastName">
+<div class="widget">
+    <h4>Informatii cont</h4>
+    <hr>
+    <div *ngIf="userSettingsForm">
+        <form [formGroup]="userSettingsForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="last-name">Nume</label>
+                        <input class="form-control" id="last-name" type="text" formControlName="lastName">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="first-name">Prenume</label>
+                        <input class="form-control" id="first-name" type="text" formControlName="firstName">
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" id="email" type="text" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input class="form-control" id="phone" type="text" formControlName="phone">
+            </div>
+            <div class="form-group">
+                <label for="client-address">Adresa</label>
+                <input class="form-control" id="client-address" type="text" formControlName="address">
+            </div>
+            <form *ngIf="userSettingsForm.isVendor()" [formGroup]="userSettingsForm.getVendorForm()">
+                <br>
+                <h4>Informatii furnizor</h4>
+                <hr>
                 <div class="form-group">
-                    <label for="first-name">Prenume</label>
-                    <input class="form-control" id="first-name" type="text" formControlName="firstName">
+                    <label for="business-name">Numele afacerii</label>
+                    <input class="form-control" id="business-name" type="text" formControlName="businessName">
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input class="form-control" id="email" type="text" formControlName="email">
-        </div>
-        <div class="form-group">
-            <label for="phone">Telefon</label>
-            <input class="form-control" id="phone" type="text" formControlName="phone">
-        </div>
-        <div class="form-group">
-            <label for="client-address">Adresa</label>
-            <input class="form-control" id="client-address" type="text" formControlName="address">
-        </div>
-        <form *ngIf="userSettingsForm.isVendor()" [formGroup]="userSettingsForm.getVendorForm()">
-            <br>
-            <h4>Informatii furnizor</h4>
-            <hr>
-            <div class="form-group">
-                <label for="business-name">Numele afacerii</label>
-                <input class="form-control" id="business-name" type="text" formControlName="businessName">
-            </div>
-            <div class="form-group">
-                <label for="address">Adresa</label>
-                <input class="form-control" id="address" type="text" formControlName="address">
+                <div class="form-group">
+                    <label for="address">Adresa</label>
+                    <input class="form-control" id="address" type="text" formControlName="address">
+                </div>
+            </form>
+            <div class="buttons-wrapper">
+                <button type="submit" class="btn btn-success" [disabled]="userSettingsForm.invalid">Actualizeaza</button>
+                <button *ngIf="userSettingsForm.dirty" class="btn btn-secondary" (click)="initializeUserForm()">Reset</button>
             </div>
         </form>
-        <div class="buttons-wrapper">
-            <button type="submit" class="btn btn-success" [disabled]="userSettingsForm.invalid">Actualizeaza</button>
-            <button *ngIf="userSettingsForm.dirty" class="btn btn-secondary" (click)="initializeUserForm()">Reset</button>
-        </div>
-    </form>
+    </div>
 </div>

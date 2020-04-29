@@ -15,7 +15,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let order of orders" (click)="clickOrder(order)" [class.new]="!order.seenAt">
+        <tr *ngFor="let order of orders" (click)="clickOrder(order)" [class.new]="!order.seenAt && userRole === 'VENDOR'">
             <td class="text-center text-muted">#{{order.id}}</td>
             <td>
                 <div class="widget-content p-0">

@@ -1,0 +1,38 @@
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <div class="card-title">Total comanda</div>
+        <h3>{{orderInfo?.total | aproCurrency: orderInfo?.currency}}</h3>
+        <p>{{orderInfo?.createdAt | date: 'medium'}}</p>
+    </div>
+</div>
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <div class="card-title">Detalii livrare</div>
+        <table class="table table-bordered table-sm">
+            <tr>
+                <td>Nume</td>
+                <td>{{orderInfo?.fullName}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><a [href]="'mailto:'+orderInfo?.email">{{orderInfo?.email}}</a></td>
+            </tr>
+            <tr>
+                <td>Telefon</td>
+                <td><a [href]="'tel:'+orderInfo?.phone">{{orderInfo?.phone}}</a></td>
+            </tr>
+            <tr>
+                <td>Adresa</td>
+                <td>{{orderInfo?.shippingAddress}}</td>
+            </tr>
+            <tr>
+                <td>Oras</td>
+                <td>Bucuresti</td>
+            </tr>
+            <tr>
+                <td>Observatii</td>
+                <td>{{orderInfo?.remarks}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
