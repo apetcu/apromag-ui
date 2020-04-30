@@ -4,8 +4,8 @@
         <div class="row justify-content-center">
             <div class="col-xl-8 col-12">
                 <app-product-list [listLoading]="productsLoading" [config]="productListConfig" [products]="products" *ngIf="!productsLoading && products && products.length"></app-product-list>
-                <app-info-box title="Ne pare rau" type="danger" *ngIf="!productsLoading && !(products && products.length)">
-                   Acest producator nu are inca produse listate.
+                <app-info-box title="GENERAL.SORRY" type="danger" *ngIf="!productsLoading && !(products && products.length)">
+                   {{'GENERAL.NO_PRODUCTS' | translate}}
                 </app-info-box>
             </div>
             <div class="col-xl-4 col-md-7 col-12">
@@ -24,81 +24,15 @@
                                 </div>
                                 <div class="admin-content">
                                     <p>{{vendorDetails?.description}}</p>
-                                    <div class="scocial-media">
-                                        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                                        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-                                        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
-                                        <a href="#" class="vimeo"><i class="icofont-vimeo"></i></a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="widget widget-instagram">
                             <div class="widget-header">
-                                <h5>Imagini producator</h5>
+                                <h5 translate="GENERAL.IMAGES"></h5>
                             </div>
                             <ul class="widget-wrapper d-flex flex-wrap justify-content-center">
                                 <li *ngFor="let photo of vendorDetails?.photos"><a href="#"><img [src]="photo.imageUrl" alt="product"></a></li>
-                            </ul>
-                        </div>
-                        <div class="widget widget-post">
-                            <div class="widget-header">
-                                <h5>smith archives</h5>
-                            </div>
-                            <ul class="widget-wrapper">
-                                <li class="d-flex flex-wrap justify-content-between">
-                                    <div class="post-thumb">
-                                        <a href="#"><img src="assets/images/popular-food/01.jpg" alt="product"></a>
-                                    </div>
-                                    <div class="post-content">
-                                        <h6><a href="#">Foulate Revunry And Mhare Fnger Tache Fanny</a></h6>
-                                        <p>04 February 2019</p>
-                                    </div>
-                                </li>
-                                <li class="d-flex flex-wrap justify-content-between">
-                                    <div class="post-thumb">
-                                        <a href="#"><img src="assets/images/popular-food/02.jpg" alt="product"></a>
-                                    </div>
-                                    <div class="post-content">
-                                        <h6><a href="#">Foulate Revunry And Mhare Fnger Tache Fanny</a></h6>
-                                        <p>04 February 2019</p>
-                                    </div>
-                                </li>
-                                <li class="d-flex flex-wrap justify-content-between">
-                                    <div class="post-thumb">
-                                        <a href="#"><img src="assets/images/popular-food/03.jpg" alt="product"></a>
-                                    </div>
-                                    <div class="post-content">
-                                        <h6><a href="#">Foulate Revunry And Mhare Fnger Tache Fanny</a></h6>
-                                        <p>04 February 2019</p>
-                                    </div>
-                                </li>
-                                <li class="d-flex flex-wrap justify-content-between">
-                                    <div class="post-thumb">
-                                        <a href="#"><img src="assets/images/popular-food/04.jpg" alt="product"></a>
-                                    </div>
-                                    <div class="post-content">
-                                        <h6><a href="#">Foulate Revunry And Mhare Fnger Tache Fanny</a></h6>
-                                        <p>04 February 2019</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="widget widget-tags">
-                            <div class="widget-header">
-                                <h5>top tags</h5>
-                            </div>
-                            <ul class="widget-wrapper">
-                                <li><a href="#">envato</a></li>
-                                <li><a href="#" class="active">themeforest</a></li>
-                                <li><a href="#">codecanyon</a></li>
-                                <li><a href="#">videohive</a></li>
-                                <li><a href="#">audiojungle</a></li>
-                                <li><a href="#">3docean</a></li>
-                                <li><a href="#">envato</a></li>
-                                <li><a href="#">themeforest</a></li>
-                                <li><a href="#">codecanyon</a></li>
                             </ul>
                         </div>
                     </div>

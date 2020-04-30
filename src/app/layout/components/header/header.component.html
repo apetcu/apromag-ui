@@ -19,10 +19,10 @@
                 </div>
                 <ul>
                     <li>
-                        <a routerLink="/home" [routerLinkActive]="'active'">Acasa</a>
+                        <a routerLink="/home" [routerLinkActive]="'active'" translate="MENU.HOME"></a>
                     </li>
                     <li>
-                        <a routerLink="/vendor" [routerLinkActive]="'active'">Producatori</a>
+                        <a routerLink="/vendor" [routerLinkActive]="'active'" translate="MENU.PRODUCERS"></a>
                     </li>
                     <li>
                         <a routerLink="/categories">Categorii</a>
@@ -38,7 +38,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a routerLink="/contact" [routerLinkActive]="'active'">Contact</a>
+                        <a routerLink="/contact" [routerLinkActive]="'active'" translate="MENU.CONTACT"></a>
                     </li>
                 </ul>
                 <div class="scocial-media">
@@ -64,13 +64,13 @@
             <div class="main-menu">
                 <ul>
                     <li>
-                        <a routerLink="/home" [routerLinkActive]="'active'">Acasa</a>
+                        <a routerLink="/home" [routerLinkActive]="'active'" translate="MENU.HOME"></a>
                     </li>
                     <li>
-                        <a routerLink="/vendor" [routerLinkActive]="'active'">Producatori</a>
+                        <a routerLink="/vendor" [routerLinkActive]="'active'" translate="MENU.PRODUCERS"></a>
                     </li>
                     <li>
-                        <a routerLink="/categories" [routerLinkActive]="'active'" class="dd-icon-right">Categorii</a>
+                        <a routerLink="/categories" [routerLinkActive]="'active'" class="dd-icon-right" translate="MENU.CATEGORIES"></a>
                         <ul>
                             <li *ngFor="let menu of categoryMenus">
                                 <a [routerLink]="menu.link" [routerLinkActive]="'active'">{{menu.title}}</a>
@@ -83,7 +83,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a routerLink="/contact" [routerLinkActive]="'active'">Contact</a>
+                        <a routerLink="/contact" [routerLinkActive]="'active'" translate="MENU.CONTACT"></a>
                     </li>
                 </ul>
             </div>

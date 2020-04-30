@@ -5,9 +5,11 @@ import { PageTitleModule } from '../../shared/components/page-title/page-title.m
 import { RelatedProductsComponent } from './components/related-products/related-products.component';
 import { ProductListModule } from '../../shared/components/product-list/product-list.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [ProductComponent, RelatedProductsComponent],
-  imports: [CommonModule, PageTitleModule, ProductListModule, ReactiveFormsModule]
+  imports: [CommonModule, PageTitleModule, ProductListModule, ReactiveFormsModule, TranslateModule, RouterModule]
 })
 export class ProductModule {}

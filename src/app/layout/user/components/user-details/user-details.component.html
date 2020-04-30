@@ -1,14 +1,14 @@
 <div class="widget">
-    <h4>Contul meu</h4>
+    <h4 translate="GENERAL.MY_ACCOUNT"></h4>
     <hr>
     <div *ngIf="user">
         <div class="row">
             <div class="col-12 col-md-6">
-                <p><strong>Nume: </strong> {{ user.fullName }}</p>
-                <p><strong>Email: </strong> {{ user.email }}</p>
-                <p><strong>Membru din: </strong> {{ user.createdAt | date: 'dd MMM yyyy' }}</p>
-                <p><strong>Ultima actualizare: </strong> {{ user.updatedAt | date: 'dd MMM yyyy' }}</p>
-                <button class="food-btn style-3" routerLink="/user/settings"><span>Modifica detalii cont</span></button>
+                <p><strong translate="ACCOUNT.NAME"></strong> {{ user.fullName }}</p>
+                <p><strong translate="ACCOUNT.EMAIL"></strong> {{ user.email }}</p>
+                <p><strong translate="ACCOUNT.MEMBER_FROM"></strong> {{ user.createdAt | date: 'dd MMM yyyy' }}</p>
+                <p><strong translate="ACCOUNT.LAST_EDIT"></strong> {{ user.updatedAt | date: 'dd MMM yyyy' }}</p>
+                <button class="food-btn style-3" routerLink="/user/settings"><span translate="GENERAL.MY_ACCOUNT"></span></button>
             </div>
         </div>
     </div>

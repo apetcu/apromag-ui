@@ -12,6 +12,7 @@ import { OrderListModule } from '../../shared/components/order-list/order-list.m
 import { OrderProductListModule } from '../../shared/components/order-product-list/order-product-list.module';
 import { OrderSummaryModule } from '../../shared/components/order-summary/order-summary.module';
 import { OrderBadgeModule } from '../../shared/components/order-badge/order-badge.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [UserComponent, UserSettingsComponent, UserDetailsComponent, UserOrdersComponent, UserOrderDetailsComponent],
@@ -23,7 +24,8 @@ import { OrderBadgeModule } from '../../shared/components/order-badge/order-badg
     OrderListModule,
     OrderProductListModule,
     OrderSummaryModule,
-    OrderBadgeModule
+    OrderBadgeModule,
+    TranslateModule
   ]
 })
 export class UserModule {}

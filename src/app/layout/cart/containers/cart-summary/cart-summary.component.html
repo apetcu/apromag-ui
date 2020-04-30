@@ -8,25 +8,32 @@
                 <div class="row">
                     <div class="col-md-6 col-12">
                         <div class="cart-overview">
-                            <h4>Total comanda</h4>
+                            <h4 translate="CART.ORDER_TOTAL"></h4>
                             <ul>
                                 <li>
-                                    <span class="pull-left">Subtotal</span>
+                                    <span class="pull-left" translate="CART.SUBTOTAL"></span>
                                     <p class="pull-right">{{(cartTotal | async)?.totalProductsPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
                                 </li>
                                 <li>
-                                    <span class="pull-left">Transport</span>
+                                    <span class="pull-left" translate="CART.SHIPPING"></span>
                                     <p class="pull-right">{{(cartTotal | async)?.shippingPrice | aproCurrency: (cartTotal | async)?.currency}}</p>
                                 </li>
                                 <li>
-                                    <span class="pull-left">Total</span>
+                                    <span class="pull-left" translate="CART.TOTAL"></span>
                                     <p class="pull-right"><strong>{{(cartTotal | async)?.totalPrice | aproCurrency: (cartTotal | async)?.currency}}</strong></p>
                                 </li>
                             </ul>
 
-                            <h5 class="mt-5">Detalii livrare</h5>
+                            <h5 class="mt-5">Metoda de livrare</h5>
                             <div>
                                 <strong>Livrare standard</strong>
+                                <div>Pret standard livrare: 20 lei</div>
+                                <div>Livrare gratuita pentru comenzi peste 20 lei</div>
+                            </div>
+
+                            <h5 class="mt-5">Metoda de plata</h5>
+                            <div>
+                                <strong>Cash la livrare</strong>
                                 <div>Pret standard livrare: 20 lei</div>
                                 <div>Livrare gratuita pentru comenzi peste 20 lei</div>
                             </div>
@@ -37,23 +44,24 @@
                             <h4>Livrare la adresa</h4>
                             <div class="outline-select">
                                 <select formControlName="location">
+                                    <option value="">{{'GENERAL.SHIPPING_TO' | translate}}</option>
                                     <option [value]="location.id" *ngFor="let location of shippingLocations | async ">{{location.name}}</option>
                                 </select>
                                 <span class="select-icon"><i class="icofont-caret-down"></i></span>
                             </div>
-                            <input type="text" formControlName="fullName" placeholder="Nume si prenume" class="form-control">
+                            <input type="text" formControlName="fullName" placeholder="{{'ACCOUNT.FULL_NAME' | translate}}" class="form-control">
 
-                            <input type="text" formControlName="shippingAddress" placeholder="Adresa completa (strada, bloc, etaj)" class="form-control">
+                            <input type="text" formControlName="shippingAddress" placeholder="{{'ACCOUNT.FULL_ADDRESS' | translate}}" class="form-control">
 
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" formControlName="phone" placeholder="Telefon" class="form-control">
+                                    <input type="text" formControlName="phone" placeholder="{{'ACCOUNT.PHONE' | translate}}" class="form-control">
                                 </div>
                                 <div class="col-6">
-                                    <input type="text" formControlName="email" placeholder="E-mail" class="form-control">
+                                    <input type="text" formControlName="email" placeholder="{{'ACCOUNT.EMAIL' | translate}}" class="form-control">
                                 </div>
                             </div>
-                            <textarea formControlName="remarks" id="" cols="30" rows="5" placeholder="Observatii"></textarea>
+                            <textarea formControlName="remarks" id="" cols="30" rows="5" placeholder="{{'GENERAL.REMARKS' | translate}}"></textarea>
                         </div>
                     </div>
                 </div>

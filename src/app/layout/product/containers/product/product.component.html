@@ -18,14 +18,14 @@
                                         <div class="title">
                                             <h5><a href="#">{{productDetails?.name}}</a></h5>
                                             <div class="p-food-group">
-                                                <a href="#">Rosii</a>
+                                                <a [routerLink]="productDetails?.vendor.urlSlug">{{productDetails?.vendor.businessName}}</a>
                                             </div>
                                         </div>
                                         <div class="desc">
                                             <p>{{productDetails?.description}}</p>
                                             <ul>
-                                                <li *ngIf="vendorDetails?.freeShippingOver">Livrare gratuita pentru comenzi peste {{vendorDetails?.freeShippingOver}} lei</li>
-                                                <li>Pret livrare: {{vendorDetails?.shippingCost}} lei</li>
+                                                <li *ngIf="vendorDetails?.freeShippingOver">{{'GENERAL.FREE_SHIPPING_OVER' |translate }}{{vendorDetails?.freeShippingOver}} lei</li>
+                                                <li>{{'GENERAL.SHIPPING_COST' | translate}}: {{vendorDetails?.shippingCost}} lei</li>
                                                 <li>Detin certificat producator</li>
                                             </ul>
                                         </div>
@@ -40,18 +40,18 @@
                         <div class="popular-chef-widget">
                             <div class="food-quyality">
                                 <div class="section-header">
-                                    <p>Disponibilitate: <span *ngIf="productDetails?.stock">In stoc</span>
-                                        <span *ngIf="!productDetails?.stock" class="text-danger">Indisponibil</span>
+                                    <p>{{'GENERAL.AVAILABILITY' | translate}}: <span *ngIf="productDetails?.stock">{{'GENERAL.IN_STOCK' | translate}}</span>
+                                        <span *ngIf="!productDetails?.stock" class="text-danger">{{'GENERAL.OUT_OF_STOCK' | translate}}</span>
                                     </p>
                                 </div>
                                 <div class="section-wrapper">
                                     <form [formGroup]="addToCartForm" (ngSubmit)="addToCart(productDetails)">
                                         <h5>{{productDetails?.fullPrice}} / {{productDetails?.unit}}</h5>
-                                        <p *ngIf="productDetails?.stock">Cantitate</p>
+                                        <p *ngIf="productDetails?.stock">{{'GENERAL.QUANTITY' | translate}}</p>
                                         <label *ngIf="productDetails?.stock">
                                             <input type="number" class="form-control" formControlName="quantity" placeholder="0.5" step="0.5" min="0">
                                         </label>
-                                        <button type="submit" class="food-btn style-2" *ngIf="productDetails?.stock" [disabled]="addToCartForm.invalid"><span>Adauga in cos</span></button>
+                                        <button type="submit" class="food-btn style-2" *ngIf="productDetails?.stock" [disabled]="addToCartForm.invalid"><span>{{'GENERAL.ADD_TO_CART' | translate}}</span></button>
                                     </form>
                                 </div>
                             </div>

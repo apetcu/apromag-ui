@@ -9,10 +9,19 @@ import { ClickOutsideModule } from '../../../shared/directives/click-outside/cli
 import { DefaultImageModule } from '../../../shared/directives/default-image/default-image.module';
 import { ShippingLocationPickerModule } from '../../../shared/components/shipping-location-picker/shipping-location-picker.module';
 import { CurrencyModule } from '../../../shared/pipes/currency/currency.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [HeaderComponent, HeaderCartComponent, HeaderAccountComponent, CartItemComponent],
   exports: [HeaderComponent],
-  imports: [RouterModule, CommonModule, ClickOutsideModule, DefaultImageModule, ShippingLocationPickerModule, CurrencyModule]
+  imports: [
+    RouterModule,
+    CommonModule,
+    ClickOutsideModule,
+    DefaultImageModule,
+    ShippingLocationPickerModule,
+    CurrencyModule,
+    TranslateModule
+  ]
 })
 export class HeaderModule {}

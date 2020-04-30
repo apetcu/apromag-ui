@@ -1,4 +1,63 @@
 {
+  "MENU": {
+    "HOME": "Acasa",
+    "PRODUCERS": "Producatori",
+    "CATEGORIES": "Categorii",
+    "CONTACT": "Contact"
+  },
+  "CART": {
+    "TITLE": "Cosul de cumparaturi",
+    "PRODUCTS_IN_CART": "produse in cos",
+    "SUBTOTAL": "Subtotal",
+    "SHIPPING": "Livrare",
+    "ORDER_TOTAL": "Total comanda",
+    "TOTAL": "Total",
+    "SEND_ORDER": "Trimite comanda",
+    "PRODUCT": "Produs",
+    "UNIT_PRICE": "Pret unitar",
+    "QUANTITY": "Cantitate"
+  },
+  "GENERAL": {
+    "LOGIN": "Intra in cont",
+    "ORDERS": "Comenzi",
+    "REMARKS": "Observatii",
+    "CLOSE": "Inchide",
+    "ORDER": "Comanda",
+    "HELP": "Ajutor",
+    "MY_ACCOUNT": "Contul meu",
+    "VENDOR_PANEL": "Panou producator",
+    "LOGOUT": "Iesi din cont",
+    "ACCOUNT_SETTINGS": "Setari cont",
+    "SHIPPING_TO": "Livrare in",
+    "FREE_SHIPPING_OVER": "Livrare gratuita pentru comenzi peste",
+    "SHIPPING_COST": "Cost livrare",
+    "AVAILABILITY": "Disponibilitate",
+    "IN_STOCK": "In stoc",
+    "OUT_OF_STOCK": "Indisponibil",
+    "QUANTITY": "Cantitate",
+    "ADD_TO_CART": "Adauga in cos",
+    "BUTTONS": {
+      "UPDATE": "Actualizeaza",
+      "RESET": "Reset"
+    },
+    "IMAGES": "Imagini",
+    "SORRY": "Ne pare rau,",
+    "NO_PRODUCTS": "Acest producator nu are inca produse listate."
+  },
+  "ACCOUNT": {
+    "FULL_NAME": "Nume si prenume",
+    "NAME": "Nume",
+    "SURNAME": "Prenume",
+    "EMAIL": "Email",
+    "PHONE": "Telefon",
+    "ADDRESS": "Adresa",
+    "FULL_ADDRESS": "Adresa completa (strada, bloc, etaj)",
+    "MEMBER_FROM": "Membru din",
+    "LAST_EDIT": "Ultima actualizare"
+  },
+  "LOCATIONS": {
+    "ANYWHERE": "Indiferent"
+  },
   "VENDOR": {
     "DASHBOARD": {
       "TITLE": "Panou de control"
@@ -48,6 +107,7 @@
     "DETAILS": {
       "TITLE": "Detalii companie"
     }
+
   },
   "PRODUCTS": {
     "STOCK": {

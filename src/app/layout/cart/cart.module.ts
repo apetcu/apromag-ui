@@ -9,9 +9,10 @@ import { CartRoutingModule } from './cart-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartFinishComponent } from './containers/cart-finish/cart-finish.component';
 import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [CartComponent, CartListComponent, CartSummaryComponent, CartFinishComponent],
-  imports: [CommonModule, PageTitleModule, RouterModule, CartRoutingModule, ReactiveFormsModule, CurrencyModule]
+  imports: [CommonModule, PageTitleModule, RouterModule, CartRoutingModule, ReactiveFormsModule, CurrencyModule, TranslateModule]
 })
 export class CartModule {}

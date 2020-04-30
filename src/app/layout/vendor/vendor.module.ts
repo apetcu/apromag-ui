@@ -13,6 +13,7 @@ import { DefaultImageModule } from '../../shared/directives/default-image/defaul
 import { InfoBoxModule } from '../../shared/components/info-box/info-box.module';
 import { VendorContainerComponent } from './containers/vendor-container/vendor-container.component';
 import { VendorRoutingModule } from './vendor-routing.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [VendorListComponent, VendorProductsComponent, VendorComponent, VendorContainerComponent],
@@ -26,7 +27,8 @@ import { VendorRoutingModule } from './vendor-routing.module';
     ProductListModule,
     DefaultImageModule,
     InfoBoxModule,
-    VendorRoutingModule
+    VendorRoutingModule,
+    TranslateModule
   ]
 })
 export class VendorModule {}

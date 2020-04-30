@@ -1,32 +1,32 @@
 <div class="widget">
-    <h4>Informatii cont</h4>
+    <h4 translate="GENERAL.ACCOUNT_SETTINGS"></h4>
     <hr>
     <div *ngIf="userSettingsForm">
         <form [formGroup]="userSettingsForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="last-name">Nume</label>
+                        <label for="last-name" translate="ACCOUNT.NAME"></label>
                         <input class="form-control" id="last-name" type="text" formControlName="lastName">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="first-name">Prenume</label>
+                        <label for="first-name" translate="ACCOUNT.SURNAME"></label>
                         <input class="form-control" id="first-name" type="text" formControlName="firstName">
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email" translate="ACCOUNT.EMAIL"></label>
                 <input class="form-control" id="email" type="text" formControlName="email">
             </div>
             <div class="form-group">
-                <label for="phone">Telefon</label>
+                <label for="phone" translate="ACCOUNT.PHONE"></label>
                 <input class="form-control" id="phone" type="text" formControlName="phone">
             </div>
             <div class="form-group">
-                <label for="client-address">Adresa</label>
+                <label for="client-address" translate="ACCOUNT.ADDRESS"></label>
                 <input class="form-control" id="client-address" type="text" formControlName="address">
             </div>
             <form *ngIf="userSettingsForm.isVendor()" [formGroup]="userSettingsForm.getVendorForm()">
@@ -43,8 +43,8 @@
                 </div>
             </form>
             <div class="buttons-wrapper">
-                <button type="submit" class="btn btn-success" [disabled]="userSettingsForm.invalid">Actualizeaza</button>
-                <button *ngIf="userSettingsForm.dirty" class="btn btn-secondary" (click)="initializeUserForm()">Reset</button>
+                <button type="submit" class="btn btn-success" [disabled]="userSettingsForm.invalid"  translate="GENERAL.BUTTONS.UPDATE"></button>
+                <button *ngIf="userSettingsForm.dirty" class="btn btn-secondary" (click)="initializeUserForm()" translate="GENERAL.BUTTONS.RESET"></button>
             </div>
         </form>
     </div>

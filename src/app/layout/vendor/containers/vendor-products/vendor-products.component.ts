@@ -22,8 +22,8 @@ export class VendorProductsComponent implements OnInit {
     totalRecords: 1000,
     currentPage: 1,
     defaultDisplayMode: ProductListDisplayModes.GRID,
-    displayHeader: true,
-    paginated: true
+    displayHeader: false,
+    paginated: false
   };
 
   constructor(private vendorsFacadeService: VendorsFacadeService, private route: ActivatedRoute) {}

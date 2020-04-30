@@ -29,7 +29,7 @@ export class VendorsFacadeService {
   }
 
   getVendorProducts(id: number): Observable<PaginatedResponse<Product>> {
-    return this.vendorsApiService.getProducts(id, new PaginationInfo()).pipe(this.productsFacadeService.mapProductsToDomainModel());
+    return this.vendorsApiService.getProducts(id, new PaginationInfo(1, 1000)).pipe(this.productsFacadeService.mapProductsToDomainModel());
   }
 
   private mapVendorstoDomainModel(): OperatorFunction<PaginatedResponse<Vendor>, PaginatedResponse<Vendor>> {
