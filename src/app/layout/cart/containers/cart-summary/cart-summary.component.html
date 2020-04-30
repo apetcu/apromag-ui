@@ -1,6 +1,9 @@
 <div *ngIf="cartItems.length">
     <div class="cart-top">
         <app-cart-list [cartProducts]="cartItems"></app-cart-list>
+        <div class="alert alert-warning text-center m-2" *ngIf="vendor.freeShippingOver - (cartTotal | async)?.totalProductsPrice > 0">
+            {{'CART.ORDER_MORE' | translate: {orderMore: (vendor.freeShippingOver - (cartTotal | async)?.totalProductsPrice) | number: '1.2-2'} }}
+        </div>
     </div>
     <div class="cart-bottom">
         <form action="" [formGroup]="cartSummaryForm" (ngSubmit)="onCartSubmit()">

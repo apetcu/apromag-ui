@@ -16,7 +16,7 @@ export class User {
   email: string;
   role: UserRoles;
   vendor?: Vendor;
-  newOrders: number;
+  notifications: number;
 
   constructor(userResponse: any) {
     this.id = userResponse.id;
@@ -35,7 +35,7 @@ export class User {
     if (userResponse.vendor) {
       this.vendor = new Vendor(userResponse.vendor);
     }
-    this.newOrders = userResponse.notifications;
+    this.notifications = userResponse.notifications;
   }
 
   isUserOfTypeVendor(): boolean {

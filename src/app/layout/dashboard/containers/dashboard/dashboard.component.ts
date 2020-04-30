@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../user/services/user.service';
+import { Vendor } from '../../../vendor/models/vendor';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,11 +9,13 @@ import { UserService } from '../../../user/services/user.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  newOrders: number = 0;
+  vendor: Vendor;
+  notifications: Observable<number>;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.newOrders = this.userService.getUser().newOrders;
+    this.notifications = this.userService.getNotificationCount();
+    this.vendor = this.userService.getUser().vendor;
   }
 }

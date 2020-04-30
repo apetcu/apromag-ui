@@ -11,6 +11,7 @@ import { UserFacadeService } from './user-facade.service';
 })
 export class UserService {
   private loggedUser: BehaviorSubject<User> = new BehaviorSubject(null);
+  private activeNotificationsSubject: BehaviorSubject<number> = new BehaviorSubject(0);
 
   private userStorageKey: StorageLocations = StorageLocations.USER;
   private jwtStorageKey: StorageLocations = StorageLocations.JWT;
@@ -34,12 +35,17 @@ export class UserService {
   }
 
   decreaseNotifications() {
-    this.setLoggedInState(new User({ ...this.loggedUser.value, newOrders: this.loggedUser.value.newOrders-- }));
+    this.activeNotificationsSubject.next(this.activeNotificationsSubject.value - 1);
+  }
+
+  getNotificationCount() {
+    return this.activeNotificationsSubject.asObservable();
   }
 
   setUser(user: User): void {
     this.setLoggedInState(user);
     this.storageService.setItem(this.userStorageKey, user);
+    this.activeNotificationsSubject.next(user.notifications);
   }
 
   setJwt(key: string): void {

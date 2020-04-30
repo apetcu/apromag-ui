@@ -15,7 +15,8 @@
     "SEND_ORDER": "Trimite comanda",
     "PRODUCT": "Produs",
     "UNIT_PRICE": "Pret unitar",
-    "QUANTITY": "Cantitate"
+    "QUANTITY": "Cantitate",
+    "ORDER_MORE": "Comanda de inca {{orderMore}} lei pentru a beneficia de transport gratuit"
   },
   "GENERAL": {
     "LOGIN": "Intra in cont",

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../user/services/user.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { User } from '../../../user/models/user.model';
 import { NavigationStart, Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { NavigationStart, Router } from '@angular/router';
 })
 export class HeaderAccountComponent implements OnInit {
   profileMenuDisplayed: boolean = false;
+  notificationCount: Observable<number>;
   currentUser: User;
   userLoggedInSubscription: Subscription;
   loggedIn: boolean = false;
@@ -41,5 +42,7 @@ export class HeaderAccountComponent implements OnInit {
       this.currentUser = currentUser;
       this.loggedIn = !!currentUser;
     });
+
+    this.notificationCount = this.userService.getNotificationCount();
   }
 }

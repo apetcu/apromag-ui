@@ -9,6 +9,7 @@ import { CartFacadeService } from '../../services/cart-facade.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../../user/services/user.service';
 import { CartTotal } from '../../models/cart-total';
+import { Vendor } from '../../../vendor/models/vendor';
 
 @Component({
   selector: 'app-cart-summary',
@@ -20,6 +21,7 @@ export class CartSummaryComponent implements OnInit {
   shippingLocations: Observable<Array<ShippingLocation>>;
   cartItems: Array<CartItem>;
   cartTotal: Observable<CartTotal>;
+  vendor: Vendor;
 
   constructor(
     private cartService: CartService,
@@ -31,6 +33,7 @@ export class CartSummaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartTotal = this.cartService.getTotal();
+    this.vendor = this.cartService.getCurrentVendor();
     this.cartService.getCartItems().subscribe((items) => {
       this.cartItems = items;
     });

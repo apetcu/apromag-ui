@@ -26,6 +26,7 @@ import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
 import { OrderProductListModule } from '../../shared/components/order-product-list/order-product-list.module';
 import { OrderSummaryModule } from '../../shared/components/order-summary/order-summary.module';
 import { DashboardVendorComponent } from './containers/dashboard-vendor/dashboard-vendor.component';
+import { ProfileCompletionWizardModule } from '../../shared/components/profile-completion-wizard/profile-completion-wizard.module';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { DashboardVendorComponent } from './containers/dashboard-vendor/dashboar
     OrderListModule,
     CurrencyModule,
     OrderProductListModule,
-    OrderSummaryModule
+    OrderSummaryModule,
+    ProfileCompletionWizardModule
   ]
 })
 export class DashboardModule {}

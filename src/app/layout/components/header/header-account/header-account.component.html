@@ -1,12 +1,12 @@
 <a href="#" class="food-btn" *ngIf="!loggedIn" routerLink="/auth/login"><span translate="GENERAL.LOGIN"></span></a>
 <div class="author-icon" *ngIf="loggedIn" appClickOutside (clickOutside)="onClickOutside()">
     <img [src]="currentUser.profilePicture" [default]="" alt="author" (click)="profileMenuDisplayed =!profileMenuDisplayed">
-    <span class="notification fixed" *ngIf="currentUser.newOrders">{{currentUser.newOrders}}</span>
+    <span class="notification fixed" *ngIf="notificationCount | async">{{notificationCount | async}}</span>
     <div class="dropdown-menu dropdown-menu-right animate slideIn" [class.show]="profileMenuDisplayed">
         <a class="dropdown-item" routerLink="/user/orders"><i class="icofont-food-cart"></i>{{"GENERAL.ORDERS" | translate}}</a>
         <a class="dropdown-item" routerLink="/static/faq"><i class="icofont-question"></i>{{"GENERAL.HELP" | translate}}</a>
         <a class="dropdown-item" routerLink="/user"><i class="icofont-user"></i>{{"GENERAL.MY_ACCOUNT" | translate}}</a>
-        <a class="dropdown-item bg-success green" routerLink="/dashboard" *ngIf="currentUser.isUserOfTypeVendor()"><i class="icofont-user"></i>{{"GENERAL.VENDOR_PANEL" | translate}} <span class="notification" *ngIf="currentUser.newOrders">{{currentUser.newOrders}}</span></a>
+        <a class="dropdown-item bg-success green" routerLink="/dashboard" *ngIf="currentUser.isUserOfTypeVendor()"><i class="icofont-user"></i>{{"GENERAL.VENDOR_PANEL" | translate}} <span class="notification" *ngIf="currentUser.notifications">{{currentUser.notifications}}</span></a>
         <a class="dropdown-item" (click)="logOut()">{{"GENERAL.LOGOUT" | translate}}</a>
     </div>
 </div>
