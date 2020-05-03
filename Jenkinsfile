@@ -64,7 +64,7 @@ node {
                         makeEmptyDirs: false,
                         noDefaultExcludes: false,
                         patternSeparator: '[, ]+',
-                        remoteDirectory: "dist/apromag-ui",
+                        remoteDirectory: "ui",
                         remoteDirectorySDF: false,
                         removePrefix: 'dist/apromag-ui',
                         ]
