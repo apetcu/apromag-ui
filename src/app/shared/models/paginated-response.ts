@@ -1,5 +1,5 @@
 export class PaginatedResponse<T> {
-  content: T[];
+  data: T[];
   totalPages: number;
   totalElements: number;
   last: boolean;
@@ -14,7 +14,7 @@ export class PaginatedResponse<T> {
   constructor() {}
 
   getData(): Array<T> {
-    return this.content;
+    return this.data;
   }
 }
 

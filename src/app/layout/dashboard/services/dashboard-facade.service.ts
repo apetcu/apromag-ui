@@ -57,14 +57,14 @@ export class DashboardFacadeService {
 
   private mapCompaniesToDomainModel(): OperatorFunction<PaginatedResponse<Order>, PaginatedResponse<Order>> {
     return map((vendorsResponse) => {
-      vendorsResponse.content = vendorsResponse.content.map((entry) => new Order(entry));
+      vendorsResponse.data = vendorsResponse.data.map((entry) => new Order(entry));
       return vendorsResponse;
     });
   }
 
   private mapProductsToDomainModel(): OperatorFunction<PaginatedResponse<Product>, PaginatedResponse<Product>> {
     return map((productResponse) => {
-      productResponse.content = productResponse.content.map((entry) => new Product(entry));
+      productResponse.data = productResponse.data.map((entry) => new Product(entry));
       return productResponse;
     });
   }

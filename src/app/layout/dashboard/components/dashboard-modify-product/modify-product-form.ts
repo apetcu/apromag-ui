@@ -4,7 +4,7 @@ import { Product } from '../../../product/models/product';
 
 export interface ModifyProductModel {
   name: string;
-  category: string;
+  category_id: string;
   price: string;
   unit: string;
   altUnit: string;
@@ -14,27 +14,16 @@ export interface ModifyProductModel {
 }
 
 export class ModifyProductForm extends BaseForm<ModifyProductModel> {
-  constructor() {
+  constructor(product: Product) {
     super({
-      name: new FormControl('', [Validators.required]),
-      category: new FormControl('', [Validators.required]),
-      price: new FormControl('', [Validators.required]),
-      unit: new FormControl('kg', [Validators.required]),
-      altUnit: new FormControl(''),
-      stock: new FormControl(true),
+      name: new FormControl(product.name, [Validators.required]),
+      category_id: new FormControl(product.category_id, [Validators.required]),
+      price: new FormControl(product.price, [Validators.required]),
+      unit: new FormControl(product.unit),
+      altUnit: new FormControl(product.unit),
+      stock: new FormControl(product.stock),
       images: new FormControl(null),
-      description: new FormControl('', [Validators.required])
+      description: new FormControl(product.description, [Validators.required])
     });
-  }
-
-  setAltUnit() {
-    this.controls['unit'].clearValidators();
-    this.controls['altUnit'].setValidators([Validators.required]);
-  }
-
-  initEditForm(product: Product) {
-    this.patchValue(product);
-    this.patchValue({ altUnit: product.unit });
-    this.setAltUnit();
   }
 }

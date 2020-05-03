@@ -42,7 +42,7 @@ export class DashboardProductsComponent implements OnInit {
 
   loadData(pageNo: number) {
     this.dashboardFacadeService.getProducts(new PaginationInfo(pageNo, this.rowsPerPage)).subscribe((data) => {
-      this.products = data.content;
+      this.products = data.data;
       this.totalRecords = data.totalElements;
       this.loading = false;
     });

@@ -3,6 +3,7 @@ import { ModifyProductForm } from './modify-product-form';
 import { DashboardFacadeService } from '../../services/dashboard-facade.service';
 import { Product } from '../../../product/models/product';
 import { Category } from '../../../categories/models/category.model';
+import { UserSettingsForm } from '../../../user/components/user-settings/user-settings-form';
 
 @Component({
   selector: 'app-dashboard-modify-product',
@@ -20,7 +21,7 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
   @Input()
   categoryList: Array<Category>;
   editProductId: number = null;
-  modifyProductForm: ModifyProductForm = new ModifyProductForm();
+  modifyProductForm: ModifyProductForm;
 
   altUnit: boolean = false;
   formErrors = false;
@@ -29,7 +30,6 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
   constructor(private dashboardFacadeService: DashboardFacadeService) {}
 
   ngOnInit(): void {
-    this.listenForFormChanges();
     this.initProductEdit(this.editProduct);
   }
 
@@ -62,7 +62,6 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
   private listenForFormChanges() {
     this.modifyProductForm.controls['unit'].valueChanges.subscribe((value) => {
       if (!value) {
-        this.modifyProductForm.setAltUnit();
         this.altUnit = true;
       }
     });
@@ -74,10 +73,12 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
 
   private initProductEdit(editProduct: Product) {
     if (editProduct) {
-      this.modifyProductForm.initEditForm(editProduct);
       this.formMode = 'EDIT';
       this.editProductId = editProduct.id;
       this.altUnit = true;
     }
+
+    this.modifyProductForm = new ModifyProductForm(editProduct || new Product({}));
+    this.listenForFormChanges();
   }
 }

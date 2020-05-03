@@ -22,7 +22,7 @@ export class DashboardApiService {
   }
 
   editProduct(product, id: number): Observable<any> {
-    return this.api.put(`${this.domainUrl}products/${id}`, product);
+    return this.api.post(`${this.domainUrl}products/${id}`, product);
   }
 
   deleteProduct(id): Observable<any> {

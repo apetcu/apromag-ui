@@ -6,9 +6,10 @@ import { environment } from '../../../../environments/environment';
 export class Product {
   private defaultImageUrl = './assets/images/default_profile.png';
   id: number;
-  category: string;
+  category_id: number;
   currency: Currency;
   description: string;
+  images: Array<ProductImage>;
   imageUrl: string;
   imageFullPath: string;
   name: string;
@@ -25,11 +26,12 @@ export class Product {
 
   constructor(productResponse: any) {
     this.id = productResponse.id;
-    this.category = productResponse.category;
+    this.category_id = productResponse.categoryId;
     this.currency = new Currency(productResponse.currency);
     this.description = productResponse.description;
-    this.imageUrl = productResponse.imageUrl;
-    this.imageFullPath = this.imageUrl ? environment.imageBasePath + this.imageUrl : this.defaultImageUrl;
+    this.images = productResponse.images;
+    this.imageUrl = this.getPrimaryPhoto;
+    this.imageFullPath = this.imageUrl ? this.imageUrl : this.defaultImageUrl;
     this.name = productResponse.name;
     this.price = productResponse.price;
     this.rating = productResponse.rating;
@@ -47,7 +49,16 @@ export class Product {
     return this.price ? (this.price * quantity).toFixed(2) + ' ' + this.currency.code : '-';
   }
 
+  get getPrimaryPhoto() {
+    return this.images && this.images.length && this.images[0].url;
+  }
+
   private static generateUrlSlug(name: string, id: number, vendorId: number): string {
     return `/products/${Utils.convertStringToSlug(name)}/${vendorId}/${id}`; // Trim - from end of text
   }
+}
+
+export interface ProductImage {
+  url: string;
+  size_in_kb: string;
 }
