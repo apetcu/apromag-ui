@@ -5,7 +5,7 @@ export class Vendor {
   businessName: string;
   description: string;
   defaultProfilePicture: string = 'assets/images/default_profile.png';
-  profilePicture: string = this.defaultProfilePicture;
+  profilePicture: string;
   address: string;
   urlSlug: string;
   rating: number;

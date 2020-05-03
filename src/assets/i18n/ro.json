@@ -39,7 +39,8 @@
     "ADD_TO_CART": "Adauga in cos",
     "BUTTONS": {
       "UPDATE": "Actualizeaza",
-      "RESET": "Reset"
+      "RESET": "Reset",
+      "UPLOAD": "Incarca"
     },
     "IMAGES": "Imagini",
     "SORRY": "Ne pare rau,",

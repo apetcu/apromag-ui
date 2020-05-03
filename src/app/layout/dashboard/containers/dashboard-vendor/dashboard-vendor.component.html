@@ -22,4 +22,21 @@
             </div>
         </div>
     </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="vendorProfilePictureForm" (ngSubmit)="changeProfilePicture()">
+                    <h5>Fotografie de profil</h5>
+                    <div class="text-center mb-2">
+                        <img [src]="currentUser.vendor.profilePicture" [default]="" class="profile-photo">
+                        <input class="form-control mt-2" id="profile-photo"
+                               (change)="handleFileInput($event.target.files[0])"
+                               type="file">
+                        <button type="submit" class="food-btn style-3" [disabled]="vendorProfilePictureForm.invalid"><span><i
+                                class="icofont-upload mr-1"></i> {{'GENERAL.BUTTONS.UPLOAD' | translate}}</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

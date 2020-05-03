@@ -33,6 +33,12 @@ export class DashboardFacadeService {
     return id ? this.dashboardApiService.editProduct(productFormData, id) : this.dashboardApiService.addProduct(productFormData);
   }
 
+  updateProfilePicture(pictureForm) {
+    const formData = new FormData();
+    formData.append('profilePicture', pictureForm.profilePicture, pictureForm.profilePicture.name);
+    return this.dashboardApiService.updateProfilePicture(formData);
+  }
+
   private buildProductFormData(modifyProductBody: ModifyProductModel) {
     const excludedKeys = ['images', 'altUnit'];
     const formData = new FormData();
