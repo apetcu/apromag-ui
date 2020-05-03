@@ -18,6 +18,8 @@ export class Category {
 
     if (props.children) {
       this.children = props.children.map((entry) => new Category(entry));
+    } else {
+      this.children = [];
     }
   }
 

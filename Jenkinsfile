@@ -50,6 +50,27 @@ node {
                         ]
                     )
             }
+
+            stage('Upload') {
+                ftpPublisher alwaysPublishFromMaster: true, continueOnError: false, failOnError: false, publishers: [
+                    [configName: 'apromag-ftp', transfers: [
+                        [asciiMode: false,
+                        sourceFiles: 'dist/apromag-ui/**/*.*',
+                        remoteDirectory: '/public/app',
+                        cleanRemote: false,
+                        excludes: '',
+                        execTimeout: 120000,
+                        flatten: false,
+                        makeEmptyDirs: false,
+                        noDefaultExcludes: false,
+                        patternSeparator: '[, ]+',
+                        remoteDirectory: "dist/apromag-ui",
+                        remoteDirectorySDF: false,
+                        removePrefix: 'dist/apromag-ui',
+                        ]
+                    ], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true]
+                ]
+            }
         } else {
             stage('Skip build for branch ' + branchName) {
                 echo 'Branch is not master. Skipping..  .'
