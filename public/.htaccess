@@ -5,13 +5,18 @@
 
     RewriteEngine On
 
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^apromag\.ro [NC]
+    RewriteCond %{SERVER_PORT} 80
+    RewriteRule ^(.*)$ https://www.apromag.ro/$1 [R,L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteCond %{REQUEST_URI} api/(.+)/$
     RewriteRule ^ %1 [L,R=301]
 
     # Handle Front Controller...
