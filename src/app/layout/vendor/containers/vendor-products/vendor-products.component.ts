@@ -44,7 +44,7 @@ export class VendorProductsComponent implements OnInit {
   private getVendorProducts(id: number) {
     this.vendorsFacadeService.getVendorProducts(id).subscribe((products) => {
       this.productsLoading = false;
-      this.products = products.content;
+      this.products = products.data;
     });
   }
 }

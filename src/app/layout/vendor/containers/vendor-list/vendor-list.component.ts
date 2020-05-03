@@ -24,7 +24,7 @@ export class VendorListComponent implements OnInit, OnDestroy {
 
   getProducts(): void {
     this.vendorsFacadeService.getVendors().subscribe((paginatedVendors) => {
-      this.vendors = paginatedVendors.content;
+      this.vendors = paginatedVendors.data;
     });
   }
 

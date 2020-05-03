@@ -26,7 +26,7 @@ export class ProductsFacadeService {
   // Used by other facades as well
   public mapProductsToDomainModel(): OperatorFunction<PaginatedResponse<Product>, PaginatedResponse<Product>> {
     return map((productsResponse) => {
-      productsResponse.content = productsResponse.content.map((entry) => new Product(entry));
+      productsResponse.data = productsResponse.data.map((entry) => new Product(entry));
       return productsResponse;
     });
   }

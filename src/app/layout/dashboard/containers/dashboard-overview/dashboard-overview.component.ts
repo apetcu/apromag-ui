@@ -23,7 +23,7 @@ export class DashboardOverviewComponent implements OnInit {
 
   loadData(pageNo: number) {
     this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage, 'createdAt')).subscribe((data) => {
-      this.orders = data.content;
+      this.orders = data.data;
       this.totalRecords = data.totalElements;
       this.loading = false;
     });

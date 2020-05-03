@@ -34,7 +34,7 @@ export class VendorsFacadeService {
 
   private mapVendorstoDomainModel(): OperatorFunction<PaginatedResponse<Vendor>, PaginatedResponse<Vendor>> {
     return map((vendorsResponse) => {
-      vendorsResponse.content = vendorsResponse.content.map((entry) => new Vendor(entry));
+      vendorsResponse.data = vendorsResponse.data.map((entry) => new Vendor(entry));
       return vendorsResponse;
     });
   }
