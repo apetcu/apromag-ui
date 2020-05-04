@@ -1,27 +1,34 @@
 <div
-    class="dropzone"
-    ngfDrop
-    multiple="1"
-    selectable="1"
-    [(validDrag)]="validComboDrag"
-    [(files)]="files"
-    accept="image/*"
-    [maxSize]="maxSize"
-    [(lastInvalids)]="lastInvalids"
-    [(dragFiles)]="dragFiles"
-    [class.invalid-drag]="validComboDrag===false"
-    [class.valid-drag]="validComboDrag"
-    [fileDropDisabled]="fileDropDisabled"
-    (filesChange)="writeValue($event)"
+        class="dropzone"
+        ngfDrop
+        multiple="1"
+        selectable="1"
+        [(validDrag)]="validComboDrag"
+        [(files)]="files"
+        accept="image/*"
+        [maxSize]="maxSize"
+        [(lastInvalids)]="lastInvalids"
+        [(dragFiles)]="dragFiles"
+        [class.invalid-drag]="validComboDrag===false"
+        [class.valid-drag]="validComboDrag"
+        [fileDropDisabled]="fileDropDisabled"
+        (filesChange)="writeValue($event)"
 >
     <i class="icofont-upload-alt upload-icon"></i><br/>
     Alegeti <strong>imagini</strong>
 </div>
-<div *ngIf="files.length">
-    <h6>Imagini noi</h6>
-    <div class="image" *ngFor="let item of files;let i=index">
-        <div class="previewIcon" [ngfBackground]="item"></div>
-        <i class="icofont-trash trash"
-           (click)="onRemoveImage(i)"></i>
+<div class="photo-container">
+    <div *ngIf="files.length" class="new-images photo-container">
+        <h6>Imagini noi</h6>
+        <div class="image" *ngFor="let item of files;let i=index">
+            <div class="previewIcon" [ngfBackground]="item"></div>
+            <i class="icofont-trash trash"
+               (click)="onRemoveImage(i)"></i>
+        </div>
+    </div>
+
+    <div class="image" *ngFor="let item of currentImages;let i=index">
+        <div class="previewIcon"><img [src]="item.url"></div>
+        <i class="icofont-trash trash" (click)="onDeleteCurrentImage(i)"></i>
     </div>
 </div>

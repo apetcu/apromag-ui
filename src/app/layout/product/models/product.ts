@@ -2,6 +2,7 @@ import { Currency } from '../../../shared/models/currency';
 import { Utils } from '../../../shared/services/utils/utils';
 import { Vendor } from '../../vendor/models/vendor';
 import { environment } from '../../../../environments/environment';
+import { Image } from '../../../shared/models/image.model';
 
 export class Product {
   private defaultImageUrl = './assets/images/default_profile.png';
@@ -9,7 +10,7 @@ export class Product {
   category_id: number;
   currency: Currency;
   description: string;
-  images: Array<ProductImage>;
+  images: Array<Image>;
   imageUrl: string;
   imageFullPath: string;
   name: string;
@@ -56,9 +57,4 @@ export class Product {
   private static generateUrlSlug(name: string, id: number, vendorId: number): string {
     return `/products/${Utils.convertStringToSlug(name)}/${vendorId}/${id}`; // Trim - from end of text
   }
-}
-
-export interface ProductImage {
-  url: string;
-  size_in_kb: string;
 }

@@ -39,6 +39,17 @@ export class DashboardFacadeService {
     return this.dashboardApiService.updateProfilePicture(formData);
   }
 
+  uploadVendorImages(pictureForm) {
+    const formData = new FormData();
+    if (pictureForm.images) {
+      pictureForm.images.forEach((file) => {
+        formData.append('images', file, file.name);
+      });
+    }
+
+    return this.dashboardApiService.uploadVendorImages(formData);
+  }
+
   private buildProductFormData(modifyProductBody: ModifyProductModel) {
     const excludedKeys = ['images', 'altUnit'];
     const formData = new FormData();

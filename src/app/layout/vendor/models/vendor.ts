@@ -1,4 +1,5 @@
 import { Utils } from '../../../shared/services/utils/utils';
+import { Image } from '../../../shared/models/image.model';
 
 export class Vendor {
   id: number;
@@ -15,7 +16,7 @@ export class Vendor {
   shippingRemarks: string;
 
   shippingPreferences: Array<VendorShippingPreference>;
-  photos: Array<VendorPhoto> = [];
+  images: Array<Image> = [];
 
   constructor(vendorResponse: any) {
     this.id = vendorResponse.id;
@@ -30,9 +31,7 @@ export class Vendor {
     if (vendorResponse.profilePicture) {
       this.profilePicture = vendorResponse.profilePicture;
     }
-    if (vendorResponse.photos) {
-      this.photos = vendorResponse.photos;
-    }
+    this.images = vendorResponse.images;
     this.rating = vendorResponse.rating;
 
     if (vendorResponse.shippingPreferences) {
@@ -48,11 +47,6 @@ export class Vendor {
   private static generateUrlSlug(name: string, id: number): string {
     return '/vendor/' + Utils.convertStringToSlug(name) + '/' + id; // Trim - from end of text
   }
-}
-
-interface VendorPhoto {
-  id: string;
-  imageUrl: string;
 }
 
 export interface VendorShippingPreference {
