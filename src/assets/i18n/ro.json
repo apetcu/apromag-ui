@@ -40,6 +40,7 @@
     "BUTTONS": {
       "UPDATE": "Actualizeaza",
       "RESET": "Reset",
+      "SAVE": "Salveaza",
       "UPLOAD": "Incarca"
     },
     "IMAGES": "Imagini",

@@ -12,7 +12,6 @@ import { UserFacadeService } from './user-facade.service';
 export class UserService {
   private loggedUser: BehaviorSubject<User> = new BehaviorSubject(null);
   private activeNotificationsSubject: BehaviorSubject<number> = new BehaviorSubject(0);
-
   private userStorageKey: StorageLocations = StorageLocations.USER;
   private jwtStorageKey: StorageLocations = StorageLocations.JWT;
   private jwtKey: string = null;
@@ -26,7 +25,7 @@ export class UserService {
   initialize(): void {
     this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
     const currentUser = this.storageService.getItem(this.userStorageKey);
-    if (currentUser) {
+    if (this.jwtKey) {
       this.setUser(new User(currentUser));
       this.userFacadeService.getAccountDetails().subscribe((data) => {
         this.setUser(new User(data));

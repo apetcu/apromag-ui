@@ -1,7 +1,6 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Image } from '../../models/image.model';
-
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
@@ -17,6 +16,8 @@ import { Image } from '../../models/image.model';
 export class FileUploadComponent implements OnInit, ControlValueAccessor {
   @Input()
   currentImages: Array<Image>;
+  @Output()
+  onDeleteImage: EventEmitter<number> = new EventEmitter<number>(null);
 
   files: File[] = [];
   sendableFormData: FormData; //populated via ngfFormData directive
@@ -53,7 +54,8 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
     this.propagateChange(this.files);
   }
 
-  onDeleteCurrentImage(index: number): void {
+  onDeleteCurrentImage(id: number, index: number): void {
+    this.onDeleteImage.next(id);
     this.currentImages.splice(index, 1);
   }
 }

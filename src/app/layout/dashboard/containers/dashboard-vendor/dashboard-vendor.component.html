@@ -5,7 +5,7 @@
     <div class="col-4">
         <div class="card">
             <div class="card-body">
-                <form>
+                <form [formGroup]="vendorDetailsForm" (ngSubmit)="updateVendorDetails()">
                     <div class="form-group">
                         <label for="business-name">Numele afacerii</label>
                         <input class="form-control" id="business-name" type="text" formControlName="businessName">
@@ -18,6 +18,9 @@
                         <label for="description">Descriere companie</label>
                         <textarea class="form-control" id="description" type="text" formControlName="description"></textarea>
                     </div>
+
+                    <button type="submit" class="food-btn style-3" [disabled]="vendorDetailsForm.invalid"><span><i
+                            class="icofont-upload mr-1"></i> {{'GENERAL.BUTTONS.SAVE' | translate}}</span></button>
                 </form>
             </div>
         </div>
@@ -45,7 +48,7 @@
                 <form [formGroup]="vendorGalleryForm" (ngSubmit)="uploadVendorImages()">
                     <h5>Galerie foto</h5>
                     <div class="text-center mb-2">
-                        <app-file-upload formControlName="images" [currentImages]="currentUser.vendor.images"></app-file-upload>
+                        <app-file-upload formControlName="images" [currentImages]="currentUser.vendor.images" (onDeleteImage)="deleteImage($event)"></app-file-upload>
                         <button type="submit" class="food-btn style-3" [disabled]="vendorGalleryForm.invalid"><span><i
                                 class="icofont-upload mr-1"></i> {{'GENERAL.BUTTONS.UPLOAD' | translate}}</span></button>
                     </div>

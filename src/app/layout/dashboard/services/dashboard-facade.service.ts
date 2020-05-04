@@ -43,11 +43,14 @@ export class DashboardFacadeService {
     const formData = new FormData();
     if (pictureForm.images) {
       pictureForm.images.forEach((file) => {
-        formData.append('images', file, file.name);
+        formData.append('images[]', file, file.name);
       });
     }
-
     return this.dashboardApiService.uploadVendorImages(formData);
+  }
+
+  deleteVendorImage(id: number) {
+    return this.dashboardApiService.deleteVendorImage(id);
   }
 
   private buildProductFormData(modifyProductBody: ModifyProductModel) {
@@ -55,7 +58,7 @@ export class DashboardFacadeService {
     const formData = new FormData();
     if (modifyProductBody.images) {
       modifyProductBody.images.forEach((file) => {
-        formData.append('images', file, file.name);
+        formData.append('images[]', file, file.name);
       });
     }
     Object.keys(modifyProductBody).forEach((key) => {

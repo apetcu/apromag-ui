@@ -33,6 +33,10 @@ export class DashboardApiService {
     return this.api.post(`${this.domainUrl}account/addVendorImages`, picture);
   }
 
+  deleteVendorImage(id): Observable<any> {
+    return this.api.post(`${this.domainUrl}account/deleteImage`, { id });
+  }
+
   deleteProduct(id): Observable<any> {
     return this.api.delete(`${this.domainUrl}products/${id}`);
   }

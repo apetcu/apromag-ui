@@ -17,18 +17,25 @@
     <i class="icofont-upload-alt upload-icon"></i><br/>
     Alegeti <strong>imagini</strong>
 </div>
-<div class="photo-container">
+<div class="photo-container container-fluid">
     <div *ngIf="files.length" class="new-images photo-container">
         <h6>Imagini noi</h6>
-        <div class="image" *ngFor="let item of files;let i=index">
-            <div class="previewIcon" [ngfBackground]="item"></div>
-            <i class="icofont-trash trash"
-               (click)="onRemoveImage(i)"></i>
+        <div class="row">
+            <div class="col-md-4" *ngFor="let item of files;let i=index">
+                <div class="image">
+                    <div class="previewIcon" [ngfBackground]="item"></div>
+                    <i class="icofont-trash trash"
+                       (click)="onRemoveImage(i)"></i>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="image" *ngFor="let item of currentImages;let i=index">
-        <div class="previewIcon"><img [src]="item.url"></div>
-        <i class="icofont-trash trash" (click)="onDeleteCurrentImage(i)"></i>
+    <div class="row">
+        <div class="col-md-4 pb-4" *ngFor="let item of currentImages;let i=index">
+            <div class="image">
+                <div class="previewIcon"><img [src]="item.url"></div>
+                <i class="icofont-trash trash" (click)="onDeleteCurrentImage(item.id, i)"></i>
+            </div>
+        </div>
     </div>
 </div>

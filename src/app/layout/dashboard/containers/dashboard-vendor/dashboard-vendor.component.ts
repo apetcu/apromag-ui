@@ -5,6 +5,8 @@ import { VendorProfilePictureForm } from './vendor-profile-picture-form';
 import { DashboardFacadeService } from '../../services/dashboard-facade.service';
 import { AlertService } from '../../../../shared/services/alert/alert.service';
 import { VendorGalleryForm } from './vendor-gallery-form';
+import { VendorDetailsForm } from './vendor-details-form';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard-vendor',
@@ -15,11 +17,13 @@ export class DashboardVendorComponent implements OnInit {
   currentUser: User;
   vendorProfilePictureForm: VendorProfilePictureForm = new VendorProfilePictureForm();
   vendorGalleryForm: VendorGalleryForm = new VendorGalleryForm();
+  vendorDetailsForm: VendorDetailsForm = new VendorDetailsForm();
 
   constructor(
     private userService: UserService,
     private dashboardFacadeService: DashboardFacadeService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -40,7 +44,19 @@ export class DashboardVendorComponent implements OnInit {
   uploadVendorImages() {
     this.dashboardFacadeService.uploadVendorImages(this.vendorGalleryForm.value).subscribe(() => {
       this.alertService.showSuccess('Fotografiile au fost adaugate');
-      this.vendorProfilePictureForm.reset();
+      this.vendorGalleryForm.reset();
+    });
+  }
+
+  updateVendorDetails() {
+    this.dashboardFacadeService.uploadVendorImages(this.vendorDetailsForm.value).subscribe(() => {
+      this.alertService.showSuccess('Detaliile au fost actualizate');
+    });
+  }
+
+  deleteImage(id: number) {
+    this.dashboardFacadeService.deleteVendorImage(id).subscribe(() => {
+      this.toastrService.success('Fotografia a fost stearsa');
     });
   }
 }
