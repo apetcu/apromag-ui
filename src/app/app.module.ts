@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -15,6 +15,7 @@ import { AuthServiceConfig, FacebookLoginProvider, SocialLoginModule } from 'ang
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { UserService } from './layout/user/services/user.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,6 +28,12 @@ const config = new AuthServiceConfig([
     provider: new FacebookLoginProvider('2873327746090809')
   }
 ]);
+
+export function initializeApp1(userService: UserService) {
+  return (): Promise<any> => {
+    return userService.initialize();
+  };
+}
 
 export function provideConfig() {
   return config;
@@ -67,7 +74,8 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    { provide: APP_INITIALIZER, useFactory: initializeApp1, deps: [UserService], multi: true }
   ],
   bootstrap: [AppComponent]
 })

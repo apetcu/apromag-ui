@@ -7,12 +7,14 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { Order } from '../../../shared/models/order.model';
 import { map } from 'rxjs/operators';
 import { ModifyProductModel } from '../components/dashboard-modify-product/modify-product-form';
+import { UserService } from '../../user/services/user.service';
+import { User } from '../../user/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardFacadeService {
-  constructor(private dashboardApiService: DashboardApiService) {}
+  constructor(private dashboardApiService: DashboardApiService, private userService: UserService) {}
 
   getOrders(paginationInfo: PaginationInfo): Observable<PaginatedResponse<Order>> {
     return this.dashboardApiService.getOrders(paginationInfo).pipe(this.mapCompaniesToDomainModel());
@@ -46,7 +48,12 @@ export class DashboardFacadeService {
         formData.append('images[]', file, file.name);
       });
     }
-    return this.dashboardApiService.uploadVendorImages(formData);
+    return this.dashboardApiService.uploadVendorImages(formData).pipe(
+      map((entry) => {
+        this.userService.setUser(new User(entry));
+        return entry;
+      })
+    );
   }
 
   deleteVendorImage(id: number) {

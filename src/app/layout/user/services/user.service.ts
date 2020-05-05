@@ -3,8 +3,8 @@ import { User } from '../models/user.model';
 import { StorageService } from '../../../shared/services/storage/storage.service';
 import { StorageLocations } from '../../../shared/services/storage/storage-locations';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
 import { UserFacadeService } from './user-facade.service';
+import { Vendor } from '../../vendor/models/vendor';
 
 @Injectable({
   providedIn: 'root'
@@ -12,25 +12,21 @@ import { UserFacadeService } from './user-facade.service';
 export class UserService {
   private loggedUser: BehaviorSubject<User> = new BehaviorSubject(null);
   private activeNotificationsSubject: BehaviorSubject<number> = new BehaviorSubject(0);
-  private userStorageKey: StorageLocations = StorageLocations.USER;
   private jwtStorageKey: StorageLocations = StorageLocations.JWT;
   private jwtKey: string = null;
 
-  constructor(
-    private storageService: StorageService,
-    private toasterService: ToastrService,
-    private userFacadeService: UserFacadeService
-  ) {}
+  constructor(private storageService: StorageService, private userFacadeService: UserFacadeService) {}
 
-  initialize(): void {
-    this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
-    const currentUser = this.storageService.getItem(this.userStorageKey);
-    if (this.jwtKey) {
-      this.setUser(new User(currentUser));
-      this.userFacadeService.getAccountDetails().subscribe((data) => {
-        this.setUser(new User(data));
-      });
-    }
+  initialize(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
+      if (this.jwtKey) {
+        return this.userFacadeService.getAccountDetails().subscribe((data) => {
+          this.setUser(new User(data));
+          return resolve();
+        });
+      }
+    });
   }
 
   decreaseNotifications() {
@@ -43,7 +39,6 @@ export class UserService {
 
   setUser(user: User): void {
     this.setLoggedInState(user);
-    this.storageService.setItem(this.userStorageKey, user);
     this.activeNotificationsSubject.next(user.notifications);
   }
 
@@ -78,14 +73,8 @@ export class UserService {
 
   logOut(): void {
     this.jwtKey = null;
-    this.storageService.removeItem(this.userStorageKey);
     this.storageService.removeItem(this.jwtStorageKey);
     this.setLoggedInState(null);
-
-    this.toasterService.success('Te-ai deconectat cu succes', '', {
-      positionClass: 'toast-bottom-right',
-      timeOut: 5000
-    });
   }
 
   private setLoggedInState(state: null | User): void {

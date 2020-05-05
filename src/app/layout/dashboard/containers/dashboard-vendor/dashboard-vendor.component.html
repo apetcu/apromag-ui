@@ -48,7 +48,7 @@
                 <form [formGroup]="vendorGalleryForm" (ngSubmit)="uploadVendorImages()">
                     <h5>Galerie foto</h5>
                     <div class="text-center mb-2">
-                        <app-file-upload formControlName="images" [currentImages]="currentUser.vendor.images" (onDeleteImage)="deleteImage($event)"></app-file-upload>
+                        <app-file-upload formControlName="images" [currentImages]="currentImages" (onDeleteImage)="deleteImage($event)"></app-file-upload>
                         <button type="submit" class="food-btn style-3" [disabled]="vendorGalleryForm.invalid"><span><i
                                 class="icofont-upload mr-1"></i> {{'GENERAL.BUTTONS.UPLOAD' | translate}}</span></button>
                     </div>

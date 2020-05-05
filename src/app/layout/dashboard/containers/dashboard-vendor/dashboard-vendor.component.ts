@@ -7,6 +7,7 @@ import { AlertService } from '../../../../shared/services/alert/alert.service';
 import { VendorGalleryForm } from './vendor-gallery-form';
 import { VendorDetailsForm } from './vendor-details-form';
 import { ToastrService } from 'ngx-toastr';
+import { Image } from '../../../../shared/models/image.model';
 
 @Component({
   selector: 'app-dashboard-vendor',
@@ -18,6 +19,7 @@ export class DashboardVendorComponent implements OnInit {
   vendorProfilePictureForm: VendorProfilePictureForm = new VendorProfilePictureForm();
   vendorGalleryForm: VendorGalleryForm = new VendorGalleryForm();
   vendorDetailsForm: VendorDetailsForm = new VendorDetailsForm();
+  currentImages: Array<Image> = null;
 
   constructor(
     private userService: UserService,
@@ -28,6 +30,7 @@ export class DashboardVendorComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.userService.getUser();
+    this.currentImages = this.currentUser.vendor.images;
   }
 
   handleFileInput(file) {
@@ -42,9 +45,10 @@ export class DashboardVendorComponent implements OnInit {
   }
 
   uploadVendorImages() {
-    this.dashboardFacadeService.uploadVendorImages(this.vendorGalleryForm.value).subscribe(() => {
+    this.dashboardFacadeService.uploadVendorImages(this.vendorGalleryForm.value).subscribe((user: User) => {
       this.alertService.showSuccess('Fotografiile au fost adaugate');
       this.vendorGalleryForm.reset();
+      this.currentImages = user.vendor.images;
     });
   }
 

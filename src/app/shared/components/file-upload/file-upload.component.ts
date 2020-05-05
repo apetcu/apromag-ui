@@ -46,6 +46,8 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
   writeValue(value: any): void {
     if (value) {
       this.propagateChange(value);
+    } else {
+      this.files = [];
     }
   }
 
