@@ -46,7 +46,7 @@ export class DashboardVendorComponent implements OnInit {
 
   uploadVendorImages() {
     this.dashboardFacadeService.uploadVendorImages(this.vendorGalleryForm.value).subscribe((user: User) => {
-      this.alertService.showSuccess('Fotografiile au fost adaugate');
+      this.alertService.showSuccess('Fotografiile au fost adaugate!');
       this.vendorGalleryForm.reset();
       this.currentImages = user.vendor.images;
     });
