@@ -21,10 +21,14 @@ export class UserService {
     return new Promise((resolve, reject) => {
       this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
       if (this.jwtKey) {
-        return this.userFacadeService.getAccountDetails().subscribe((data) => {
-          this.setUser(new User(data));
-          return resolve();
-        });
+        return this.userFacadeService
+          .getAccountDetails()
+          .toPromise()
+          .then((data) => {
+            this.setUser(new User(data));
+          });
+      } else {
+        resolve();
       }
     });
   }

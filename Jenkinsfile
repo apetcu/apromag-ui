@@ -56,7 +56,7 @@ node {
                     [configName: 'apromag-ftp', transfers: [
                         [asciiMode: false,
                         sourceFiles: 'dist/apromag-ui/**/*.*',
-                        cleanRemote: false,
+                        cleanRemote: true,
                         excludes: '',
                         execTimeout: 120000,
                         flatten: false,
