@@ -18,19 +18,18 @@ export class UserService {
   constructor(private storageService: StorageService, private userFacadeService: UserFacadeService) {}
 
   initialize(): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
-      if (this.jwtKey) {
-        return this.userFacadeService
-          .getAccountDetails()
-          .toPromise()
-          .then((data) => {
-            this.setUser(new User(data));
-          });
-      } else {
-        resolve();
-      }
-    });
+    this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
+    if (this.jwtKey) {
+      return this.userFacadeService
+        .getAccountDetails()
+        .toPromise()
+        .then((data) => {
+          this.setUser(new User(data));
+          return Promise.resolve();
+        });
+    } else {
+      return Promise.resolve();
+    }
   }
 
   decreaseNotifications() {
