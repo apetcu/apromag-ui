@@ -3,6 +3,8 @@ import { Observable, of, OperatorFunction } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { ShippingLocation } from '../../models/shipping-location';
 import { ShippingApiService } from './shipping-api.service';
+import { User } from '../../../layout/user/models/user.model';
+import { UserService } from '../../../layout/user/services/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ import { ShippingApiService } from './shipping-api.service';
 export class ShippingFacadeService {
   private cachedShippingLocations: Array<ShippingLocation>;
 
-  constructor(private shippingApiService: ShippingApiService) {}
+  constructor(private shippingApiService: ShippingApiService, private userService: UserService) {}
 
   getShippingLocations(query: string): Observable<Array<ShippingLocation>> {
     if (this.cachedShippingLocations) {
@@ -27,12 +29,19 @@ export class ShippingFacadeService {
   }
 
   saveShippingLocations(shippingLocations, formDetails) {
-    return this.shippingApiService.saveLocations({
-      locations: this.mapLocationsToForm(shippingLocations),
-      freeShippingOver: formDetails.freeShippingOver,
-      shippingRemarks: formDetails.shippingRemarks,
-      shippingCost: formDetails.shippingCost
-    });
+    return this.shippingApiService
+      .saveLocations({
+        locations: this.mapLocationsToForm(shippingLocations),
+        freeShippingOver: formDetails.freeShippingOver,
+        shippingRemarks: formDetails.shippingRemarks,
+        shippingCost: formDetails.shippingCost
+      })
+      .pipe(
+        map((entry) => {
+          this.userService.setUser(new User(entry));
+          return entry;
+        })
+      );
   }
 
   mapLocationsToForm(locations: Array<number>) {

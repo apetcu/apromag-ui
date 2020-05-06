@@ -1,7 +1,7 @@
 <form [formGroup]="shippingForm" (ngSubmit)="onSubmit()">
     <h5 class="admin-title">
         {{'VENDOR.SHIPPING.TITLE' | translate}}
-        <button type="submit" class="btn btn-success float-right"><i class="icofont-save mr-3"></i>Salveaza</button>
+        <button type="submit" class="btn btn-success float-right" [disabled]="!shippingForm.valid"><i class="icofont-save mr-3"></i>Salveaza</button>
     </h5>
     <div class="row mt-2">
         <div class="col-md-12">

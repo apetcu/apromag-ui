@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShippingFacadeService } from '../../../../shared/services/shipping/shipping-facade.service';
 import { ShippingLocation } from '../../../../shared/models/shipping-location';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../../../../shared/services/alert/alert.service';
 import { UserService } from '../../../user/services/user.service';
 import { VendorShippingPreference } from '../../../vendor/models/vendor';
@@ -41,8 +41,8 @@ export class DashboardShippingComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.userService.getUser();
     this.shippingForm = this.formBuilder.group({
-      shippingCost: new FormControl(this.currentUser.vendor.shippingCost),
-      freeShippingOver: new FormControl(this.currentUser.vendor.freeShippingOver),
+      shippingCost: new FormControl(this.currentUser.vendor.shippingCost, Validators.required),
+      freeShippingOver: new FormControl(this.currentUser.vendor.freeShippingOver, Validators.required),
       shippingRemarks: new FormControl(this.currentUser.vendor.shippingRemarks)
     });
     this.loadShippingLocations();
@@ -57,7 +57,6 @@ export class DashboardShippingComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log({ arrVal: this.locationsFormArrayaySelectedIds }, this.shippingForm.value, 2);
     this.shippingFacadeService.saveShippingLocations(this.locationsFormArrayaySelectedIds, this.shippingForm.value).subscribe((data) => {
       this.alertService.show({
         position: 'top-end',
