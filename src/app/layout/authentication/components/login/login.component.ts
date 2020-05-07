@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
 import { LoginForm } from './login-form';
 import { AuthenticationFacadeService } from '../../services/authentication-facade.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../../../user/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +15,27 @@ export class LoginComponent implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
 
-  constructor(private authenticationFacadeService: AuthenticationFacadeService, private router: Router) {}
+  constructor(
+    private authenticationFacadeService: AuthenticationFacadeService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService
+  ) {
+    this.activatedRoute.queryParams.subscribe((params) => {
+      if (params['token']) {
+        this.userService.initialize(params['token']).then(() => {
+          this.router.navigate(['/home']);
+        });
+      }
+    });
+  }
 
   ngOnInit(): void {
-    this.authenticationFacadeService.isFbLoggedIn().subscribe((user) => {
-      this.user = user;
-      this.loggedIn = user != null;
-      console.log(this.user);
-    });
+    // this.authenticationFacadeService.isFbLoggedIn().subscribe((user) => {
+    //   this.user = user;
+    //   this.loggedIn = user != null;
+    //   console.log(this.user);
+    // });
   }
 
   logIn(): void {
@@ -36,6 +50,6 @@ export class LoginComponent implements OnInit {
   }
 
   logInWithFb(): void {
-    this.authenticationFacadeService.loginWithFb();
+    window.location.href = '/api/social/redirect';
   }
 }

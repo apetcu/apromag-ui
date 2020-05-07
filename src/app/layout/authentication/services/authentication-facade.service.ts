@@ -34,7 +34,8 @@ export class AuthenticationFacadeService {
   }
 
   loginWithFb() {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    return this.authenticationApiService.loginWithFb();
+    //this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
   isFbLoggedIn() {

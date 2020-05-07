@@ -17,16 +17,26 @@ export class UserService {
 
   constructor(private storageService: StorageService, private userFacadeService: UserFacadeService) {}
 
-  initialize(): Promise<any> {
-    this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
+  initialize(jwtKey?): Promise<any> {
+    if (jwtKey) {
+      this.setJwt(jwtKey);
+    } else {
+      this.jwtKey = this.storageService.getItem(this.jwtStorageKey);
+    }
     if (this.jwtKey) {
       return this.userFacadeService
         .getAccountDetails()
         .toPromise()
-        .then((data) => {
-          this.setUser(new User(data));
-          return Promise.resolve();
-        });
+        .then(
+          (data) => {
+            this.setUser(new User(data));
+            return Promise.resolve();
+          },
+          () => {
+            this.clearJwt();
+            return Promise.reject();
+          }
+        );
     } else {
       return Promise.resolve();
     }
@@ -48,6 +58,11 @@ export class UserService {
   setJwt(key: string): void {
     this.storageService.setItem(this.jwtStorageKey, key);
     this.jwtKey = key;
+  }
+
+  clearJwt(): void {
+    this.storageService.removeItem(this.jwtStorageKey);
+    this.jwtKey = null;
   }
 
   getJwt(): string {

@@ -17,4 +17,8 @@ export class AuthenticationApiService {
   register(userRegistration: UserRegistration): Observable<any> {
     return this.api.post(`${this.domainUrl}/register`, userRegistration);
   }
+
+  loginWithFb(): Observable<any> {
+    return this.api.get(`social/redirect`);
+  }
 }
