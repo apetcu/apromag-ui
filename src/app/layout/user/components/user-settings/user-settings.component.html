@@ -18,10 +18,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="email" translate="ACCOUNT.EMAIL"></label>
-                <input class="form-control" id="email" type="text" formControlName="email">
-            </div>
-            <div class="form-group">
                 <label for="phone" translate="ACCOUNT.PHONE"></label>
                 <input class="form-control" id="phone" type="text" formControlName="phone">
             </div>
@@ -43,9 +39,26 @@
                 </div>
             </form>
             <div class="buttons-wrapper">
-                <button type="submit" class="btn btn-success" [disabled]="userSettingsForm.invalid"  translate="GENERAL.BUTTONS.UPDATE"></button>
+                <button type="submit" class="btn btn-success" [disabled]="userSettingsForm.invalid" translate="GENERAL.BUTTONS.UPDATE"></button>
                 <button *ngIf="userSettingsForm.dirty" class="btn btn-secondary" (click)="initializeUserForm()" translate="GENERAL.BUTTONS.RESET"></button>
             </div>
         </form>
     </div>
+</div>
+<div class="widget mt-3">
+    <h4 translate="GENERAL.ACCOUNT_CHANGE_EMAIL"></h4>
+    <hr>
+    <form [formGroup]="userChangeEmailForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email" translate="ACCOUNT.NEW_EMAIL"></label>
+            <input class="form-control" id="email" type="text" formControlName="email">
+        </div>
+        <div class="form-group">
+            <label for="email-again" translate="ACCOUNT.EMAIL_AGAIN"></label>
+            <input class="form-control" id="email-again" type="text" formControlName="confirmEmail">
+        </div>
+        <div class="buttons-wrapper">
+            <button type="submit" class="btn btn-success" [disabled]="userChangeEmailForm.invalid" translate="GENERAL.BUTTONS.UPDATE"></button>
+        </div>
+    </form>
 </div>

@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { UserSettingsForm } from './user-settings-form';
 import { UserFacadeService } from '../../services/user-facade.service';
 import { AlertService } from '../../../../shared/services/alert/alert.service';
+import { UserChangeEmailForm } from './user-change-email-form';
 
 @Component({
   selector: 'app-user-settings',
@@ -12,6 +13,7 @@ import { AlertService } from '../../../../shared/services/alert/alert.service';
 })
 export class UserSettingsComponent implements OnInit {
   userSettingsForm: UserSettingsForm;
+  userChangeEmailForm: UserChangeEmailForm = new UserChangeEmailForm();
 
   constructor(private userService: UserService, private userFacade: UserFacadeService, private alertService: AlertService) {}
 

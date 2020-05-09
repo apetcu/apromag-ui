@@ -15,6 +15,7 @@ import { CartService } from '../../../cart/services/cart.service';
 })
 export class ProductComponent implements OnInit {
   addToCartForm: FormGroup = new AddToCartForm();
+  productInformationLoading: boolean = true;
 
   productDetails: Product;
   vendorDetails: Vendor;
@@ -47,6 +48,7 @@ export class ProductComponent implements OnInit {
   private getProductInformation(productId: number) {
     this.productsFacadeService.getProductById(productId).subscribe((vendorInfo) => {
       this.productDetails = vendorInfo;
+      this.productInformationLoading = false;
     });
   }
 

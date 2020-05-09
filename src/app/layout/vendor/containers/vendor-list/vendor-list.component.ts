@@ -14,6 +14,7 @@ export class VendorListComponent implements OnInit, OnDestroy {
   shippingLocationSubscription: Subscription;
   shippingLocation: ShippingLocation;
   vendors: Array<Vendor>;
+  loading: boolean = true;
 
   constructor(private vendorsFacadeService: VendorsFacadeService, private shippingService: ShippingService) {}
 
@@ -25,6 +26,9 @@ export class VendorListComponent implements OnInit, OnDestroy {
   getProducts(): void {
     this.vendorsFacadeService.getVendors().subscribe((paginatedVendors) => {
       this.vendors = paginatedVendors.data;
+      setTimeout(() => {
+        this.loading = false;
+      }, 100);
     });
   }
 

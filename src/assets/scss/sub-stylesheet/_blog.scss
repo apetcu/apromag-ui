@@ -1186,6 +1186,7 @@ p.comment-form-cookies-consent {
             .admin-thumb {
                 margin-bottom: 15px;
                 img {
+                    width: 70%;
                     @include border-radius(100%);
                 }
             }

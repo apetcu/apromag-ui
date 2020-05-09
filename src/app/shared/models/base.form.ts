@@ -1,8 +1,8 @@
 import { AbstractControl, FormGroup } from '@angular/forms';
 
 export abstract class BaseForm<T> extends FormGroup {
-  protected constructor(form: BaseFormModel<T>) {
-    super(form);
+  protected constructor(form: BaseFormModel<T>, validators?) {
+    super(form, validators);
   }
 }
 

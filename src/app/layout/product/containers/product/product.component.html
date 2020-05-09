@@ -9,7 +9,8 @@
                                 <div class="col-md-6 col-12">
                                     <div class="shop-item">
                                         <div class="shop-thumb">
-                                            <img [src]="productDetails?.imageFullPath" [alt]="productDetails?.name">
+                                            <img [src]="productDetails?.imageFullPath" [alt]="productDetails?.name" *ngIf="!productInformationLoading">
+                                            <div class="skeleton-box product-skeleton" *ngIf="productInformationLoading"></div>
                                         </div>
                                     </div>
                                 </div>
