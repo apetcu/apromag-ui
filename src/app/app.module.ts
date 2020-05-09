@@ -16,6 +16,7 @@ import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UserService } from './layout/user/services/user.service';
+import { NgcCookieConsentConfig, NgcCookieConsentModule } from 'ngx-cookieconsent';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,6 +40,30 @@ export function provideConfig() {
   return config;
 }
 
+const cookieConfig: NgcCookieConsentConfig = {
+  cookie: {
+    domain: 'apromag.ro'
+  },
+  content: {
+    href: '/static/cookies',
+    target: '_self'
+  },
+  palette: {
+    popup: {
+      background: '#28a745',
+      text: '#ffffff',
+      link: '#ffffff'
+    },
+    button: {
+      background: '#fcfb2e',
+      text: '#000000',
+      border: 'transparent'
+    }
+  },
+  theme: 'edgeless',
+  type: 'opt-out'
+};
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -58,7 +83,8 @@ export function provideConfig() {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    NgcCookieConsentModule.forRoot(cookieConfig)
   ],
   providers: [
     {

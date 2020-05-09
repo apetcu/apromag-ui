@@ -11,18 +11,18 @@
                 </div>
                 <div class="footer-menu">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">How it works?</a></li>
-                        <li><a href="#">Menus</a></li>
-                        <li><a href="#">Chefs</a></li>
-                        <li><a href="#">Recipes</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a routerLink="/home" translate="MENU.HOME"></a></li>
+                        <li><a routerLink="/static/faq" translate="FOOTER.FAQ"></a></li>
+                        <li><a routerLink="/static/cookies" translate="FOOTER.COOKIES"></a></li>
+                        <li><a routerLink="/static/terms-and-conditions" translate="FOOTER.TERMS"></a></li>
+                        <li><a routerLink="/static/gdpr" translate="FOOTER.GDPR"></a></li>
+                        <li><a routerLink="/contact" translate="MENU.CONTACT"></a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer-bottom text-center">
-            <p>&copy; 2020 <a href="#"><span>Apromag</span> Toate drepturile rezervate.</a></p>
+            <p>&copy; 2020 <a href="#">{{'FOOTER.COPYRIGHT' | translate}}</a></p>
         </div>
     </div>
 </footer>

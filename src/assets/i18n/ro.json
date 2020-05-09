@@ -1,4 +1,13 @@
 {
+  "cookie": {
+    "header": "Cookies used on the website!",
+    "message": "Acest site foloseste cookies. Prin continuarea navigarii, acceptati implicit folosirea lor.",
+    "dismiss": "Am inteles",
+    "allow": "Permite cookies",
+    "deny": "Refuz",
+    "link": "Afla mai multe",
+    "policy": "Politica cookies"
+  },
   "MENU": {
     "HOME": "Acasa",
     "PRODUCERS": "Producatori",
@@ -47,6 +56,14 @@
     "IMAGES": "Imagini",
     "SORRY": "Ne pare rau,",
     "NO_PRODUCTS": "Acest producator nu are inca produse listate."
+  },
+  "FOOTER": {
+    "COPYRIGHT": "Apromag. Toate drepturile rezervate.",
+    "TERMS": "Termeni si conditii",
+    "GDPR": "Protectia datelor",
+    "COOKIES": "Politica Cookies",
+    "FAQ": "Intrebari frecvente",
+    "CONTACT": "Contact"
   },
   "ACCOUNT": {
     "FULL_NAME": "Nume si prenume",
