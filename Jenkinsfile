@@ -26,30 +26,30 @@ node {
                 }
             }
 
-            stage('Deploy front-end') {
-                    sshPublisher(
-                        publishers: [
-                            sshPublisherDesc(
-                                configName: 'apromag',
-                                transfers: [sshTransfer(
-                                    sourceFiles: 'dist/apromag-ui/**/*.*',
-                                    remoteDirectory: '/var/www/html',
-                                    cleanRemote: false,
-                                    excludes: '',
-                                    execTimeout: 120000,
-                                    flatten: false,
-                                    makeEmptyDirs: false,
-                                    noDefaultExcludes: false,
-                                    patternSeparator: '[, ]+',
-                                    remoteDirectorySDF: false,
-                                    removePrefix: 'dist/apromag-ui')
-                                ], usePromotionTimestamp: false,
-                                useWorkspaceInPromotion: false,
-                                verbose: false
-                            )
-                        ]
-                    )
-            }
+//             stage('Deploy front-end') {
+//                     sshPublisher(
+//                         publishers: [
+//                             sshPublisherDesc(
+//                                 configName: 'apromag',
+//                                 transfers: [sshTransfer(
+//                                     sourceFiles: 'dist/apromag-ui/**/*.*',
+//                                     remoteDirectory: '/var/www/html',
+//                                     cleanRemote: false,
+//                                     excludes: '',
+//                                     execTimeout: 120000,
+//                                     flatten: false,
+//                                     makeEmptyDirs: false,
+//                                     noDefaultExcludes: false,
+//                                     patternSeparator: '[, ]+',
+//                                     remoteDirectorySDF: false,
+//                                     removePrefix: 'dist/apromag-ui')
+//                                 ], usePromotionTimestamp: false,
+//                                 useWorkspaceInPromotion: false,
+//                                 verbose: false
+//                             )
+//                         ]
+//                     )
+//             }
 
             stage('Upload') {
                 ftpPublisher alwaysPublishFromMaster: true, continueOnError: false, failOnError: false, publishers: [
@@ -58,7 +58,7 @@ node {
                         sourceFiles: 'dist/apromag-ui/**/*.*',
                         cleanRemote: true,
                         excludes: '',
-                        execTimeout: 120000,
+                        execTimeout: 500000,
                         flatten: false,
                         makeEmptyDirs: false,
                         noDefaultExcludes: false,
