@@ -11,7 +11,6 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { NotFoundModule } from './shared/components/not-found/not-found.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpErrorInterceptor } from './shared/interceptors/http-error.interceptor';
-import { AuthServiceConfig, FacebookLoginProvider, SocialLoginModule } from 'angularx-social-login';
 import { JwtInterceptor } from './shared/interceptors/jwt.interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -23,21 +22,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-const config = new AuthServiceConfig([
-  {
-    id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('2873327746090809')
-  }
-]);
-
 export function initializeApp1(userService: UserService) {
   return (): Promise<any> => {
     return userService.initialize();
   };
-}
-
-export function provideConfig() {
-  return config;
 }
 
 const cookieConfig: NgcCookieConsentConfig = {
@@ -73,7 +61,6 @@ const cookieConfig: NgcCookieConsentConfig = {
     ClickOutsideModule,
     HttpClientModule,
     NotFoundModule,
-    SocialLoginModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
@@ -96,10 +83,6 @@ const cookieConfig: NgcCookieConsentConfig = {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    },
-    {
-      provide: AuthServiceConfig,
-      useFactory: provideConfig
     },
     { provide: APP_INITIALIZER, useFactory: initializeApp1, deps: [UserService], multi: true }
   ],

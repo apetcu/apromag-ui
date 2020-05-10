@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
 import { LoginForm } from './login-form';
 import { AuthenticationFacadeService } from '../../services/authentication-facade.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,7 +11,6 @@ import { UserService } from '../../../user/services/user.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: LoginForm = new LoginForm();
-  user: SocialUser;
   loggedIn: boolean;
 
   constructor(
