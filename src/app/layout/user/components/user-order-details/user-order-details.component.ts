@@ -23,7 +23,7 @@ export class UserOrderDetailsComponent implements OnInit {
   }
 
   getOrderInfo(id: number) {
-    this.orderFacadeService.getOrder(id).subscribe((order) => {
+    this.orderFacadeService.getCustomerOrderById(id).subscribe((order) => {
       this.orderInfo = order;
     });
   }

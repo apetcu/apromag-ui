@@ -33,10 +33,6 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const productId = parseInt(params.productId, 10);
-      const vendorId = parseInt(params.vendorId, 10);
-
-      this.getVendorDetails(vendorId);
-      this.getVendorProducts(vendorId);
       this.getProductInformation(productId);
     });
   }
@@ -46,9 +42,12 @@ export class ProductComponent implements OnInit {
   }
 
   private getProductInformation(productId: number) {
-    this.productsFacadeService.getProductById(productId).subscribe((vendorInfo) => {
-      this.productDetails = vendorInfo;
+    this.productsFacadeService.getProductById(productId).subscribe((productInfo) => {
+      this.productDetails = productInfo;
       this.productInformationLoading = false;
+
+      this.getVendorDetails(productInfo.vendorId);
+      this.getVendorProducts(productInfo.vendorId);
     });
   }
 

@@ -16,6 +16,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UserService } from './layout/user/services/user.service';
 import { NgcCookieConsentConfig, NgcCookieConsentModule } from 'ngx-cookieconsent';
+import { LightboxModule } from 'ngx-lightbox';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,8 +49,8 @@ const cookieConfig: NgcCookieConsentConfig = {
       border: 'transparent'
     }
   },
-  theme: 'edgeless',
-  type: 'opt-out'
+  theme: 'classic',
+  type: 'info'
 };
 
 @NgModule({
@@ -62,6 +63,7 @@ const cookieConfig: NgcCookieConsentConfig = {
     HttpClientModule,
     NotFoundModule,
     BrowserAnimationsModule,
+    LightboxModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
       defaultLanguage: 'ro',

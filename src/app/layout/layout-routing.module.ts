@@ -20,7 +20,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'products/:nameSlug/:vendorId/:productId',
+        path: 'products/:nameSlug/:productId',
         component: ProductComponent,
         data: {
           title: 'Produs'

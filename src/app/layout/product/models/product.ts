@@ -41,7 +41,7 @@ export class Product {
     this.vendorId = this.vendor.id;
     this.unit = productResponse.unit;
 
-    this.urlSlug = Product.generateUrlSlug(this.name, this.id, this.vendorId);
+    this.urlSlug = Product.generateUrlSlug(this.name, this.id);
 
     this.fullPrice = this.computeFullPrice();
   }
@@ -54,7 +54,7 @@ export class Product {
     return this.images && this.images.length && this.images[0].url;
   }
 
-  private static generateUrlSlug(name: string, id: number, vendorId: number): string {
-    return `/products/${Utils.convertStringToSlug(name)}/${vendorId}/${id}`; // Trim - from end of text
+  public static generateUrlSlug(name: string, id: number): string {
+    return `/products/${Utils.convertStringToSlug(name)}/${id}`; // Trim - from end of text
   }
 }

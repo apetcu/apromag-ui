@@ -11,13 +11,10 @@
                 <div class="widget-wrapper">
 
                     <div class="justify-content-center mb-4">
-                        <button [ngClass]="currentRegistrationType === 'CUSTOMER' ? 'style-3':'style-2'" type="submit" class="food-btn mr-3" (click)="switchRegisterType('CUSTOMER')"><span>Client</span></button>
-                        <button [ngClass]="currentRegistrationType === 'VENDOR' ? 'style-3':'style-2'" type="submit" class="food-btn" (click)="switchRegisterType('VENDOR')"><span>Furnizor</span></button>
-                    </div>
-
-
-                    <div class="admin-thumb">
-                        <img src="assets/images/default_profile.png" alt="author" style="width: 40%;">
+                        <button [ngClass]="currentRegistrationType === 'CUSTOMER' ? 'style-3':'style-2'" type="submit" class="food-btn mr-3"
+                                (click)="switchRegisterType('CUSTOMER')"><span>Client</span></button>
+                        <button [ngClass]="currentRegistrationType === 'VENDOR' ? 'style-3':'style-2'" type="submit" class="food-btn"
+                                (click)="switchRegisterType('VENDOR')"><span>Furnizor</span></button>
                     </div>
 
                     <form class="d-flex flex-wrap justify-content-center " autocomplete="false" [formGroup]="registerForm" (ngSubmit)="register()">
@@ -30,18 +27,25 @@
                             </div>
                         </div>
 
-                        <input type="text" placeholder="Nume de prezentare" class="form-control" formControlName="businessName" *ngIf="currentRegistrationType === 'VENDOR'">
+                        <input type="text" placeholder="Nume de prezentare" class="form-control" formControlName="businessName"
+                               *ngIf="currentRegistrationType === 'VENDOR'">
                         <input type="text" placeholder="Adresa" class="form-control" formControlName="address" *ngIf="currentRegistrationType === 'VENDOR'">
 
                         <input type="text" placeholder="Email" class="form-control" formControlName="email">
                         <input type="password" placeholder="Parola" class="form-control" formControlName="password">
                         <p>Am citit si sunt de acord cu termenii si conditiile acestui site.</p>
 
-                        <button type="submit" class="food-btn style-3"><span>Inregistrare</span></button>
+                        <div>
+                            <button type="submit" class="food-btn style-3 mb-0"><span>Inregistrare</span></button>
+                        </div>
+
                     </form>
 
-                    <div class="admin-content">
+                    <div class="alternativa">
+                        <span>sau</span>
                     </div>
+                    <button type="button" class="btn btn-primary btn-fb" (click)="logInWithFb()">Inregistrare cu facebook</button>
+
                 </div>
             </div>
         </aside>

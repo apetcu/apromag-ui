@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AuthService, FacebookLoginProvider } from 'angularx-social-login';
 import { AuthenticationApiService } from './authentication-api.service';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/layout/user/models/user.model';
@@ -10,11 +9,7 @@ import { UserRegistration } from '../components/register/models/user-registratio
   providedIn: 'root'
 })
 export class AuthenticationFacadeService {
-  constructor(
-    private authService: AuthService,
-    private authenticationApiService: AuthenticationApiService,
-    private userService: UserService
-  ) {}
+  constructor(private authenticationApiService: AuthenticationApiService, private userService: UserService) {}
 
   logIn(username: string, password: string) {
     return this.authenticationApiService.logIn(username, password).pipe(
@@ -35,15 +30,6 @@ export class AuthenticationFacadeService {
 
   loginWithFb() {
     return this.authenticationApiService.loginWithFb();
-    //this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-  }
-
-  isFbLoggedIn() {
-    return this.authService.authState;
-  }
-
-  logOutFb() {
-    this.authService.signOut();
   }
 
   logOut() {}

@@ -37,6 +37,7 @@
               "node_modules/animate.css/animate.min.css",
               "node_modules/cookieconsent/build/cookieconsent.min.css",
               "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-lightbox/lightbox.css",
               "src/styles.scss"
             ],
             "scripts": [

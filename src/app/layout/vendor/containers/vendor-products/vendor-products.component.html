@@ -32,7 +32,7 @@
                                 <h5 translate="GENERAL.IMAGES"></h5>
                             </div>
                             <ul class="widget-wrapper d-flex flex-wrap justify-content-center">
-                                <li *ngFor="let photo of vendorDetails?.images"><a href="#"><img [src]="photo.url" alt="product"></a></li>
+                                <li *ngFor="let photo of vendorDetails?.images; let i = index"><a (click)="openGallery(i)"><img [src]="photo.url" alt="product"></a></li>
                             </ul>
                         </div>
                     </div>

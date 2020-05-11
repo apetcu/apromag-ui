@@ -1,11 +1,11 @@
-<app-page-title title="Contacteaza-ne"></app-page-title>
+<app-page-title title="CONTACT.TITLE"></app-page-title>
 <section class="contact-information padding-tb pb-xl-0">
     <div class="container">
         <div class="section-wrapper">
             <div class="row">
                 <div class="col-lg-6 col-12">
-                    <h5>Contact Information</h5>
-                    <div class="post-item">
+                    <h5 translate="CONTACT.INFO"></h5>
+ <!--                   <div class="post-item">
                         <div class="post-thumb">
                             <img src="assets/images/contac/icon/04.png" alt="contact">
                         </div>
@@ -24,14 +24,14 @@
                             <p>+8801678170593, 01919-264687</p>
                             <p>02-9611936</p>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="post-item">
                         <div class="post-thumb">
                             <img src="assets/images/contac/icon/06.png" alt="contact">
                         </div>
                         <div class="post-content">
                             <h6>email adress : </h6>
-                            <p>support@Mezban.com</p>
+                            <p>{{contactDetails.email}}</p>
                         </div>
                     </div>
                     <div class="post-item">
@@ -40,18 +40,18 @@
                         </div>
                         <div class="post-content">
                             <h6>website adress</h6>
-                            <p>http://readpetuk.com</p>
+                            <p>{{contactDetails.web}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12">
-                    <h5>Send Us A Message</h5>
+                    <h5 translate="CONTACT.FORM"></h5>
                     <form class="d-flex flex-wrap justify-content-between">
-                        <input type="text" placeholder="Your Name">
-                        <input type="text" placeholder="Your Email">
-                        <input class="w-100" type="text" placeholder="Subject">
-                        <textarea rows="8" placeholder="Your Message"></textarea>
-                        <button type="submit" class="food-btn style-2"><span>Submit Message</span></button>
+                        <input type="text" placeholder="{{'CONTACT.NAME' | translate}}">
+                        <input type="text" placeholder="{{'CONTACT.EMAIL' | translate}}">
+                        <input class="w-100" type="text" placeholder="{{'CONTACT.SUBJECT' | translate}}">
+                        <textarea rows="8" placeholder="{{'CONTACT.MESSAGE' | translate}}"></textarea>
+                        <button type="submit" class="food-btn style-2"><span translate="CONTACT.SEND"></span></button>
                     </form>
                 </div>
             </div>

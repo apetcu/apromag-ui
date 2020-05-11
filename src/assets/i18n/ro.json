@@ -1,11 +1,11 @@
 {
   "cookie": {
     "header": "Cookies used on the website!",
-    "message": "Acest site foloseste cookies. Prin continuarea navigarii, acceptati implicit folosirea lor.",
+    "message": "Acest website foloseste cookie-uri proprii cat si cookie-uri adaugate de terti, pentru a furniza vizitatorilor o experienta mult mai buna de navigare si servicii adaptate nevoilor si interesului fiecaruia. Continuarea navigarii implica acceptarea lor. Afla mai multe despre cum poti sa-ti modifici setarile",
     "dismiss": "Am inteles",
-    "allow": "Permite cookies",
+    "allow": "am inteles",
     "deny": "Refuz",
-    "link": "Afla mai multe",
+    "link": "aici",
     "policy": "Politica cookies"
   },
   "MENU": {
@@ -146,5 +146,15 @@
       "COMPLETED": "Comanda finalizata",
       "CANCELED": "Comanda anulata"
     }
+  },
+  "CONTACT": {
+    "TITLE": "Contacteaza-ne",
+    "INFO": "Informatii de contact",
+    "FORM": "Formular de contact",
+    "NAME": "Numele tau",
+    "EMAIL": "Emailul tau",
+    "SUBJECT": "Subiect",
+    "MESSAGE": "Mesajul tau",
+    "SEND": "Trimite mesaj"
   }
 }

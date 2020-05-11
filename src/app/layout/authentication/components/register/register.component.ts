@@ -56,4 +56,8 @@ export class RegisterComponent implements OnInit {
     this.currentRegistrationType = type as UserRoles;
     this.registerForm.controls['role'].setValue(type);
   }
+
+  logInWithFb(): void {
+    window.location.href = '/api/social/redirect';
+  }
 }

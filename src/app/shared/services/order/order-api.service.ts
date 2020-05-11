@@ -19,6 +19,10 @@ export class OrderApiService {
     return this.api.get(`${this.domainUrl}/${id}`);
   }
 
+  getCustomerOrderById(id: number): Observable<any> {
+    return this.api.get(`account/orders/${id}`);
+  }
+
   setStatus(id: number, statusForm: any): Observable<any> {
     return this.api.post(`${this.domainUrl}/${id}/status`, statusForm);
   }
