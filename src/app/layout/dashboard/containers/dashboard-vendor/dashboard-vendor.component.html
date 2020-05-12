@@ -51,7 +51,7 @@
                         <app-file-upload formControlName="images" [currentImages]="currentImages" (onDeleteImage)="deleteImage($event)"></app-file-upload>
                         <button type="submit" class="food-btn style-3" [disabled]="vendorGalleryForm.invalid" *ngIf="!galleryUploading"><span><i
                                 class="icofont-upload mr-1"></i> {{'GENERAL.BUTTONS.UPLOAD' | translate}}</span></button>
-                        <app-loading [isVisible]="galleryUploading" *ngIf="galleryUploading"></app-loading>
+                        <app-loading *ngIf="galleryUploading"></app-loading>
                     </div>
                 </form>
             </div>

@@ -1,17 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-loading',
-    templateUrl: './loading.component.html',
-    styleUrls: ['./loading.component.scss']
+  selector: 'app-loading',
+  templateUrl: './loading.component.html',
+  styleUrls: ['./loading.component.scss']
 })
 export class LoadingComponent implements OnInit {
-    @Input() isVisible = false;
+  @Input()
+  isVisible = true;
 
-    constructor() {
-    }
+  constructor() {}
 
-    ngOnInit(): void {
-    }
-
+  ngOnInit(): void {}
 }
