@@ -35,7 +35,9 @@
                 <form [formGroup]="vendorProfilePictureForm" (ngSubmit)="changeProfilePicture()">
                     <h5>Fotografie de profil</h5>
                     <div class="text-center mb-2">
-                        <img [src]="currentUser.vendor.profilePicture" [default]="" class="profile-photo">
+                        <div>
+                            <img [src]="currentUser.vendor.profilePicture" [default]="" class="profile-photo">
+                        </div>
                         <input class="mt-2" id="profile-photo"
                                (change)="handleFileInput($event.target.files[0])"
                                type="file">

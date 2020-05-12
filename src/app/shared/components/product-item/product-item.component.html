@@ -8,7 +8,7 @@
     </div>
     <div class="product-content">
         <h6><a [routerLink]="product.urlSlug">{{product.name}}</a></h6>
-        <h6>{{product.fullPrice}} / {{product.unit}}</h6>
+        <h6>{{product.price  | aproCurrency: product.currency}} / {{product.unit}}</h6>
         <p *ngIf="displayType === 'list'">{{product.description}}</p>
     </div>
 </div>

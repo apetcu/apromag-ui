@@ -63,8 +63,11 @@ export class DashboardVendorComponent implements OnInit {
   }
 
   deleteImage(id: number) {
-    this.dashboardFacadeService.deleteVendorImage(id).subscribe(() => {
-      this.toastrService.success('Fotografia a fost stearsa');
-    });
+    this.dashboardFacadeService.deleteVendorImage(id).subscribe(
+      () => {},
+      () => {
+        this.toastrService.error('A aparut o eroare la stergerea fotografiei');
+      }
+    );
   }
 }

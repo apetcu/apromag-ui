@@ -7,9 +7,10 @@ import { ProductListModule } from '../../shared/components/product-list/product-
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
 
 @NgModule({
   declarations: [ProductComponent, RelatedProductsComponent],
-  imports: [CommonModule, PageTitleModule, ProductListModule, ReactiveFormsModule, TranslateModule, RouterModule]
+  imports: [CommonModule, PageTitleModule, ProductListModule, ReactiveFormsModule, TranslateModule, RouterModule, CurrencyModule]
 })
 export class ProductModule {}

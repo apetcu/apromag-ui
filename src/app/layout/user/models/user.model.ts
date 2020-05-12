@@ -30,6 +30,10 @@ export class User {
     this.address = userResponse.address;
 
     this.profilePicture = userResponse.profilePicture || 'assets/images/default_profile.png';
+    if (userResponse.vendor) {
+      this.profilePicture = userResponse.vendor.profilePicture || 'assets/images/default_profile.png';
+    }
+
     this.email = userResponse.email;
     this.role = userResponse.role as UserRoles;
     if (userResponse.vendor) {

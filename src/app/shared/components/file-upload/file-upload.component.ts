@@ -16,6 +16,10 @@ import { Image } from '../../models/image.model';
 export class FileUploadComponent implements OnInit, ControlValueAccessor {
   @Input()
   currentImages: Array<Image>;
+
+  @Input()
+  maxFiles: number = 5;
+
   @Output()
   onDeleteImage: EventEmitter<number> = new EventEmitter<number>(null);
 

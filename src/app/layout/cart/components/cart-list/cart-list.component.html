@@ -18,7 +18,7 @@
                 <a [routerLink]="cartItem.urlSlug">{{cartItem.name}}</a>
             </div>
         </td>
-        <td>{{cartItem.fullPrice}} / {{cartItem.unit}}</td>
+        <td>{{cartItem.price | aproCurrency: cartItem.currency}} / {{cartItem.unit}}</td>
         <td>
             <div class="cart-plus-minus">
                 <div class="dec qtybutton" (click)="onCartSubstract(cartItem)">-</div>
@@ -26,7 +26,7 @@
                 <div class="inc qtybutton" (click)="onCartAdd(cartItem)">+</div>
             </div>
         </td>
-        <td>{{cartItem.computeFullPrice(cartItem.quantity)}}</td>
+        <td>{{cartItem.quantity * cartItem.price | aproCurrency: cartItem.currency}}</td>
         <td>
             <a (click)="onCartRemove(cartItem)" class="delete-item"><img src="assets/images/shop/del.png" alt="product"></a>
         </td>

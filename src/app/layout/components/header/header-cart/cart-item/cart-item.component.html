@@ -7,7 +7,7 @@
             <div class="content">
                 <a [routerLink]="cartItem.urlSlug">{{cartItem.name}}</a>
                 <div>
-                <strong>{{cartItem.quantity}}</strong> x {{cartItem.fullPrice}}
+                <strong>{{cartItem.quantity}}</strong> x {{cartItem.price | aproCurrency: cartItem.currency}}
                 </div>
             </div>
             <div class="remove-btn">

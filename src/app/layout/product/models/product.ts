@@ -19,7 +19,6 @@ export class Product {
   rating: number;
   stock: boolean;
   vendorId: number;
-  fullPrice: string;
 
   vendor: Vendor;
 
@@ -28,7 +27,7 @@ export class Product {
   constructor(productResponse: any) {
     this.id = productResponse.id;
     this.category_id = productResponse.categoryId;
-    this.currency = new Currency(productResponse.currency);
+    this.currency = productResponse.currency ? new Currency(productResponse.currency) : null;
     this.description = productResponse.description;
     this.images = productResponse.images;
     this.imageUrl = this.getPrimaryPhoto;
@@ -37,17 +36,11 @@ export class Product {
     this.price = productResponse.price;
     this.rating = productResponse.rating;
     this.stock = productResponse.stock;
-    this.vendor = new Vendor(productResponse.vendor);
-    this.vendorId = this.vendor.id;
+    this.vendor = productResponse.vendor ? new Vendor(productResponse.vendor) : null;
+    this.vendorId = this.vendor ? this.vendor.id : null;
     this.unit = productResponse.unit;
 
-    this.urlSlug = Product.generateUrlSlug(this.name, this.id);
-
-    this.fullPrice = this.computeFullPrice();
-  }
-
-  computeFullPrice(quantity = 1) {
-    return this.price ? (this.price * quantity).toFixed(2) + ' ' + this.currency.code : '-';
+    this.urlSlug = this.name ? Product.generateUrlSlug(this.name, this.id) : null;
   }
 
   get getPrimaryPhoto() {
