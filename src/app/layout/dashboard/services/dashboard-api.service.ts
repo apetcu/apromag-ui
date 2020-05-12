@@ -37,6 +37,10 @@ export class DashboardApiService {
     return this.api.post(`${this.domainUrl}account/deleteImage`, { id });
   }
 
+  deleteProductImage(productId, imageId): Observable<any> {
+    return this.api.delete(`${this.domainUrl}products/${productId}/image/${imageId}`);
+  }
+
   deleteProduct(id): Observable<any> {
     return this.api.delete(`${this.domainUrl}products/${id}`);
   }

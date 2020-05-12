@@ -65,6 +65,10 @@ export class DashboardFacadeService {
     return this.dashboardApiService.deleteVendorImage(id);
   }
 
+  deleteProductImage(productId: number, id: number) {
+    return this.dashboardApiService.deleteProductImage(productId, id);
+  }
+
   private buildProductFormData(modifyProductBody: ModifyProductModel) {
     const excludedKeys = ['images', 'altUnit'];
     const formData = new FormData();

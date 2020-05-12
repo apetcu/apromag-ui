@@ -3,7 +3,7 @@ import { ModifyProductForm } from './modify-product-form';
 import { DashboardFacadeService } from '../../services/dashboard-facade.service';
 import { Product } from '../../../product/models/product';
 import { Category } from '../../../categories/models/category.model';
-import { UserSettingsForm } from '../../../user/components/user-settings/user-settings-form';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard-modify-product',
@@ -27,7 +27,7 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
   formErrors = false;
   formMode: string = 'ADD';
 
-  constructor(private dashboardFacadeService: DashboardFacadeService) {}
+  constructor(private dashboardFacadeService: DashboardFacadeService, private toastrService: ToastrService) {}
 
   ngOnInit(): void {
     this.initProductEdit(this.editProduct);
@@ -57,6 +57,15 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
 
   deleteProduct(product: Product): void {
     this.onDeleteProduct.next(product);
+  }
+
+  deleteImage(id: number) {
+    this.dashboardFacadeService.deleteProductImage(this.editProductId, id).subscribe(
+      () => {},
+      () => {
+        this.toastrService.error('A aparut o eroare la stergerea fotografiei');
+      }
+    );
   }
 
   private listenForFormChanges() {

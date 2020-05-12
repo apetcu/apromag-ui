@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <app-file-upload formControlName="images" [currentImages]="editProduct?.images"></app-file-upload>
+                        <app-file-upload formControlName="images" [currentImages]="editProduct?.images" (onDeleteImage)="deleteImage($event)"></app-file-upload>
                     </div>
                 </div>
                 <div class="row">

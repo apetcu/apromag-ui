@@ -19,7 +19,7 @@ export class ModifyProductForm extends BaseForm<ModifyProductModel> {
       name: new FormControl(product.name, [Validators.required]),
       category_id: new FormControl(product.category_id, [Validators.required]),
       price: new FormControl(product.price, [Validators.required]),
-      unit: new FormControl(product.unit),
+      unit: new FormControl(product.unit || 'kg'),
       altUnit: new FormControl(product.unit),
       stock: new FormControl(product.stock),
       images: new FormControl(null),
