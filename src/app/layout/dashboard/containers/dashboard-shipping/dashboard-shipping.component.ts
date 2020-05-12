@@ -13,6 +13,7 @@ import { User } from '../../../user/models/user.model';
   styleUrls: ['./dashboard-shipping.component.scss']
 })
 export class DashboardShippingComponent implements OnInit {
+  loading: boolean = true;
   currentUser: User;
   shippingForm: FormGroup;
   shippingLocations: Array<ShippingLocation>;
@@ -70,6 +71,7 @@ export class DashboardShippingComponent implements OnInit {
 
   loadShippingLocations(): void {
     this.shippingFacadeService.getShippingLocations('').subscribe((locations) => {
+      this.loading = false;
       this.shippingLocations = locations;
       this.shippingForm.addControl('locationsFormArray', this.locationFormArray(locations, this.currentUser.vendor.shippingPreferences));
     });

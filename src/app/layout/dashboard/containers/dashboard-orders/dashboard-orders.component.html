@@ -7,6 +7,7 @@
                         [orders]="orders" [rowsPerPage]="rowsPerPage"
                         (onOrderClick)="onOrderClick($event)"
             ></order-list>
+            <app-loading [isVisible]="loading"></app-loading>
         </div>
     </div>
 </div>

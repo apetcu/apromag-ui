@@ -55,7 +55,9 @@
     },
     "IMAGES": "Imagini",
     "SORRY": "Ne pare rau,",
-    "NO_PRODUCTS": "Acest producator nu are inca produse listate."
+    "NO_PRODUCTS": "Acest producator nu are inca produse listate.",
+    "NO_VENDORS": "Din pacate nu exista producatori care sa livreze in aceasta zona",
+    "PAYMENT_METHODS_MESSAGE": "Momentan sistemul accepta doar plata cash direct catre producator"
   },
   "FOOTER": {
     "COPYRIGHT": "Apromag. Toate drepturile rezervate.",

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class DashboardOverviewComponent implements OnInit {
   orders: Array<Order>;
   totalRecords: number = 0;
-  loading: boolean = false;
+  loading: boolean = true;
   rowsPerPage: number = 25;
 
   constructor(private dashboardFacadeService: DashboardFacadeService, private router: Router) {}
@@ -22,7 +22,7 @@ export class DashboardOverviewComponent implements OnInit {
   }
 
   loadData(pageNo: number) {
-    this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage, 'createdAt')).subscribe((data) => {
+    this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage, 'createdAt', 'desc')).subscribe((data) => {
       this.orders = data.data;
       this.totalRecords = data.totalElements;
       this.loading = false;

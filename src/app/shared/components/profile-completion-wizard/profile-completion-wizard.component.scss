@@ -1,0 +1,9 @@
+@import "variables";
+
+::ng-deep {
+  .ui-progressbar {
+    .ui-progressbar-value {
+      background: $theme-color!important;
+    }
+  }
+}

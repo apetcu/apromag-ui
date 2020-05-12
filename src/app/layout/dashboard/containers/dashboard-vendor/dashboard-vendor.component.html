@@ -2,7 +2,7 @@
     {{'VENDOR.DETAILS.TITLE' | translate}}
 </h5>
 <div class="row">
-    <div class="col-4">
+    <div class="col-7">
         <div class="card">
             <div class="card-body">
                 <form [formGroup]="vendorDetailsForm" (ngSubmit)="updateVendorDetails()">
@@ -15,7 +15,11 @@
                         <input class="form-control" id="address" type="text" formControlName="address">
                     </div>
                     <div class="form-group">
-                        <label for="description">Descriere companie</label>
+                        <label for="phone">Telefon contact <em>(public)</em></label>
+                        <input class="form-control" id="phone" type="text" formControlName="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Descriere companie <em>(vizibila in pagina de magazin)</em></label>
                         <textarea class="form-control" id="description" type="text" formControlName="description"></textarea>
                     </div>
 
@@ -25,32 +29,29 @@
             </div>
         </div>
     </div>
-    <div class="col-4">
+    <div class="col-5">
         <div class="card">
             <div class="card-body">
                 <form [formGroup]="vendorProfilePictureForm" (ngSubmit)="changeProfilePicture()">
                     <h5>Fotografie de profil</h5>
                     <div class="text-center mb-2">
                         <img [src]="currentUser.vendor.profilePicture" [default]="" class="profile-photo">
-                        <input class="form-control mt-2" id="profile-photo"
+                        <input class="mt-2" id="profile-photo"
                                (change)="handleFileInput($event.target.files[0])"
                                type="file">
                         <button type="submit" class="food-btn style-3" [disabled]="vendorProfilePictureForm.invalid"><span><i
                                 class="icofont-upload mr-1"></i> {{'GENERAL.BUTTONS.UPLOAD' | translate}}</span></button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="col-4">
-        <div class="card">
-            <div class="card-body">
+
+                <hr>
                 <form [formGroup]="vendorGalleryForm" (ngSubmit)="uploadVendorImages()">
                     <h5>Galerie foto</h5>
                     <div class="text-center mb-2">
                         <app-file-upload formControlName="images" [currentImages]="currentImages" (onDeleteImage)="deleteImage($event)"></app-file-upload>
-                        <button type="submit" class="food-btn style-3" [disabled]="vendorGalleryForm.invalid"><span><i
+                        <button type="submit" class="food-btn style-3" [disabled]="vendorGalleryForm.invalid" *ngIf="!galleryUploading"><span><i
                                 class="icofont-upload mr-1"></i> {{'GENERAL.BUTTONS.UPLOAD' | translate}}</span></button>
+                        <app-loading [isVisible]="galleryUploading" *ngIf="galleryUploading"></app-loading>
                     </div>
                 </form>
             </div>

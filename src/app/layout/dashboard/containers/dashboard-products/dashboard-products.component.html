@@ -22,6 +22,7 @@
 
 <div class="row mt-2">
     <div class="col-md-12">
+        <app-loading [isVisible]="loading"></app-loading>
         <div class="alert alert-dark" role="alert" *ngIf="!loading && !products.length">
             Nu sunt produse adaugate
         </div>

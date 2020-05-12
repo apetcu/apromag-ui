@@ -1,11 +1,13 @@
 export class PaginationInfo {
   pageNo: number;
   pageSize: number;
-  sortBy: string;
+  orderBy: string;
+  orderDir: string;
 
-  constructor(pageNo: number = 1, pageSize: number = 10, sortBy: string = '') {
+  constructor(pageNo: number = 1, pageSize: number = 10, orderBy: string = '', orderDir: string = 'asc') {
     this.pageNo = pageNo - 1;
     this.pageSize = pageSize;
-    this.sortBy = sortBy;
+    this.orderBy = orderBy;
+    this.orderDir = orderDir;
   }
 }

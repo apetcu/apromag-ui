@@ -38,7 +38,12 @@ export class DashboardFacadeService {
   updateProfilePicture(pictureForm) {
     const formData = new FormData();
     formData.append('profilePicture', pictureForm.profilePicture, pictureForm.profilePicture.name);
-    return this.dashboardApiService.updateProfilePicture(formData);
+    return this.dashboardApiService.updateProfilePicture(formData).pipe(
+      map((entry) => {
+        this.userService.setUser(new User(entry));
+        return entry;
+      })
+    );
   }
 
   uploadVendorImages(pictureForm) {

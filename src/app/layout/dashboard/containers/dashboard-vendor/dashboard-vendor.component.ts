@@ -20,6 +20,7 @@ export class DashboardVendorComponent implements OnInit {
   vendorGalleryForm: VendorGalleryForm = new VendorGalleryForm();
   vendorDetailsForm: VendorDetailsForm = new VendorDetailsForm();
   currentImages: Array<Image> = null;
+  galleryUploading: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -38,17 +39,20 @@ export class DashboardVendorComponent implements OnInit {
   }
 
   changeProfilePicture() {
-    this.dashboardFacadeService.updateProfilePicture(this.vendorProfilePictureForm.value).subscribe(() => {
-      this.alertService.showSuccess('Fotografia de profil a fost modificata');
+    this.dashboardFacadeService.updateProfilePicture(this.vendorProfilePictureForm.value).subscribe((user: User) => {
+      this.alertService.showSuccess('Fotografia de profil a fost actualizata');
       this.vendorProfilePictureForm.reset();
+      this.currentUser.vendor.profilePicture = user.vendor.profilePicture;
     });
   }
 
   uploadVendorImages() {
+    this.galleryUploading = true;
     this.dashboardFacadeService.uploadVendorImages(this.vendorGalleryForm.value).subscribe((user: User) => {
       this.alertService.showSuccess('Fotografiile au fost adaugate!');
       this.vendorGalleryForm.reset();
       this.currentImages = user.vendor.images;
+      this.galleryUploading = false;
     });
   }
 

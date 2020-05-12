@@ -28,6 +28,7 @@ import { OrderSummaryModule } from '../../shared/components/order-summary/order-
 import { DashboardVendorComponent } from './containers/dashboard-vendor/dashboard-vendor.component';
 import { ProfileCompletionWizardModule } from '../../shared/components/profile-completion-wizard/profile-completion-wizard.module';
 import { DefaultImageModule } from '../../shared/directives/default-image/default-image.module';
+import { LoadingModule } from '../../shared/components/loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { DefaultImageModule } from '../../shared/directives/default-image/defaul
     OrderProductListModule,
     OrderSummaryModule,
     ProfileCompletionWizardModule,
-    DefaultImageModule
+    DefaultImageModule,
+    LoadingModule
   ]
 })
 export class DashboardModule {}

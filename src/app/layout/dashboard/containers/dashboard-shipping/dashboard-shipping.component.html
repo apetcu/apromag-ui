@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <h6>Livrare la adresa</h6>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="pret"><strong>Pret livrare (RON)</strong></label>
                                 <input type="text" id="pret" class="form-control" formControlName="shippingCost">
@@ -27,7 +27,9 @@
                         </div>
                         <div class="col-md-4">
                             <strong>Livrare in localitatile:</strong>
-                            <div class="shippingLocations">
+                            <app-loading [isVisible]="loading"></app-loading>
+
+                            <div class="shippingLocations" *ngIf="!loading">
                                 <ul>
                                     <li *ngFor="let control of locationsFormArray?.controls; let i = index" class="checkbox">
                                         <label>
