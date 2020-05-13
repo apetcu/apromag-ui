@@ -21,7 +21,7 @@ export class DashboardFacadeService {
   }
 
   getProducts(paginationInfo: PaginationInfo): Observable<PaginatedResponse<Product>> {
-    return this.dashboardApiService.getProducts(paginationInfo).pipe(this.mapProductsToDomainModel());
+    return this.dashboardApiService.getProducts(this.userService.getUser().vendor.id, paginationInfo).pipe(this.mapProductsToDomainModel());
   }
 
   deleteProduct(id: number): Observable<any> {
@@ -61,12 +61,37 @@ export class DashboardFacadeService {
     );
   }
 
+  updateVendorDetails(vendorDetailsForm) {
+    const formData = this.buildVendorDetailsFormData(vendorDetailsForm);
+
+    return this.dashboardApiService.updateVendorDetails(formData).pipe(
+      map((entry) => {
+        this.userService.setUser(new User(entry));
+        return entry;
+      })
+    );
+  }
+
   deleteVendorImage(id: number) {
     return this.dashboardApiService.deleteVendorImage(id);
   }
 
   deleteProductImage(productId: number, id: number) {
     return this.dashboardApiService.deleteProductImage(productId, id);
+  }
+
+  private buildVendorDetailsFormData(detailsBody) {
+    const formData = new FormData();
+    Object.keys(detailsBody).forEach((key) => {
+      if (key === 'certificate') {
+        if (detailsBody[key] != null) {
+          formData.append(key, detailsBody[key]);
+        }
+      } else {
+        formData.append(key, detailsBody[key]);
+      }
+    });
+    return formData;
   }
 
   private buildProductFormData(modifyProductBody: ModifyProductModel) {

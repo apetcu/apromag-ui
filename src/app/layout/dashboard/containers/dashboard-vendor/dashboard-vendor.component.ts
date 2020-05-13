@@ -18,7 +18,7 @@ export class DashboardVendorComponent implements OnInit {
   currentUser: User;
   vendorProfilePictureForm: VendorProfilePictureForm = new VendorProfilePictureForm();
   vendorGalleryForm: VendorGalleryForm = new VendorGalleryForm();
-  vendorDetailsForm: VendorDetailsForm = new VendorDetailsForm();
+  vendorDetailsForm: VendorDetailsForm;
   currentImages: Array<Image> = null;
   galleryUploading: boolean = false;
 
@@ -32,10 +32,15 @@ export class DashboardVendorComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.userService.getUser();
     this.currentImages = this.currentUser.vendor.images;
+    this.vendorDetailsForm = new VendorDetailsForm(this.userService.getUser().vendor);
   }
 
   handleFileInput(file) {
     this.vendorProfilePictureForm.controls['profilePicture'].patchValue(file);
+  }
+
+  handleCertificateInput(file) {
+    this.vendorDetailsForm.controls['certificate'].patchValue(file);
   }
 
   changeProfilePicture() {
@@ -57,7 +62,7 @@ export class DashboardVendorComponent implements OnInit {
   }
 
   updateVendorDetails() {
-    this.dashboardFacadeService.uploadVendorImages(this.vendorDetailsForm.value).subscribe(() => {
+    this.dashboardFacadeService.updateVendorDetails(this.vendorDetailsForm.value).subscribe(() => {
       this.alertService.showSuccess('Detaliile au fost actualizate');
     });
   }

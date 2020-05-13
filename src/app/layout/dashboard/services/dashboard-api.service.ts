@@ -13,8 +13,8 @@ export class DashboardApiService {
     return this.api.get(`${this.domainUrl}orders`, query);
   }
 
-  getProducts(query: object): Observable<any> {
-    return this.api.get(`${this.domainUrl}products`, query);
+  getProducts(vendorId: number, query: object): Observable<any> {
+    return this.api.get(`${this.domainUrl}vendors/${vendorId}/products`, query);
   }
 
   addProduct(product): Observable<any> {
@@ -31,6 +31,10 @@ export class DashboardApiService {
 
   uploadVendorImages(picture): Observable<any> {
     return this.api.post(`${this.domainUrl}account/addVendorImages`, picture);
+  }
+
+  updateVendorDetails(details): Observable<any> {
+    return this.api.post(`${this.domainUrl}account/vendorDetails`, details);
   }
 
   deleteVendorImage(id): Observable<any> {

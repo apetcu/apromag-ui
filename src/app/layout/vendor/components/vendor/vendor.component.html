@@ -6,10 +6,7 @@
         <div class="p-food-content">
             <h6><a [routerLink]="vendor.urlSlug">{{vendor.businessName}}</a></h6>
             <div class="p-food-group">
-                <span>Type of food :</span>
-                <a href="#">Beef Roast</a>
-                <a href="#">Pizza</a>
-                <a href="#">Stakes</a>
+                <em>{{vendor.certificate ? 'Producator certificat' : 'Fara certificare'}}</em>
             </div>
             <ul class="del-time">
                 <li>

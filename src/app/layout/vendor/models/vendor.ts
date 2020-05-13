@@ -8,6 +8,8 @@ export class Vendor {
   defaultProfilePicture: string = 'assets/images/default_profile.png';
   profilePicture: string;
   address: string;
+  phone: string;
+  certificate: string;
   urlSlug: string;
   rating: number;
 
@@ -23,6 +25,8 @@ export class Vendor {
     this.businessName = vendorResponse.businessName;
     this.description = vendorResponse.description;
     this.address = vendorResponse.address;
+    this.phone = vendorResponse.phone;
+    this.certificate = vendorResponse.certificate;
 
     this.shippingCost = vendorResponse.shippingCost;
     this.shippingRemarks = vendorResponse.shippingRemarks;
