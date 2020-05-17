@@ -16,7 +16,7 @@ export class RegisterForm extends BaseForm<Register> {
   constructor() {
     super({
       email: new FormControl('', [Validators.email, Validators.required]),
-      password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       address: new FormControl('', []),

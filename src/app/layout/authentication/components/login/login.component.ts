@@ -3,6 +3,7 @@ import { LoginForm } from './login-form';
 import { AuthenticationFacadeService } from '../../services/authentication-facade.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../user/services/user.service';
+import { AlertService } from '../../../../shared/services/alert/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -11,30 +12,14 @@ import { UserService } from '../../../user/services/user.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: LoginForm = new LoginForm();
-  loggedIn: boolean;
 
   constructor(
     private authenticationFacadeService: AuthenticationFacadeService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private userService: UserService
-  ) {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      if (params['token']) {
-        this.userService.initialize(params['token']).then(() => {
-          this.router.navigate(['/home']);
-        });
-      }
-    });
-  }
+    private alertService: AlertService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-    // this.authenticationFacadeService.isFbLoggedIn().subscribe((user) => {
-    //   this.user = user;
-    //   this.loggedIn = user != null;
-    //   console.log(this.user);
-    // });
-  }
+  ngOnInit(): void {}
 
   logIn(): void {
     if (this.loginForm.valid) {
@@ -42,7 +27,9 @@ export class LoginComponent implements OnInit {
         () => {
           this.router.navigate(['/home']);
         },
-        () => {}
+        () => {
+          this.alertService.showError('Autentificarea a esuat');
+        }
       );
     }
   }

@@ -34,8 +34,15 @@ export class RegisterComponent implements OnInit {
           });
           this.router.navigate(['/home']);
         },
-        () => {
-          this.setError('A aparut o eroare la crearea contului');
+        (response) => {
+          if (response.error && response.error.errors) {
+            const errorType = response.error.errors;
+            if (errorType.email) {
+              this.setError('Exista deja un cont creat cu acest e-mail');
+            }
+          } else {
+            this.setError('A aparut o eroare la crearea contului');
+          }
         }
       );
     } else {
