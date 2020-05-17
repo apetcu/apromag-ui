@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { StaticComponent } from './containers/static/static.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import { StaticPage } from './models/static-page.model';
+import { PageComponent } from './components/page/page.component';
 
 const routes: Routes = [
   {
@@ -17,11 +19,8 @@ const routes: Routes = [
         }
       },
       {
-        path: 'terms-and-conditions',
-        component: TermsAndConditionsComponent,
-        data: {
-          title: 'Terms and Conditions'
-        }
+        path: ':id/:title',
+        component: PageComponent
       },
       { path: '', redirectTo: '/static/faq', pathMatch: 'full' }
     ]

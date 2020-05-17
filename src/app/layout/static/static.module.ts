@@ -6,9 +6,10 @@ import { FaqComponent } from './components/faq/faq.component';
 import { StaticRoutingModule } from './static-routing.module';
 import { PageTitleModule } from '../../shared/components/page-title/page-title.module';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
+import { PageComponent } from './components/page/page.component';
 
 @NgModule({
-  declarations: [StaticComponent, FaqComponent, TermsAndConditionsComponent],
+  declarations: [StaticComponent, FaqComponent, TermsAndConditionsComponent, PageComponent],
   imports: [CommonModule, RouterModule, StaticRoutingModule, PageTitleModule]
 })
 export class StaticModule {}

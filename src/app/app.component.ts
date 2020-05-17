@@ -6,6 +6,7 @@ import { UserService } from './layout/user/services/user.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { NgcCookieConsentService, NgcInitializeEvent, NgcNoCookieLawEvent, NgcStatusChangeEvent } from 'ngx-cookieconsent';
+import { PageTitleService } from './shared/services/page-title/page-title.service';
 
 @Component({
   selector: 'app-root',
@@ -21,12 +22,10 @@ export class AppComponent implements OnInit, OnDestroy {
   private revokeChoiceSubscription: Subscription;
   private noCookieLawSubscription: Subscription;
 
-  titleSuffix = ' ⋆ Apromag - Aprozar virtual';
-
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private titleService: Title,
+    private titleService: PageTitleService,
     private userService: UserService,
     private translate: TranslateService,
     private ccService: NgcCookieConsentService
@@ -39,7 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.userService.initialize();
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.getChild(this.activatedRoute).data.subscribe((data) => {
-        this.titleService.setTitle(data.title + this.titleSuffix);
+        this.titleService.setTitle(data.title || '');
       });
       window.scrollTo({
         top: 0,

@@ -5,26 +5,26 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <h5 translate="CONTACT.INFO"></h5>
- <!--                   <div class="post-item">
-                        <div class="post-thumb">
-                            <img src="assets/images/contac/icon/04.png" alt="contact">
-                        </div>
-                        <div class="post-content">
-                            <h6>office adress</h6>
-                            <p>Suite 02, Level 12, Sahera Tropical Center 218</p>
-                            <p>New Elephant Road, Dhaka - 1205</p>
-                        </div>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-thumb">
-                            <img src="assets/images/contac/icon/05.png" alt="contact">
-                        </div>
-                        <div class="post-content">
-                            <h6>phone number : </h6>
-                            <p>+8801678170593, 01919-264687</p>
-                            <p>02-9611936</p>
-                        </div>
-                    </div>-->
+                    <!--                   <div class="post-item">
+                                           <div class="post-thumb">
+                                               <img src="assets/images/contac/icon/04.png" alt="contact">
+                                           </div>
+                                           <div class="post-content">
+                                               <h6>office adress</h6>
+                                               <p>Suite 02, Level 12, Sahera Tropical Center 218</p>
+                                               <p>New Elephant Road, Dhaka - 1205</p>
+                                           </div>
+                                       </div>
+                                       <div class="post-item">
+                                           <div class="post-thumb">
+                                               <img src="assets/images/contac/icon/05.png" alt="contact">
+                                           </div>
+                                           <div class="post-content">
+                                               <h6>phone number : </h6>
+                                               <p>+8801678170593, 01919-264687</p>
+                                               <p>02-9611936</p>
+                                           </div>
+                                       </div>-->
                     <div class="post-item">
                         <div class="post-thumb">
                             <img src="assets/images/contac/icon/06.png" alt="contact">
@@ -46,12 +46,12 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     <h5 translate="CONTACT.FORM"></h5>
-                    <form class="d-flex flex-wrap justify-content-between">
-                        <input type="text" placeholder="{{'CONTACT.NAME' | translate}}">
-                        <input type="text" placeholder="{{'CONTACT.EMAIL' | translate}}">
-                        <input class="w-100" type="text" placeholder="{{'CONTACT.SUBJECT' | translate}}">
-                        <textarea rows="8" placeholder="{{'CONTACT.MESSAGE' | translate}}"></textarea>
-                        <button type="submit" class="food-btn style-2"><span translate="CONTACT.SEND"></span></button>
+                    <form class="d-flex flex-wrap justify-content-between" [formGroup]="contactForm" (ngSubmit)="sendContactMessage()">
+                        <input type="text" placeholder="{{'CONTACT.NAME' | translate}}" formControlName="name">
+                        <input type="text" placeholder="{{'CONTACT.EMAIL' | translate}}" formControlName="email">
+                        <input class="w-100" type="text" placeholder="{{'CONTACT.SUBJECT' | translate}}" formControlName="subject">
+                        <textarea rows="8" placeholder="{{'CONTACT.MESSAGE' | translate}}" formControlName="message"></textarea>
+                        <button type="submit" class="food-btn style-2" [disabled]="contactForm.invalid"><span translate="CONTACT.SEND"></span></button>
                     </form>
                 </div>
             </div>
