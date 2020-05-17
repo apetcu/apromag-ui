@@ -20,4 +20,12 @@ export class UserApiService {
   getOrders(paginationInfo: PaginationInfo): Observable<any> {
     return this.api.get(`${this.basePath}/orders`, paginationInfo);
   }
+
+  changePassword(password: string): Observable<any> {
+    return this.api.post(`${this.basePath}/change-password`, { password });
+  }
+
+  changeEmail(email: string): Observable<any> {
+    return this.api.post(`${this.basePath}/change-email`, { email });
+  }
 }

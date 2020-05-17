@@ -32,4 +32,14 @@ export class AlertService {
       timer: 1500
     });
   }
+
+  showError(message: string) {
+    this.show({
+      position: 'center',
+      icon: 'error',
+      title: message,
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
 }

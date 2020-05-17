@@ -19,4 +19,12 @@ export class UserFacadeService {
   getOrders(paginationInfo: PaginationInfo) {
     return this.userApi.getOrders(paginationInfo);
   }
+
+  changePassword(passwordForm) {
+    return this.userApi.changePassword(passwordForm.password);
+  }
+
+  changeEmail(emailForm) {
+    return this.userApi.changeEmail(emailForm.email);
+  }
 }
