@@ -8,10 +8,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { AuthenticationGuard } from './guards/authentication-guard';
 import { InfoBoxModule } from '../../shared/components/info-box/info-box.module';
+import { CheckboxModule } from 'primeng/checkbox';
+import { PasswordResetComponent } from './containers/password-reset/password-reset.component';
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, AuthenticationComponent],
+  declarations: [RegisterComponent, LoginComponent, AuthenticationComponent, PasswordResetComponent],
   providers: [AuthenticationGuard],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, AuthenticationRoutingModule, InfoBoxModule]
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, AuthenticationRoutingModule, InfoBoxModule, CheckboxModule]
 })
 export class AuthenticationModule {}

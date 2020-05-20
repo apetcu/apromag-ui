@@ -23,6 +23,10 @@ export class AuthenticationFacadeService {
     return this.authenticationApiService.register(new UserRegistration(registrationInfo));
   }
 
+  passwordReset(passwordResetForm) {
+    return this.authenticationApiService.passwordReset(passwordResetForm);
+  }
+
   loginWithFb() {
     return this.authenticationApiService.loginWithFb();
   }

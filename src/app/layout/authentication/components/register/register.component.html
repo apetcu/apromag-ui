@@ -33,7 +33,7 @@
 
                         <input type="text" placeholder="Email" class="form-control" formControlName="email">
                         <input type="password" placeholder="Parola" class="form-control" formControlName="password" autocomplete="false">
-                        <p>Am citit si sunt de acord cu termenii si conditiile acestui site.</p>
+                        <label><p-checkbox formControlName="terms" [binary]="true"></p-checkbox> Am citit si sunt de acord cu <a routerLink="/static/1/terms-and-conditions">termenii si conditiile</a> acestui site</label>
 
                         <div>
                             <button type="submit" class="food-btn style-3 mb-0" [disabled]="registerForm.invalid"><span>Inregistrare</span></button>

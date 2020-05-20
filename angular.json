@@ -38,6 +38,7 @@
               "node_modules/cookieconsent/build/cookieconsent.min.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/ngx-lightbox/lightbox.css",
+              "node_modules/primeicons/primeicons.css",
               "src/styles.scss"
             ],
             "scripts": [

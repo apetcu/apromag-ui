@@ -18,6 +18,10 @@ export class AuthenticationApiService {
     return this.api.post(`${this.domainUrl}/register`, userRegistration);
   }
 
+  passwordReset(resetForm: any): Observable<any> {
+    return this.api.post(`${this.domainUrl}/password-reset`, resetForm);
+  }
+
   loginWithFb(): Observable<any> {
     return this.api.get(`social/redirect`);
   }

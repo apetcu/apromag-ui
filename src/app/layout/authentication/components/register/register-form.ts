@@ -9,6 +9,7 @@ interface Register {
   lastName: string;
   address: string;
   businessName: string;
+  terms: string;
   role: UserRoles;
 }
 
@@ -21,6 +22,7 @@ export class RegisterForm extends BaseForm<Register> {
       lastName: new FormControl('', [Validators.required]),
       address: new FormControl('', []),
       businessName: new FormControl('', []),
+      terms: new FormControl('', [Validators.requiredTrue]),
       role: new FormControl(UserRoles.CUSTOMER, [Validators.required])
     });
   }

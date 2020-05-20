@@ -10,9 +10,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CartFinishComponent } from './containers/cart-finish/cart-finish.component';
 import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [CartComponent, CartListComponent, CartSummaryComponent, CartFinishComponent],
-  imports: [CommonModule, PageTitleModule, RouterModule, CartRoutingModule, ReactiveFormsModule, CurrencyModule, TranslateModule]
+  imports: [
+    CommonModule,
+    PageTitleModule,
+    RouterModule,
+    CartRoutingModule,
+    ReactiveFormsModule,
+    CurrencyModule,
+    TranslateModule,
+    CheckboxModule
+  ]
 })
 export class CartModule {}

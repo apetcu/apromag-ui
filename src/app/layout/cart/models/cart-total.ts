@@ -7,8 +7,8 @@ export class CartTotal {
   currency: Currency;
 
   constructor(cartTotalResponse: any) {
-    this.totalProductsPrice = cartTotalResponse.totalProductsPrice;
-    this.shippingPrice = cartTotalResponse.shippingPrice;
+    this.totalProductsPrice = parseFloat(cartTotalResponse.totalProductsPrice);
+    this.shippingPrice = parseFloat(cartTotalResponse.shippingPrice);
     this.totalPrice = cartTotalResponse.shippingPrice + this.totalProductsPrice;
     this.currency = new Currency(cartTotalResponse.currency);
   }

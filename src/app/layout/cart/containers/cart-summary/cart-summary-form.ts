@@ -9,6 +9,7 @@ export interface CartSummaryFields {
   remarks: string;
   shippingAddress: string;
   fullName: string;
+  terms: string;
 }
 
 export class CartSummaryForm extends BaseForm<CartSummaryFields> {
@@ -19,7 +20,8 @@ export class CartSummaryForm extends BaseForm<CartSummaryFields> {
       location: new FormControl('', [Validators.required]),
       shippingAddress: new FormControl('', [Validators.required]),
       remarks: new FormControl(''),
-      fullName: new FormControl('', [Validators.required])
+      fullName: new FormControl('', [Validators.required]),
+      terms: new FormControl('', [Validators.requiredTrue])
     });
   }
 

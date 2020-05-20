@@ -4,6 +4,7 @@ import { AuthenticationComponent } from './containers/authentication/authenticat
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication-guard';
+import { PasswordResetComponent } from './containers/password-reset/password-reset.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,14 @@ const routes: Routes = [
       },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' }
     ]
+  },
+  {
+    path: 'password-reset',
+    component: PasswordResetComponent,
+    pathMatch: 'prefix',
+    data: {
+      title: 'Resetare parola'
+    }
   }
 ];
 
