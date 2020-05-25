@@ -27,18 +27,17 @@
                                 </li>
                             </ul>
 
-                            <h5 class="mt-5">Metoda de livrare</h5>
-                            <div>
+                            <h4 class="mt-5" translate="CART.SHIPPING_METHOD"></h4>
+                            <div class="cart-option text-left px-3">
                                 <strong>Livrare standard</strong>
-                                <div>Pret standard livrare: 20 lei</div>
-                                <div>Livrare gratuita pentru comenzi peste 20 lei</div>
+                                <div>Pret standard livrare:  <strong>{{vendor.shippingCost | aproCurrency: vendor?.currency}}</strong></div>
+                                <div>Livrare gratuita pentru comenzi peste <strong>{{vendor.freeShippingOver | aproCurrency: vendor?.currency}}</strong></div>
+                                <code>{{vendor.shippingRemarks}}</code>
                             </div>
 
-                            <h5 class="mt-5">Metoda de plata</h5>
-                            <div>
+                            <h4 class="mt-5" translate="CART.PAYMENT_METHOD"></h4>
+                            <div class="cart-option text-left px-3">
                                 <strong>Cash la livrare</strong>
-                                <div>Pret standard livrare: 20 lei</div>
-                                <div>Livrare gratuita pentru comenzi peste 20 lei</div>
                             </div>
                         </div>
                     </div>
@@ -48,7 +47,7 @@
                             <div class="outline-select">
                                 <select formControlName="location">
                                     <option value="">{{'GENERAL.SHIPPING_TO' | translate}}</option>
-                                    <option [value]="location.id" *ngFor="let location of shippingLocations | async ">{{location.name}}</option>
+                                    <option [value]="location.id" *ngFor="let location of shippingLocations">{{location.name}}</option>
                                 </select>
                                 <span class="select-icon"><i class="icofont-caret-down"></i></span>
                             </div>

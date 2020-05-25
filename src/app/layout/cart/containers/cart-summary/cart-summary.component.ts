@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../../user/services/user.service';
 import { CartTotal } from '../../models/cart-total';
 import { Vendor } from '../../../vendor/models/vendor';
+import { ShippingService } from '../../../../shared/services/shipping/shipping.service';
 
 @Component({
   selector: 'app-cart-summary',
@@ -18,7 +19,7 @@ import { Vendor } from '../../../vendor/models/vendor';
 })
 export class CartSummaryComponent implements OnInit {
   cartSummaryForm: CartSummaryForm = new CartSummaryForm();
-  shippingLocations: Observable<Array<ShippingLocation>>;
+  shippingLocations: Array<ShippingLocation>;
   cartItems: Array<CartItem>;
   cartTotal: Observable<CartTotal>;
   vendor: Vendor;
@@ -27,6 +28,7 @@ export class CartSummaryComponent implements OnInit {
     private cartService: CartService,
     private cartFacadeService: CartFacadeService,
     private shippingFacadeService: ShippingFacadeService,
+    private shippingService: ShippingService,
     private userService: UserService,
     private router: Router
   ) {}
@@ -37,10 +39,8 @@ export class CartSummaryComponent implements OnInit {
     this.cartService.getCartItems().subscribe((items) => {
       this.cartItems = items;
     });
-    this.shippingLocations = this.shippingFacadeService.getShippingLocations('');
-    if (this.userService.isUserLoggedIn()) {
-      this.cartSummaryForm.autoFillUser(this.userService.getUser());
-    }
+    this.getShippingLocations();
+    this.fillUserDetails();
   }
 
   onCartSubmit(): void {
@@ -50,5 +50,19 @@ export class CartSummaryComponent implements OnInit {
         this.router.navigate(['/cart/finish/' + order.id]);
         this.cartService.emptyCart();
       });
+  }
+
+  private fillUserDetails() {
+    if (this.userService.isUserLoggedIn()) {
+      this.cartSummaryForm.autoFillForm(this.userService.getUser(), this.shippingService.getShippingLocation());
+    }
+  }
+
+  private getShippingLocations() {
+    let vendorShippingLocations = this.vendor.shippingPreferences.map((entry) => entry.locationId);
+
+    this.shippingFacadeService.getShippingLocations('').subscribe((locations) => {
+      this.shippingLocations = locations.filter((entry) => vendorShippingLocations.includes(parseInt(entry.id)));
+    });
   }
 }

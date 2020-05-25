@@ -1,5 +1,6 @@
 import { Utils } from '../../../shared/services/utils/utils';
 import { Image } from '../../../shared/models/image.model';
+import { Currency } from '../../../shared/models/currency';
 
 export class Vendor {
   id: number;
@@ -16,6 +17,7 @@ export class Vendor {
   shippingCost: number;
   freeShippingOver: number;
   shippingRemarks: string;
+  currency: Currency = new Currency({ code: 'RON', factor: 100 });
 
   shippingPreferences: Array<VendorShippingPreference>;
   images: Array<Image> = [];

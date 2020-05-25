@@ -1,6 +1,7 @@
 import { BaseForm } from '../../../../shared/models/base.form';
 import { FormControl, Validators } from '@angular/forms';
 import { User } from '../../../user/models/user.model';
+import { ShippingLocation } from '../../../../shared/models/shipping-location';
 
 export interface CartSummaryFields {
   location: number;
@@ -25,12 +26,17 @@ export class CartSummaryForm extends BaseForm<CartSummaryFields> {
     });
   }
 
-  autoFillUser(user: User) {
+  autoFillForm(user: User, shippingLocation?: ShippingLocation) {
     this.patchValue({
       email: user.email,
       phone: user.phone,
       fullName: user.fullName,
       shippingAddress: user.address
     });
+    if (shippingLocation) {
+      this.patchValue({
+        location: shippingLocation.id
+      });
+    }
   }
 }

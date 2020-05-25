@@ -20,6 +20,8 @@
     "SUBTOTAL": "Subtotal",
     "SHIPPING": "Livrare",
     "ORDER_TOTAL": "Total comanda",
+    "SHIPPING_METHOD": "Metoda de livrare",
+    "PAYMENT_METHOD": "Metoda de plata",
     "TOTAL": "Total",
     "SEND_ORDER": "Trimite comanda",
     "PRODUCT": "Produs",

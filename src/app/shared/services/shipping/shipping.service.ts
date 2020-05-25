@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ShippingLocation } from '../../models/shipping-location';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { StorageService } from '../storage/storage.service';
+import { StorageLocations } from '../storage/storage-locations';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,12 @@ export class ShippingService {
   );
   currentLocation: ShippingLocation;
 
-  constructor() {}
+  constructor(private storageService: StorageService) {
+    let selectedShippingLocation = storageService.getItem(StorageLocations.SHIPPING_LOCATION);
+    if (selectedShippingLocation) {
+      this.shippingLocationChange.next(selectedShippingLocation);
+    }
+  }
 
   getShippingLocation(): ShippingLocation {
     return this.shippingLocationChange.value;
@@ -20,6 +27,7 @@ export class ShippingService {
   setShippingLocation(location: ShippingLocation) {
     this.currentLocation = location;
     this.shippingLocationChange.next(location);
+    this.storageService.setItem(StorageLocations.SHIPPING_LOCATION, location);
   }
 
   onShippingLocationChange(): Observable<ShippingLocation> {
