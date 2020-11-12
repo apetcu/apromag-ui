@@ -5,6 +5,8 @@ import { ShippingService } from '../../../shared/services/shipping/shipping.serv
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../user/services/user.service';
 import { homeSliderCategories, HomeSliderCategoryItem } from './models/categories';
+import { Vendor } from '../../vendor/models/vendor';
+import { VendorsFacadeService } from '../../vendor/services/vendors-facade.service';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +18,12 @@ export class HomeComponent implements OnInit {
   sliderCategories: Array<HomeSliderCategoryItem> = homeSliderCategories;
   sliderResponsiveOptions: Array<any>;
 
+  popularVendors: Array<Vendor> = [];
+
   constructor(
     private shippingFacadeService: ShippingFacadeService,
     private shippingService: ShippingService,
+    private vendorsFacadeService: VendorsFacadeService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private userService: UserService
@@ -49,6 +54,10 @@ export class HomeComponent implements OnInit {
           this.router.navigate(['/home']);
         });
       }
+    });
+
+    this.vendorsFacadeService.getPopular().subscribe((popularVendors) => {
+      this.popularVendors = popularVendors.data;
     });
   }
 
