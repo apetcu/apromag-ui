@@ -15,6 +15,10 @@ export class ShippingLocationPickerComponent implements OnInit {
     this.listenForLocationChange();
   }
 
+  removeShippingLocation(): void {
+    this.shippingService.resetShippingLocation();
+  }
+
   listenForLocationChange() {
     this.shippingService.onShippingLocationChange().subscribe((location) => {
       this.currentLocation = location;

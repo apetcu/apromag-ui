@@ -1,135 +1,66 @@
 <section class="banner">
-<div class="shape-1">
-    <img src="assets/images/banner/shape/01.png" alt="banner">
-</div>
-<div class="shape-2">
-    <img src="assets/images/banner/shape/02.png" alt="banner">
-</div>
-<div class="banner-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-8 col-12">
-                <div class="banner-content">
-                    <h2>Reteaua ta de producatori locali...</h2>
-                    <form action="/">
-                        <p-autoComplete [suggestions]="shippingLocations"
-                                        (completeMethod)="filterCity($event)"
-                                        (onSelect)="selectLocation($event)"
-                                        field="name"
-                                        [size]="30"
-                                        placeholder="Introdu locatie livrare (localitate / sector)" [minLength]="1"></p-autoComplete>
-                        <button type="submit"><i class="icofont-search-2"></i></button>
+    <div class="shape-1">
+        <img src="assets/images/banner/shape/01.png" alt="banner">
+    </div>
+    <div class="shape-2">
+        <img src="assets/images/banner/shape/02.png" alt="banner">
+    </div>
+    <div class="banner-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8 col-12">
+                    <div class="banner-content">
+                        <h2 translate="HOME.SLIDER.TITLE"></h2>
+                        <form action="/">
+                            <p-autoComplete [suggestions]="shippingLocations"
+                                            (completeMethod)="filterCity($event)"
+                                            (onSelect)="selectLocation($event)"
+                                            field="name"
+                                            [size]="30"
+                                            placeholder="Introdu locatie livrare (localitate / sector)" [minLength]="1"></p-autoComplete>
+                            <button type="submit"><i class="icofont-search-2"></i></button>
 
-                    </form>
-                    <ul>
-                        <li><span>700+</span>Producatori</li>
-                        <li><span>6900+</span>Comenzi onorate</li>
-                        <li><span>6900+</span>Utilizatori inregistrati</li>
-                    </ul>
+                        </form>
+                        <ul>
+                            <li><span>700+</span>{{'HOME.SLIDER.PRODUCERS' | translate}}</li>
+                            <li><span>6900+</span>{{'HOME.SLIDER.ORDERS' | translate}}</li>
+                            <li><span>6900+</span>{{'HOME.SLIDER.USERS' | translate}}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 <!-- Banner Section Ending Here -->
 
 
 <!-- Food Catagory Section Start here -->
-<section class="food-category padding-tb" style="background-image: url(assets/bg-image/category-bg.jpg); background-size: cover;">
+<section class="food-category padding-tb">
     <div class="container">
         <div class="food-box">
             <div class="section-header">
-                <h3>Browse Food Category</h3>
-                <p>Completely network impactful users whereas next-generation applications engage out thinking via tactical action.</p>
+                <h3 translate="HOME.CATEGORIES.TITLE"></h3>
+                <p translate="HOME.CATEGORIES.SUBTITLE"></p>
             </div>
             <div class="section-wrapper">
                 <div class="food-slider">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="food-item">
-                                <div class="food-thumb">
-                                    <a href="#"><img src="assets/images/food/01.png" alt="food"></a>
+                        <p-carousel [value]="sliderCategories" [numVisible]="6" [numScroll]="3" [responsiveOptions]="sliderResponsiveOptions" [circular]="true">
+                            <ng-template let-category pTemplate="item">
+                                <div class="swiper-slide">
+                                    <div class="food-item">
+                                        <div class="food-thumb">
+                                            <a href="#"><img [src]="category.imageUrl" alt="food"></a>
+                                        </div>
+                                        <div class="food-content">
+                                            <a href="#">{{category.label}}</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="food-content">
-                                    <a href="#">Breakfast</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="food-item">
-                                <div class="food-thumb">
-                                    <a href="#"><img src="assets/images/food/02.png" alt="food"></a>
-                                </div>
-                                <div class="food-content">
-                                    <a href="#">Lunch</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="food-item">
-                                <div class="food-thumb">
-                                    <a href="#"><img src="assets/images/food/03.png" alt="food"></a>
-                                </div>
-                                <div class="food-content">
-                                    <a href="#">Dinner</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="food-item">
-                                <div class="food-thumb">
-                                    <a href="#"><img src="assets/images/food/04.png" alt="food"></a>
-                                </div>
-                                <div class="food-content">
-                                    <a href="#">Drink</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="food-item">
-                                <div class="food-thumb">
-                                    <a href="#"><img src="assets/images/food/05.png" alt="food"></a>
-                                </div>
-                                <div class="food-content">
-                                    <a href="#">Juice</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="food-item">
-                                <div class="food-thumb">
-                                    <a href="#"><img src="assets/images/food/06.png" alt="food"></a>
-                                </div>
-                                <div class="food-content">
-                                    <a href="#">Coffee</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="food-item">
-                                <div class="food-thumb">
-                                    <a href="#"><img src="assets/images/food/07.png" alt="food"></a>
-                                </div>
-                                <div class="food-content">
-                                    <a href="#">Tea</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="food-item">
-                                <div class="food-thumb">
-                                    <a href="#"><img src="assets/images/food/08.png" alt="food"></a>
-                                </div>
-                                <div class="food-content">
-                                    <a href="#">Beef Roast</a>
-                                </div>
-                            </div>
-                        </div>
+                            </ng-template>
+                        </p-carousel>
                     </div>
-                </div>
-                <div class="food-slider-next"><i class="icofont-double-left"></i></div>
-                <div class="food-slider-prev"><i class="icofont-double-right"></i>
                 </div>
             </div>
         </div>
@@ -141,18 +72,18 @@
 <section class="food-services padding-tb">
     <div class="container">
         <div class="section-header">
-            <h3>How it Works</h3>
-            <p>Completely network impactful users whereas next-generation applications engage out thinking via tactical action.</p>
+            <h3 translate="HOME.HOW_IT_WORKS.TITLE"></h3>
+            <p translate="HOME.HOW_IT_WORKS.SUBTITLE"></p>
         </div>
         <div class="section-wrapper">
             <div class="service-item">
                 <div class="service-inner">
                     <div class="service-thumb">
                         <img src="assets/images/service/01.jpg" alt="food-service">
-                        <span>01 step</span>
+                        <span>01</span>
                     </div>
                     <div class="service-content">
-                        <h6><a href="#">Choose Your Favorite</a></h6>
+                        <h6><a href="#"  translate="HOME.HOW_IT_WORKS.STEPS.1"></a></h6>
                     </div>
                 </div>
             </div>
@@ -160,10 +91,10 @@
                 <div class="service-inner">
                     <div class="service-thumb">
                         <img src="assets/images/service/02.jpg" alt="food-service">
-                        <span>02 step</span>
+                        <span>02</span>
                     </div>
                     <div class="service-content">
-                        <h6><a href="#">We Deliver Your Meals</a></h6>
+                        <h6><a href="#" translate="HOME.HOW_IT_WORKS.STEPS.2"></a></h6>
                     </div>
                 </div>
             </div>
@@ -171,10 +102,10 @@
                 <div class="service-inner">
                     <div class="service-thumb">
                         <img src="assets/images/service/03.jpg" alt="food-service">
-                        <span>03 step</span>
+                        <span>03</span>
                     </div>
                     <div class="service-content">
-                        <h6><a href="#">Cash on Delivery</a></h6>
+                        <h6><a href="#" translate="HOME.HOW_IT_WORKS.STEPS.3"></a></h6>
                     </div>
                 </div>
             </div>
@@ -182,10 +113,10 @@
                 <div class="service-inner">
                     <div class="service-thumb">
                         <img src="assets/images/service/04.jpg" alt="food-service">
-                        <span>04 step</span>
+                        <span>04</span>
                     </div>
                     <div class="service-content">
-                        <h6><a href="#">Eat And Enjoy</a></h6>
+                        <h6><a href="#" translate="HOME.HOW_IT_WORKS.STEPS.4"></a></h6>
                     </div>
                 </div>
             </div>
@@ -198,8 +129,8 @@
 <section class="popular-foods padding-tb" style="background-color: #fafeff;">
     <div class="container">
         <div class="section-header">
-            <h3>Most Popular Foods</h3>
-            <p>Completely network impactful users whereas next-generation applications engage out thinking via tactical action.</p>
+            <h3>Producatori populari</h3>
+            <p>Producatori ce au produs un impact simnificativ in randul comunitatii</p>
         </div>
         <div class="section-wrapper">
             <div class="row">
@@ -1062,7 +993,6 @@
 <!-- Contact From Section Ending Here -->
 
 
-
 <!-- Popular Home Chef Section Start Here -->
 <section class="popular-chef padding-tb" style="background-color: #fafeff;">
     <div class="container">
@@ -1184,7 +1114,6 @@
 <!-- Popular Home Chef Section Ending Here -->
 
 
-
 <!-- Testimonial Section Start Here -->
 <section class="testimonial padding-tb" style="background-image: url(assets/bg-image/category-bg.jpg); background-size: cover;">
     <div class="container">
@@ -1196,7 +1125,9 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="testi-item">
-                            <p>Extend Accurate Services  Long Term High Impact Experiences Interactiv Streamline Team Compelingly Simplify Solutions Before Technicaly Sound Leadership Skills Creative Holstic Process Improvements Proactively Streamline Alternative Niche Markets Forwor Resource Conveniently cultivate pandemic technology and corporate.</p>
+                            <p>Extend Accurate Services Long Term High Impact Experiences Interactiv Streamline Team Compelingly Simplify Solutions Before
+                                Technicaly Sound Leadership Skills Creative Holstic Process Improvements Proactively Streamline Alternative Niche Markets Forwor
+                                Resource Conveniently cultivate pandemic technology and corporate.</p>
                             <h6>Somrat Islam <span>(UI Designer)</span></h6>
                             <div class="rating">
                                 <i class="icofont-star"></i>
@@ -1209,7 +1140,9 @@
                     </div>
                     <div class="carousel-item">
                         <div class="testi-item">
-                            <p>Extend Accurate Services  Long Term High Impact Experiences Interactiv Streamline Team Compelingly Simplify Solutions Before Technicaly Sound Leadership Skills Creative Holstic Process Improvements Proactively Streamline Alternative Niche Markets Forwor Resource Conveniently cultivate pandemic technology and corporate.</p>
+                            <p>Extend Accurate Services Long Term High Impact Experiences Interactiv Streamline Team Compelingly Simplify Solutions Before
+                                Technicaly Sound Leadership Skills Creative Holstic Process Improvements Proactively Streamline Alternative Niche Markets Forwor
+                                Resource Conveniently cultivate pandemic technology and corporate.</p>
                             <h6>Somrat Islam <span>(UI Designer)</span></h6>
                             <div class="rating">
                                 <i class="icofont-star"></i>
@@ -1222,7 +1155,9 @@
                     </div>
                     <div class="carousel-item">
                         <div class="testi-item">
-                            <p>Extend Accurate Services  Long Term High Impact Experiences Interactiv Streamline Team Compelingly Simplify Solutions Before Technicaly Sound Leadership Skills Creative Holstic Process Improvements Proactively Streamline Alternative Niche Markets Forwor Resource Conveniently cultivate pandemic technology and corporate.</p>
+                            <p>Extend Accurate Services Long Term High Impact Experiences Interactiv Streamline Team Compelingly Simplify Solutions Before
+                                Technicaly Sound Leadership Skills Creative Holstic Process Improvements Proactively Streamline Alternative Niche Markets Forwor
+                                Resource Conveniently cultivate pandemic technology and corporate.</p>
                             <h6>Somrat Islam <span>(UI Designer)</span></h6>
                             <div class="rating">
                                 <i class="icofont-star"></i>
@@ -1272,7 +1207,8 @@
                             <div class="post-content">
                                 <h5><a href="#">Center What For Semicon Remoing.</a></h5>
                                 <a href="#" class="date">22 December 2019</a>
-                                <p>Drama enable wordwid action team where Motin Was Proce Aramin Raher Conven Cuvas rama enabe wordwd acton team herea mnes Uroced Aran Manu Produ Raher Convene Cuva</p>
+                                <p>Drama enable wordwid action team where Motin Was Proce Aramin Raher Conven Cuvas rama enabe wordwd acton team herea mnes
+                                    Uroced Aran Manu Produ Raher Convene Cuva</p>
                                 <a href="#" class="food-btn"><span>Read More</span></a>
                             </div>
                         </div>

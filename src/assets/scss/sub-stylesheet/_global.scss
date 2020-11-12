@@ -8,6 +8,10 @@
     }
 }
 
+.theme-color {
+    color: $theme-color;
+}
+
 /* @@@@@@@@@@@@@  Header Section Start Here  @@@@@@@@@@@@@@ */
 .section-header {
     text-align: center;
@@ -790,6 +794,10 @@
                     background: $white-color;
                     border-color: $theme-color;
                     color: $theme-color;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
             }
             .service-content {
@@ -841,6 +849,9 @@
                 border: 4px solid $white-color;
                 @include transition($transition);
                 background: $theme-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
         .service-content {

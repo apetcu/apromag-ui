@@ -1,20 +1,25 @@
 <div class="row">
-    <div class="col-7">
-        <div class="main-card card">
-            <h5 class="p-4 pb-0">
-                <a routerLink="/user/orders"  translate="GENERAL.ORDERS"></a> > {{"GENERAL.ORDER" | translate}} #{{orderId}}
+    <div class="col-12 mb-4">
+        <div class="main-card card pb-4">
+            <h5 class="pl-4 pt-4 pb-0">
+                <a routerLink="/user/orders" translate="GENERAL.ORDERS"></a> > {{"GENERAL.ORDER" | translate}} #{{orderId}}
             </h5>
             <div class="row">
                 <div class="col-md-4">
                     <app-order-badge [status]="orderInfo.status" class="mx-4"></app-order-badge>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <app-order-summary [orderInfo]="orderInfo"></app-order-summary>
+    </div>
+
+    <div class="col-12">
+        <div class="main-card card">
             <div class="card-body">
                 <app-order-product-list *ngIf="orderInfo" [orderInfo]="orderInfo"></app-order-product-list>
             </div>
         </div>
-    </div>
-    <div class="col-5">
-        <app-order-summary [orderInfo]="orderInfo"></app-order-summary>
     </div>
 </div>

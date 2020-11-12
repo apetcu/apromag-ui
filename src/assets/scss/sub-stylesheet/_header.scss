@@ -17,7 +17,7 @@
     .main-menu {
         width: calc(100% - 300px);
         @include breakpoint(xxl) {
-            width: calc(100% - 760px);
+            width: calc(100% - 800px);
         }
         ul {
             align-items: center;
@@ -462,6 +462,9 @@
             height: 350px;
             overflow-y: scroll;
             padding: 15px;
+            &.small {
+                height: 100px;
+            }
             .cart-con-item {
                 .cart-item {
                     .cart-inner {

@@ -4,6 +4,7 @@ import { ShippingFacadeService } from '../../../shared/services/shipping/shippin
 import { ShippingService } from '../../../shared/services/shipping/shipping.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../user/services/user.service';
+import { homeSliderCategories, HomeSliderCategoryItem } from './models/categories';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,8 @@ import { UserService } from '../../user/services/user.service';
 })
 export class HomeComponent implements OnInit {
   shippingLocations: Array<ShippingLocation>;
+  sliderCategories: Array<HomeSliderCategoryItem> = homeSliderCategories;
+  sliderResponsiveOptions: Array<any>;
 
   constructor(
     private shippingFacadeService: ShippingFacadeService,
@@ -19,7 +22,25 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private userService: UserService
-  ) {}
+  ) {
+    this.sliderResponsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 6,
+        numScroll: 3
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 6,
+        numScroll: 2
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
+  }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {

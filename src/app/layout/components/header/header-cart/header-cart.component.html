@@ -8,7 +8,7 @@
             <div class="add-item">{{(cartItems | async).length}} {{'CART.PRODUCTS_IN_CART' | translate}}</div>
             <div class="list-close"><a (click)="hideCart()"> {{'GENERAL.CLOSE' | translate}}</a></div>
         </div>
-        <div class="cart-scr scrollbar">
+        <div class="cart-scr scrollbar" [class.small]="!(cartItems | async)?.length">
             <div class="cart-con-item">
                 <app-cart-item *ngFor="let cartItem of cartItems | async" [cartItem]="cartItem" (onRemoveItem)="onRemoveItem($event)"></app-cart-item>
             </div>

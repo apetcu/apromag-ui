@@ -20,6 +20,10 @@ export class ShippingService {
     }
   }
 
+  resetShippingLocation(): void {
+    this.setShippingLocation(new ShippingLocation({ id: '', name: 'LOCATIONS.ANYWHERE' }));
+  }
+
   getShippingLocation(): ShippingLocation {
     return this.shippingLocationChange.value;
   }

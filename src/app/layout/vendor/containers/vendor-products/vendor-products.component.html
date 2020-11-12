@@ -23,7 +23,8 @@
                                     <app-rating [rating]="vendorDetails?.rating"></app-rating>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <a [href]="vendorDetails?.certificate" target="_blank">{{vendorDetails?.certificate ? 'Producator certificat' : 'Fara certificare'}}</a>
+                                    <a [href]="vendorDetails?.certificate" *ngIf="vendorDetails?.certificate" target="_blank" translate="ACCOUNT.CERTIFIED_TEXT"></a>
+                                    <strong *ngIf="!vendorDetails?.certificate" translate="ACCOUNT.NOT_CERTIFIED_TEXT"></strong>
                                 </div>
                                 <div class="admin-content">
                                     <p>{{vendorDetails?.description}}</p>

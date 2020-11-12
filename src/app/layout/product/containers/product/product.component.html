@@ -28,6 +28,7 @@
                                                 <li *ngIf="vendorDetails?.freeShippingOver">{{'GENERAL.FREE_SHIPPING_OVER' |translate }}{{vendorDetails?.freeShippingOver}} lei</li>
                                                 <li>{{'GENERAL.SHIPPING_COST' | translate}}: {{vendorDetails?.shippingCost}} lei</li>
                                                 <li>Detin certificat producator</li>
+                                                <li>Vandut de: <a [routerLink]="vendorDetails?.urlSlug" class="theme-color font-weight-bold">{{vendorDetails?.businessName}}</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -69,36 +70,19 @@
         <div class="section-wrapper">
             <div class="related">
                 <ul class="tab-bar">
-                    <li class="tablinks active" id="defaultOpen" onclick="openCity(event, 'one')">
+                    <li class="tablinks" [class.active]="selectedTab === 1" id="defaultOpen" (click)="selectTab(1)">
                         <span>Alte produse de la acelasi producator</span>
                     </li>
-                    <li class="tablinks" onclick="openCity(event, 'two')">
-                        <span>Description</span>
+                    <li class="tablinks" [class.active]="selectedTab === 2" (click)="selectTab(2)">
+                        <span>Despre producator</span>
                     </li>
                 </ul>
-                <div id="one" class="tabcontent" style="display: block;">
+                <div id="one" class="tabcontent" *ngIf="selectedTab === 1">
                     <app-related-products [products]="relatedProducts" [productListLoading]="relatedProductsLoading"></app-related-products>
                 </div>
-                <div id="two" class="tabcontent" style="display: none;">
+                <div id="two" class="tabcontent" *ngIf="selectedTab === 2">
                     <div class="Description">
-                        <h5>50 Foods That Are Super Healthy</h5>
-                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are
-                            numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an
-                            estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to
-                            remember, is that a balanced diet is the true secret to healthful eating.</p>
-                        <h5>Belgian Cuisine</h5>
-                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are
-                            numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an
-                            estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to
-                            remember, is that a balanced diet is the true secret to healthful eating.</p>
-                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are
-                            numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an
-                            estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to
-                            remember, is that a balanced diet is the true secret to healthful eating.</p>
-                        <p>Here we provide details of the top 15 foods considered to be the most healthy, according to surveys and sources across the United States and Western Europe. There are
-                            numerous diets that promote weight loss, sometimes in an unhealthy way. Fad crash dieting, for instance, is potentially dangerous. At the same time, in America, we eat an
-                            estimated 100 acres of pizza each day. Understanding which foods are healthful and trying to include them in our diet could benefit the nation.The most important thing to
-                            remember, is that a balanced diet is the true secret to healthful eating.</p>
+                        <app-vendor [vendor]="vendorDetails"></app-vendor>
                     </div>
                 </div>
             </div>

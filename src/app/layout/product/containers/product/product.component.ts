@@ -16,6 +16,7 @@ import { CartService } from '../../../cart/services/cart.service';
 export class ProductComponent implements OnInit {
   addToCartForm: FormGroup = new AddToCartForm();
   productInformationLoading: boolean = true;
+  selectedTab: number = 1;
 
   productDetails: Product;
   vendorDetails: Vendor;
@@ -39,6 +40,10 @@ export class ProductComponent implements OnInit {
 
   addToCart(details: Product): void {
     this.cartService.addItem(details, parseInt(this.addToCartForm.get('quantity').value, 10));
+  }
+
+  selectTab(index: number): void {
+    this.selectedTab = index;
   }
 
   private getProductInformation(productId: number) {

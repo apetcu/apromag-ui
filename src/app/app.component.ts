@@ -45,7 +45,14 @@ export class AppComponent implements OnInit, OnDestroy {
         behavior: 'smooth'
       });
     });
+    this.initCookieConsent();
+  }
 
+  initCookieConsent() {
+    if (localStorage.getItem('cookieConsent')) {
+      this.ccService.destroy();
+      return;
+    }
     this.translate //
       .get(['cookie.header', 'cookie.message', 'cookie.dismiss', 'cookie.allow', 'cookie.deny', 'cookie.link', 'cookie.policy'])
       .subscribe((data) => {
@@ -63,42 +70,18 @@ export class AppComponent implements OnInit, OnDestroy {
         this.ccService.init(this.ccService.getConfig()); // update config with translated messages
       });
 
-    this.popupOpenSubscription = this.ccService.popupOpen$.subscribe(() => {
-      // you can use this.ccService.getConfig() to do stuff...
-    });
-
-    this.popupCloseSubscription = this.ccService.popupClose$.subscribe(() => {
-      // you can use this.ccService.getConfig() to do stuff...
-    });
-
-    this.initializeSubscription = this.ccService.initialize$.subscribe((event: NgcInitializeEvent) => {
-      // you can use this.ccService.getConfig() to do stuff...
-    });
-
     this.statusChangeSubscription = this.ccService.statusChange$.subscribe((event: NgcStatusChangeEvent) => {
       // you can use this.ccService.getConfig() to do stuff...
       if (event.status === 'deny') {
         window.location.href = 'http://www.google.ro/';
+      } else {
+        localStorage.setItem('cookieConsent', 'true');
       }
-    });
-
-    this.revokeChoiceSubscription = this.ccService.revokeChoice$.subscribe(() => {
-      // you can use this.ccService.getConfig() to do stuff...
-    });
-
-    this.noCookieLawSubscription = this.ccService.noCookieLaw$.subscribe((event: NgcNoCookieLawEvent) => {
-      // you can use this.ccService.getConfig() to do stuff...
     });
   }
 
   ngOnDestroy() {
-    // unsubscribe to cookieconsent observables to prevent memory leaks
-    this.popupOpenSubscription.unsubscribe();
-    this.popupCloseSubscription.unsubscribe();
-    this.initializeSubscription.unsubscribe();
     this.statusChangeSubscription.unsubscribe();
-    this.revokeChoiceSubscription.unsubscribe();
-    this.noCookieLawSubscription.unsubscribe();
   }
 
   getChild(activatedRoute: ActivatedRoute) {

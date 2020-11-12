@@ -1,5 +1,10 @@
 @import "variables";
 
+.food-category {
+  background-image: url(/assets/bg-image/category-bg.jpg);
+  background-size: cover;
+}
+
 ::ng-deep {
   p-autoComplete {
     width: calc(100% - 80px);

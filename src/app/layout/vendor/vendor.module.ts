@@ -18,6 +18,7 @@ import { VendorSkeletonModule } from '../../shared/components/vendor-skeleton/ve
 
 @NgModule({
   declarations: [VendorListComponent, VendorProductsComponent, VendorComponent, VendorContainerComponent],
+  exports: [VendorComponent],
   imports: [
     CommonModule,
     PageTitleModule,

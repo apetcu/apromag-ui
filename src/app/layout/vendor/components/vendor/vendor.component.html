@@ -5,25 +5,13 @@
         </div>
         <div class="p-food-content">
             <h6><a [routerLink]="vendor.urlSlug">{{vendor.businessName}}</a></h6>
-            <div class="p-food-group">
-                <em>{{vendor.certificate ? 'Producator certificat' : 'Fara certificare'}}</em>
-            </div>
             <ul class="del-time">
                 <li>
-                    <i class="icofont-cycling-alt"></i>
+                    <i [class.icofont-star]="vendor.certificate" [class.icofont-question]="!vendor.certificate"></i>
                     <div class="time-tooltip">
                         <div class="time-tooltip-holder">
-                            <span class="tooltip-label">Delivery time</span>
-                            <span class="tooltip-info">Your order will be delivered in 20 minutes.</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <i class="icofont-dollar"></i>
-                    <div class="time-tooltip">
-                        <div class="time-tooltip-holder">
-                            <span class="tooltip-label">Pickup time</span>
-                            <span class="tooltip-info">You can pickup order in 20 minutes.</span>
+                            <span class="tooltip-label" [translate]="vendor.certificate ? 'ACCOUNT.CERTIFIED' : 'ACCOUNT.NOT_CERTIFIED'"></span>
+                            <span class="tooltip-info" [translate]="vendor.certificate ? 'ACCOUNT.CERTIFIED_TEXT' : 'ACCOUNT.NOT_CERTIFIED_TEXT'"></span>
                         </div>
                     </div>
                 </li>

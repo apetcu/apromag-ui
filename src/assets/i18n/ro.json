@@ -1,4 +1,26 @@
 {
+  "HOME": {
+    "SLIDER": {
+      "TITLE": "Reteaua ta de producatori locali",
+      "PRODUCERS": "Producatori",
+      "ORDERS": "Comenzi onorate",
+      "USERS": "Utilizatori inregistrati"
+    },
+    "CATEGORIES": {
+      "TITLE": "Categorii",
+      "SUBTITLE": "Alege din multitudinea de categorii de produse direct de la producatorii locali"
+    },
+    "HOW_IT_WORKS": {
+      "TITLE": "Cum functioneaza?",
+      "SUBTITLE": "Incurajeaza producatorii locali in patru pasi simpli.",
+      "STEPS": {
+        "1": "Alege produsele preferate",
+        "2": "Producatorul iti va livra produsele",
+        "3": "Achiti produsele livrate",
+        "4": "Sprijini comunitatea si te bucuri de produse de calitate!"
+      }
+    }
+  },
   "cookie": {
     "header": "Cookies used on the website!",
     "message": "Acest website foloseste cookie-uri proprii cat si cookie-uri adaugate de terti, pentru a furniza vizitatorilor o experienta mult mai buna de navigare si servicii adaptate nevoilor si interesului fiecaruia. Continuarea navigarii implica acceptarea lor. Afla mai multe despre cum poti sa-ti modifici setarile",
@@ -71,6 +93,10 @@
     "CONTACT": "Contact"
   },
   "ACCOUNT": {
+    "CERTIFIED": "Producator certificat",
+    "CERTIFIED_TEXT": "Acest producator detine certificat",
+    "NOT_CERTIFIED": "Lipsa certificat",
+    "NOT_CERTIFIED_TEXT": "Informatii certificat necunoscute",
     "FULL_NAME": "Nume si prenume",
     "NAME": "Nume",
     "SURNAME": "Prenume",

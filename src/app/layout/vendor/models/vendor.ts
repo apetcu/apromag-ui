@@ -38,7 +38,7 @@ export class Vendor {
       this.profilePicture = vendorResponse.profilePicture;
     }
     this.images = vendorResponse.images;
-    this.rating = vendorResponse.rating;
+    this.rating = 5 || vendorResponse.rating;
 
     if (vendorResponse.shippingPreferences) {
       this.shippingPreferences = vendorResponse.shippingPreferences.map((entry) => ({
