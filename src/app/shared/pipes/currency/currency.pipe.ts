@@ -5,10 +5,11 @@ import { Currency } from '../../models/currency';
   name: 'aproCurrency'
 })
 export class CurrencyPipe implements PipeTransform {
-  transform(value: number | string, currency: Currency): unknown {
+  transform(value: any, currency: Currency): unknown {
     try {
-      return currency ? (value as number).toFixed(2) + ' ' + currency.code : value;
+      return currency ? parseFloat(value).toFixed(2) + ' ' + currency.code : value;
     } catch (e) {
+      console.log(e);
       return value;
     }
   }
