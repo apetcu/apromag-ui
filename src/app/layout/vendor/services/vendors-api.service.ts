@@ -17,7 +17,7 @@ export class VendorsApiService {
   }
 
   getPopular(): Observable<PaginatedResponse<Vendor>> {
-    return this.api.get('vendors'); // vendors/popular
+    return this.api.get('vendors/popular');
   }
 
   getById(id: number): Observable<any> {

@@ -9,6 +9,7 @@
             <div class="list-close"><a (click)="hideCart()"> {{'GENERAL.CLOSE' | translate}}</a></div>
         </div>
         <div class="cart-scr scrollbar" [class.small]="!(cartItems | async)?.length">
+            <div *ngIf="!(cartItems | async)?.length"><h6 class="text-center text-black-50 mt-4" translate="CART.EMPTY"></h6></div>
             <div class="cart-con-item">
                 <app-cart-item *ngFor="let cartItem of cartItems | async" [cartItem]="cartItem" (onRemoveItem)="onRemoveItem($event)"></app-cart-item>
             </div>

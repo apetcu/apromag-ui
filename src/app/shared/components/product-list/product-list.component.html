@@ -1,7 +1,7 @@
 <article>
-    <div class="shop-title d-flex flex-wrap justify-content-between" *ngIf="config.displayHeader">
+    <div class="shop-title d-flex flex-wrap justify-content-between" *ngIf="config.displayHeader && !listLoading && products.length">
         <div *ngIf="listLoading" class="skeleton-box" style="width: 200px; height: 20px;"></div>
-        <p *ngIf="!listLoading">Afisez 1 - 12 din 139 de rezultate</p>
+        <p *ngIf="!listLoading">Afisez {{pagination?.totalElements}} rezultate</p>
 
         <div class="product-view-mode">
             <a [class.active]="displayType === 'grid'" (click)="setListType('grid')"><i class="icofont-ghost"></i></a>
@@ -10,12 +10,12 @@
     </div>
 
     <div class="shop-product-wrap row" [ngClass]="displayType" *ngIf="listLoading">
-        <div class="col-12" [ngClass]="displayType === 'grid' ? 'col-lg-4 col-md-6' : ''" *ngFor="let number of [0,1,2,3,4,5,6,7,8]">
+        <div class="col-12" [ngClass]="displayType === 'grid' ? rowClass + ' col-md-6' : ''" *ngFor="let number of [0,1,2,3,4,5,6,7,8]">
             <app-product-item-skeleton [displayType]="displayType"></app-product-item-skeleton>
         </div>
     </div>
-    <div class="shop-product-wrap row" [ngClass]="displayType" *ngIf="!listLoading">
-        <div class="col-12" [ngClass]="displayType === 'grid' ? 'col-lg-4 col-md-6' : ''" *ngFor="let product of products">
+    <div class="shop-product-wrap row" [ngClass]="displayType" *ngIf="!listLoading && products.length">
+        <div class="col-12" [ngClass]="displayType === 'grid' ? rowClass + ' col-md-6' : ''" *ngFor="let product of products">
             <app-product-item [displayType]="displayType" [product]="product" (onAddToCart)="addToCart($event)"></app-product-item>
         </div>
     </div>

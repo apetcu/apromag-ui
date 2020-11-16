@@ -1626,6 +1626,11 @@
     .recipe-item {
       text-align: center;
       padding: 35px 25px 25px;
+      cursor: pointer;
+      
+      &:focus {
+        outline-color: $theme-color;
+      }
 
       &:hover {
         .recipe-content {

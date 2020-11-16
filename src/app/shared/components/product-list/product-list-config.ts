@@ -5,6 +5,7 @@ export interface ProductListConfig {
   defaultDisplayMode: ProductListDisplayModes;
   displayHeader: boolean;
   paginated: boolean;
+  itemsPerRow?: number;
 }
 
 export enum ProductListDisplayModes {

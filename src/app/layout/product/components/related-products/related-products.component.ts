@@ -19,7 +19,8 @@ export class RelatedProductsComponent implements OnInit {
     currentPage: 1,
     defaultDisplayMode: ProductListDisplayModes.GRID,
     displayHeader: false,
-    paginated: false
+    paginated: false,
+    itemsPerRow: 4
   };
 
   constructor() {}

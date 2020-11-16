@@ -1,5 +1,6 @@
 export class PaginatedResponse<T> {
   data: T[];
+  pagination?: any;
   totalPages: number;
   totalElements: number;
   last: boolean;

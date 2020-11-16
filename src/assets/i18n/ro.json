@@ -45,6 +45,7 @@
     "SHIPPING_METHOD": "Metoda de livrare",
     "PAYMENT_METHOD": "Metoda de plata",
     "TOTAL": "Total",
+    "EMPTY": "Cosul de cumparaturi este gol.",
     "SEND_ORDER": "Trimite comanda",
     "PRODUCT": "Produs",
     "UNIT_PRICE": "Pret unitar",

@@ -62,10 +62,10 @@ export class CartService {
             vendor.businessName +
             ' trebuie sa creezi o comanda noua',
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#2f2f2f',
-          confirmButtonText: 'Creaza comanda noua',
-          cancelButtonText: 'Anuleaza'
+          confirmButtonColor: '#2f2f2f',
+          cancelButtonColor: '#28a745',
+          confirmButtonText: 'Comanda noua',
+          cancelButtonText: 'Continua comanda'
         })
         .pipe(
           map((response) => {

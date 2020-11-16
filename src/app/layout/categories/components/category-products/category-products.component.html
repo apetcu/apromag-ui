@@ -3,7 +3,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-                <app-product-list [listLoading]="productsLoading" [config]="productListConfig" [products]="products" *ngIf="!productsLoading && products && products.length"></app-product-list>
+                <app-product-list [listLoading]="productsLoading" [pagination]="{totalElements: totalProducts}" [config]="productListConfig"
+                                  [products]="products"></app-product-list>
                 <app-info-box title="Ne pare rau" type="danger" *ngIf="!productsLoading && !(products && products.length)">
                     Nu exista produse adaugate in aceasta categorie
                 </app-info-box>
