@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit {
     2: 'col-lg-6',
     3: 'col-lg-4',
     4: 'col-lg-3',
-    6: 'col-lg-6'
+    6: 'col-lg-2'
   };
 
   rowClass: string = 'col-lg-4';

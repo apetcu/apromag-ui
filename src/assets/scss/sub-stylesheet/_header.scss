@@ -442,7 +442,7 @@
         -webkit-transform: translateX(-10px);
         -ms-transform: translateX(-10px);
         z-index: 9;
-        background: #fafeff;
+        background: #F3F3F3;
         border-radius: 10px;
         cursor: auto;
         .cart-title {
@@ -607,7 +607,7 @@
 // Page Header Section Start Here
 .page-header {
     padding: 75px 0;
-    background: #fafeff;
+    background: #f3f3f3;
     @extend %rel;
     @extend %hidden;
     @include breakpoint(lg) {

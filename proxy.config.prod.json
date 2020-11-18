@@ -1,0 +1,12 @@
+{
+  "/api": {
+    "target":  {
+      "host": "apromag.ro",
+      "protocol": "https:",
+      "port": 443
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

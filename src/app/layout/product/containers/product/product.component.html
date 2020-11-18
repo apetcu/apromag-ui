@@ -25,7 +25,7 @@
                                         <div class="desc">
                                             <p>{{productDetails?.description}}</p>
                                             <ul>
-                                                <li *ngIf="vendorDetails?.freeShippingOver">{{'GENERAL.FREE_SHIPPING_OVER' |translate }}{{vendorDetails?.freeShippingOver}} lei</li>
+                                                <li *ngIf="vendorDetails?.freeShippingOver">{{'GENERAL.FREE_SHIPPING_OVER' |translate }} <strong>{{vendorDetails?.freeShippingOver}} lei</strong></li>
                                                 <li>{{'GENERAL.SHIPPING_COST' | translate}}: {{vendorDetails?.shippingCost}} lei</li>
                                                 <li>Detin certificat producator</li>
                                                 <li>Vandut de: <a [routerLink]="vendorDetails?.urlSlug" class="theme-color font-weight-bold">{{vendorDetails?.businessName}}</a></li>

@@ -7,6 +7,6 @@
         <a class="dropdown-item" routerLink="/static/4/faq"><i class="icofont-question"></i>{{"GENERAL.HELP" | translate}}</a>
         <a class="dropdown-item" routerLink="/user"><i class="icofont-user"></i>{{"GENERAL.MY_ACCOUNT" | translate}}</a>
         <a class="dropdown-item bg-success green" routerLink="/dashboard" *ngIf="currentUser.isUserOfTypeVendor()"><i class="icofont-user"></i>{{"GENERAL.VENDOR_PANEL" | translate}} <span class="notification" *ngIf="currentUser.notifications">{{currentUser.notifications}}</span></a>
-        <a class="dropdown-item" (click)="logOut()">{{"GENERAL.LOGOUT" | translate}}</a>
+        <a class="dropdown-item text-danger" (click)="logOut()"><i class="icofont-logout"></i>{{"GENERAL.LOGOUT" | translate}}</a>
     </div>
 </div>

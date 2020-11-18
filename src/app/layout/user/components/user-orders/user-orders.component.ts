@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class UserOrdersComponent implements OnInit {
   orders: Array<Order>;
   totalRecords: number = 0;
-  loading: boolean = false;
+  loading: boolean = true;
   rowsPerPage: number = 25;
 
   constructor(private userFacadeService: UserFacadeService, private router: Router) {}

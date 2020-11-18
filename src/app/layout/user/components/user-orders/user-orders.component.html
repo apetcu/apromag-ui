@@ -1,6 +1,9 @@
 <div class="widget">
     <h4 translate="GENERAL.ORDERS"></h4>
     <hr>
-    <order-list [totalRecords]="totalRecords" [loading]="loading" [orders]="orders"
-                [rowsPerPage]="rowsPerPage" (onOrderClick)="onOrderClick($event)"></order-list>
+    <div class="orders position-relative">
+        <order-list [totalRecords]="totalRecords" [loading]="loading" [orders]="orders"
+                    [rowsPerPage]="rowsPerPage" (onOrderClick)="onOrderClick($event)"></order-list>
+        <app-loading *ngIf="loading"></app-loading>
+    </div>
 </div>
