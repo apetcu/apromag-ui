@@ -24,6 +24,8 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
   modifyProductForm: ModifyProductForm;
 
   altUnit: boolean = false;
+  modifyLoading: boolean = false;
+
   formErrors = false;
   formMode: string = 'ADD';
 
@@ -42,6 +44,7 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
 
   onSubmit(): void {
     if (this.modifyProductForm.valid) {
+      this.modifyLoading = true;
       this.dashboardFacadeService.addOrModifyProduct(this.modifyProductForm.value, this.editProductId).subscribe(
         (data) => {
           this.onSaveComplete.emit(true);

@@ -8,7 +8,6 @@
                 <p><strong translate="ACCOUNT.EMAIL"></strong> {{ user.email }}</p>
                 <p><strong translate="ACCOUNT.MEMBER_FROM"></strong> {{ user.createdAt | date: 'dd MMM yyyy' }}</p>
                 <p><strong translate="ACCOUNT.LAST_EDIT"></strong> {{ user.updatedAt | date: 'dd MMM yyyy' }}</p>
-                <button class="food-btn style-3" routerLink="/user/settings"><span translate="GENERAL.ACCOUNT_SETTINGS"></span></button>
             </div>
             <div class="col-md-6 text-center">
                 <img [src]="user.profilePicture" alt="" *ngIf="user.profilePicture" class="mt-2 w-50">
