@@ -81,7 +81,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.statusChangeSubscription.unsubscribe();
+    this.statusChangeSubscription && this.statusChangeSubscription.unsubscribe();
   }
 
   getChild(activatedRoute: ActivatedRoute) {
