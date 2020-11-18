@@ -12,11 +12,11 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="pret"><strong>Pret livrare (RON)</strong></label>
-                                <input type="text" id="pret" class="form-control" formControlName="shippingCost">
+                                <input type="number" id="pret" class="form-control" formControlName="shippingCost">
                             </div>
                             <div class="form-group">
                                 <label for="freeshipping"><strong>Livrare gratuita pentru comenzi peste (RON)</strong></label>
-                                <input type="text" id="freeshipping" class="form-control" formControlName="freeShippingOver">
+                                <input type="number" id="freeshipping" class="form-control" formControlName="freeShippingOver">
                                 <i>Se va lasa acest camp liber pentru dezactivarea optiunii</i>
                             </div>
                             <div class="form-group">
@@ -31,6 +31,12 @@
 
                             <div class="shippingLocations" *ngIf="!loading">
                                 <ul>
+                                    <li>
+                                        <label>
+                                            <p-inputSwitch (onChange)="onSelectAll($event)"></p-inputSwitch>
+                                            <span>Selecteaza toate {{shippingLocations.length}} locatiile</span>
+                                        </label>
+                                    </li>
                                     <li *ngFor="let control of locationsFormArray?.controls; let i = index" class="checkbox">
                                         <label>
                                             <p-inputSwitch [formControl]="control"></p-inputSwitch>

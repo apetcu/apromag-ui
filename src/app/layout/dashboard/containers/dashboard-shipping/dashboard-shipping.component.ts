@@ -43,7 +43,7 @@ export class DashboardShippingComponent implements OnInit {
     this.currentUser = this.userService.getUser();
     this.shippingForm = this.formBuilder.group({
       shippingCost: new FormControl(this.currentUser.vendor.shippingCost, Validators.required),
-      freeShippingOver: new FormControl(this.currentUser.vendor.freeShippingOver, Validators.required),
+      freeShippingOver: new FormControl(this.currentUser.vendor.freeShippingOver),
       shippingRemarks: new FormControl(this.currentUser.vendor.shippingRemarks)
     });
     this.loadShippingLocations();
@@ -67,6 +67,10 @@ export class DashboardShippingComponent implements OnInit {
         timer: 1500
       });
     });
+  }
+
+  onSelectAll($event) {
+    this.shippingForm.get('locationsFormArray').setValue(Array.from({ length: this.shippingLocations.length }, (_) => $event.checked));
   }
 
   loadShippingLocations(): void {
