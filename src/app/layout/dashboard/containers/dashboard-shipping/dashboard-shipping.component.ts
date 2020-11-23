@@ -44,7 +44,8 @@ export class DashboardShippingComponent implements OnInit {
     this.shippingForm = this.formBuilder.group({
       shippingCost: new FormControl(this.currentUser.vendor.shippingCost, Validators.required),
       freeShippingOver: new FormControl(this.currentUser.vendor.freeShippingOver),
-      shippingRemarks: new FormControl(this.currentUser.vendor.shippingRemarks)
+      shippingRemarks: new FormControl(this.currentUser.vendor.shippingRemarks),
+      minOrder: new FormControl(this.currentUser.vendor.minOrder)
     });
     this.loadShippingLocations();
   }

@@ -54,7 +54,7 @@ const routes: Routes = [
         component: DashboardShippingComponent,
         pathMatch: 'prefix',
         data: {
-          title: 'Metode de livrare'
+          title: 'Livrare'
         }
       },
       {

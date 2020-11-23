@@ -34,6 +34,7 @@ export class ShippingFacadeService {
         locations: this.mapLocationsToForm(shippingLocations),
         freeShippingOver: formDetails.freeShippingOver,
         shippingRemarks: formDetails.shippingRemarks,
+        minOrder: formDetails.minOrder,
         shippingCost: formDetails.shippingCost
       })
       .pipe(

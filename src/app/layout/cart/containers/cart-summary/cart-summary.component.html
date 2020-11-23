@@ -2,7 +2,10 @@
     <div class="cart-top">
         <app-cart-list [cartProducts]="cartItems"></app-cart-list>
         <div class="alert alert-warning text-center m-2" *ngIf="vendor.freeShippingOver - (cartTotal | async)?.totalProductsPrice > 0">
-            {{'CART.ORDER_MORE' | translate: {orderMore: (vendor.freeShippingOver - (cartTotal | async)?.totalProductsPrice) | number: '1.2-2'} }}
+            {{'CART.ORDER_MORE' | translate: { orderMore: (vendor.freeShippingOver - (cartTotal | async)?.totalProductsPrice) | number: '1.2-2' } }}
+        </div>
+        <div *ngIf="vendor.minOrder && (cartTotal | async)?.totalProductsPrice < vendor.minOrder" class="alert alert-warning mt-4">
+            Comanda minima la acest producator este de {{vendor.minOrder}} RON
         </div>
     </div>
     <div class="cart-bottom">
@@ -27,22 +30,26 @@
                                 </li>
                             </ul>
 
-                            <h4 class="mt-5" translate="CART.SHIPPING_METHOD"></h4>
-                            <div class="cart-option text-left px-3">
-                                <strong>Livrare standard</strong>
-                                <div>Pret standard livrare:  <strong>{{vendor.shippingCost | aproCurrency: vendor?.currency}}</strong></div>
-                                <div>Livrare gratuita pentru comenzi peste <strong>{{vendor.freeShippingOver | aproCurrency: vendor?.currency}}</strong></div>
-                                <code>{{vendor.shippingRemarks}}</code>
-                            </div>
+                            <div *ngIf="!(vendor.minOrder && (cartTotal | async)?.totalProductsPrice < vendor.minOrder)">
+                                <h4 class="mt-5" translate="CART.SHIPPING_METHOD"></h4>
+                                <div class="cart-option text-left px-3">
+                                    <strong>Livrare standard</strong>
+                                    <div>Pret standard livrare: <strong>{{vendor.shippingCost | aproCurrency: vendor?.currency}}</strong></div>
+                                    <div *ngIf="vendor.freeShippingOver">Livrare gratuita pentru comenzi peste
+                                        <strong>{{vendor.freeShippingOver | aproCurrency: vendor?.currency}}</strong></div>
+                                    <code>{{vendor.shippingRemarks}}</code>
+                                </div>
 
-                            <h4 class="mt-5" translate="CART.PAYMENT_METHOD"></h4>
-                            <div class="cart-option text-left px-3">
-                                <strong>Cash la livrare</strong>
+                                <h4 class="mt-5" translate="CART.PAYMENT_METHOD"></h4>
+                                <div class="cart-option text-left px-3">
+                                    <strong>Cash la livrare</strong>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
-                        <div class="calculate-shiping">
+
+                        <div class="calculate-shiping" *ngIf="!(vendor.minOrder && (cartTotal | async)?.totalProductsPrice < vendor.minOrder)">
                             <h4>Livrare la adresa</h4>
                             <div class="outline-select">
                                 <select formControlName="location">
@@ -64,16 +71,20 @@
                                 </div>
                             </div>
                             <textarea formControlName="remarks" id="" cols="30" rows="5" placeholder="{{'GENERAL.REMARKS' | translate}}"></textarea>
-                            <label><p-checkbox formControlName="terms" [binary]="true"></p-checkbox> Am citit si sunt de acord cu <a routerLink="/static/1/terms-and-conditions">termenii si conditiile</a> acestui site</label>
+                            <label>
+                                <p-checkbox formControlName="terms" [binary]="true"></p-checkbox>
+                                Am citit si sunt de acord cu <a routerLink="/static/1/terms-and-conditions">termenii si conditiile</a> acestui site</label>
 
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="cart-checkout-box">
+            <div class="cart-checkout-box" *ngIf="!(vendor.minOrder && (cartTotal | async)?.totalProductsPrice < vendor.minOrder)">
                 <div class="col-12 text-right">
-                    <button type="submit" class="food-btn style-3" [disabled]="cartSummaryForm.invalid"><span>Trimite comanda</span></button>
+                    <button type="submit" class="food-btn style-3"
+                            [disabled]="cartSummaryForm.invalid"><span>Trimite comanda</span>
+                    </button>
                 </div>
             </div>
         </form>

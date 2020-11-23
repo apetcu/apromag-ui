@@ -51,6 +51,7 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
         },
         () => {
           this.onSaveComplete.emit(false);
+          this.modifyLoading = false;
         }
       );
     } else {

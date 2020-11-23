@@ -16,6 +16,7 @@ export class Vendor {
 
   shippingCost: number;
   freeShippingOver: number;
+  minOrder: number;
   shippingRemarks: string;
   currency: Currency = new Currency({ code: 'RON', factor: 100 });
 
@@ -33,6 +34,7 @@ export class Vendor {
     this.shippingCost = vendorResponse.shippingCost;
     this.shippingRemarks = vendorResponse.shippingRemarks;
     this.freeShippingOver = vendorResponse.freeShippingOver;
+    this.minOrder = vendorResponse.minOrder;
 
     if (vendorResponse.profilePicture) {
       this.profilePicture = vendorResponse.profilePicture;
