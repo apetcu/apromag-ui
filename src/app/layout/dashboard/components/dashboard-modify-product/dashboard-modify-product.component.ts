@@ -37,8 +37,8 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.editProduct) {
-      this.listenForFormChanges();
       this.initProductEdit(changes.editProduct.currentValue);
+      this.listenForFormChanges();
     }
   }
 

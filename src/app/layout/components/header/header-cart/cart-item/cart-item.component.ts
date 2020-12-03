@@ -17,7 +17,8 @@ export class CartItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  removeItem(cartItem: CartItem) {
+  removeItem($event, cartItem: CartItem) {
+    $event.stopPropagation();
     this.onRemoveItem.emit(cartItem);
   }
 }

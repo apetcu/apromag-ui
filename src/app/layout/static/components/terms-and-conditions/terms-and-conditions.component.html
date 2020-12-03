@@ -1,67 +1,88 @@
 <app-page-title title="Termeni si conditii"></app-page-title>
 
 <div class="container">
-    <p>Bine ați venit pe platforma &bdquo;<strong>aproMAG</strong>&rdquo;, și vă mulțumim ca a-ți accesat site-ul www.apromag.ro deținute și administrate de XXXX (&icirc;n
-        continuare &rdquo;XXXX&rdquo;).</p>
+    <p>Bine ați venit pe platforma &bdquo;<strong>{{config.siteTitle}}</strong>&rdquo;, și vă mulțumim ca ați accesat site-ul {{config.siteUrl}} deținute și
+        administrate de {{config.company.name}} (&icirc;n
+        continuare &rdquo;{{config.company.name}}&rdquo;).</p>
     <p>Vă rugăm sa citiți cu atenție Termenele si Condițiile deoarece prin utilizarea serviciilor noastre, oferite prin intermediul platformei
-        <strong>aproMAG</strong>, site-ului, și prin orice alte mijloace electronice, sunteți de acord cu Termenele si Condițiile prezentate &icirc;n cele ce
+        <strong>{{config.siteTitle}}</strong>, site-ului, și prin orice alte mijloace electronice, sunteți de acord cu Termenele si Condițiile prezentate &icirc;n cele ce
         urmează. Excluz&acirc;nd cazul primei citiri a termenelor și condițiilor, dvs &nbsp;&icirc;n calitate de "Utilizator" vă obligați să fiți de acord cu
         Termenele și Condițiile, iar dacă nu sunteți de acord cu acestea nu utilizați platforma, site-ul, si/sau serviciile pe care le oferim.</p>
-    <p>Odată cu dezvoltarea platformei <strong>aproMAG</strong>, Termenele și Condițiile se pot modifica pentru a fi &icirc;n conformitate cu modificările care apar
-        &icirc;n legislație. Modificările vor fi prezentate prin actualizarea de Termenelor și Condițiilor și vor intră &icirc;n vigoare &icirc;n momentul &icirc;n
-        care XXXXX afișează o actualizate acestora. Prin utilizarea și/sau accesarea &icirc;n continuare a platformei <strong>aproMAG</strong>, a site-ului, și/sau
-        a serviciilor pe care le oferim după respectiva publicare a noilor Termene și Condiții vă exprimați acordul deplin cu Termenele și Condițiile actualizate.
+    <p>Odată cu dezvoltarea platformei <strong>{{config.siteTitle}}</strong>, Termenele și Condițiile se pot modifica pentru a fi &icirc;n conformitate cu modificările care
+        apar
+        &icirc;n legislație. Modificările vor fi prezentate prin actualizarea de Termenelor și Condițiilor și vor intră &icirc;n vigoare &icirc;n momentul
+        &icirc;n
+        care {{config.company.name}} afișează o actualizate acestora. Prin utilizarea și/sau accesarea &icirc;n continuare a platformei <strong>{{config.siteTitle}}</strong>, a site-ului,
+        și/sau
+        a serviciilor pe care le oferim după respectiva publicare a noilor Termene și Condiții vă exprimați acordul deplin cu Termenele și Condițiile
+        actualizate.
     </p>
     <ol>
         <li><strong> Definiții</strong></li>
     </ol>
-    <p>Următoarele cuvinte și expresii vor avea semnificații detaliate &icirc;n cele ce urmează, cu excepția cazului &icirc;n care este prevăzut altfel &icirc;n mod
+    <p>Următoarele cuvinte și expresii vor avea semnificații detaliate &icirc;n cele ce urmează, cu excepția cazului &icirc;n care este prevăzut altfel &icirc;n
+        mod
         explicit:</p>
-    <p><strong>aproMAG</strong> - este denumirea comerciala a ADIPETCU SRL., persoana juridica de naționalitate romană, av&acirc;nd sediul social in Bucuresti,
-        Splaiul Independentei, nr xx, sector 6, av&acirc;nd număr de ordine in Registrul Comerțului JXX/XXX/23.01.20XX, cod unic de &icirc;nregistrare fiscala
-        RO123456.</p>
-    <p><strong>Cumpărător</strong> &ndash; poate fi orice persoană fizică cu v&acirc;rsta de peste 16 ani sau &nbsp;persoană juridică sau orice entitate juridică
+    <p><strong>{{config.siteTitle}}</strong> - este denumirea comerciala a {{config.company.name}}., persoana juridica de naționalitate romană, av&acirc;nd sediul social in {{config.company.address}}, av&acirc;nd număr de ordine in Registrul Comerțului {{config.company.regCom}}, cod unic de &icirc;nregistrare fiscala
+        {{config.company.cui}}.</p>
+    <p><strong>Cumpărător</strong> &ndash; poate fi orice persoană fizică cu v&acirc;rsta de peste 16 ani sau &nbsp;persoană juridică sau orice entitate
+        juridică
         care &icirc;și face un Cont &icirc;n Site și/sau Platformă și efectuează o Comandă.</p>
     <p><strong>Producător</strong> și/sau <strong>V&acirc;nzător</strong> &nbsp;- este orice partener, persoană fizică autorizată sau juridică, din
-        <strong>aproMAG</strong> Marketplace ale cărei produse sunt comercializate prin intermediul Site-ului și/sau Platformei;</p>
+        <strong>{{config.siteTitle}}</strong> Marketplace ale cărei produse sunt comercializate prin intermediul Site-ului și/sau Platformei;</p>
     <p>&nbsp;<strong>Utilizator</strong> este orice persoană fizică/juridică &icirc;nregistrată pe Site și/sau Platformă, care, prin finalizarea procesului de
-        creare a Contului, și-a dat acordul cu privire la clauzele specifice site-ului din secțiunea Termeni și Condiții și care folosește Site-ul și/sau Platforma.
+        creare a Contului, și-a dat acordul cu privire la clauzele specifice site-ului din secțiunea Termeni și Condiții și care folosește Site-ul și/sau
+        Platforma.
     </p>
-    <p><strong>Nume de Utilizator</strong> - &nbsp;este pseudonim-ul prin care un anumit Utilizator/Cumpărător poate adăuga Conținut pe Site. Numele de Utilizator
+    <p><strong>Nume de Utilizator</strong> - &nbsp;este pseudonim-ul prin care un anumit Utilizator/Cumpărător poate adăuga Conținut pe Site. Numele de
+        Utilizator
         este asociat informațiilor din Site ale Utilizatorului/Cumpărătorului sub denumirea de &ldquo;Nume Utilizator&rdquo;.</p>
-    <p><strong>Cont</strong> - desemnează secțiunea din Site și/sau Platformă formată din Numele de utilizator(sau adresa de e-mail) și o parolă aleasă la &icirc;nregistrare
-        prin care sunt accesibile setul de date si comenzi &icirc;n funcție de tipul contului. Site-ul și/sau Platforma oferă Conturi de Utilizator și Conturi de
+    <p><strong>Cont</strong> - desemnează secțiunea din Site și/sau Platformă formată din Numele de utilizator(sau adresa de e-mail) și o parolă aleasă la
+        &icirc;nregistrare
+        prin care sunt accesibile setul de date si comenzi &icirc;n funcție de tipul contului. Site-ul și/sau Platforma oferă Conturi de Utilizator și Conturi
+        de
         Producător. Utilizatorul și/sau Producător este responsabil și se va asigura că informațiile introduse la crearea Contului sunt corecte, complete și
         actualizate.</p>
-    <p><strong>Cont de Utilizator</strong> - este setul de date și comenzi accesibile de către Utilizator din Site și/sau Platformă prin intermediului numelui de
+    <p><strong>Cont de Utilizator</strong> - este setul de date și comenzi accesibile de către Utilizator din Site și/sau Platformă prin intermediului numelui
+        de
         utilizator și al parolei.</p>
-    <p><strong>Cont de Producător</strong> - este setul de date și comenzi accesibile de către Producător din Site și/sau Platformă prin intermediului numelui de
+    <p><strong>Cont de Producător</strong> - este setul de date și comenzi accesibile de către Producător din Site și/sau Platformă prin intermediului numelui
+        de
         utilizator și al parolei.</p>
-    <p><strong>Coșul meu</strong> - secțiune din Cont care permite Cumpărătorului/Utilizatorului și/sau Producătorului &nbsp;să adauge Bunuri sau Servicii pe care
+    <p><strong>Coșul meu</strong> - secțiune din Cont care permite Cumpărătorului/Utilizatorului și/sau Producătorului &nbsp;să adauge Bunuri sau Servicii pe
+        care
         dorește sa le achiziționeze la momentul adăugării sau la un moment ulterior; &icirc;n cazul in care Bunurile sau Serviciile nu sunt achiziționate la
-        momentul adăugării prin efectuarea Comenzii, Cumpărătorul/ Utilizatorul și/sau Producătorul &nbsp;va beneficia de serviciul oferit de către Site-ul și/sau
-        Platforma <strong>aproMAG</strong> de urmărire a Bunurilor și Serviciilor prin transmiterea de Comunicări Comerciale din partea acestuia.</p>
-    <p><strong>Comunicări Comerciale</strong> - orice tip de mesaj trimis la adresa de e-mail a Utilizatorului, V&acirc;nzătorului și/sau Producătorului sau &icirc;n
-        Contul &nbsp;acestuia conțin&acirc;nd informații generale si tematice, informații cu privire la produse similare sau complementare cu cele pe care&nbsp; au
-        fost achiziționate, informații cu privire la oferte sau promoții, informații referitoare la Bunuri si Servicii adăugate &icirc;n secțiunea Cont și/sau Coșul
+        momentul adăugării prin efectuarea Comenzii, Cumpărătorul/ Utilizatorul și/sau Producătorul &nbsp;va beneficia de serviciul oferit de către Site-ul
+        și/sau
+        Platforma <strong>{{config.siteTitle}}</strong> de urmărire a Bunurilor și Serviciilor prin transmiterea de Comunicări Comerciale din partea acestuia.</p>
+    <p><strong>Comunicări Comerciale</strong> - orice tip de mesaj trimis la adresa de e-mail a Utilizatorului, V&acirc;nzătorului și/sau Producătorului sau
+        &icirc;n
+        Contul &nbsp;acestuia conțin&acirc;nd informații generale si tematice, informații cu privire la produse similare sau complementare cu cele pe care&nbsp;
+        au
+        fost achiziționate, informații cu privire la oferte sau promoții, informații referitoare la Bunuri si Servicii adăugate &icirc;n secțiunea Cont și/sau
+        Coșul
         meu.</p>
-    <p><strong>Platformă </strong>- platforma de comerț electronic &bdquo;<strong>aproMAG</strong>&rdquo;, accesibilă fie pe site-ul&nbsp;<a
-            href="http://www.apromag.ro">www.apromag.ro</a>, fie prin <strong><u>aplicația [facem aplicatie zic eu]</u></strong> din care sunt introduse comenzile
+    <p><strong>Platformă </strong>- platforma de comerț electronic &bdquo;<strong>{{config.siteTitle}}</strong>&rdquo;, accesibilă fie pe site-ul&nbsp;<a
+            href="http://{{config.siteUrl}}">{{config.siteUrl}}</a>, fie prin <strong><u>aplicația [facem aplicatie zic eu]</u></strong> din care sunt introduse
+        comenzile
     </p>
-    <p><strong>Site</strong> - magazinul online găzduit la domeniul&nbsp;<a href="http://www.apromag.ro">www.apromag.ro</a>&nbsp;si subdomeniile acestuia.</p>
+    <p><strong>Site</strong> - magazinul online găzduit la domeniul&nbsp;<a href="http://{{config.siteUrl}}">{{config.siteUrl}}</a>&nbsp;si subdomeniile acestuia.</p>
     <p><strong>Comanda</strong> - este tranzacția &icirc;n format electronic reprezent&acirc;nd modalitatea prin care Cumpărătorul transmite V&acirc;nzătorului,
         prin intermediul Site-ului intenția sa de a achiziționa Bunuri și Servicii existente pe Site și/sau Platformă pe care V&acirc;nzătorul le pune la v&acirc;nzare.
     </p>
     <p><strong>Status</strong> - este stadiul &icirc;n care se afla comanda la un anumit moment.</p>
-    <p><strong>Bunuri</strong> <strong>și Servicii &nbsp;</strong>- reprezintă orice produs sau serviciu listat pe Site și/sau Platforma <strong>aproMAG</strong>,
-        inclusiv produsele și serviciile menționate &icirc;n Comandă, care urmează a fi furnizate de către V&acirc;nzător, Cumpărătorului ca urmare a Contractului
+    <p><strong>Bunuri</strong> <strong>și Servicii &nbsp;</strong>- reprezintă orice produs sau serviciu listat pe Site și/sau Platforma
+        <strong>{{config.siteTitle}}</strong>,
+        inclusiv produsele și serviciile menționate &icirc;n Comandă, care urmează a fi furnizate de către V&acirc;nzător, Cumpărătorului ca urmare a
+        Contractului
         &icirc;ncheiat.</p>
-    <p><strong>Contract </strong>- &nbsp;&icirc;nseamnă Contractul la distanță &icirc;ncheiat &icirc;ntre V&acirc;nzător și Cumpărător, av&acirc;nd &icirc;n vedere
+    <p><strong>Contract </strong>- &nbsp;&icirc;nseamnă Contractul la distanță &icirc;ncheiat &icirc;ntre V&acirc;nzător și Cumpărător, av&acirc;nd &icirc;n
+        vedere
         faptul ca p&acirc;rțile nu sunt prezente fizic simultan &icirc;n momentul contractării.</p>
     <p><strong>Preț al contractului (preț) </strong>- &icirc;nseamnă suma de bani care va fi plătită V&acirc;nzătorului de către Cumpărător &icirc;n schimbul
         transferului dreptului de proprietate asupra Bunurilor, &icirc;n condițiile prezentului Contract.</p>
     <p><strong>Conținutul&nbsp;</strong>- reprezintă următoarele, dacă nu este specificat altfel:</p>
-    <p>&ndash; informațiile din Site-ul și/sau Platforma <strong>aproMAG</strong> care pot fi accesate prin utilizarea unui echipament electronic</p>
+    <p>&ndash; informațiile din Site-ul și/sau Platforma <strong>{{config.siteTitle}}</strong> care pot fi accesate prin utilizarea unui echipament electronic</p>
     <p>&ndash; conținutul oricărui e-mail trimis Cumpărătorilor de către V&acirc;nzător și/sau Producător prin mijloace electronice și/sau orice alt mijloc de
         comunicare disponibil</p>
     <p>&ndash; orice informație comunicată Cumpărătorului prin orice mijloc de către un angajat/colaborator al V&acirc;nzătorului și/sau Producătorului, conform
@@ -69,74 +90,91 @@
     <p>&ndash; informațiile despre Bunurile și/sau Serviciile și/sau tarifele/prețurile practicate de V&acirc;nzător și/sau Producător &icirc;ntr-o anumita
         perioadă</p>
     <p>&ndash; date referitoare la V&acirc;nzător, sau alte date privilegiate ale acestuia.</p>
-    <p><strong>Tranzacție </strong>- &icirc;ncasarea sau rambursarea unei sume rezultată din v&acirc;nzarea către Cumpărător a unui Bun și/sau Serviciu de către V&acirc;nzător
+    <p><strong>Tranzacție </strong>- &icirc;ncasarea sau rambursarea unei sume rezultată din v&acirc;nzarea către Cumpărător a unui Bun și/sau Serviciu de către
+        V&acirc;nzător
         și/sau Producător, prin utilizarea serviciilor procesatorului de carduri agreat de către V&acirc;nzător, indiferent de modalitatea de livrare.</p>
     <p><strong>Specificații</strong> - toate specificațiile si/sau descrierile Bunurilor si Serviciilor așa cum sunt precizate &icirc;n descrierea acestora.</p>
-    <p><strong>Informații Confidențiale</strong> - &icirc;nseamnă orice informații confidențiale primite sau de care P&acirc;rțile au luat la cunoștință cu ocazia
-        &icirc;ncheierii Contractului, private sau cu caracter de secret comercial, marcate sau nu sau &icirc;n alt mod desemnate ca fiind cu titlu confidențial,
+    <p><strong>Informații Confidențiale</strong> - &icirc;nseamnă orice informații confidențiale primite sau de care P&acirc;rțile au luat la cunoștință cu
+        ocazia
+        &icirc;ncheierii Contractului, private sau cu caracter de secret comercial, marcate sau nu sau &icirc;n alt mod desemnate ca fiind cu titlu
+        confidențial,
         sub forma de document, electronic sau sub alta formă, și includ, fără limitare, informații care nu sunt cunoscute public cu privire la finanțe, clienți
-        actuali și potențiali, identității comercianți, propuneri, proiecte, previziuni, angajați, desene, manuale, invenții, cereri de brevet, informații de proces
-        si fabricație, planuri si rezultate cercetare, programe computer, baze de date, programe software, grafice de flux, specificații, date tehnice, informații
+        actuali și potențiali, identității comercianți, propuneri, proiecte, previziuni, angajați, desene, manuale, invenții, cereri de brevet, informații de
+        proces
+        si fabricație, planuri si rezultate cercetare, programe computer, baze de date, programe software, grafice de flux, specificații, date tehnice,
+        informații
         științifice și tehnice, studii de piață si know-how-ul aferent oricărora din cele de mai sus. Informațiile Confidențiale includ at&acirc;t informații
         aferente Parților c&acirc;t și informații primite de către oricare dintre P&acirc;rți de la terți.</p>
     <p><strong>Zile</strong> - &icirc;nseamnă zile calendaristice daca nu se prevede altfel.</p>
     <p><strong>2.Prelucrarea Datelor cu Caracter Personal</strong></p>
     <p>Pentru a parcurge informațiile privitoare la prelucrarea datelor cu caracter personal vă rugăm să accesați politica de confidențialitate la:</p>
     <p>www.aproMag.ro/prelucrarea-datelor-cu-caracter-personal</p>
-    <p><strong>3.Proprietatea intelectuală asupra conținutului Platformei și/sau Site-ului aproMAG</strong></p>
-    <p>a)&Icirc;ntreaga Platformă, inclusiv, marca &bdquo;<strong>aproMAG</strong>&rdquo;, denumirea comercială a platformei &bdquo;<strong>aproMAG</strong>&rdquo;,
-        algoritmii, prezentarea, siglele utilizate, butoanele, simbolurile și/sau conținutul multimedia pe Site și/sau platformă sunt proprietatea intelectuală și
+    <p><strong>3.Proprietatea intelectuală asupra conținutului Platformei și/sau Site-ului {{config.siteTitle}}</strong></p>
+    <p>a)&Icirc;ntreaga Platformă, inclusiv, marca &bdquo;<strong>{{config.siteTitle}}</strong>&rdquo;, denumirea comercială a platformei &bdquo;<strong>{{config.siteTitle}}</strong>&rdquo;,
+        algoritmii, prezentarea, siglele utilizate, butoanele, simbolurile și/sau conținutul multimedia pe Site și/sau platformă sunt proprietatea intelectuală
+        și
         aparțin ADIPETCU SRL . Toate drepturile care se obțin &icirc;n mod direct și/sau indirect din acestea aparțin ADIPETCU SRL. Niciuna dintre componentele
         Platformei nu poate fi folosită, copiată, distribuită sau incorporată &icirc;n opere derivate fără acordul ADIPETCU SRL.</p>
     <ol>
-        <li>b) Se interzice utilizarea Conținutului Platformei și/sau Site-ului <strong>aproMAG</strong> &icirc;n orice alt scop dec&acirc;t cel pentru care
+        <li>b) Se interzice utilizarea Conținutului Platformei și/sau Site-ului <strong>{{config.siteTitle}}</strong> &icirc;n orice alt scop dec&acirc;t cel pentru care
             utilizatorul și-a dat acordul prin acceptarea prezentelor Termene și Condiții.
         </li>
     </ol>
     <p><strong>4.Utilizarea Platformei</strong></p>
-    <p>Platforma și/sau Site-ul <strong>aproMAG</strong> se adresează utilizatorilor umani. Utilizarea platformei prin orice forme de automatizare, robotizare
-        și/sau proceduri informatice cu scopul de a produce disfuncțiuni Platformei și/sau Site-ului <strong>aproMAG</strong> atrage toate consecințele legale ce
+    <p>Platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong> se adresează utilizatorilor umani. Utilizarea platformei prin orice forme de automatizare, robotizare
+        și/sau proceduri informatice cu scopul de a produce disfuncțiuni Platformei și/sau Site-ului <strong>{{config.siteTitle}}</strong> atrage toate consecințele legale
+        ce
         decurg din desfășurarea de astfel de activități.</p>
-    <p>Comportamentul malițios pe platforma aproMAG atrage după sine blocarea Contului de Utilizator și/sau Producător și a IP-ului, și sesizarea autorităților.
+    <p>Comportamentul malițios pe platforma {{config.siteTitle}} atrage după sine blocarea Contului de Utilizator și/sau Producător și a IP-ului, și sesizarea autorităților.
         Astfel, Utilizatorul care produce pagube prin comportamentul malițios &icirc;și asumă plata despăgubirilor, inclusiv de daune directe și/sau indirecte
         &icirc;n baza legislației &icirc;n vigoare din Rom&acirc;nia.</p>
-    <p>Toate formele de concurență neloială cauzate prin orice mijloc de utilizare a Platformei și/sau a Site-ului <strong>aproMAG</strong> va atrage răspunderea
+    <p>Toate formele de concurență neloială cauzate prin orice mijloc de utilizare a Platformei și/sau a Site-ului <strong>{{config.siteTitle}}</strong> va atrage
+        răspunderea
         legală a Utilizatorului prin toate accepțiunile acceptate de legislația &icirc;n vigoare din Romania.</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p><strong>5.Contul de Utilizator</strong></p>
-    <p>&Icirc;n vederea plasării de comenzi pe Platforma și/sau pe Site-ul <strong>aproMAG</strong>, este necesar ca Utilizatorul să &icirc;și creeaze un Cont de
+    <p>&Icirc;n vederea plasării de comenzi pe Platforma și/sau pe Site-ul <strong>{{config.siteTitle}}</strong>, este necesar ca Utilizatorul să &icirc;și creeaze un Cont
+        de
         Utilizator. Prin parcurgerea acestui proces Utilizatorul furnizează informații precum numele, email-ul, numărul de telefon de contact și după caz adresa
         necesară pentru a se realiza livrarea comenzii. Prin acceptarea Termenelor și Condițiilor, la crearea unui nou Cont de Utilizatorul, acesta &icirc;și
         exprimă consimțăm&acirc;ntul că &icirc;ndeplinește v&acirc;rsta minimă legală și respectă cadrul legal pentru utilizarea Platformei și/sau a Site-ului
-        <strong>aproMAG</strong>.</p>
+        <strong>{{config.siteTitle}}</strong>.</p>
     <p>Dacă se constată abateri malițioase ale Utilizatorului prin furnizarea de informații incomplete și/sau după caz de natură să perturbe buna funcționare a
-        Platformei&nbsp; și/sau a Site-ului <strong>aproMAG</strong>, V&acirc;nzătorul &icirc;și rezervă dreptul să sisteze livrarea produselor către Utilizator și
+        Platformei&nbsp; și/sau a Site-ului <strong>{{config.siteTitle}}</strong>, V&acirc;nzătorul &icirc;și rezervă dreptul să sisteze livrarea produselor către Utilizator
+        și
         Contul respectiv al Utilizatorului va fi blocat și/sau dezactivat din Platformă și/sau Site.</p>
-    <p>Utilizatorul este direct responsabil de securitatea contului său și nu trebuie să transmită datele sale de acces &icirc;n Platforma și/sau Site-ul aproMAG
+    <p>Utilizatorul este direct responsabil de securitatea contului său și nu trebuie să transmită datele sale de acces &icirc;n Platforma și/sau Site-ul
+        {{config.siteTitle}}
         niciunei persoane.</p>
     <p><strong>6.Comanda produselor</strong></p>
-    <p>V&acirc;nzătorul și/sau Producătorul va afișa Prețul corespunzător cantității de produse menționate pe Site-ul și/sau Platforma <strong>aproMAG</strong>.
-        Prețurile produselor&nbsp;prezentate pe Platforma și/sau Site-ul <strong>aproMAG</strong> pot fi schimbate oric&acirc;nd de V&acirc;nzător/Producător fără
+    <p>V&acirc;nzătorul și/sau Producătorul va afișa Prețul corespunzător cantității de produse menționate pe Site-ul și/sau Platforma <strong>{{config.siteTitle}}</strong>.
+        Prețurile produselor&nbsp;prezentate pe Platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong> pot fi schimbate oric&acirc;nd de V&acirc;nzător/Producător
+        fără
         notificări. Vă rugăm să verificați prețul final de v&acirc;nzare &icirc;nainte de achiziționarea unui Produs, Bun și/sau Serviciu.</p>
-    <p>Utilizatorul/Cumpărătorul poate efectua Comenzi pe Site-ul și/sau Platforma <strong>aproMAG</strong>, prin adăugarea &icirc;n coșul de cumpărături a
+    <p>Utilizatorul/Cumpărătorul poate efectua Comenzi pe Site-ul și/sau Platforma <strong>{{config.siteTitle}}</strong>, prin adăugarea &icirc;n coșul de cumpărături a
         Bunurilor și/sau Serviciilor și finalizează procesul de transmitere a unei Comanzi. Toate Bunurile și/sau Serviciile disponibile prin Platforma și/sau
-        Site-ul <strong>aproMAG</strong> sunt disponibile pentru achiziție &icirc;n limita stocului disponibil la V&acirc;nzător/Producător. Adăugarea unui
+        Site-ul <strong>{{config.siteTitle}}</strong> sunt disponibile pentru achiziție &icirc;n limita stocului disponibil la V&acirc;nzător/Producător. Adăugarea unui
         Bun/Serviciu &icirc;n coșul de cumpărături, fără a finaliza procesul de transmitere a Comenzii, nu implică rezervarea Bunului și/sau a Serviciului.</p>
-    <p>Prin finalizarea procesului de transmitere a Comenzii, Cumpărătorul/Utilizatorul confirmă prețul, adresa, data și acceptă intervalul de livrare furnizat de V&acirc;nzător/Producător
-        pe Platforma și/sau Site-ul <strong>aproMAG</strong> și reprezintă acordul pentru &icirc;ncheierea, &icirc;ntre Cumpărător/Utilizator și V&acirc;nzător/Producător,
+    <p>Prin finalizarea procesului de transmitere a Comenzii, Cumpărătorul/Utilizatorul confirmă prețul, adresa, data și acceptă intervalul de livrare furnizat
+        de V&acirc;nzător/Producător
+        pe Platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong> și reprezintă acordul pentru &icirc;ncheierea, &icirc;ntre Cumpărător/Utilizator și V&acirc;nzător/Producător,
         a unui contract de v&acirc;nzare cu livrare la adresa furnizată de Cumpărător/Utilizator.</p>
-    <p>Prin finalizarea procesului de transmitere a Comenzii, Utilizatorul/Cumpărătorul consimte corectitudinea tuturor datelor pe care acesta le-a furnizat la data
+    <p>Prin finalizarea procesului de transmitere a Comenzii, Utilizatorul/Cumpărătorul consimte corectitudinea tuturor datelor pe care acesta le-a furnizat la
+        data
         plasării Comenzii.</p>
     <p>&nbsp;</p>
-    <p>Prin finalizarea procesului de transmitere a Comenzii, Cumpărătorul &icirc;și dă acordul pentru a fi contactat de V&acirc;nzător și/sau Producător, &icirc;n
+    <p>Prin finalizarea procesului de transmitere a Comenzii, Cumpărătorul &icirc;și dă acordul pentru a fi contactat de V&acirc;nzător și/sau Producător,
+        &icirc;n
         orice situație se impune prin orice mijloc disponibil și/sau agreat.</p>
     <p>&nbsp;</p>
     <p>Comanda efectuată de către Utilizator/Cumpărător, poate fi anulată de către V&acirc;nzător și/sau Producător &icirc;n urma unei notificări prealabile
-        adresate Cumpărătorului dacă Utilizatorul și/sau Cumpărătorul nu poate fi contactat sau dacă datele furnizate de către acesta, sunt incomplete/incorecte. La
-        anularea unei Comenzi, părților nu le revin nicio obligație ulterioară și &icirc;și asumă prin acceptarea prezentelor Termene și Condiții că nu vor pretinde
+        adresate Cumpărătorului dacă Utilizatorul și/sau Cumpărătorul nu poate fi contactat sau dacă datele furnizate de către acesta, sunt
+        incomplete/incorecte. La
+        anularea unei Comenzi, părților nu le revin nicio obligație ulterioară și &icirc;și asumă prin acceptarea prezentelor Termene și Condiții că nu vor
+        pretinde
         daune-interese.&nbsp;</p>
     <p>&nbsp;</p>
     <p>Cumpărătorul are dreptul sa se retragă din Contract respect&acirc;nd legislația &icirc;n vigoare din Rom&acirc;nia. &Icirc;n eventualitatea &icirc;n care
@@ -144,74 +182,95 @@
         acord.</p>
     <p>V&acirc;nzătorii și/sau Producătorii vor transmite prin aprobarea comenzii, data și intervalele orare &icirc;n care produsele pot fi livrate.</p>
     <p>Prețul afișat &icirc;n Comanda finalizată este prețul total care pe care Utilizatorul / Cumpărătorul &nbsp;trebuie să &icirc;l plătească V&acirc;nzătorului/Producătorului.
-        Includerea prețului transportul și a oricăror alte taxe și impozite suportate de către V&acirc;nzător/Producător vor fi specificate &icirc;n comandă și/sau
+        Includerea prețului transportul și a oricăror alte taxe și impozite suportate de către V&acirc;nzător/Producător vor fi specificate &icirc;n comandă
+        și/sau
         &icirc;n detaliile oferite de V&acirc;nzător/Producător.</p>
     <p>Produsele comercializate de V&acirc;nzător/Producător sunt livrate fie de către acesta &icirc;n regie proprie, fie prin curier, după cum este menționat
-        &icirc;n Platformă și/sau Site-ul <strong>aproMAG</strong> &icirc;n oferta acestuia.</p>
-    <p>V&acirc;nzătorul/Producătorul consimte că este singur răspunzător de &icirc;ntreg procesul de transport și &icirc;ndeplinire a obligațiilor de onorare a unei
-        Comenzi plasate pe Platforma și/sau Site-ul <strong>aproMAG</strong> de către Utilizator/Cumpărător.</p>
+        &icirc;n Platformă și/sau Site-ul <strong>{{config.siteTitle}}</strong> &icirc;n oferta acestuia.</p>
+    <p>V&acirc;nzătorul/Producătorul consimte că este singur răspunzător de &icirc;ntreg procesul de transport și &icirc;ndeplinire a obligațiilor de onorare a
+        unei
+        Comenzi plasate pe Platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong> de către Utilizator/Cumpărător.</p>
     <p>La livrarea prin curier a produselor, V&acirc;nzătorul și/sau Producătorul va avea obligația să transmită Utilizatorului/Cumpărătorului toate detaliile
-        aferente livrării. Condițiile de livrare vor ține seama de curier și sunt consimțite de V&acirc;nzător și/sau Producător acesta fiind singurul responsabil
+        aferente livrării. Condițiile de livrare vor ține seama de curier și sunt consimțite de V&acirc;nzător și/sau Producător acesta fiind singurul
+        responsabil
         de onorarea comenzii. Dispozițiile ce țin de facturare, ambalare, garanție, plată și/sau returnare vor răm&acirc;ne cele menționate &icirc;n prezentele
-        Termene și Condiții. Pentru abateri de la aceste Termene și Condiții V&acirc;nzătorul și/sau Producătorul răspunde față de Platforma și/sau Site-ul <strong>aproMAG</strong>
+        Termene și Condiții. Pentru abateri de la aceste Termene și Condiții V&acirc;nzătorul și/sau Producătorul răspunde față de Platforma și/sau Site-ul
+        <strong>{{config.siteTitle}}</strong>
         și față de Utilizator/Cumpărător.</p>
     <p>Prin acceptarea prezentelor Termene și Condiții, Utilizatorul consimte că V&acirc;nzătorul și/sau Producătorul este singurul responsabil de calitatea, de
-        modul de ambalare și/sau &icirc;mpachetare, de modul de păstrare a produselor comercializate, de transportul acestor Bunuri,&nbsp; și de orice alte pagube
+        modul de ambalare și/sau &icirc;mpachetare, de modul de păstrare a produselor comercializate, de transportul acestor Bunuri,&nbsp; și de orice alte
+        pagube
         i-ar putea cauza acestea Utilizatorului.</p>
-    <p>[După primirea produselor achiziționate folosind Platforma și/sau Site-ul <strong>aproMAG</strong>, Utilizatorul/Cumpărătorul poate să &icirc;i acorde V&acirc;nzătorului
-        și/sau Producătorului un rating de la 0 (minim) la 5 (maxim). Ratingul pe care Platforma și/sau Site-ul <strong>aproMAG</strong> o va afișa &icirc;n dreptul
+    <p>[După primirea produselor achiziționate folosind Platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong>, Utilizatorul/Cumpărătorul poate să &icirc;i acorde V&acirc;nzătorului
+        și/sau Producătorului un rating de la 0 (minim) la 5 (maxim). Ratingul pe care Platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong> o va afișa &icirc;n
+        dreptul
         V&acirc;nzătorului și/sau Producătorului reprezintă valoarea agregată de la mai mulți Utilizatori.] [de stabilit dacă se impune]</p>
     <p><strong>7.Plata produselor</strong></p>
-    <p>Produsele pot fi plătite &nbsp;&icirc;n numerar la&nbsp; predarea acestora sau prin plata cu cardul bancar la predare &icirc;n funcție de politica fiecărui V&acirc;nzător.
-        Dacă plata se face &icirc;n numerar, Utilizatorul/Cumpărătorul achită prețul produselor aferent Comenzii plasate către V&acirc;nzător, Producător sau către
-        curier, după caz. Dacă plata se face prin card bancar, V&acirc;nzătorul debitează contul bancar menționat și/sau folosit de Utilizator cu acest preț aferent
+    <p>Produsele pot fi plătite &nbsp;&icirc;n numerar la&nbsp; predarea acestora sau prin plata cu cardul bancar la predare &icirc;n funcție de politica
+        fiecărui V&acirc;nzător.
+        Dacă plata se face &icirc;n numerar, Utilizatorul/Cumpărătorul achită prețul produselor aferent Comenzii plasate către V&acirc;nzător, Producător sau
+        către
+        curier, după caz. Dacă plata se face prin card bancar, V&acirc;nzătorul debitează contul bancar menționat și/sau folosit de Utilizator cu acest preț
+        aferent
         Comenzii.</p>
     <p><strong>8.Returnarea produselor</strong></p>
     <p>Prezenta secțiune se aplică numai Utilizatorilor persoane fizice.</p>
     <p>ADIPETCU SRL nu răspunde pentru procesul de returnare a produselor de la Cumpărător către V&acirc;nzător și nici pentru restituirea către Cumpărător a
-        sumelor &icirc;ncasate de către V&acirc;nzător. Procesul de returnare a produselor cade &icirc;n sarcina V&acirc;nzătorului care are obligația de a informa
+        sumelor &icirc;ncasate de către V&acirc;nzător. Procesul de returnare a produselor cade &icirc;n sarcina V&acirc;nzătorului care are obligația de a
+        informa
         Cumpărătorul cu privire la procesul său de acceptare și returnare a produselor pe care le comercializează pe Platforma și/sau Site-ul
-        <strong>aproMAG</strong>, conform legislației &icirc;n vigoare.</p>
-    <p>Returnarea produselor se recomandă să se desfășoare doar pentru motive serioase și eventualele litigii ce decurg din acest proces revin doar &icirc;ntre V&acirc;nzător
+        <strong>{{config.siteTitle}}</strong>, conform legislației &icirc;n vigoare.</p>
+    <p>Returnarea produselor se recomandă să se desfășoare doar pentru motive serioase și eventualele litigii ce decurg din acest proces revin doar &icirc;ntre
+        V&acirc;nzător
         și Cumpărător.</p>
-    <p>Prin acceptarea prezentelor Termene și Condiții, V&acirc;nzătorul, Cumpărătorul și toți Utilizatorii Platformei și/sau Site-ului <strong>aproMAG</strong>
-        renunță la orice pretenție din partea ADIPETCU SRL asupra Returnării produselor c&acirc;t și asupra oricăror forme de beneficii directe sau indirecte care
+    <p>Prin acceptarea prezentelor Termene și Condiții, V&acirc;nzătorul, Cumpărătorul și toți Utilizatorii Platformei și/sau Site-ului <strong>{{config.siteTitle}}</strong>
+        renunță la orice pretenție din partea ADIPETCU SRL asupra Returnării produselor c&acirc;t și asupra oricăror forme de beneficii directe sau indirecte
+        care
         decurg din acest proces.</p>
     <p><strong>9.Garanții</strong></p>
-    <p>Toate Bunurile comercializate de V&acirc;nzători și/sau Producător pe Platforma și/sau Site-ul <strong>aproMAG</strong>, beneficiază de condițiile de
+    <p>Toate Bunurile comercializate de V&acirc;nzători și/sau Producător pe Platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong>, beneficiază de condițiile de
         garanție &icirc;n conformitate cu legislația &icirc;n vigoare și cu politicilor comerciale ale producătorilor. Bunurile provin din surse detaliate și
         autorizate spre punere la v&acirc;nzare de fiecare V&acirc;nzător și/sau Producător &icirc;n parte.</p>
-    <p>Utilizatorul are obligația să inspecteze toate produsele primite aferente unei Comenzi, pentru a stabili dacă există defecte, cantitate necorespunzătoare a
-        produselor, sau orice alte detalii aferente unei comenzii plasată de către Cumpărător &icirc;n platforma și/sau Site-ul <strong>aproMAG</strong>.</p>
-    <p>V&acirc;nzătorul și/sau Producătorul se face direct și/sau indirect răspunzător de orice neconformitate a produselor primite de către Cumpărător și aceasta
+    <p>Utilizatorul are obligația să inspecteze toate produsele primite aferente unei Comenzi, pentru a stabili dacă există defecte, cantitate necorespunzătoare
+        a
+        produselor, sau orice alte detalii aferente unei comenzii plasată de către Cumpărător &icirc;n platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong>.</p>
+    <p>V&acirc;nzătorul și/sau Producătorul se face direct și/sau indirect răspunzător de orice neconformitate a produselor primite de către Cumpărător și
+        aceasta
         se remediază &icirc;n temeiul cadrului legal &icirc;n vigoare pentru astfel de contracte și produse comercializate.</p>
     <p>V&acirc;nzătorul și/sau Producătorul are obligația de a prezenta Cumpărătorului termenul de valabilitate al produselor comercializate pe Platforma și/sau
-        Site-ul <strong>aproMAG.</strong></p>
-    <p>Solicitarea abuzivă a garanției atrage după sine sancționea de excludere a utilizatorului din Platforma și/sau Site-ul aproMAG.</p>
+        Site-ul <strong>{{config.siteTitle}}.</strong></p>
+    <p>Solicitarea abuzivă a garanției atrage după sine sancționea de excludere a utilizatorului din Platforma și/sau Site-ul {{config.siteTitle}}.</p>
     <p><strong>10.Răspundere</strong></p>
-    <p>ADIPETCU SRL nu răspunde pentru prejudiciile cauzate Utilizatorului de către V&acirc;nzător și/sau Producător, prin interacțiunea cu Platforma și/sau Site-ul
-        <strong>aproMAG</strong> (spre exemplu și nelimit&acirc;ndu-se la, anularea comenzii de către Producător/V&acirc;nzător, &icirc;nt&acirc;rzierea la livrare,
+    <p>ADIPETCU SRL nu răspunde pentru prejudiciile cauzate Utilizatorului de către V&acirc;nzător și/sau Producător, prin interacțiunea cu Platforma și/sau
+        Site-ul
+        <strong>{{config.siteTitle}}</strong> (spre exemplu și nelimit&acirc;ndu-se la, anularea comenzii de către Producător/V&acirc;nzător, &icirc;nt&acirc;rzierea la
+        livrare,
         cantitatea necorespunzătoare a produselor, calitatea produselor comercializate de Producător/V&acirc;nzător, etc.).</p>
     <p>V&acirc;nzătorul nu se face răspunzător pentru eventuale daune pe care Cumpărătorul sau oricare terț o poate suferi ca rezultat direct al &icirc;ndeplinirii
         de către V&acirc;nzător a oricărei dintre obligațiile sale conform Comenzii. V&acirc;nzătorul nu se face răspunzător pentru daune care rezulta din
         utilizarea Bunurilor și Serviciilor după livrare c&acirc;t și pentru pierderea sau distrugerea acestora.</p>
-    <p>Prin accesarea Platformei și/sau a Site-ului <strong>aproMAG</strong>, &icirc;nregistrarea și utilizarea Contului, Utilizatorul &icirc;și asumă răspunderea
-        pentru confidențialitatea datelor aferente Contului (email și parola) și se face răspunzător conform legislației &icirc;n vigoare de activitatea derulată
+    <p>Prin accesarea Platformei și/sau a Site-ului <strong>{{config.siteTitle}}</strong>, &icirc;nregistrarea și utilizarea Contului, Utilizatorul &icirc;și asumă
+        răspunderea
+        pentru confidențialitatea datelor aferente Contului (email și parola) și se face răspunzător conform legislației &icirc;n vigoare de activitatea
+        derulată
         prin intermediul Contului său.</p>
-    <p>Prin crearea Contului de acces și/sau utilizarea Conținutului din Site-ul și/sau Platforma <strong>aproMAG</strong> si/sau plasarea Comenzilor
-        Clientul/Utilizatorul/ Cumpărătorul/V&acirc;nzătorul/Producătorul acceptă ultima versiune a Termenelor și Condițiilor comunicate &icirc;n cadrul Site-ului
-        și/sau Platformei <strong>aproMAG</strong>.</p>
-    <p>ADIPETCU SRL &icirc;și rezervă dreptul de a actualiza și modifica periodic Termenele si Condițiile din Platforma și/sau Site-ul <strong>aproMAG</strong>
-        pentru a transpune informațiile necesare corespunzătoare cu funcționarea Platformei și sau Site-ului <strong>aproMAG</strong> sau orice modificări ale
-        cerințelor legale. Termenele și Condițiile se aplică tuturor utilizatorilor Platformei și sau Site-ului <strong>aproMAG</strong> de la data afișării
-        acestora pe Platforma și/sau Site-ul <strong>aproMAG</strong>.&nbsp; Termenele și Condițiile actualizate sunt afișate pe Site-ul și/sau Platforma aproMAG,
+    <p>Prin crearea Contului de acces și/sau utilizarea Conținutului din Site-ul și/sau Platforma <strong>{{config.siteTitle}}</strong> si/sau plasarea Comenzilor
+        Clientul/Utilizatorul/ Cumpărătorul/V&acirc;nzătorul/Producătorul acceptă ultima versiune a Termenelor și Condițiilor comunicate &icirc;n cadrul
+        Site-ului
+        și/sau Platformei <strong>{{config.siteTitle}}</strong>.</p>
+    <p>ADIPETCU SRL &icirc;și rezervă dreptul de a actualiza și modifica periodic Termenele si Condițiile din Platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong>
+        pentru a transpune informațiile necesare corespunzătoare cu funcționarea Platformei și sau Site-ului <strong>{{config.siteTitle}}</strong> sau orice modificări ale
+        cerințelor legale. Termenele și Condițiile se aplică tuturor utilizatorilor Platformei și sau Site-ului <strong>{{config.siteTitle}}</strong> de la data afișării
+        acestora pe Platforma și/sau Site-ul <strong>{{config.siteTitle}}</strong>.&nbsp; Termenele și Condițiile actualizate sunt afișate pe Site-ul și/sau Platforma
+        {{config.siteTitle}},
         motiv pentru care rugăm sa verificați periodic conținutul acestora.</p>
     <p><strong>11.Legea aplicabilă </strong></p>
     <p>Relația contractuală dintre Utilizator și ADIPETCU SRL este descrisă de Termenele și Condițiile prezentate &icirc;n Site-ul și/sau Platforma
-        <strong>aproMAG</strong> și este guvernată de legislația rom&acirc;nă.</p>
-    <p>Eventualele litigii &icirc;ntre V&acirc;nzător și Utilizatori sau Cumpărători se rezolvă pe cale amiabilă sau vor fi soluționate de instanțele competente din
+        <strong>{{config.siteTitle}}</strong> și este guvernată de legislația rom&acirc;nă.</p>
+    <p>Eventualele litigii &icirc;ntre V&acirc;nzător și Utilizatori sau Cumpărători se rezolvă pe cale amiabilă sau vor fi soluționate de instanțele competente
+        din
         Municipiul București</p>
     <p><strong>12.Adresa de notificări</strong></p>
-    <p>Orice comunicări sau notificări vor fi transmise către ADIPETCU SRL, București, XX_adresa_XX, sau la adresa de e-mail contact@aproMAG.ro</p>
+    <p>Orice comunicări sau notificări vor fi transmise către ADIPETCU SRL, București, XX_adresa_XX, sau la adresa de e-mail contact@{{config.siteTitle}}.ro</p>
 
 </div>
