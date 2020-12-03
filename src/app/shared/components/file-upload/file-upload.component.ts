@@ -1,6 +1,7 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Image } from '../../models/image.model';
+
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
@@ -48,14 +49,18 @@ export class FileUploadComponent implements OnInit, ControlValueAccessor {
   setDisabledState(isDisabled: boolean): void {}
 
   writeValue(value: any): void {
+    const allowedImagesLength = this.maxFiles - this.currentImages.length;
     if (value) {
-      this.propagateChange(value);
+      this.files = this.files.slice(0, allowedImagesLength);
+      this.propagateChange(this.files);
     } else {
       this.files = [];
     }
   }
 
-  onRemoveImage(index: number): void {
+  onRemoveImage($event: Event, index: number): void {
+    $event.stopPropagation();
+
     this.files.splice(index, 1);
     this.propagateChange(this.files);
   }
