@@ -34,14 +34,14 @@
                             <app-loading *ngIf="loading"></app-loading>
 
                             <div class="shippingLocations" *ngIf="!loading">
-                                <ul>
+                                <ul *ngIf="this.shippingForm && this.shippingForm.controls">
                                     <li>
                                         <label>
                                             <p-inputSwitch (onChange)="onSelectAll($event)"></p-inputSwitch>
                                             <span>Selecteaza toate {{shippingLocations.length}} locatiile</span>
                                         </label>
                                     </li>
-                                    <li *ngFor="let control of locationsFormArray?.controls; let i = index" class="checkbox">
+                                    <li *ngFor="let control of this.shippingForm.controls.locationsFormArray.controls; let i = index" class="checkbox">
                                         <label>
                                             <p-inputSwitch [formControl]="control"></p-inputSwitch>
                                             <span>{{ shippingLocations[i]?.name }}</span>
