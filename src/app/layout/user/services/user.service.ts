@@ -85,7 +85,7 @@ export class UserService {
     return this.loggedUser.value && this.loggedUser.value.isUserOfTypeCustomer();
   }
 
-  loginStateChanged(): Observable<null | User> {
+  userStateChanged(): Observable<null | User> {
     return this.loggedUser.asObservable();
   }
 

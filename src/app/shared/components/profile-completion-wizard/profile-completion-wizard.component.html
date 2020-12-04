@@ -1,8 +1,21 @@
-<div class="card mb-3">
+<div class="card mb-3" *ngIf="completionPercentage !== 100">
     <div class="card-body">
-        <div class="card-title">
-            Status completare profil
+        <div class="card-title mb-0" (click)="toggleProfileCompletion()">
+            <div class="row">
+                <div class="col">
+                    Status completare profil
+                    <i [class.icofont-rounded-down]='isStatusHidden' [class.icofont-rounded-up]='!isStatusHidden'></i>
+                </div>
+                <div class="col" *ngIf="isStatusHidden">
+                    <p-progressBar [value]="completionPercentage"></p-progressBar>
+                </div>
+            </div>
         </div>
-        <p-progressBar [value]="50"></p-progressBar>
+        <div *ngIf="!isStatusHidden">
+            <p-progressBar [value]="completionPercentage"></p-progressBar>
+            <div class="action" *ngFor="let step of incompleteSteps">
+                <a [routerLink]="step.action">  {{step.name}} </a>
+            </div>
+        </div>
     </div>
 </div>

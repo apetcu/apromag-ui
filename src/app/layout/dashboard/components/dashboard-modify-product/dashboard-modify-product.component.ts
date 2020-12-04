@@ -4,6 +4,7 @@ import { DashboardFacadeService } from '../../services/dashboard-facade.service'
 import { Product } from '../../../product/models/product';
 import { Category } from '../../../categories/models/category.model';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../../../user/services/user.service';
 
 @Component({
   selector: 'app-dashboard-modify-product',
@@ -29,7 +30,11 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
   formErrors = false;
   formMode: string = 'ADD';
 
-  constructor(private dashboardFacadeService: DashboardFacadeService, private toastrService: ToastrService) {}
+  constructor(
+    private dashboardFacadeService: DashboardFacadeService,
+    private toastrService: ToastrService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.initProductEdit(this.editProduct);
@@ -48,6 +53,12 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
       this.dashboardFacadeService.addOrModifyProduct(this.modifyProductForm.value, this.editProductId).subscribe(
         (data) => {
           this.onSaveComplete.emit(true);
+
+          if (!this.editProductId) {
+            const user = this.userService.getUser();
+            user.vendor.productsListed++;
+            this.userService.setUser(user);
+          }
         },
         () => {
           this.onSaveComplete.emit(false);

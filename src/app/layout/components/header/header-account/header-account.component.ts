@@ -38,7 +38,7 @@ export class HeaderAccountComponent implements OnInit {
   }
 
   private getUserLoggedInState() {
-    this.userLoggedInSubscription = this.userService.loginStateChanged().subscribe((currentUser: null | User) => {
+    this.userLoggedInSubscription = this.userService.userStateChanged().subscribe((currentUser: null | User) => {
       this.currentUser = currentUser;
       this.loggedIn = !!currentUser;
     });

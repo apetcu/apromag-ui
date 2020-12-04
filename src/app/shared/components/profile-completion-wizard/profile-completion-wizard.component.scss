@@ -1,5 +1,9 @@
 @import "variables";
 
+.card-title {
+  cursor: pointer;
+}
+
 ::ng-deep {
   .ui-progressbar {
     .ui-progressbar-value {
