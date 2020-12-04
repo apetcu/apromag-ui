@@ -2044,6 +2044,7 @@
             .shop-thumb {
               img {
                 width: 100%;
+                cursor: pointer;
                 @include border-radius(10px);
               }
             }
@@ -2052,14 +2053,15 @@
 
         .gallery-thumbs {
           .shop-item {
-            cursor: pointer;
 
             .shop-thumb {
               @include border-radius(4px);
               @extend %hidden;
 
               img {
+                cursor: pointer;
                 width: 100%;
+                @include border-radius(10px);
               }
             }
           }

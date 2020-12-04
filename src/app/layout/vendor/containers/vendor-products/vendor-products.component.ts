@@ -4,8 +4,6 @@ import { Vendor } from '../../models/vendor';
 import { VendorsFacadeService } from '../../services/vendors-facade.service';
 import { Product } from '../../../product/models/product';
 import { ProductListConfig, ProductListDisplayModes } from '../../../../shared/components/product-list/product-list-config';
-import { map } from 'rxjs/operators';
-import { PaginatedResponse } from '../../../../shared/models/paginated-response';
 import { Image } from '../../../../shared/models/image.model';
 import { Lightbox } from 'ngx-lightbox';
 

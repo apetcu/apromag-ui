@@ -6,11 +6,21 @@
                     <article>
                         <div class="shop-single">
                             <div class="row justify-content-center">
-                                <div class="col-md-6 col-12">
+                                <div class="col-md-6 col-12 gallery-thumbs">
                                     <div class="shop-item">
                                         <div class="shop-thumb">
-                                            <img [src]="productDetails?.imageFullPath" [alt]="productDetails?.name" *ngIf="!productInformationLoading">
+                                            <img [src]="productDetails?.imageFullPath" [alt]="productDetails?.name" *ngIf="!productInformationLoading"
+                                                 (click)="openGallery(0)">
                                             <div class="skeleton-box product-skeleton" *ngIf="productInformationLoading"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4" *ngIf="!productInformationLoading">
+                                        <div *ngFor="let image of productDetails?.images; let i = index;" class="col-4 mb-3">
+                                            <div class="shop-item">
+                                                <div class="shop-thumb">
+                                                    <img [src]="image.url" [alt]="productDetails?.name" (click)="openGallery(i)">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -25,10 +35,12 @@
                                         <div class="desc">
                                             <p>{{productDetails?.description}}</p>
                                             <ul>
-                                                <li *ngIf="vendorDetails?.freeShippingOver">{{'GENERAL.FREE_SHIPPING_OVER' |translate }} <strong>{{vendorDetails?.freeShippingOver}} lei</strong></li>
+                                                <li *ngIf="vendorDetails?.freeShippingOver">{{'GENERAL.FREE_SHIPPING_OVER' |translate }}
+                                                    <strong>{{vendorDetails?.freeShippingOver}} lei</strong></li>
                                                 <li>{{'GENERAL.SHIPPING_COST' | translate}}: {{vendorDetails?.shippingCost}} lei</li>
                                                 <li>Detin certificat producator</li>
-                                                <li>Vandut de: <a [routerLink]="vendorDetails?.urlSlug" class="theme-color font-weight-bold">{{vendorDetails?.businessName}}</a></li>
+                                                <li>Vandut de: <a [routerLink]="vendorDetails?.urlSlug"
+                                                                  class="theme-color font-weight-bold">{{vendorDetails?.businessName}}</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -53,7 +65,8 @@
                                         <label *ngIf="productDetails?.stock">
                                             <input type="number" class="form-control" formControlName="quantity" placeholder="0.5" step="0.5" min="0">
                                         </label>
-                                        <button type="submit" class="food-btn style-2" *ngIf="productDetails?.stock" [disabled]="addToCartForm.invalid"><span>{{'GENERAL.ADD_TO_CART' | translate}}</span></button>
+                                        <button type="submit" class="food-btn style-2" *ngIf="productDetails?.stock" [disabled]="addToCartForm.invalid">
+                                            <span>{{'GENERAL.ADD_TO_CART' | translate}}</span></button>
                                     </form>
                                 </div>
                             </div>
