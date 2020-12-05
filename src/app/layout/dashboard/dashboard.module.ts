@@ -29,6 +29,8 @@ import { DashboardVendorComponent } from './containers/dashboard-vendor/dashboar
 import { ProfileCompletionWizardModule } from '../../shared/components/profile-completion-wizard/profile-completion-wizard.module';
 import { DefaultImageModule } from '../../shared/directives/default-image/default-image.module';
 import { LoadingModule } from '../../shared/components/loading/loading.module';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { FilterModule } from '../../shared/pipes/filter/filter.module';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { LoadingModule } from '../../shared/components/loading/loading.module';
     OrderSummaryModule,
     ProfileCompletionWizardModule,
     DefaultImageModule,
-    LoadingModule
+    LoadingModule,
+    MultiSelectModule,
+    FilterModule
   ]
 })
 export class DashboardModule {}

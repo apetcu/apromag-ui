@@ -4,7 +4,6 @@ import { ShippingLocation } from '../../../../shared/models/shipping-location';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AlertService } from '../../../../shared/services/alert/alert.service';
 import { UserService } from '../../../user/services/user.service';
-import { VendorShippingPreference } from '../../../vendor/models/vendor';
 import { User } from '../../../user/models/user.model';
 
 @Component({
@@ -25,18 +24,12 @@ export class DashboardShippingComponent implements OnInit {
     private userService: UserService
   ) {}
 
-  get f() {
-    return this.shippingForm && this.shippingForm.controls;
+  get shippingLocationsFormArray() {
+    return this.shippingForm.controls.locations as FormArray;
   }
 
-  get locationsFormArray(): FormArray {
-    return this.f && <FormArray>this.f.locationsFormArray;
-  }
-
-  get locationsFormArrayaySelectedIds(): string[] {
-    return this.shippingLocations
-      .filter((cat, catIdx) => this.locationsFormArray.controls.some((control, controlIdx) => catIdx === controlIdx && control.value))
-      .map((cat) => cat.id);
+  get selectedShippingLocations() {
+    return this.shippingForm.value.locations.map((v, i) => (v ? this.shippingLocations[i].id : null)).filter((v) => v !== null);
   }
 
   ngOnInit(): void {
@@ -45,21 +38,16 @@ export class DashboardShippingComponent implements OnInit {
       shippingCost: new FormControl(this.currentUser.vendor.shippingCost, Validators.required),
       freeShippingOver: new FormControl(this.currentUser.vendor.freeShippingOver),
       shippingRemarks: new FormControl(this.currentUser.vendor.shippingRemarks),
-      minOrder: new FormControl(this.currentUser.vendor.minOrder)
+      minOrder: new FormControl(this.currentUser.vendor.minOrder),
+      locations: new FormArray([]),
+      allShippingLocationsSelected: new FormControl(false),
+      searchString: new FormControl('')
     });
     this.loadShippingLocations();
   }
 
-  locationFormArray(locations: Array<ShippingLocation>, selectedLocations: Array<VendorShippingPreference> = []): FormArray {
-    const controlArr = locations.map((category) => {
-      let isSelected = selectedLocations.some((preference) => preference.locationId === parseInt(category.id, 10));
-      return this.formBuilder.control(isSelected);
-    });
-    return this.formBuilder.array(controlArr);
-  }
-
   onSubmit() {
-    this.shippingFacadeService.saveShippingLocations(this.locationsFormArrayaySelectedIds, this.shippingForm.value).subscribe((data) => {
+    this.shippingFacadeService.saveShippingLocations(this.selectedShippingLocations, this.shippingForm.value).subscribe((data) => {
       this.alertService.show({
         position: 'top-end',
         icon: 'success',
@@ -71,14 +59,21 @@ export class DashboardShippingComponent implements OnInit {
   }
 
   onSelectAll($event) {
-    this.shippingForm.get('locationsFormArray').setValue(Array.from({ length: this.shippingLocations.length }, (_) => $event.checked));
+    this.shippingForm.get('locations').setValue(Array.from({ length: this.shippingLocations.length }, (_) => $event.checked));
   }
 
   loadShippingLocations(): void {
     this.shippingFacadeService.getShippingLocations('').subscribe((locations) => {
+      locations.forEach((entry) => {
+        const isSelected = this.currentUser.vendor.shippingPreferences.some((preference) => preference.locationId === parseInt(entry.id));
+        this.shippingLocationsFormArray.push(new FormControl(isSelected));
+      });
+
       this.loading = false;
       this.shippingLocations = locations;
-      this.shippingForm.addControl('locationsFormArray', this.locationFormArray(locations, this.currentUser.vendor.shippingPreferences));
+      this.shippingForm
+        .get('allShippingLocationsSelected')
+        .setValue(this.currentUser.vendor.shippingPreferences.length === locations.length);
     });
   }
 }

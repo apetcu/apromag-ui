@@ -28,10 +28,10 @@ export class ShippingFacadeService {
     );
   }
 
-  saveShippingLocations(shippingLocations, formDetails) {
+  saveShippingLocations(locations: Array<number>, formDetails) {
     return this.shippingApiService
       .saveLocations({
-        locations: this.mapLocationsToForm(shippingLocations),
+        locations: this.mapLocationsToForm(locations),
         freeShippingOver: formDetails.freeShippingOver,
         shippingRemarks: formDetails.shippingRemarks,
         minOrder: formDetails.minOrder,
