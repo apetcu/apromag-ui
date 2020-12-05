@@ -62,12 +62,9 @@ export class DashboardShippingComponent implements OnInit {
   }
 
   loadShippingLocations(): void {
-    console.log('preferences', this.currentUser.vendor.shippingPreferences);
     this.shippingFacadeService.getShippingLocations('').subscribe((locations) => {
-      console.log('locations', locations);
       locations.forEach((entry, key) => {
         const isSelected = this.currentUser.vendor.shippingPreferences.some((preference) => preference.locationId === parseInt(entry.id));
-        console.log('Is selected', key, isSelected);
         this.shippingLocationsFormArray.push(new FormControl(isSelected));
       });
 
