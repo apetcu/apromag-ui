@@ -40,8 +40,7 @@ export class DashboardShippingComponent implements OnInit {
       shippingRemarks: new FormControl(this.currentUser.vendor.shippingRemarks),
       minOrder: new FormControl(this.currentUser.vendor.minOrder),
       locations: new FormArray([]),
-      allShippingLocationsSelected: new FormControl(false),
-      searchString: new FormControl('')
+      allShippingLocationsSelected: new FormControl(false)
     });
     this.loadShippingLocations();
   }
