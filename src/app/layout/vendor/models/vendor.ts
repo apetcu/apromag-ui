@@ -48,7 +48,7 @@ export class Vendor {
     if (vendorResponse.shippingPreferences) {
       this.shippingPreferences = vendorResponse.shippingPreferences.map((entry) => ({
         name: entry.name,
-        locationId: entry.locationId
+        locationId: parseInt(entry.locationId)
       }));
     }
 
