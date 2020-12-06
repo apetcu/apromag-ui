@@ -90,7 +90,7 @@ export class ProfileCompletionWizardComponent implements OnInit {
       actualSteps[actualSteps.findIndex((el) => el.id === 'shipping')].completed = true;
     }
 
-    if (vendor.productsListed) {
+    if (vendor.productsCount) {
       actualSteps[actualSteps.findIndex((el) => el.id === 'products')].completed = true;
     }
 

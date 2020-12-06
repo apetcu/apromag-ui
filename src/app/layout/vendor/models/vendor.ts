@@ -11,7 +11,7 @@ export class Vendor {
   address: string;
   phone: string;
   certificate: string;
-  productsListed: number;
+  productsCount: number;
   urlSlug: string;
   rating: number;
 
@@ -32,7 +32,7 @@ export class Vendor {
     this.phone = vendorResponse.phone;
     this.certificate = vendorResponse.certificate;
 
-    this.productsListed = vendorResponse.productsListed;
+    this.productsCount = vendorResponse.productsListed;
 
     this.shippingCost = vendorResponse.shippingCost;
     this.shippingRemarks = vendorResponse.shippingRemarks;

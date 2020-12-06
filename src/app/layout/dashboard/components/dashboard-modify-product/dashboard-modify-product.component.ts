@@ -56,7 +56,7 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
 
           if (!this.editProductId) {
             const user = this.userService.getUser();
-            user.vendor.productsListed++;
+            user.vendor.productsCount++;
             this.userService.setUser(user);
           }
         },
