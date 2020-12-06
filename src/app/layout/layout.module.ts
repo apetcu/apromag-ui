@@ -10,6 +10,7 @@ import { HomeModule } from './home/home.module';
 import { ContactModule } from './contact/contact.module';
 import { ProductModule } from './product/product.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { SearchModule } from '../shared/components/search/search.module';
 
 @NgModule({
   declarations: [LayoutComponent, FooterComponent],
@@ -22,7 +23,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ContactModule,
     ProductModule,
     HomeModule,
-    TranslateModule
+    TranslateModule,
+    SearchModule
   ]
 })
 export class LayoutModule {}

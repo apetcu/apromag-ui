@@ -1,0 +1,11 @@
+<div class="search-area" [class.open]="searchOpen | async">
+    <div class="search-input">
+        <div class="search-close" (click)="hideSearch()">
+            <span></span>
+            <span></span>
+        </div>
+        <form>
+            <input type="text" name="text" placeholder="*Search Here.......">
+        </form>
+    </div>
+</div>

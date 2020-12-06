@@ -3,6 +3,7 @@ import { MenuItem } from './models/menu-item';
 import { NavigationStart, Router } from '@angular/router';
 import { CategoriesFacadeService } from '../../categories/services/categories-facade.service';
 import { Category } from '../../categories/models/category.model';
+import { SearchService } from '../../../shared/components/search/services/search.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
   menuOpen = false;
   categoryMenus: Array<MenuItem>;
 
-  constructor(private router: Router, private categoriesFacadeService: CategoriesFacadeService) {}
+  constructor(private router: Router, private categoriesFacadeService: CategoriesFacadeService, private searchService: SearchService) {}
 
   ngOnInit(): void {
     this.router.events.forEach((event) => {
@@ -28,6 +29,10 @@ export class HeaderComponent implements OnInit {
     this.categoriesFacadeService.getCategories().subscribe((categories) => {
       this.categoryMenus = categories.map((entry) => this.getCategoryMenu(entry));
     });
+  }
+
+  onSearch(): void {
+    this.searchService.showSearch();
   }
 
   private getCategoryMenu(category: Category) {

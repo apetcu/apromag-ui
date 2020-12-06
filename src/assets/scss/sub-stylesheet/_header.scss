@@ -572,7 +572,7 @@
     }
 }
 .author-account {
-    width: calc(100% - 85px);
+    width: calc(100% - 144px);
     position:relative;
     @extend %flex;
     align-items: center;
@@ -598,10 +598,12 @@
     }
 }
 
-
-
-
-
+.search-start {
+    @extend %pointer;
+    width: 60px;
+    text-align: center;
+    padding: 38px 0;
+}
 
 
 // Page Header Section Start Here
