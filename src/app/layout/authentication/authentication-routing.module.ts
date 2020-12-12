@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication-guard';
 import { PasswordResetComponent } from './containers/password-reset/password-reset.component';
+import { PasswordResetTokenComponent } from './containers/password-reset-token/password-reset-token.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,14 @@ const routes: Routes = [
   {
     path: 'password-reset',
     component: PasswordResetComponent,
+    pathMatch: 'prefix',
+    data: {
+      title: 'Resetare parola'
+    }
+  },
+  {
+    path: 'password-reset/:token',
+    component: PasswordResetTokenComponent,
     pathMatch: 'prefix',
     data: {
       title: 'Resetare parola'

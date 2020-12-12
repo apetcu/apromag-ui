@@ -17,7 +17,7 @@
     .main-menu {
         width: calc(100% - 300px);
         @include breakpoint(xxl) {
-            width: calc(100% - 800px);
+            width: calc(100% - 812px);
         }
         ul {
             align-items: center;
@@ -108,7 +108,7 @@
         }
     }
     .author-option {
-        width: 300px;
+        width: 330px;
         display: none;
         @include breakpoint(xxl) {
             display: block;
@@ -152,7 +152,7 @@
                 }
             }
             .author-option {
-                width: 300px;
+                width: 330px;
                 display: block;
                 height: 100px;
                 background: $theme-color;

@@ -10,9 +10,10 @@ import { AuthenticationGuard } from './guards/authentication-guard';
 import { InfoBoxModule } from '../../shared/components/info-box/info-box.module';
 import { CheckboxModule } from 'primeng/checkbox';
 import { PasswordResetComponent } from './containers/password-reset/password-reset.component';
+import { PasswordResetTokenComponent } from './containers/password-reset-token/password-reset-token.component';
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, AuthenticationComponent, PasswordResetComponent],
+  declarations: [RegisterComponent, LoginComponent, AuthenticationComponent, PasswordResetComponent, PasswordResetTokenComponent],
   providers: [AuthenticationGuard],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, AuthenticationRoutingModule, InfoBoxModule, CheckboxModule]
 })

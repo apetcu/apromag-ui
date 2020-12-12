@@ -22,6 +22,10 @@ export class AuthenticationApiService {
     return this.api.post(`${this.domainUrl}/password-reset`, resetForm);
   }
 
+  passwordResetWithToken(resetForm: any, uuid: string): Observable<any> {
+    return this.api.post(`${this.domainUrl}/password-reset/${uuid}`, resetForm);
+  }
+
   loginWithFb(): Observable<any> {
     return this.api.get(`social/redirect`);
   }

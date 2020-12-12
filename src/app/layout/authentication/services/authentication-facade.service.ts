@@ -27,6 +27,10 @@ export class AuthenticationFacadeService {
     return this.authenticationApiService.passwordReset(passwordResetForm);
   }
 
+  passwordResetWithToken(passwordResetForm, uuid) {
+    return this.authenticationApiService.passwordResetWithToken(passwordResetForm, uuid);
+  }
+
   loginWithFb() {
     return this.authenticationApiService.loginWithFb();
   }
