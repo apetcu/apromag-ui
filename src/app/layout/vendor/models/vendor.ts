@@ -21,7 +21,7 @@ export class Vendor {
   shippingRemarks: string;
   currency: Currency = new Currency({ code: 'RON', factor: 100 });
 
-  shippingPreferences: Array<VendorShippingPreference>;
+  shippingPreferences: Array<VendorShippingPreference> = [];
   images: Array<Image> = [];
 
   constructor(vendorResponse: any) {
