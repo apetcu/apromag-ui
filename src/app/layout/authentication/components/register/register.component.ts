@@ -3,7 +3,7 @@ import { RegisterForm } from './register-form';
 import { UserRoles } from '../../../user/models/user-roles';
 import { AuthenticationFacadeService } from '../../services/authentication-facade.service';
 import { AlertService } from '../../../../shared/services/alert/alert.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,10 +18,18 @@ export class RegisterComponent implements OnInit {
   constructor(
     private authenticationFacadeService: AuthenticationFacadeService,
     private alertService: AlertService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe((params) => {
+      if (params.businessName) {
+        this.registerForm.patchValue(params);
+        this.currentRegistrationType = UserRoles.VENDOR;
+      }
+    });
+  }
 
   register() {
     if (this.registerForm.valid) {
