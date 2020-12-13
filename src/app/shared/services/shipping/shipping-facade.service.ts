@@ -14,7 +14,7 @@ export class ShippingFacadeService {
 
   constructor(private shippingApiService: ShippingApiService, private userService: UserService) {}
 
-  getShippingLocations(query: string): Observable<Array<ShippingLocation>> {
+  getShippingLocations(query: string = ''): Observable<Array<ShippingLocation>> {
     if (this.cachedShippingLocations) {
       return of(this.cachedShippingLocations).pipe(this.filterLocations(query));
     }

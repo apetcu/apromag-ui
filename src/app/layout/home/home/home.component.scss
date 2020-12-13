@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 .food-category {
   background-image: url(/assets/bg-image/category-bg.jpg);
@@ -8,6 +9,10 @@
 ::ng-deep {
   p-autoComplete {
     width: calc(100% - 80px);
+    @include breakpoint(max-sm) {
+      width: calc(100% - 50px);
+    }
+
     .ui-autocomplete {
       width: 100%;
       input {

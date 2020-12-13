@@ -55,6 +55,10 @@ const routes: Routes = [
         loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
       },
       {
+        path: 'search',
+        loadChildren: () => import('./search/search.module').then((m) => m.SearchModule)
+      },
+      {
         path: 'contact',
         component: ContactComponent,
         data: {

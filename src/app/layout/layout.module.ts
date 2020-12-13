@@ -11,6 +11,7 @@ import { ContactModule } from './contact/contact.module';
 import { ProductModule } from './product/product.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { SearchModule } from '../shared/components/search/search.module';
+import { LocationPicker } from '../shared/components/location-picker/location-picker.module';
 
 @NgModule({
   declarations: [LayoutComponent, FooterComponent],
@@ -24,7 +25,8 @@ import { SearchModule } from '../shared/components/search/search.module';
     ProductModule,
     HomeModule,
     TranslateModule,
-    SearchModule
+    SearchModule,
+    LocationPicker
   ]
 })
 export class LayoutModule {}

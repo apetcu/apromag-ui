@@ -15,6 +15,10 @@ export class ProductsFacadeService {
     return this.productsApiService.getAll().pipe(this.mapCompaniesToDomainModel());
   }
 
+  getProductsByQuery(query: string): Observable<PaginatedResponse<Product>> {
+    return this.productsApiService.getAllByQuery(query).pipe(this.mapProductsToDomainModel());
+  }
+
   getProductById(id: number): Observable<Product> {
     return this.productsApiService.getById(id).pipe(map((response) => new Product(response)));
   }

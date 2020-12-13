@@ -1,0 +1,23 @@
+@import "variables";
+@import "mixins";
+
+.shippingLocations {
+  height: 400px;
+  overflow-y: scroll;
+
+  .item {
+    text-align: left;
+    font-size: $fs-h4;
+    cursor: pointer;
+    padding: 10px;
+
+    @include breakpoint(max-sm){
+      font-size: $fs-h5;
+    }
+
+    &:hover {
+      background: $theme-color;
+      color: #fff;
+    }
+  }
+}

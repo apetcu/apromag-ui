@@ -1,0 +1,16 @@
+<div class="search-area" [class.open]="locationPickerOpen | async">
+    <div class="search-input">
+        <div class="search-close" (click)="hideSearch()">
+            <span></span>
+            <span></span>
+        </div>
+        <form (ngSubmit)="onSearch($event)" [formGroup]="searchForm">
+            <input type="text" formControlName="query" placeholder="*Cauta locatie ...">
+            <div class="shippingLocations">
+                <div class="item" *ngFor="let location of shippingLocations" (click)="onSelect(location)">
+                    {{location.name}}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

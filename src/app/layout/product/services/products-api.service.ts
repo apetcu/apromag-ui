@@ -13,6 +13,10 @@ export class ProductsApiService {
     return this.api.get(this.domainUrl);
   }
 
+  getAllByQuery(searchQuery: string): Observable<any> {
+    return this.api.get(this.domainUrl, { searchQuery });
+  }
+
   getById(id: number): Observable<any> {
     return this.api.get(`${this.domainUrl}/${id}`);
   }

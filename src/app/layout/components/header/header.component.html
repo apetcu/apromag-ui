@@ -4,7 +4,11 @@
         <div class="header-logo">
             <a routerLink="/home" class="logo"><img src="assets/images/logo/logo.png" alt="logo"></a>
         </div>
-        <div class="header-bar" (click)="menuOpen = !menuOpen" [class.close]="menuOpen">
+        <div class="header-icons">
+            <i class="icofont-search-2" (click)="onSearch()"></i>
+            <i class="icofont-google-map" (click)="onPickLocation()"></i>
+        </div>
+        <div class="header-bar" (click)="menuOpen = !menuOpen; categoriesOpen=false;" [class.close]="menuOpen">
             <span></span>
             <span></span>
             <span></span>
@@ -13,10 +17,6 @@
     <nav class="menu" [class.open]="menuOpen">
         <div class="mobile-menu-area d-xl-none">
             <div class="mobile-menu-area-inner scrollbar">
-                <div class="mobile-search">
-                    <input type="text" placeholder="Cauta produs">
-                    <button type="submit"><i class="icofont-search-2"></i></button>
-                </div>
                 <ul>
                     <li>
                         <a routerLink="/home" [routerLinkActive]="'active'" translate="MENU.HOME"></a>
@@ -24,16 +24,11 @@
                     <li>
                         <a routerLink="/vendor" [routerLinkActive]="'active'" translate="MENU.PRODUCERS"></a>
                     </li>
-                    <li>
-                        <a routerLink="/categories">Categorii</a>
-                        <ul>
+                    <li [class.open]="categoriesOpen">
+                        <a (click)="categoriesOpen = !categoriesOpen" class="dd-icon-down">Categorii</a>
+                        <ul [class.d-block]="categoriesOpen">
                             <li *ngFor="let menu of categoryMenus">
                                 <a [routerLink]="menu.link" [routerLinkActive]="'active'">{{menu.title}}</a>
-                                <ul *ngIf="menu.children && menu.children.length">
-                                    <li *ngFor="let child of menu.children">
-                                        <a class="active" [routerLink]="child.link">{{child.title}}</a>
-                                    </li>
-                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -42,10 +37,8 @@
                     </li>
                 </ul>
                 <div class="scocial-media">
-                    <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-                    <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-                    <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
-                    <a href="#" class="vimeo"><i class="icofont-vimeo"></i></a>
+                    <a href="#" class="facebook mr-3"><i class="icofont-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShippingService } from '../../services/shipping/shipping.service';
 import { ShippingLocation } from '../../models/shipping-location';
+import { LocationPickerService } from '../location-picker/services/location-picker.service';
 
 @Component({
   selector: 'app-shipping-location-picker',
@@ -9,8 +10,11 @@ import { ShippingLocation } from '../../models/shipping-location';
 })
 export class ShippingLocationPickerComponent implements OnInit {
   currentLocation: ShippingLocation;
-  constructor(private shippingService: ShippingService) {}
+  constructor(private shippingService: ShippingService, private locationPicker: LocationPickerService) {}
 
+  onChangeLocation() {
+    this.locationPicker.showLocationPicker();
+  }
   ngOnInit(): void {
     this.listenForLocationChange();
   }

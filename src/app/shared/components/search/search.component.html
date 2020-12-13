@@ -4,8 +4,9 @@
             <span></span>
             <span></span>
         </div>
-        <form>
-            <input type="text" name="text" placeholder="*Search Here.......">
+        <form (ngSubmit)="searchForm.valid && onSearch()" [formGroup]="searchForm">
+            <input type="text" formControlName="query" placeholder="*Cauta produse.......">
+            <span class="text-danger mt-4 d-block" *ngIf="searchForm.dirty && searchForm.invalid">Minim 3 caractere</span>
         </form>
     </div>
 </div>

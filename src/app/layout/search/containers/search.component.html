@@ -1,0 +1,14 @@
+<app-page-title title="Cautare" [subtitle]="query" [contentLoading]="productsLoading"></app-page-title>
+<div class="shop-page single padding-tb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <app-product-list [listLoading]="productsLoading" [pagination]="{totalElements: totalProducts}" [config]="productListConfig"
+                                  [products]="products"></app-product-list>
+                <app-info-box title="Ne pare rau" type="danger" *ngIf="!productsLoading && !(products && products.length)">
+                    Nu exista produse care sa corespunda acestui criteriu
+                </app-info-box>
+            </div>
+        </div>
+    </div>
+</div>

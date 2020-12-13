@@ -73,6 +73,10 @@
                     background: #ecf0f3;
                     top: -5px;
                     right: 80px;
+
+                    @include breakpoint(max-sm) {
+                        right: 50px;
+                    }
                 }
                 .codexcoder-selectoption {
                     @extend %rel;
