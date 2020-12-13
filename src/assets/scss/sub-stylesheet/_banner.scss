@@ -9,6 +9,14 @@
         // height: 700px;
         padding: 230px 0;
     }
+
+    @include breakpoint(max-sm){
+        background: url(~assets/images/header/bg.png);
+        background-size: cover;
+        //https://www.vectorstock.com/royalty-free-vector/landscape-street-shop-background-vector-13450303
+    }
+
+
     .shape-1, .shape-2 {
         @extend %abs;
         display: none;

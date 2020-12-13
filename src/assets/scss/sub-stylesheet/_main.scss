@@ -36,6 +36,10 @@
   border-radius: 5px;
   font-family: "Open Sans", Arial, sans-serif;
   text-align: center;
+
+  @include breakpoint(max-sm) {
+    padding: 15px;
+  }
 }
 
 .alternativa {

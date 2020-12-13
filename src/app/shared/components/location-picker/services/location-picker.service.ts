@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class LocationPickerService {
-  locationPickerDisplayed: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  locationPickerDisplayed: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   showLocationPicker() {
     this.locationPickerDisplayed.next(true);

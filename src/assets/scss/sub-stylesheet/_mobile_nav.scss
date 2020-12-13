@@ -114,6 +114,13 @@
         align-items: center;
         padding: 20px 0;
 
+        .header-account {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 20px 0;
+        }
+
         ul {
           text-align: center;
           margin: 0;
