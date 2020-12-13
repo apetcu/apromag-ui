@@ -51,10 +51,10 @@
                                 <div class="swiper-slide">
                                     <div class="food-item">
                                         <div class="food-thumb">
-                                            <a href="#"><img [src]="category.imageUrl" alt="food"></a>
+                                            <a [routerLink]="category.urlSlug"><img [src]="category.imageUrl" alt="food"></a>
                                         </div>
                                         <div class="food-content">
-                                            <a href="#">{{category.label}}</a>
+                                            <a [routerLink]="category.urlSlug">{{category.name}}</a>
                                         </div>
                                     </div>
                                 </div>

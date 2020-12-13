@@ -6,6 +6,7 @@ export class Category {
   description: string;
   imageUrl: string = 'assets/images/food-recipe/08.png';
   urlSlug: string;
+  homepage: boolean;
   children: Array<Category>;
 
   constructor(props) {
@@ -15,6 +16,7 @@ export class Category {
     if (props.imageUrl) {
       this.imageUrl = props.imageUrl;
     }
+    this.homepage = !!props.homepage;
 
     this.urlSlug = Category.generateUrlSlug(this.name, this.id);
 

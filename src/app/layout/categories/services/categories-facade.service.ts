@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of, OperatorFunction } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { CategoriesApiService } from './categories-api.service';
 import { Category } from '../models/category.model';
 import { PaginatedResponse } from '../../../shared/models/paginated-response';
@@ -12,14 +12,14 @@ import { ProductsFacadeService } from '../../product/services/products-facade.se
   providedIn: 'root'
 })
 export class CategoriesFacadeService {
-  private cachedCategories: Array<Category>;
-  private flattenedCategories: Array<Category>;
+  private cachedCategories: BehaviorSubject<Array<Category>> = new BehaviorSubject<Array<Category>>(null);
+  private flattenedCategories: BehaviorSubject<Array<Category>> = new BehaviorSubject<Array<Category>>(null);
 
   constructor(private categoriesApiService: CategoriesApiService, private productsFacadeService: ProductsFacadeService) {}
 
   getCategoryById(id: number): Observable<Category> {
-    if (this.cachedCategories) {
-      return of(this.flattenedCategories.find((category) => category.id === id));
+    if (this.cachedCategories.value) {
+      return of(this.flattenedCategories.value.find((category) => category.id === id));
     }
     return this.categoriesApiService.getById(id).pipe(map((category) => new Category(category)));
   }
@@ -29,8 +29,8 @@ export class CategoriesFacadeService {
   }
 
   getCategories(): Observable<Array<Category>> {
-    if (this.cachedCategories) {
-      return of(this.cachedCategories);
+    if (this.cachedCategories.value) {
+      return this.cachedCategories.asObservable();
     }
     return this.categoriesApiService.getAll().pipe(
       this.mapCategoriesToDomainModel(),
@@ -41,9 +41,18 @@ export class CategoriesFacadeService {
     );
   }
 
+  getHomepageCategories(): Observable<Array<Category>> {
+    return this.flattenedCategories.asObservable().pipe(
+      filter((categories) => categories !== null),
+      map((categories) => {
+        return categories.filter((category) => category.homepage);
+      })
+    );
+  }
+
   private cacheCategories(categories: Array<Category>) {
-    this.cachedCategories = categories;
-    this.flattenedCategories = this.getCategoryTree(categories);
+    this.cachedCategories.next(categories);
+    this.flattenedCategories.next(this.getCategoryTree(categories));
   }
 
   private getCategoryTree(categories: Array<Category>) {
