@@ -4,7 +4,7 @@ export class Category {
   id: number;
   name: string;
   description: string;
-  imageUrl: string;
+  imageUrl: string = 'assets/images/food-recipe/08.png';
   urlSlug: string;
   children: Array<Category>;
 
@@ -12,7 +12,9 @@ export class Category {
     this.id = props.id;
     this.name = props.name;
     this.description = props.description;
-    this.imageUrl = props.imageUrl;
+    if (props.imageUrl) {
+      this.imageUrl = props.imageUrl;
+    }
 
     this.urlSlug = Category.generateUrlSlug(this.name, this.id);
 

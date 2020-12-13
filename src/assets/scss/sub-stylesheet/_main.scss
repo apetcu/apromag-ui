@@ -1641,7 +1641,10 @@
       }
 
       .recipe-thumb {
-        height: 52px;
+        height: 134px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .recipe-content {
