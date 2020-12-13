@@ -21,11 +21,14 @@ export class UserApiService {
     return this.api.get(`${this.basePath}/orders`, paginationInfo);
   }
 
-  changePassword(password: string): Observable<any> {
-    return this.api.post(`${this.basePath}/change-password`, { password });
+  changePassword(passwordForm): Observable<any> {
+    return this.api.post(`${this.basePath}/change-password`, {
+      password: passwordForm.password,
+      currentPassword: passwordForm.currentPassword
+    });
   }
 
-  changeEmail(email: string): Observable<any> {
-    return this.api.post(`${this.basePath}/change-email`, { email });
+  changeEmail(emailForm): Observable<any> {
+    return this.api.post(`${this.basePath}/change-email`, { email: emailForm.email, currentPassword: emailForm.currentPassword });
   }
 }

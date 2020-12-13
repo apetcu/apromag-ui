@@ -52,6 +52,10 @@
             <hr>
             <form [formGroup]="userChangeEmailForm" (ngSubmit)="changeEmail()">
                 <div class="form-group">
+                    <label for="crt_pass" translate="ACCOUNT.CURRENT_PASSWORD"></label>
+                    <input class="form-control" id="crt_pass" type="password" formControlName="currentPassword">
+                </div>
+                <div class="form-group">
                     <label for="email" translate="ACCOUNT.NEW_EMAIL"></label>
                     <input class="form-control" id="email" type="text" formControlName="email">
                 </div>
@@ -70,6 +74,10 @@
             <h5 translate="GENERAL.ACCOUNT_CHANGE_PASSWORD"></h5>
             <hr>
             <form [formGroup]="userChangePasswordForm" (ngSubmit)="changePassword()">
+                <div class="form-group">
+                    <label for="crt_pass2" translate="ACCOUNT.CURRENT_PASSWORD"></label>
+                    <input class="form-control" id="crt_pass2" type="password" formControlName="currentPassword">
+                </div>
                 <div class="form-group">
                     <label for="password" translate="ACCOUNT.NEW_PASSWORD"></label>
                     <input class="form-control" id="password" type="password" formControlName="password">

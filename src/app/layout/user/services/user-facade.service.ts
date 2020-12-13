@@ -21,10 +21,10 @@ export class UserFacadeService {
   }
 
   changePassword(passwordForm) {
-    return this.userApi.changePassword(passwordForm.password);
+    return this.userApi.changePassword(passwordForm);
   }
 
   changeEmail(emailForm) {
-    return this.userApi.changeEmail(emailForm.email);
+    return this.userApi.changeEmail(emailForm);
   }
 }

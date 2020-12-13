@@ -102,6 +102,7 @@
     "NAME": "Nume",
     "SURNAME": "Prenume",
     "EMAIL": "Email",
+    "CURRENT_PASSWORD": "Parola curenta",
     "NEW_EMAIL": "Email nou",
     "EMAIL_AGAIN": "Confirmare Email",
     "NEW_PASSWORD": "Parola noua",

@@ -5,7 +5,8 @@ export class UserChangePasswordForm extends FormGroup {
     super(
       {
         password: new FormControl('', [Validators.required]),
-        confirmPassword: new FormControl('', [Validators.required])
+        confirmPassword: new FormControl('', [Validators.required]),
+        currentPassword: new FormControl('', [Validators.required])
       },
       (frm: FormGroup) => {
         return frm.get('password').value === frm.get('confirmPassword').value ? null : { mismatch: true };
