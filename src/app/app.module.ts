@@ -31,7 +31,7 @@ export function initializeApp1(userService: UserService) {
 
 const cookieConfig: NgcCookieConsentConfig = {
   cookie: {
-    domain: 'apromag.ro'
+    domain: 'aprozi.ro'
   },
   content: {
     href: '/static/cookies',

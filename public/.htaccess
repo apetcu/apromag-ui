@@ -4,9 +4,9 @@
     </IfModule>
 
     RewriteEngine On
-    RewriteCond %{HTTP_HOST} ^apromag\.ro [NC]
+    RewriteCond %{HTTP_HOST} ^aprozi\.ro [NC]
     RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://www.apromag.ro/$1 [R,L]
+    RewriteRule ^(.*)$ https://www.aprozi.ro/$1 [R,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

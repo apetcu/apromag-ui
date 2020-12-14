@@ -1,7 +1,7 @@
 {
   "/api": {
     "target":  {
-      "host": "apromag.ro",
+      "host": "aprozi.ro",
       "protocol": "https:",
       "port": 443
     },

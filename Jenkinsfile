@@ -53,7 +53,7 @@ node {
 
             stage('Upload') {
                 ftpPublisher alwaysPublishFromMaster: true, continueOnError: false, failOnError: false, publishers: [
-                    [configName: 'apromag-ftp', transfers: [
+                    [configName: 'aprozi-ftp', transfers: [
                         [asciiMode: false,
                         sourceFiles: 'dist/apromag-ui/**/*.*',
                         cleanRemote: true,

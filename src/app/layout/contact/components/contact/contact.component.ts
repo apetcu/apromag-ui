@@ -13,8 +13,8 @@ export class ContactComponent implements OnInit {
   response: any;
 
   contactDetails: any = {
-    email: 'office@apromag.ro',
-    web: 'www.apromag.ro'
+    email: 'office@aprozi.ro',
+    web: 'www.aprozi.ro'
   };
 
   constructor(private contactFacadeService: ContactFacadeService, private alertService: AlertService) {}

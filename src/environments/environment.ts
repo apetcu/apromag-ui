@@ -13,8 +13,8 @@ export const environment = {
       regCom: 'nrRegCom',
       cui: 'RO1234'
     },
-    siteUrl: 'www.apromag.ro',
-    contactEmail: 'office@apromag.ro'
+    siteUrl: 'www.aprozi.ro',
+    contactEmail: 'office@aprozi.ro'
   }
 };
 /*
