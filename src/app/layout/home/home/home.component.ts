@@ -8,6 +8,7 @@ import { Vendor } from '../../vendor/models/vendor';
 import { VendorsFacadeService } from '../../vendor/services/vendors-facade.service';
 import { CategoriesFacadeService } from '../../categories/services/categories-facade.service';
 import { Category } from '../../categories/models/category.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +29,7 @@ export class HomeComponent implements OnInit {
     private vendorsFacadeService: VendorsFacadeService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private toasterService: ToastrService,
     private userService: UserService
   ) {
     this.sliderResponsiveOptions = [
@@ -53,7 +55,11 @@ export class HomeComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params) => {
       if (params['token']) {
         this.userService.initialize(params['token']).then(() => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home'], { queryParams: {} });
+          this.toasterService.success('', 'Te-ai logat cu succes', {
+            positionClass: 'toast-bottom-right',
+            timeOut: 3000
+          });
         });
       }
     });

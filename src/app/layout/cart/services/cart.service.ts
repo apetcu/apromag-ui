@@ -77,6 +77,7 @@ export class CartService {
           })
         );
     } else {
+      this.setCurrentVendor(vendor);
       return of(null);
     }
   }

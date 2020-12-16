@@ -4,9 +4,6 @@
         <div class="alert alert-warning text-center m-2" *ngIf="vendor.freeShippingOver - (cartTotal | async)?.totalProductsPrice > 0">
             {{'CART.ORDER_MORE' | translate: { orderMore: (vendor.freeShippingOver - (cartTotal | async)?.totalProductsPrice) | number: '1.2-2' } }}
         </div>
-        <div *ngIf="vendor.minOrder && (cartTotal | async)?.totalProductsPrice < vendor.minOrder" class="alert alert-warning mt-4">
-            Comanda minima la acest producator este de {{vendor.minOrder}} RON
-        </div>
     </div>
     <div class="cart-bottom">
         <form action="" [formGroup]="cartSummaryForm" (ngSubmit)="onCartSubmit()">
@@ -49,6 +46,10 @@
                     </div>
                     <div class="col-md-6 col-12">
 
+                        <div *ngIf="vendor.minOrder && (cartTotal | async)?.totalProductsPrice < vendor.minOrder" class="alert alert-warning mt-4">
+                            Comanda minima la acest producator este de {{vendor.minOrder}} RON
+                        </div>
+
                         <div class="calculate-shiping" *ngIf="!(vendor.minOrder && (cartTotal | async)?.totalProductsPrice < vendor.minOrder)">
                             <h4>Livrare la adresa</h4>
                             <div class="outline-select">
@@ -59,7 +60,6 @@
                                 <span class="select-icon"><i class="icofont-caret-down"></i></span>
                             </div>
                             <input type="text" formControlName="fullName" placeholder="{{'ACCOUNT.FULL_NAME' | translate}}" class="form-control">
-
                             <input type="text" formControlName="shippingAddress" placeholder="{{'ACCOUNT.FULL_ADDRESS' | translate}}" class="form-control">
 
                             <div class="row">

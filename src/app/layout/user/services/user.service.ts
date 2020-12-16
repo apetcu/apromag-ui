@@ -5,6 +5,7 @@ import { StorageLocations } from '../../../shared/services/storage/storage-locat
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserFacadeService } from './user-facade.service';
 import { Vendor } from '../../vendor/models/vendor';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'

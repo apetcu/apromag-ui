@@ -4,6 +4,7 @@ import { AuthenticationFacadeService } from '../../services/authentication-facad
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../user/services/user.service';
 import { AlertService } from '../../../../shared/services/alert/alert.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authenticationFacadeService: AuthenticationFacadeService,
     private alertService: AlertService,
+    private toasterService: ToastrService,
     private router: Router
   ) {}
 
@@ -26,6 +28,10 @@ export class LoginComponent implements OnInit {
       this.authenticationFacadeService.logIn(this.loginForm.get('email').value, this.loginForm.get('password').value).subscribe(
         () => {
           this.router.navigate(['/home']);
+          this.toasterService.success('', 'Te-ai logat cu succes', {
+            positionClass: 'toast-bottom-right',
+            timeOut: 3000
+          });
         },
         () => {
           this.alertService.showError('Autentificarea a esuat');

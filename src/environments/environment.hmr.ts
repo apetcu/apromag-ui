@@ -2,7 +2,7 @@ export const environment = {
   production: false,
   hmr: true,
   config: {
-    siteTitle: 'Apromag',
+    siteTitle: 'Aprozi',
     company: {
       name: 'APROMAG SRL',
       address: 'Adresa companie',

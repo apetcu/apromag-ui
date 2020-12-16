@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { VendorsApiService } from './vendors-api.service';
 import { Vendor } from '../models/vendor';
 import { Product } from '../../product/models/product';
@@ -20,8 +20,12 @@ export class VendorsFacadeService {
   ) {}
 
   getVendors(): Observable<PaginatedResponse<Vendor>> {
-    const locationId = this.shippingService.getShippingLocation().id;
-    return this.vendorsApiService.getAll({ locationId }).pipe(this.mapVendorstoDomainModel());
+    return this.shippingService.onShippingLocationChange().pipe(
+      mergeMap((shippingLocation) => {
+        return this.vendorsApiService.getAll({ locationId: shippingLocation.id });
+      }),
+      this.mapVendorstoDomainModel()
+    );
   }
 
   getVendorById(id: number): Observable<Vendor> {

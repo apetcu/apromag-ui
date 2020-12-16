@@ -5,7 +5,7 @@ import { Title } from '@angular/platform-browser';
   providedIn: 'root'
 })
 export class PageTitleService {
-  titleSuffix = ' ⋆ Apromag - Aprozar virtual';
+  titleSuffix = ' ⋆ Aprozi - Aprozar virtual';
 
   constructor(private titleService: Title) {}
 
