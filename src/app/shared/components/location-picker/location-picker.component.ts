@@ -52,9 +52,13 @@ export class LocationPickerComponent implements OnInit {
     });
   }
 
-  onSelect(shippingLocation: ShippingLocation) {
+  onSelect(shippingLocation?: ShippingLocation) {
     this.hideSearch();
-    this.shippingService.setShippingLocation(shippingLocation);
+    if (shippingLocation) {
+      this.shippingService.setShippingLocation(shippingLocation);
+    } else {
+      this.shippingService.resetShippingLocation();
+    }
   }
 
   onSearch(event: Event): void {

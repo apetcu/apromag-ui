@@ -23,6 +23,50 @@
     color: #fff;
     padding: 20px;
   }
+
+  .sidemenu {
+    .sidemenu-item {
+      display: block;
+      //margin: 10px;
+      background: #fff;
+      padding: 10px;
+      color: #000;
+      //border-radius: 5px;
+      border-left-style: solid;
+      border-left-width: 5px;
+      border-left-color: #fff;
+      transition: 0.2s ease-in-out all;
+      cursor: pointer;
+      margin-bottom: 5px;
+
+      i {
+        //background: #c4c4c4;
+        //width: 20px;
+        //height: 20px;
+        //border-radius: 50%;
+        text-align: center;
+        //line-height: 20px;
+        display: inline-block;
+        font-size: 21px;
+      }
+
+
+      &.active {
+        border-left-color: $theme-color;
+        color: $theme-color;
+        background: mix($theme-color, white, 10%);
+        i {
+          color: $theme-color;
+        }
+      }
+
+      &:hover {
+        border-left-color: $theme-color;
+        color: $theme-color;
+      }
+    }
+  }
+
   width: 220px;
 }
 

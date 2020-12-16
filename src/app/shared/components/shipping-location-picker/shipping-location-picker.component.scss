@@ -1,12 +1,20 @@
-.remove {
-  color: gray;
-  font-weight: bold;
-  cursor: pointer;
-  &:hover {
-    color: green;
-  }
-}
+@import "variables";
 
-a {
-  cursor: pointer;
+.location {
+  color: $theme-color;
+  font-size: 16px;
+
+  .remove {
+    color: gray;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  a {
+    cursor: pointer;
+  }
 }

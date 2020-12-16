@@ -22,7 +22,7 @@ const routes: Routes = [
         component: DashboardOverviewComponent,
         pathMatch: 'prefix',
         data: {
-          title: 'Comenzi'
+          title: 'Panou'
         }
       },
       {
@@ -30,7 +30,7 @@ const routes: Routes = [
         component: DashboardOrdersComponent,
         pathMatch: 'prefix',
         data: {
-          title: 'Comenzile mele'
+          title: 'Comenzi'
         }
       },
       {
@@ -38,7 +38,7 @@ const routes: Routes = [
         component: DashboardOrderComponent,
         pathMatch: 'prefix',
         data: {
-          title: 'Comenzile mele'
+          title: 'Vizualizare comanda'
         }
       },
       {
@@ -46,7 +46,7 @@ const routes: Routes = [
         component: DashboardProductsComponent,
         pathMatch: 'prefix',
         data: {
-          title: 'Produsele mele'
+          title: 'Produse'
         }
       },
       {
