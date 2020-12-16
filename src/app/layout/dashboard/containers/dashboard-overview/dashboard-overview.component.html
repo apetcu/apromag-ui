@@ -1,25 +1,39 @@
 <h5 class="admin-title">{{'VENDOR.DASHBOARD.TITLE' | translate}}</h5>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-8">
+        <div class="main-card card mb-4">
+            <div class="card-body">
+                <div class="card-title mb-4">Statistici comenzi</div>
+                <p-chart type="bar" [data]="data"></p-chart>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="main-card mb-4 card">
+            <div class="card-body">
+                <div class="card-title">Statistici comenzi</div>
+                <app-widget primaryText="1.999,50 RON" secondaryText="Total vanzari Ianuarie" icon="moon" color="orange" class="mb-3"></app-widget>
+                <app-widget primaryText="1.999,50 RON" secondaryText="Total comenzi finalizate Ianuarie" icon="moon" color="green"></app-widget>
+            </div>
+        </div>
+        <div class="main-card mb-4 card">
+            <div class="card-body">
+                <div class="card-title">Sumar comenzi</div>
+                <app-widget primaryText="0" secondaryText="Comenzi astazi" icon="moon" color="blue" class="mb-3"></app-widget>
+                <app-widget primaryText="12" secondaryText="Comenzi in Ianuarie" icon="moon" color="red"></app-widget>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <div class="card-title">Comenzi nepreluate</div>
                 <order-list [totalRecords]="totalRecords" [loading]="loading" [orders]="orders" [rowsPerPage]="rowsPerPage"
                             (onOrderClick)="onOrderClick($event)"></order-list>
                 <app-loading *ngIf="loading"></app-loading>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <div class="card-title">Statistici comenzi</div>
-            </div>
-        </div>
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <div class="card-title">Sumar comenzi</div>
             </div>
         </div>
     </div>

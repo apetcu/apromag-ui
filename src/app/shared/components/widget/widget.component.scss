@@ -1,0 +1,27 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  display: block;
+}
+
+.icon {
+  font-size: 25px;
+}
+
+.orange {
+  @include widget-color(#ffc107);
+}
+
+.green {
+  @include widget-color(#28a745);
+}
+
+.red {
+  @include widget-color(#cd201f);
+}
+
+.blue {
+  @include widget-color(#1769ff);
+}
+

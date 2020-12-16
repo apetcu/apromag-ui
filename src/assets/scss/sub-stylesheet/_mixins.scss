@@ -6,7 +6,8 @@
 }
 
 
-//   transition 
+
+//   transition
 @mixin transition($transition){
   -webkit-transition: $transition;
   -moz-transition: $transition;
@@ -19,6 +20,17 @@
   -ms-transform:     $property;
   transform:         $property;
 }
+
+
+@mixin widget-color($color) {
+        i {
+            background: $color;
+        }
+        .h5{
+            color: $color;
+        }
+}
+
 
 @mixin breakpoint($point) {
     @if $point == sm {

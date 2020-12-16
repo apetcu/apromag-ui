@@ -31,6 +31,8 @@ import { DefaultImageModule } from '../../shared/directives/default-image/defaul
 import { LoadingModule } from '../../shared/components/loading/loading.module';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { FilterModule } from '../../shared/pipes/filter/filter.module';
+import { ChartModule } from 'primeng/chart';
+import { WidgetModule } from '../../shared/components/widget/widget.module';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { FilterModule } from '../../shared/pipes/filter/filter.module';
     DefaultImageModule,
     LoadingModule,
     MultiSelectModule,
-    FilterModule
+    FilterModule,
+    ChartModule,
+    WidgetModule
   ]
 })
 export class DashboardModule {}

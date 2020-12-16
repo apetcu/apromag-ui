@@ -15,7 +15,27 @@ export class DashboardOverviewComponent implements OnInit {
   loading: boolean = true;
   rowsPerPage: number = 25;
 
-  constructor(private dashboardFacadeService: DashboardFacadeService, private router: Router) {}
+  data: any;
+
+  constructor(private dashboardFacadeService: DashboardFacadeService, private router: Router) {
+    this.data = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label: 'Total Comenzi',
+          backgroundColor: '#42A5F5',
+          borderColor: '#1E88E5',
+          data: [65, 59, 80, 81, 56, 55, 40]
+        },
+        {
+          label: 'Volum Comenzi',
+          backgroundColor: '#9CCC65',
+          borderColor: '#7CB342',
+          data: [28, 48, 40, 19, 86, 27, 90]
+        }
+      ]
+    };
+  }
 
   ngOnInit() {
     this.loadData(1);
