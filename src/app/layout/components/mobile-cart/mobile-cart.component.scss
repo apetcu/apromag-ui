@@ -1,0 +1,16 @@
+@import "variables";
+.mobile-cart-items {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 10px);
+  z-index: 100;
+  height: 30px;
+  color:#fff;
+  background: $theme-color;
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
+  line-height: 30px;
+  margin: 5px;
+  border-radius: 10px;
+}

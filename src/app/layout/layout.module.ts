@@ -12,9 +12,10 @@ import { ProductModule } from './product/product.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { SearchModule } from '../shared/components/search/search.module';
 import { LocationPicker } from '../shared/components/location-picker/location-picker.module';
+import { MobileCartComponent } from './components/mobile-cart/mobile-cart.component';
 
 @NgModule({
-  declarations: [LayoutComponent, FooterComponent],
+  declarations: [LayoutComponent, FooterComponent, MobileCartComponent],
   imports: [
     CommonModule,
     HeaderModule,
