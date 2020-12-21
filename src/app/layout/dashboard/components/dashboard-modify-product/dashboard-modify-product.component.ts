@@ -5,6 +5,7 @@ import { Product } from '../../../product/models/product';
 import { Category } from '../../../categories/models/category.model';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../../user/services/user.service';
+import { CategoriesFacadeService } from '../../../categories/services/categories-facade.service';
 
 @Component({
   selector: 'app-dashboard-modify-product',
@@ -19,8 +20,9 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
 
   @Input()
   editProduct: Product = null;
-  @Input()
   categoryList: Array<Category>;
+  categoryItems: Array<CategoryItem>;
+
   editProductId: number = null;
   modifyProductForm: ModifyProductForm;
 
@@ -32,12 +34,21 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
 
   constructor(
     private dashboardFacadeService: DashboardFacadeService,
+    private categoriesFacadeService: CategoriesFacadeService,
     private toastrService: ToastrService,
     private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.initProductEdit(this.editProduct);
+    this.getCategories();
+  }
+
+  getCategories(): void {
+    this.categoriesFacadeService.getCategories().subscribe((categories) => {
+      this.categoryList = categories;
+      this.categoryItems = categories.map((category) => new CategoryItem(category));
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -104,5 +115,17 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
 
     this.modifyProductForm = new ModifyProductForm(editProduct || new Product({}));
     this.listenForFormChanges();
+  }
+}
+
+class CategoryItem {
+  label: string;
+  value: number;
+  items: Array<CategoryItem>;
+
+  constructor(category: Category) {
+    this.label = category.name;
+    this.value = category.id;
+    this.items = category.children.map((category) => new CategoryItem(category));
   }
 }

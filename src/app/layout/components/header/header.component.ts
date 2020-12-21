@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
 
   getCategories(): void {
     this.categoriesFacadeService.getCategories().subscribe((categories) => {
-      this.categoryMenus = categories.map((entry) => this.getCategoryMenu(entry));
+      this.categoryMenus = categories.filter(this.filterNonEmptyCategories()).map((entry) => this.getCategoryMenu(entry));
     });
   }
 
@@ -48,9 +48,13 @@ export class HeaderComponent implements OnInit {
 
   private getCategoryMenu(category: Category) {
     return {
-      title: category.name,
+      title: `${category.name} (${category.productCount})`,
       link: category.urlSlug,
-      children: category.children.map((subcategory) => this.getCategoryMenu(subcategory))
+      children: category.children.filter(this.filterNonEmptyCategories()).map((subcategory) => this.getCategoryMenu(subcategory))
     };
+  }
+
+  private filterNonEmptyCategories() {
+    return (entry) => entry.hasProducts;
   }
 }

@@ -14,7 +14,6 @@
           [resizable]="false">
     <app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)"
                                   (onDeleteProduct)="onDeleteProduct($event)"
-                                  [categoryList]="categoryList"
                                   *ngIf="addProductToggled"
                                   [editProduct]="editProduct">
     </app-dashboard-modify-product>

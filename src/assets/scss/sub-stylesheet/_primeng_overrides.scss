@@ -5,3 +5,18 @@ body .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-slider {
 body .ui-inputtext:enabled:focus:not(.ui-state-error) {
   box-shadow: none!important;
 }
+
+body .ui-dropdown {
+  height: 50px;
+  border: 1px solid #e6e6e6;
+  border-radius: 0;
+  label.ui-dropdown-label {
+    line-height: 36px;
+    height: 36px;
+  }
+}
+
+body .ui-inputtext {
+  font-size: 1rem;
+  padding-left: 15px;
+}

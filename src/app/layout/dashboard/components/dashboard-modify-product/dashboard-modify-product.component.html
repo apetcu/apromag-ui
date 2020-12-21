@@ -14,11 +14,16 @@
                         </div>
                         <div class="form-group" [class.invalid]="modifyProductForm.controls['category_id'].invalid && formErrors">
                             <label for="category" translate="VENDOR.PRODUCTS.FORM.CATEGORY"></label>
-                            <select formControlName="category_id" class="form-control" id="category">
-                                <optgroup [label]="category.name" *ngFor="let category of categoryList">
-                                    <option [value]="child.id" *ngFor="let child of category.children">{{child.name}}</option>
-                                </optgroup>
-                            </select>
+                            <div>
+                                <p-dropdown id="category" #categorySelector formControlName="category_id" [options]="categoryItems" (onBlur)="categorySelector.resetFilter()" placeholder="Selectati o categorie" [filter]="true" [group]="true"
+                                            [style]="{'width':'100%'}">
+                                    <ng-template let-group pTemplate="group">
+                                        <div class="p-d-flex p-ai-center">
+                                            <span>{{group.label}}</span>
+                                        </div>
+                                    </ng-template>
+                                </p-dropdown>
+                            </div>
                         </div>
                         <div class="form-group" [class.invalid]="modifyProductForm.controls['description'].invalid && formErrors">
                             <label for="description" translate="VENDOR.PRODUCTS.FORM.DESCRIPTION"></label>
@@ -56,7 +61,8 @@
                         </div>
                     </div>
                     <div class="col-4">
-                        <app-file-upload formControlName="images" [currentImages]="editProduct?.images || []" (onDeleteImage)="deleteImage($event)"></app-file-upload>
+                        <app-file-upload formControlName="images" [currentImages]="editProduct?.images || []"
+                                         (onDeleteImage)="deleteImage($event)"></app-file-upload>
                     </div>
                 </div>
                 <div class="row">

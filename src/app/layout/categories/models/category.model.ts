@@ -3,6 +3,8 @@ import { Utils } from '../../../shared/services/utils/utils';
 export class Category {
   id: number;
   name: string;
+  hasProducts: boolean;
+  productCount: number;
   description: string;
   imageUrl: string = 'assets/images/food-recipe/08.png';
   urlSlug: string;
@@ -17,6 +19,8 @@ export class Category {
       this.imageUrl = props.imageUrl;
     }
     this.homepage = !!props.homepage;
+    this.hasProducts = props.productCount !== 0;
+    this.productCount = props.productCount;
 
     this.urlSlug = Category.generateUrlSlug(this.name, this.id);
 
