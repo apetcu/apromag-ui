@@ -3,25 +3,36 @@
 <div class="row">
     <div class="col-8">
         <div class="main-card card mb-4">
-            <div class="card-body">
+            <div class="card-body" [class.chart-loading]="summaryLoading">
                 <div class="card-title mb-4">Statistici comenzi</div>
-                <p-chart type="bar" [data]="data"></p-chart>
+                <app-loading *ngIf="summaryLoading else summaryChart"></app-loading>
+
+                <ng-template #summaryChart>
+                    <p-chart type="bar" [data]="data" [options]="chartOptions" [plugins]="chartPlugins"></p-chart>
+                </ng-template>
+
             </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="main-card mb-4 card">
-            <div class="card-body">
-                <div class="card-title">Statistici comenzi</div>
-                <app-widget primaryText="1.999,50 RON" secondaryText="Total vanzari Ianuarie" icon="moon" color="orange" class="mb-3"></app-widget>
-                <app-widget primaryText="1.999,50 RON" secondaryText="Total comenzi finalizate Ianuarie" icon="moon" color="green"></app-widget>
+            <div class="card-body" [class.card-loading]="summaryLoading">
+                <div class="card-title">Astazi</div>
+                <app-loading *ngIf="summaryLoading else summaryToday"></app-loading>
+                <ng-template #summaryToday>
+                    <app-widget [primaryText]="ordersSummary.today.count" secondaryText="Comenzi astazi" icon="heart" color="blue" class="mb-3"></app-widget>
+                    <app-widget primaryText="{{ordersSummary.today.total | aproCurrency:ordersSummary.currency}}" secondaryText="Total vanzari astazi" icon="money" color="green"></app-widget>
+                </ng-template>
             </div>
         </div>
         <div class="main-card mb-4 card">
-            <div class="card-body">
-                <div class="card-title">Sumar comenzi</div>
-                <app-widget primaryText="0" secondaryText="Comenzi astazi" icon="moon" color="blue" class="mb-3"></app-widget>
-                <app-widget primaryText="12" secondaryText="Comenzi in Ianuarie" icon="moon" color="red"></app-widget>
+            <div class="card-body" [class.card-loading]="summaryLoading">
+                <div class="card-title">{{currentMonthName}}</div>
+                <app-loading *ngIf="summaryLoading else summaryMonth"></app-loading>
+                <ng-template #summaryMonth>
+                    <app-widget [primaryText]="ordersSummary.thisMonth.count" secondaryText="{{'Vanzari in ' + currentMonthName}}" icon="calendar" color="red" class="mb-3"></app-widget>
+                    <app-widget primaryText="{{ordersSummary.thisMonth.total | aproCurrency:ordersSummary.currency}}" secondaryText="{{'Total vanzari ' + currentMonthName}}" icon="money" color="orange"></app-widget>
+                </ng-template>
             </div>
         </div>
     </div>
@@ -29,11 +40,11 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
-            <div class="card-body">
+            <div class="card-body" [class.card-loading]="lastOrdersLoading">
                 <div class="card-title">Comenzi nepreluate</div>
-                <order-list [totalRecords]="totalRecords" [loading]="loading" [orders]="orders" [rowsPerPage]="rowsPerPage"
+                <order-list [totalRecords]="totalRecords" [loading]="lastOrdersLoading" [orders]="orders" [rowsPerPage]="rowsPerPage"
                             (onOrderClick)="onOrderClick($event)"></order-list>
-                <app-loading *ngIf="loading"></app-loading>
+                <app-loading *ngIf="lastOrdersLoading"></app-loading>
             </div>
         </div>
     </div>

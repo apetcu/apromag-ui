@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 import { ModifyProductModel } from '../components/dashboard-modify-product/modify-product-form';
 import { UserService } from '../../user/services/user.service';
 import { User } from '../../user/models/user.model';
+import { OrdersSummary } from '../models/orders-summary.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class DashboardFacadeService {
 
   getOrders(paginationInfo: PaginationInfo): Observable<PaginatedResponse<Order>> {
     return this.dashboardApiService.getOrders(paginationInfo).pipe(this.mapCompaniesToDomainModel());
+  }
+
+  getSummary(): Observable<OrdersSummary> {
+    return this.dashboardApiService.getSummary().pipe(map((summary) => new OrdersSummary(summary)));
   }
 
   getProducts(paginationInfo: PaginationInfo): Observable<PaginatedResponse<Product>> {

@@ -7,9 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WidgetComponent {
   @Input()
-  primaryText: string;
+  primaryText: string | number;
   @Input()
-  secondaryText: string;
+  secondaryText: string | number;
   @Input()
   color: string;
   @Input()

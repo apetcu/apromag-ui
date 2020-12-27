@@ -7,7 +7,8 @@ import { Currency } from '../../models/currency';
 export class CurrencyPipe implements PipeTransform {
   transform(value: any, currency: Currency): unknown {
     try {
-      return currency ? parseFloat(value).toFixed(2) + ' ' + currency.code : value;
+      const parsed = parseFloat(value).toFixed(2);
+      return currency ? (!isNaN(parseFloat(value)) ? parsed : '-') + ' ' + currency.code : value;
     } catch (e) {
       console.log(e);
       return value;
