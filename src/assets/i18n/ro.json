@@ -68,6 +68,7 @@
     "SHIPPING_TO": "Livrare in",
     "FREE_SHIPPING_OVER": "Livrare gratuita la comenzi peste",
     "SHIPPING_COST": "Cost livrare",
+    "MIN_ORDER": "Comanda minima",
     "AVAILABILITY": "Disponibilitate",
     "IN_STOCK": "In stoc",
     "OUT_OF_STOCK": "Indisponibil",

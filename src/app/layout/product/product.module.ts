@@ -9,9 +9,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
 import { VendorModule } from '../vendor/vendor.module';
+import { VendorInformationComponent } from './components/vendor-information/vendor-information.component';
 
 @NgModule({
-  declarations: [ProductComponent, RelatedProductsComponent],
+  declarations: [ProductComponent, RelatedProductsComponent, VendorInformationComponent],
   imports: [
     CommonModule,
     PageTitleModule,

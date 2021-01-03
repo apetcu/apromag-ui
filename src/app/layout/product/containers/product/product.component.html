@@ -36,9 +36,10 @@
                                             <p>{{productDetails?.description}}</p>
                                             <ul>
                                                 <li *ngIf="vendorDetails?.freeShippingOver">{{'GENERAL.FREE_SHIPPING_OVER' |translate }}
-                                                    <strong>{{vendorDetails?.freeShippingOver}} lei</strong></li>
-                                                <li>{{'GENERAL.SHIPPING_COST' | translate}}: {{vendorDetails?.shippingCost}} lei</li>
-                                                <li>Detin certificat producator</li>
+                                                    <strong>{{vendorDetails?.freeShippingOver}} {{vendorDetails?.currency.code}}</strong></li>
+                                                <li>{{'GENERAL.SHIPPING_COST' | translate}}: <strong>{{vendorDetails?.shippingCost}} {{vendorDetails?.currency.code}}</strong></li>
+                                                <li>{{'GENERAL.MIN_ORDER' | translate}}: <strong>{{vendorDetails?.minOrder}} {{vendorDetails?.currency.code}}</strong></li>
+                                                <li *ngIf="vendorDetails?.certificate"><a [href]="vendorDetails?.certificate" class="theme-color" target="_blank">Detin certificat producator</a></li>
                                                 <li>Vandut de: <a [routerLink]="vendorDetails?.urlSlug"
                                                                   class="theme-color font-weight-bold">{{vendorDetails?.businessName}}</a></li>
                                             </ul>
@@ -94,9 +95,7 @@
                     <app-related-products [products]="relatedProducts" [productListLoading]="relatedProductsLoading"></app-related-products>
                 </div>
                 <div id="two" class="tabcontent" *ngIf="selectedTab === 2">
-                    <div class="Description">
-                        <app-vendor [vendor]="vendorDetails"></app-vendor>
-                    </div>
+                    <app-vendor-information [vendor]="vendorDetails" *ngIf="vendorDetails"></app-vendor-information>
                 </div>
             </div>
         </div>

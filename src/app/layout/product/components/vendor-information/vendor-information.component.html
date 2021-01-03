@@ -1,0 +1,20 @@
+<div class="Description">
+    <h5>{{vendor.businessName}}</h5>
+    <p>{{vendor.description}}</p>
+    <p>
+        <strong>Livreaza in</strong>: <br/>
+        <span *ngFor="let location of shippingLocations">
+            {{location.name}} |
+        </span>
+    </p>
+    <p>
+        <strong>Localitate</strong>: <br/>
+        {{vendor.address}}
+    </p>
+    <h5>Imagini producator</h5>
+    <div class="row">
+        <div class="col-2 mb-3" *ngFor="let photo of vendor?.images; let i = index">
+            <a (click)="openGallery(i)"><img [src]="photo.url" alt="product" class="gallery-image"></a>
+        </div>
+    </div>
+</div>
