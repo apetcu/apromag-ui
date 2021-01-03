@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LocationPickerService } from './services/location-picker.service';
 import { Observable, Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -20,6 +20,9 @@ export class LocationPickerComponent implements OnInit {
   });
   locationSubscription: Subscription;
 
+  @ViewChild('input')
+  input: ElementRef;
+
   constructor(
     private locationPickerService: LocationPickerService,
     private router: Router,
@@ -32,6 +35,8 @@ export class LocationPickerComponent implements OnInit {
     this.locationPickerService.locationPickerDisplayed.subscribe((displayed) => {
       if (!displayed) {
         this.searchForm.reset();
+      } else {
+        this.input.nativeElement.focus();
       }
     });
     this.filterLocations();

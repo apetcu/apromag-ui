@@ -5,7 +5,7 @@
             <span></span>
         </div>
         <form (ngSubmit)="onSearch($event)" [formGroup]="searchForm">
-            <input type="text" formControlName="query" placeholder="Livrare in ...">
+            <input #input type="text" formControlName="query" placeholder="Livrare in ...">
             <div class="shippingLocations">
                 <div class="item" (click)="onSelect()">Indiferent</div>
                 <div class="item" *ngFor="let location of shippingLocations" (click)="onSelect(location)">
