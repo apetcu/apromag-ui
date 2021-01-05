@@ -18,6 +18,7 @@ export class Product {
   price: number;
   rating: number;
   stock: boolean;
+  status: string;
   vendorId: number;
 
   vendor: Vendor;
@@ -36,6 +37,7 @@ export class Product {
     this.price = productResponse.price;
     this.rating = productResponse.rating;
     this.stock = productResponse.stock;
+    this.status = productResponse.status;
     this.vendor = productResponse.vendor ? new Vendor(productResponse.vendor) : null;
     this.vendorId = this.vendor ? this.vendor.id : null;
     this.unit = productResponse.unit;

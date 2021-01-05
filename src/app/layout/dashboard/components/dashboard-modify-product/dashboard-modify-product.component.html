@@ -4,6 +4,10 @@
         <app-info-box title="Eroare" type="danger" *ngIf="formErrors">
             {{'VENDOR.PRODUCTS.ERRORS.INVALID_FIELDS' | translate}}
         </app-info-box>
+        <app-info-box title="Atentie" type="danger"  *ngIf="(editProductId && editProduct?.status==='DISABLED')">
+            Acest produs a fost dezactivat de catre un administrator.<br/>Pentru solutionarea neclaritatilor va rugam sa ne contactati folosind formularul de contact
+        </app-info-box>
+
         <div *ngIf="modifyProductForm">
             <form [formGroup]="modifyProductForm" (ngSubmit)="onSubmit()">
                 <div class="row">
@@ -65,7 +69,7 @@
                                          (onDeleteImage)="deleteImage($event)"></app-file-upload>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" *ngIf="!(editProductId && editProduct?.status==='DISABLED')">
                     <div class="col-12 position-relative">
                         <div class="requestPending" *ngIf="modifyLoading">
                             <app-loading></app-loading>
