@@ -24,9 +24,13 @@ export class DashboardOrdersComponent implements OnInit {
   loadData(pageNo: number) {
     this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage, 'createdAt', 'desc')).subscribe((data) => {
       this.orders = data.data;
-      this.totalRecords = data.totalElements;
+      this.totalRecords = data.pagination.totalCount;
       this.loading = false;
     });
+  }
+
+  onPageChange(page: any) {
+    this.loadData(page.page + 1);
   }
 
   onOrderClick(order: Order) {

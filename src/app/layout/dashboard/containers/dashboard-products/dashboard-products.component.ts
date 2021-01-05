@@ -16,7 +16,7 @@ export class DashboardProductsComponent implements OnInit {
   addProductToggled: boolean = false;
   editProduct: Product = null;
   loading: boolean = true;
-  rowsPerPage: number = 25;
+  rowsPerPage: number = 15;
   totalRecords: number;
   products: Array<Product>;
 
@@ -43,7 +43,7 @@ export class DashboardProductsComponent implements OnInit {
   loadData(pageNo: number) {
     this.dashboardFacadeService.getProducts(new PaginationInfo(pageNo, this.rowsPerPage)).subscribe((data) => {
       this.products = data.data;
-      this.totalRecords = data.totalElements;
+      this.totalRecords = data.pagination.totalCount;
       this.loading = false;
     });
   }

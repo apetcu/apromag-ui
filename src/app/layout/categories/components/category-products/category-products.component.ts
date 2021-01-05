@@ -60,7 +60,7 @@ export class CategoryProductsComponent implements OnInit, OnDestroy {
     this.productsSubscription = this.categoriesFacadeService.getCategoryProducts(id).subscribe((products) => {
       this.productsLoading = false;
       this.products = products.data;
-      this.totalProducts = products.totalElements;
+      this.totalProducts = products.pagination.totalCount;
     });
   }
 }

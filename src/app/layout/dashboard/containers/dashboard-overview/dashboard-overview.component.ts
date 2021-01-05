@@ -17,7 +17,7 @@ export class DashboardOverviewComponent implements OnInit {
   totalRecords: number = 0;
   lastOrdersLoading: boolean = true;
   summaryLoading: boolean = true;
-  rowsPerPage: number = 25;
+  rowsPerPage: number = 10;
 
   data: any;
   chartOptions: any;
@@ -76,7 +76,7 @@ export class DashboardOverviewComponent implements OnInit {
   loadData(pageNo: number) {
     this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage, 'createdAt', 'desc')).subscribe((data) => {
       this.orders = data.data;
-      this.totalRecords = data.totalElements;
+      this.totalRecords = data.pagination.totalCount;
       this.lastOrdersLoading = false;
     });
   }
@@ -85,6 +85,7 @@ export class DashboardOverviewComponent implements OnInit {
     this.dashboardFacadeService.getSummary().subscribe((data) => {
       this.summaryLoading = false;
       this.ordersSummary = data;
+      console.log(data);
       this.buildChart(data);
     });
   }
@@ -113,5 +114,9 @@ export class DashboardOverviewComponent implements OnInit {
 
   onOrderClick(order: Order) {
     this.router.navigate(['/dashboard/orders/' + order.id]);
+  }
+
+  onPageChange(page: any) {
+    this.loadData(page.page + 1);
   }
 }

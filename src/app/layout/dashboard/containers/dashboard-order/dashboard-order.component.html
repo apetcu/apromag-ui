@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="row" *ngIf="orderInfo">
-            <div class="col-6">
+            <div class="col-12">
                 <div class="main-card mb-3 card">
                     <form [formGroup]="orderStatusForm" (ngSubmit)="changeOrderStatus()">
                         <div class="card-body">
@@ -31,8 +31,9 @@
                                 </select>
                                 <span class="select-icon"><i class="icofont-caret-down"></i></span>
                             </div>
-                            <div class="card-title">Detalii livrare</div>
-                            <textarea formControlName="remarks" cols="30" rows="3" class="form-control"></textarea>
+
+                            <div class="card-title">Mesaj catre utilizator</div>
+                            <textarea formControlName="remarks" cols="30" rows="2" class="form-control"></textarea>
                             <button type="submit" class="food-btn style-3 mt-3 float-right"><span>Salveaza</span></button>
                         </div>
                     </form>
@@ -42,5 +43,6 @@
     </div>
     <div class="col-md-5">
         <app-order-summary [orderInfo]="orderInfo"></app-order-summary>
+
     </div>
 </div>

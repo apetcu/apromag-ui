@@ -50,7 +50,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.productsSubscription = this.searchFacadeService.getProductsByQuery(query).subscribe((products) => {
       this.productsLoading = false;
       this.products = products.data;
-      this.totalProducts = products.totalElements;
+      this.totalProducts = products.pagination.totalCount;
     });
   }
 }

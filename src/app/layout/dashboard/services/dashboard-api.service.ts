@@ -6,7 +6,7 @@ import { ApiService } from '../../../shared/services/api/api.service';
   providedIn: 'root'
 })
 export class DashboardApiService {
-  domainUrl: string = '';
+  domainUrl: string = 'account/vendor/';
   constructor(private api: ApiService) {}
 
   getOrders(query: object): Observable<any> {
@@ -14,7 +14,7 @@ export class DashboardApiService {
   }
 
   getProducts(vendorId: number, query: object): Observable<any> {
-    return this.api.get(`${this.domainUrl}vendors/${vendorId}/products`, query);
+    return this.api.get(`${this.domainUrl}products`, query);
   }
 
   addProduct(product): Observable<any> {
@@ -25,26 +25,6 @@ export class DashboardApiService {
     return this.api.post(`${this.domainUrl}products/${id}`, product);
   }
 
-  getSummary(): Observable<any> {
-    return this.api.get(`${this.domainUrl}account/orderSummary`);
-  }
-
-  updateProfilePicture(picture): Observable<any> {
-    return this.api.post(`${this.domainUrl}account/profilePicture`, picture);
-  }
-
-  uploadVendorImages(picture): Observable<any> {
-    return this.api.post(`${this.domainUrl}account/addVendorImages`, picture);
-  }
-
-  updateVendorDetails(details): Observable<any> {
-    return this.api.post(`${this.domainUrl}account/vendorDetails`, details);
-  }
-
-  deleteVendorImage(id): Observable<any> {
-    return this.api.post(`${this.domainUrl}account/deleteImage`, { id });
-  }
-
   deleteProductImage(productId, imageId): Observable<any> {
     return this.api.delete(`${this.domainUrl}products/${productId}/image/${imageId}`);
   }
@@ -53,7 +33,28 @@ export class DashboardApiService {
     return this.api.delete(`${this.domainUrl}products/${id}`);
   }
 
-  register(): Observable<any> {
-    return this.api.post(`${this.domainUrl}/register`, {});
+  getSummary(): Observable<any> {
+    return this.api.get(`${this.domainUrl}orderSummary`);
   }
+
+  updateProfilePicture(picture): Observable<any> {
+    return this.api.post(`${this.domainUrl}profilePicture`, picture);
+  }
+
+  uploadVendorImages(picture): Observable<any> {
+    return this.api.post(`${this.domainUrl}images`, picture);
+  }
+
+  updateVendorDetails(details): Observable<any> {
+    return this.api.post(`${this.domainUrl}details`, details);
+  }
+
+  deleteVendorImage(id): Observable<any> {
+    return this.api.post(`${this.domainUrl}deleteImage`, { id });
+  }
+
+  //
+  // register(): Observable<any> {
+  //   return this.api.post(`${this.domainUrl}/register`, {});
+  // }
 }

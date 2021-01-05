@@ -1,35 +1,23 @@
 export class PaginatedResponse<T> {
   data: T[];
-  pagination?: any;
-  totalPages: number;
-  totalElements: number;
-  last: boolean;
-  size: number;
-  number: number;
-  first: boolean;
-  empty: boolean;
-  numberOfElements: number;
-  pageable: Pageable;
-  sort: Sort;
+  pagination: Pagination;
 
-  constructor() {}
-
-  getData(): Array<T> {
-    return this.data;
+  constructor(response) {
+    this.data = response.data;
+    this.pagination = new Pagination(response.pagination);
   }
 }
 
-class Pageable {
-  sort: Sort;
-  offset: number;
-  pageNumber: number;
+class Pagination {
+  totalCount: number;
   pageSize: number;
-  paged: boolean;
-  unpaged: boolean;
-}
+  currentPage: number;
+  lastPage: number;
 
-class Sort {
-  sorted: boolean;
-  unsorted: boolean;
-  empty: boolean;
+  constructor(props) {
+    this.totalCount = props.totalCount;
+    this.pageSize = props.pageSize;
+    this.currentPage = props.currentPage;
+    this.lastPage = props.lastPage;
+  }
 }

@@ -31,7 +31,6 @@ export class ProductsFacadeService {
   public mapProductsToDomainModel(): OperatorFunction<PaginatedResponse<Product>, PaginatedResponse<Product>> {
     return map((productsResponse) => {
       productsResponse.data = productsResponse.data.map((entry) => new Product(entry));
-      productsResponse.totalElements = productsResponse.pagination.totalElements;
       return productsResponse;
     });
   }

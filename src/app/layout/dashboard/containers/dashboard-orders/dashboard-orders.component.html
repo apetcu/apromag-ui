@@ -1,4 +1,4 @@
-<h5 class="admin-title">{{'VENDOR.ORDERS.TITLE' | translate}}</h5>
+<h5 class="admin-title">{{'VENDOR.ORDERS.TITLE' | translate}} ({{totalRecords}})</h5>
 
 <div class="row">
     <div class="col-md-12">
@@ -6,6 +6,7 @@
             <order-list [totalRecords]="totalRecords" [loading]="loading"
                         [orders]="orders" [rowsPerPage]="rowsPerPage"
                         (onOrderClick)="onOrderClick($event)"
+                        (onPageChange)="onPageChange($event)"
             ></order-list>
             <app-loading *ngIf="loading"></app-loading>
         </div>

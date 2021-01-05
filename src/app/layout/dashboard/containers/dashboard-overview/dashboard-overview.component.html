@@ -41,9 +41,9 @@
     <div class="col-md-12">
         <div class="main-card mb-3 card">
             <div class="card-body" [class.card-loading]="lastOrdersLoading">
-                <div class="card-title">Comenzi nepreluate</div>
+                <div class="card-title">Comenzi nepreluate ({{totalRecords}})</div>
                 <order-list [totalRecords]="totalRecords" [loading]="lastOrdersLoading" [orders]="orders" [rowsPerPage]="rowsPerPage"
-                            (onOrderClick)="onOrderClick($event)"></order-list>
+                            (onOrderClick)="onOrderClick($event)" (onPageChange)="onPageChange($event)"></order-list>
                 <app-loading *ngIf="lastOrdersLoading"></app-loading>
             </div>
         </div>
