@@ -1631,6 +1631,11 @@
       text-align: center;
       padding: 35px 25px 25px;
       cursor: pointer;
+      transition: ease-in-out 0.15s all;
+
+      &:hover {
+        transform: translate(0, -10px);
+      }
       
       &:focus {
         outline-color: $theme-color;
