@@ -1310,6 +1310,7 @@ p.comment-form-cookies-consent {
             width: auto;
             margin: 0;
             box-shadow: none;
+            display: flex;
             @include border-radius(0px);
             &::after {
                 @extend %abs;
@@ -1323,6 +1324,7 @@ p.comment-form-cookies-consent {
             }
             img {
                 width: 100%;
+                align-self: center;
                 @include border-radius(0);
             }
             .product-action-link {
