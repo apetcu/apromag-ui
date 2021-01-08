@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   hmr: false,
   config: {
-    siteTitle: 'Apromag',
+    siteTitle: ' ⋆  Aprozi - Aprozar virtual',
     company: {
       name: 'APROMAG SRL',
       address: 'Adresa companie',

@@ -5,6 +5,9 @@ import { Category } from '../../models/category.model';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriesFacadeService } from '../../services/categories-facade.service';
 import { Subscription } from 'rxjs';
+import { Lightbox } from 'ngx-lightbox';
+import { Title } from '@angular/platform-browser';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-category-products',
@@ -32,7 +35,7 @@ export class CategoryProductsComponent implements OnInit, OnDestroy {
     itemsPerRow: 4
   };
 
-  constructor(private categoriesFacadeService: CategoriesFacadeService, private route: ActivatedRoute) {}
+  constructor(private categoriesFacadeService: CategoriesFacadeService, private route: ActivatedRoute, private titleService: Title) {}
 
   ngOnInit(): void {
     this.routeParamsSubscription = this.route.params.subscribe((params) => {
@@ -53,6 +56,7 @@ export class CategoryProductsComponent implements OnInit, OnDestroy {
     this.detailsSubscription = this.categoriesFacadeService.getCategoryById(id).subscribe((categoryInfo) => {
       this.categoryInfoLoading = false;
       this.category = categoryInfo;
+      this.titleService.setTitle(categoryInfo.name + environment.config.siteTitle);
     });
   }
   private getCategoryProducts(id: number) {

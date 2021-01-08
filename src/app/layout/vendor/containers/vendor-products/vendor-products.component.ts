@@ -6,6 +6,8 @@ import { Product } from '../../../product/models/product';
 import { ProductListConfig, ProductListDisplayModes } from '../../../../shared/components/product-list/product-list-config';
 import { Image } from '../../../../shared/models/image.model';
 import { Lightbox } from 'ngx-lightbox';
+import { Title } from '@angular/platform-browser';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-vendor-products',
@@ -27,7 +29,12 @@ export class VendorProductsComponent implements OnInit {
     paginated: false
   };
 
-  constructor(private vendorsFacadeService: VendorsFacadeService, private route: ActivatedRoute, private lightBoxService: Lightbox) {}
+  constructor(
+    private vendorsFacadeService: VendorsFacadeService,
+    private route: ActivatedRoute,
+    private lightBoxService: Lightbox,
+    private titleService: Title
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -45,6 +52,8 @@ export class VendorProductsComponent implements OnInit {
   private getVendorDetails(id: number) {
     this.vendorsFacadeService.getVendorById(id).subscribe((vendorInfo) => {
       this.vendorDetails = vendorInfo;
+      this.titleService.setTitle(vendorInfo.businessName + environment.config.siteTitle);
+
       this.buildVendorImageGallery(this.vendorDetails.images);
     });
   }

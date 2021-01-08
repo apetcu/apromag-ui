@@ -9,6 +9,8 @@ import { AddToCartForm } from './add-to-cart.form';
 import { CartService } from '../../../cart/services/cart.service';
 import { Lightbox } from 'ngx-lightbox';
 import { Image } from '../../../../shared/models/image.model';
+import { Title } from '@angular/platform-browser';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-product',
@@ -32,7 +34,8 @@ export class ProductComponent implements OnInit {
     private productsFacadeService: ProductsFacadeService,
     private cartService: CartService,
     private route: ActivatedRoute,
-    private lightBoxService: Lightbox
+    private lightBoxService: Lightbox,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +61,8 @@ export class ProductComponent implements OnInit {
     this.productsFacadeService.getProductById(productId).subscribe((productInfo) => {
       this.productDetails = productInfo;
       this.productInformationLoading = false;
+
+      this.titleService.setTitle(productInfo.name + environment.config.siteTitle);
 
       this.buildImageGallery(this.productDetails.images);
 
