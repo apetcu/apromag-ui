@@ -49,3 +49,23 @@ body {
   font-family: 'IcoFont';
   font-style: normal;
 }
+
+.notification {
+  $box-size: 20px;
+  background: $google;
+  width: $box-size;
+  height: $box-size;
+  line-height: $box-size;
+  color: #fff;
+  display: inline-block;
+  margin-left: 10px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 12px;
+
+  &.fixed {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+  }
+}

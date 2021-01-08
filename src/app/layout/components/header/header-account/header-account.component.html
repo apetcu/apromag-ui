@@ -1,5 +1,5 @@
 <a href="#" class="food-btn" *ngIf="!loggedIn" routerLink="/auth/login"><span translate="GENERAL.LOGIN"></span></a>
-<div class="author-icon" *ngIf="loggedIn" appClickOutside (clickOutside)="onClickOutside()">
+<div class="author-icon d-none d-md-block" *ngIf="loggedIn" appClickOutside (clickOutside)="onClickOutside()">
     <img [src]="currentUser.profilePicture" [default]="" alt="author" (click)="profileMenuDisplayed =!profileMenuDisplayed">
     <span class="notification fixed" *ngIf="notificationCount | async">{{notificationCount | async}}</span>
     <div class="dropdown-menu dropdown-menu-right animate slideIn" [class.show]="profileMenuDisplayed">
@@ -10,3 +10,9 @@
         <a class="dropdown-item text-danger" (click)="logOut()"><i class="icofont-logout"></i>{{"GENERAL.LOGOUT" | translate}}</a>
     </div>
 </div>
+<ul class="d-block d-md-none" *ngIf="loggedIn">
+    <li class="bg-success px-3">
+        <span class="notification fixed mobile" *ngIf="notificationCount | async">{{notificationCount | async}}</span>
+        <a routerLink="/user" [routerLinkActive]="'active'" translate="GENERAL.MY_ACCOUNT" class="theme-color text-white"> </a>
+    </li>
+</ul>
