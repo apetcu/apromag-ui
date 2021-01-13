@@ -24,6 +24,8 @@ export class CartSummaryComponent implements OnInit {
   cartTotal: Observable<CartTotal>;
   vendor: Vendor;
 
+  submitOrderLoading: boolean = false;
+
   constructor(
     private cartService: CartService,
     private cartFacadeService: CartFacadeService,
@@ -44,6 +46,7 @@ export class CartSummaryComponent implements OnInit {
   }
 
   onCartSubmit(): void {
+    this.submitOrderLoading = true;
     this.cartFacadeService
       .submitOrder(this.cartSummaryForm.value, this.cartItems, this.cartService.getCurrentVendorId())
       .subscribe((order) => {

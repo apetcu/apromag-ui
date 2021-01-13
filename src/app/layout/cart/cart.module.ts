@@ -11,6 +11,7 @@ import { CartFinishComponent } from './containers/cart-finish/cart-finish.compon
 import { CurrencyModule } from '../../shared/pipes/currency/currency.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { CheckboxModule } from 'primeng/checkbox';
+import { LoadingModule } from '../../shared/components/loading/loading.module';
 
 @NgModule({
   declarations: [CartComponent, CartListComponent, CartSummaryComponent, CartFinishComponent],
@@ -22,7 +23,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     ReactiveFormsModule,
     CurrencyModule,
     TranslateModule,
-    CheckboxModule
+    CheckboxModule,
+    LoadingModule
   ]
 })
 export class CartModule {}

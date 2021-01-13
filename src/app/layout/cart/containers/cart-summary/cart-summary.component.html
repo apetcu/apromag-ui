@@ -83,7 +83,9 @@
             <div class="cart-checkout-box" *ngIf="!(vendor.minOrder && (cartTotal | async)?.totalProductsPrice < vendor.minOrder)">
                 <div class="col-12 text-right">
                     <button type="submit" class="food-btn style-3"
-                            [disabled]="cartSummaryForm.invalid"><span>Trimite comanda</span>
+                            [disabled]="cartSummaryForm.invalid || submitOrderLoading">
+                        <span *ngIf="!submitOrderLoading">Trimite comanda</span>
+                        <span *ngIf="submitOrderLoading">Va rugam asteptati...</span>
                     </button>
                 </div>
             </div>
