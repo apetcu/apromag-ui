@@ -3,13 +3,13 @@ import { Product } from '../../product/models/product';
 import { StorageService } from '../../../shared/services/storage/storage.service';
 import { StorageLocations } from '../../../shared/services/storage/storage-locations';
 import { CartItem } from '../models/cart-item';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { CartFacadeService } from './cart-facade.service';
 import { CartTotal } from '../models/cart-total';
 import { Vendor } from '../../vendor/models/vendor';
 import { AlertService } from '../../../shared/services/alert/alert.service';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -73,31 +73,35 @@ export class CartService {
               this.emptyCart();
               this.setCurrentVendor(vendor);
               return true;
+            } else {
+              return false;
             }
           })
         );
     } else {
       this.setCurrentVendor(vendor);
-      return of(null);
+      return of(true);
     }
   }
 
   addItem(product: Product, quantity: number) {
-    this.checkAndSetCurrentVendor(product.vendor).subscribe(() => {
-      const cartItems = this.getLocalStorageItems();
-      const foundItemIndex = cartItems.findIndex((entry) => entry.id === product.id);
-      if (foundItemIndex > -1) {
-        cartItems[foundItemIndex].quantity += quantity;
-      } else {
-        cartItems.push(new CartItem(product, quantity));
-      }
+    this.checkAndSetCurrentVendor(product.vendor)
+      .pipe(filter((response) => response !== false))
+      .subscribe((nextResponse) => {
+        const cartItems = this.getLocalStorageItems();
+        const foundItemIndex = cartItems.findIndex((entry) => entry.id === product.id);
+        if (foundItemIndex > -1) {
+          cartItems[foundItemIndex].quantity += quantity;
+        } else {
+          cartItems.push(new CartItem(product, quantity));
+        }
 
-      this.toasterService.success('Produsul a fost adaugat in cos', '', {
-        positionClass: 'toast-bottom-right',
-        timeOut: 5000
+        this.toasterService.success('Produsul a fost adaugat in cos', '', {
+          positionClass: 'toast-bottom-right',
+          timeOut: 5000
+        });
+        this.setCart(cartItems);
       });
-      this.setCart(cartItems);
-    });
   }
 
   removeItem(cartItem: CartItem): void {
