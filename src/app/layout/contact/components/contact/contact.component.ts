@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactForm } from './contact-form';
 import { ContactFacadeService } from '../../services/contact-facade.service';
 import { AlertService } from '../../../../shared/services/alert/alert.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -11,6 +12,7 @@ import { AlertService } from '../../../../shared/services/alert/alert.service';
 export class ContactComponent implements OnInit {
   contactForm: ContactForm = new ContactForm();
   response: any;
+  env: any = environment;
 
   contactDetails: any = {
     email: 'office@aprozi.ro',

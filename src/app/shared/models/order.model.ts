@@ -16,6 +16,7 @@ export class Order {
   customerId: number;
   fullName: string;
   remarks: string;
+  vendorRemarks: string;
 
   currency: Currency;
 
@@ -37,6 +38,7 @@ export class Order {
     this.customerId = orderResponse.customerId;
     this.shippingAddress = orderResponse.shippingAddress;
     this.remarks = orderResponse.remarks;
+    this.vendorRemarks = orderResponse.vendorRemarks;
     this.subTotal = parseFloat(orderResponse.subTotal);
     this.shippingPrice = parseFloat(orderResponse.shippingPrice);
     this.total = orderResponse.subTotal + orderResponse.shippingPrice;

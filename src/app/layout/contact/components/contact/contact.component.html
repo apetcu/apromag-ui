@@ -30,7 +30,7 @@
                             <img src="assets/images/contac/icon/06.png" alt="contact">
                         </div>
                         <div class="post-content">
-                            <h6>email adress : </h6>
+                            <h6>Adresa email : </h6>
                             <p>{{contactDetails.email}}</p>
                         </div>
                     </div>
@@ -39,9 +39,13 @@
                             <img src="assets/images/contac/icon/07.png" alt="contact">
                         </div>
                         <div class="post-content">
-                            <h6>website adress</h6>
+                            <h6>Adresa website</h6>
                             <p>{{contactDetails.web}}</p>
                         </div>
+                    </div>
+                    <div class="scocial-media">
+                        <a [href]="env.config.social.fb" target="_blank" class="facebook mr-3"><i class="icofont-facebook"></i></a>
+                        <a [href]="env.config.social.insta" target="_blank" class="instagram"><i class="icofont-instagram"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12">

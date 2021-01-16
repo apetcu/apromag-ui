@@ -5,6 +5,7 @@ import { CategoriesFacadeService } from '../../categories/services/categories-fa
 import { Category } from '../../categories/models/category.model';
 import { SearchService } from '../../../shared/components/search/services/search.service';
 import { LocationPickerService } from '../../../shared/components/location-picker/services/location-picker.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,7 @@ export class HeaderComponent implements OnInit {
   menuOpen = false;
   categoryMenus: Array<MenuItem>;
   categoriesOpen = false;
+  env: any = environment;
 
   constructor(
     private router: Router,

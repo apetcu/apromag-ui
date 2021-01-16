@@ -47,7 +47,7 @@ export class DashboardOrderComponent implements OnInit {
       if (!order.seenAt) {
         this.userService.decreaseNotifications();
       }
-      this.orderStatusForm = new OrderStatusForm(this.orderInfo.status, this.orderInfo.remarks);
+      this.orderStatusForm = new OrderStatusForm(this.orderInfo.status, this.orderInfo.vendorRemarks);
     });
   }
 

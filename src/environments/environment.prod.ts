@@ -10,6 +10,10 @@ export const environment = {
       cui: 'RO1234'
     },
     siteUrl: 'www.aprozi.ro',
-    contactEmail: 'office@aprozi.ro'
+    contactEmail: 'office@aprozi.ro',
+    social: {
+      fb: 'https://www.facebook.com/aproziromania',
+      insta: 'https://www.instagram.com/aproziromania/'
+    }
   }
 };

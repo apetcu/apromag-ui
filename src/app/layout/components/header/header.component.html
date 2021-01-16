@@ -39,8 +39,8 @@
                 <app-header-account class="header-account"></app-header-account>
 
                 <div class="scocial-media">
-                    <a href="#" class="facebook mr-3"><i class="icofont-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+                    <a [href]="env.config.social.fb" target="_blank" class="facebook mr-3"><i class="icofont-facebook"></i></a>
+                    <a [href]="env.config.social.insta" target="_blank" class="instagram"><i class="icofont-instagram"></i></a>
                 </div>
             </div>
         </div>
