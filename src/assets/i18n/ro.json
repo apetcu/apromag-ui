@@ -1,7 +1,7 @@
 {
   "HOME": {
     "SLIDER": {
-      "TITLE": "Reteaua ta de producatori locali",
+      "TITLE": "Alege locația de livrare",
       "PRODUCERS": "Producatori",
       "ORDERS": "Comenzi onorate",
       "USERS": "Utilizatori inregistrati"
@@ -115,7 +115,7 @@
     "LAST_EDIT": "Ultima actualizare"
   },
   "LOCATIONS": {
-    "ANYWHERE": "Indiferent"
+    "ANYWHERE": "Alege locația"
   },
   "VENDOR": {
     "DASHBOARD": {

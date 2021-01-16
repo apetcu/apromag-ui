@@ -5,7 +5,7 @@
             {{'VENDOR.PRODUCTS.ERRORS.INVALID_FIELDS' | translate}}
         </app-info-box>
         <app-info-box title="Atentie" type="danger"  *ngIf="(editProductId && editProduct?.status==='DISABLED')">
-            Acest produs a fost dezactivat de catre un administrator.<br/>Pentru solutionarea neclaritatilor va rugam sa ne contactati folosind formularul de contact
+            Acest produs a fost dezactivat de catre un administrator.<br/>Pentru solutionarea neclaritatilor va rugam sa ne contactati folosind <a routerLink="/contact">formularul de contact</a>
         </app-info-box>
 
         <div *ngIf="modifyProductForm">
