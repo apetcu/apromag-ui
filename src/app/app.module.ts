@@ -20,7 +20,7 @@ import { LightboxModule } from 'ngx-lightbox';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json?v=3');
 }
 
 export function initializeApp1(userService: UserService) {

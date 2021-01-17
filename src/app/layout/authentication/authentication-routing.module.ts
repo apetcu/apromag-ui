@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthenticationGuard } from './guards/authentication-guard';
 import { PasswordResetComponent } from './containers/password-reset/password-reset.component';
 import { PasswordResetTokenComponent } from './containers/password-reset-token/password-reset-token.component';
+import { CreateComponent } from './containers/create/create.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,14 @@ const routes: Routes = [
       },
       { path: '', redirectTo: '/auth/login', pathMatch: 'full' }
     ]
+  },
+  {
+    path: 'create',
+    component: CreateComponent,
+    pathMatch: 'prefix',
+    data: {
+      title: 'Inregistrare'
+    }
   },
   {
     path: 'password-reset',

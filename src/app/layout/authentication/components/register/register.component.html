@@ -1,53 +1,51 @@
-<div class="row justify-content-center">
-    <div class="col-lg-5 col-12">
-        <app-info-box title="Eroare" type="danger" *ngIf="errorMessage" class="mb-3">
-            {{errorMessage}}
-        </app-info-box>
-        <aside>
-            <div class="widget widget-author">
-                <div class="widget-header">
-                    <h5 class="text-center">As dori sa ma inregistrez ca:</h5>
-                </div>
-                <div class="widget-wrapper">
+<app-info-box title="Eroare" type="danger" *ngIf="errorMessage" class="mb-3">
+    {{errorMessage}}
+</app-info-box>
+<aside>
+    <div class="widget widget-author">
+        <div class="widget-header">
+            <h5 class="text-center">As dori sa ma inregistrez ca:</h5>
+        </div>
+        <div class="widget-wrapper">
 
-                    <div class="justify-content-center mb-4">
-                        <button [ngClass]="currentRegistrationType === 'CUSTOMER' ? 'style-3':'style-2'" type="submit" class="food-btn mr-3"
-                                (click)="switchRegisterType('CUSTOMER')"><span>Client</span></button>
-                        <button [ngClass]="currentRegistrationType === 'VENDOR' ? 'style-3':'style-2'" type="submit" class="food-btn"
-                                (click)="switchRegisterType('VENDOR')"><span>Furnizor</span></button>
-                    </div>
-
-                    <form class="d-flex flex-wrap justify-content-center " autocomplete="false" [formGroup]="registerForm" (ngSubmit)="register()">
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="text" placeholder="Prenume" class="form-control" formControlName="firstName">
-                            </div>
-                            <div class="col-6">
-                                <input type="text" placeholder="Nume" class="form-control" formControlName="lastName">
-                            </div>
-                        </div>
-
-                        <input type="text" placeholder="Nume de prezentare" class="form-control" formControlName="businessName"
-                               *ngIf="currentRegistrationType === 'VENDOR'">
-                        <input type="text" placeholder="Adresa" class="form-control" formControlName="address" *ngIf="currentRegistrationType === 'VENDOR'">
-
-                        <input type="text" placeholder="Email" class="form-control" formControlName="email">
-                        <input type="password" placeholder="Parola" class="form-control" formControlName="password" autocomplete="false">
-                        <label><p-checkbox formControlName="terms" [binary]="true"></p-checkbox> Am citit si sunt de acord cu <a routerLink="/static/1/terms-and-conditions">termenii si conditiile</a> acestui site</label>
-
-                        <div>
-                            <button type="submit" class="food-btn style-3 mb-0" [disabled]="registerForm.invalid"><span>Inregistrare</span></button>
-                        </div>
-
-                    </form>
-
-                    <div class="alternativa">
-                        <span>sau</span>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-fb" (click)="logInWithFb()"><i class="icofont-facebook"></i> Inregistrare cu facebook</button>
-
-                </div>
+            <div class="justify-content-center mb-4">
+                <button [ngClass]="currentRegistrationType === 'CUSTOMER' ? 'style-3':'style-2'" type="submit" class="food-btn mr-3"
+                        (click)="switchRegisterType('CUSTOMER')"><span>Client</span></button>
+                <button [ngClass]="currentRegistrationType === 'VENDOR' ? 'style-3':'style-2'" type="submit" class="food-btn"
+                        (click)="switchRegisterType('VENDOR')"><span>Furnizor</span></button>
             </div>
-        </aside>
+
+            <form class="d-flex flex-wrap justify-content-center " autocomplete="false" [formGroup]="registerForm" (ngSubmit)="register()">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" placeholder="Prenume" class="form-control" formControlName="firstName">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" placeholder="Nume" class="form-control" formControlName="lastName">
+                    </div>
+                </div>
+
+                <input type="text" placeholder="Nume de prezentare" class="form-control" formControlName="businessName"
+                       *ngIf="currentRegistrationType === 'VENDOR'">
+                <input type="text" placeholder="Adresa" class="form-control" formControlName="address" *ngIf="currentRegistrationType === 'VENDOR'">
+
+                <input type="text" placeholder="Email" class="form-control" formControlName="email">
+                <input type="password" placeholder="Parola" class="form-control" formControlName="password" autocomplete="false">
+                <label>
+                    <p-checkbox formControlName="terms" [binary]="true"></p-checkbox>
+                    Am citit si sunt de acord cu <a routerLink="/static/1/terms-and-conditions">termenii si conditiile</a> acestui site</label>
+
+                <div>
+                    <button type="submit" class="food-btn style-3 mb-0" [disabled]="registerForm.invalid"><span>Inregistrare</span></button>
+                </div>
+
+            </form>
+
+            <div class="alternativa">
+                <span>sau</span>
+            </div>
+            <button type="button" class="btn btn-primary btn-fb" (click)="logInWithFb()"><i class="icofont-facebook"></i> Inregistrare cu facebook</button>
+
+        </div>
     </div>
-</div>
+</aside>
