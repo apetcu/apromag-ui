@@ -1,11 +1,66 @@
 @import "variables";
+
 tr {
   cursor: pointer;
+
   &.new {
-    background-color : lighten($theme-color, 50%)!important;
+    background-color: lighten($theme-color, 50%) !important;
 
     &:hover {
-      background-color: #eaeaea!important;
+      background-color: #eaeaea !important;
     }
+  }
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 40%;
+    text-align: left;
+  }
+
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 35%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  td:nth-of-type(1):before {
+    content: "ID";
+  }
+  td:nth-of-type(2):before {
+    content: "Nume";
+  }
+  td:nth-of-type(3):before {
+    content: "Produs(e)";
+  }
+  td:nth-of-type(4):before {
+    content: "Email";
+  }
+  td:nth-of-type(5):before {
+    content: "Data";
+  }
+  td:nth-of-type(6):before {
+    content: "Total";
   }
 }

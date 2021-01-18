@@ -5,18 +5,18 @@
     <table class="align-middle mb-0 table table-borderless table-striped table-hover">
         <thead>
         <tr>
-            <th class="text-center">#</th>
+            <th class="text-md-center">#</th>
             <th>Nume</th>
-            <th class="text-center">Produs(e)</th>
-            <th class="text-center">Email</th>
-            <th class="text-center">Data</th>
-            <th class="text-center">Total</th>
+            <th class="text-md-center">Produs(e)</th>
+            <th class="text-md-center">Email</th>
+            <th class="text-md-center">Data</th>
+            <th class="text-md-center">Total</th>
             <th class="text-right">Status</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let order of orders" (click)="clickOrder(order)" [class.new]="!order.seenAt && userRole === 'VENDOR'">
-            <td class="text-center text-muted">#{{order.id}}</td>
+            <td class="text-md-center text-muted">#{{order.id}}</td>
             <td>
                 <div class="widget-content p-0">
                     <div class="widget-content-wrapper">
@@ -27,17 +27,17 @@
                     </div>
                 </div>
             </td>
-            <td class="text-center">{{order.products.length}}</td>
-            <td class="text-center">{{order.email}}</td>
-            <td class="text-center">{{order.createdAt | date: 'medium'}}</td>
-            <td class="text-center">{{order.total | aproCurrency: order.currency}}</td>
-            <td class="text-center">
+            <td class="text-md-center">{{order.products.length}}</td>
+            <td class="text-md-center">{{order.email}}</td>
+            <td class="text-md-center">{{order.createdAt | date: 'medium'}}</td>
+            <td class="text-md-center">{{order.total | aproCurrency: order.currency}}</td>
+            <td class="text-md-center">
                 <app-order-badge [status]="order.status"></app-order-badge>
             </td>
         </tr>
         <tr *ngIf="!orders.length">
             <td colspan="6">
-                <h3 class="text-center">Nu sunt comenzi</h3>
+                <h3 class="text-md-center">Nu sunt comenzi</h3>
             </td>
         </tr>
         </tbody>

@@ -1,16 +1,16 @@
 <table class="align-middle mb-0 table table-borderless table-striped table-hover">
     <thead>
     <tr>
-        <th class="text-center">#</th>
-        <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.PRODUCT"></th>
-        <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.UNIT_PRICE"></th>
-        <th class="text-center" translate="VENDOR.ORDER.PRODUCTS.LIST.QUANTITY"></th>
-        <th class="text-right" translate="VENDOR.ORDER.PRODUCTS.LIST.TOTAL"></th>
+        <th class="text-md-center">#</th>
+        <th class="text-md-center" translate="VENDOR.ORDER.PRODUCTS.LIST.PRODUCT"></th>
+        <th class="text-md-center" translate="VENDOR.ORDER.PRODUCTS.LIST.UNIT_PRICE"></th>
+        <th class="text-md-center" translate="VENDOR.ORDER.PRODUCTS.LIST.QUANTITY"></th>
+        <th class="text-md-right" translate="VENDOR.ORDER.PRODUCTS.LIST.TOTAL"></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let product of orderInfo?.products">
-        <td class="text-center text-muted">#{{product.productId}}</td>
+        <td class="text-md-center text-muted">#{{product.productId}}</td>
         <td>
             <div class="widget-content p-0">
                 <div class="widget-content-wrapper">
@@ -21,9 +21,9 @@
                 </div>
             </div>
         </td>
-        <td class="text-center">{{product.price | aproCurrency: product.currency}}</td>
-        <td class="text-center">{{product.quantity}}</td>
-        <td class="text-right">{{product.quantity * product.price | aproCurrency: product.currency}}</td>
+        <td class="text-md-center">{{product.price | aproCurrency: product.currency}}</td>
+        <td class="text-md-center">{{product.quantity}}</td>
+        <td class="text-md-right">{{product.quantity * product.price | aproCurrency: product.currency}}</td>
     </tr>
     </tbody>
 </table>

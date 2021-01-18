@@ -5,8 +5,8 @@
                 <a routerLink="/user/orders" translate="GENERAL.ORDERS"></a> > {{"GENERAL.ORDER" | translate}} #{{orderId}}
             </h5>
             <div class="row">
-                <div class="col-md-4">
-                    <app-order-badge [status]="orderInfo.status" class="mx-4"></app-order-badge>
+                <div class="col-md-4 px-4">
+                    <app-order-badge [status]="orderInfo.status"></app-order-badge>
                 </div>
             </div>
         </div>
@@ -18,6 +18,7 @@
     <div class="col-12">
         <div class="main-card card">
             <div class="card-body">
+                <div class="card-title">Produse comandate</div>
                 <app-order-product-list *ngIf="orderInfo" [orderInfo]="orderInfo"></app-order-product-list>
             </div>
         </div>
