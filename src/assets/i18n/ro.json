@@ -7,17 +7,17 @@
       "USERS": "Utilizatori inregistrati"
     },
     "CATEGORIES": {
-      "TITLE": "Categorii",
+      "TITLE": "Categorii produse",
       "SUBTITLE": "Alege din multitudinea de categorii de produse direct de la producatorii locali"
     },
     "HOW_IT_WORKS": {
-      "TITLE": "Cum functioneaza?",
-      "SUBTITLE": "Incurajeaza producatorii locali in patru pasi simpli.",
+      "TITLE": "Cum funcționeaza?",
+      "SUBTITLE": "Incurajează producatorii locali in patru pași simpli.",
       "STEPS": {
         "1": "Alege produsele preferate",
-        "2": "Producatorul iti va livra produsele",
-        "3": "Achiti produsele livrate",
-        "4": "Sprijini comunitatea si te bucuri de produse de calitate!"
+        "2": "Producătorul iți va livra produsele",
+        "3": "Achiți produsele livrate",
+        "4": "Sprijini comunitatea și te bucuri de produse de calitate!"
       }
     }
   },
@@ -32,7 +32,7 @@
   },
   "MENU": {
     "HOME": "Acasa",
-    "PRODUCERS": "Producatori",
+    "PRODUCERS": "Producători",
     "CATEGORIES": "Categorii",
     "CONTACT": "Contact"
   },
@@ -53,9 +53,9 @@
     "ORDER_MORE": "Comanda de inca {{orderMore}} lei pentru a beneficia de transport gratuit"
   },
   "GENERAL": {
-    "LOGIN": "Intra in cont",
+    "LOGIN": "Intră in cont",
     "ORDERS": "Comenzi",
-    "REMARKS": "Observatii",
+    "REMARKS": "Observații",
     "CLOSE": "Inchide",
     "ORDER": "Comanda",
     "HELP": "Ajutor",

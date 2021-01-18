@@ -36,6 +36,10 @@ export class VendorsFacadeService {
     return this.vendorsApiService.getPopular().pipe(this.mapVendorstoDomainModel());
   }
 
+  getLatest(): Observable<PaginatedResponse<Vendor>> {
+    return this.vendorsApiService.getLatest().pipe(this.mapVendorstoDomainModel());
+  }
+
   getVendorProducts(id: number): Observable<PaginatedResponse<Product>> {
     return this.vendorsApiService.getProducts(id, new PaginationInfo(1, 1000)).pipe(this.productsFacadeService.mapProductsToDomainModel());
   }

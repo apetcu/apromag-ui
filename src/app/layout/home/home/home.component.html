@@ -130,14 +130,19 @@
 <section class="popular-foods padding-tb" style="background-color: #f3f3f3;">
     <div class="container">
         <div class="section-header">
-            <h3>Producatori populari</h3>
-            <p>Producatori ce au produs un impact simnificativ in randul comunitatii</p>
+            <h3>Producători înregistrați recent</h3>
+            <p>Descopera producatorii recent înregistrati pe platforma noastră</p>
         </div>
         <div class="section-wrapper">
 
-            <div class="row justify-content-center">
-                <div class="col-xl-4 col-lg-6 col-12" *ngFor="let vendor of popularVendors">
+            <div class="row justify-content-center" *ngIf="!popularVendorsLoading">
+                <div class="col-xl-3 col-lg-4 col-12" *ngFor="let vendor of popularVendors">
                     <app-vendor [vendor]="vendor"></app-vendor>
+                </div>
+            </div>
+            <div class="row justify-content-center" *ngIf="popularVendorsLoading">
+                <div class="col-xl-3 col-lg-4 col-12" *ngFor="let number of [0,1,2,3,4,5,6,7,8]">
+                    <app-vendor-skeleton></app-vendor-skeleton>
                 </div>
             </div>
         </div>

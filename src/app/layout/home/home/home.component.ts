@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   sliderResponsiveOptions: Array<any>;
 
   popularVendors: Array<Vendor> = [];
+  popularVendorsLoading: boolean = true;
 
   constructor(
     private shippingFacadeService: ShippingFacadeService,
@@ -64,8 +65,9 @@ export class HomeComponent implements OnInit {
       }
     });
 
-    this.vendorsFacadeService.getPopular().subscribe((popularVendors) => {
+    this.vendorsFacadeService.getLatest().subscribe((popularVendors) => {
       this.popularVendors = popularVendors.data;
+      this.popularVendorsLoading = false;
     });
 
     this.categoriesFacadeService.getHomepageCategories().subscribe((categories) => {
