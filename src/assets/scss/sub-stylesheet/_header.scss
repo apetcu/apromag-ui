@@ -614,7 +614,7 @@
     @extend %rel;
     @extend %hidden;
     @include breakpoint(lg) {
-        padding: 100px 0;
+        padding: 60px 0;
     }
     .shape-1, .shape-2 {
         @extend %abs;

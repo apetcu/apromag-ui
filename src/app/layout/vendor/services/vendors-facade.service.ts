@@ -20,9 +20,10 @@ export class VendorsFacadeService {
   ) {}
 
   getVendors(): Observable<PaginatedResponse<Vendor>> {
+    const query = new PaginationInfo(1, 100);
     return this.shippingService.onShippingLocationChange().pipe(
       mergeMap((shippingLocation) => {
-        return this.vendorsApiService.getAll({ locationId: shippingLocation.id });
+        return this.vendorsApiService.getAll({ ...query, locationId: shippingLocation.id });
       }),
       this.mapVendorstoDomainModel()
     );

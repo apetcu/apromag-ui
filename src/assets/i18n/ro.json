@@ -184,13 +184,13 @@
     }
   },
   "CONTACT": {
-    "TITLE": "Contacteaza-ne",
-    "INFO": "Informatii de contact",
+    "TITLE": "Contactează-ne",
+    "INFO": "Informații de contact",
     "FORM": "Formular de contact",
-    "NAME": "Numele tau",
-    "EMAIL": "Emailul tau",
+    "NAME": "Numele tău",
+    "EMAIL": "Email-ul tău",
     "SUBJECT": "Subiect",
-    "MESSAGE": "Mesajul tau",
+    "MESSAGE": "Cu ce te putem ajuta?",
     "SEND": "Trimite mesaj"
   }
 }
