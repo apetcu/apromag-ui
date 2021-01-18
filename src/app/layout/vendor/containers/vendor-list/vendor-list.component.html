@@ -3,7 +3,7 @@
     <div class="container">
         <div class="section-wrapper">
             <div class="row justify-content-center">
-                <div class="col-xl-4 col-lg-6 col-12" *ngFor="let vendor of vendors">
+                <div class="col-xl-3 col-lg-4 col-12" *ngFor="let vendor of vendors">
                     <app-vendor [vendor]="vendor"></app-vendor>
                 </div>
             </div>
@@ -11,7 +11,7 @@
                 {{'GENERAL.NO_VENDORS' | translate}}
             </app-info-box>
             <div class="row justify-content-center" *ngIf="loading">
-                <div class="col-xl-4 col-lg-6 col-12" *ngFor="let number of [0,1,2,3,4,5,6,7,8]">
+                <div class="col-xl-3 col-lg-4 col-12" *ngFor="let number of [0,1,2,3,4,5,6,7,8]">
                     <app-vendor-skeleton></app-vendor-skeleton>
                 </div>
             </div>

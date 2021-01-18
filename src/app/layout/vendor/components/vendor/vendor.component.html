@@ -4,20 +4,20 @@
             <a [routerLink]="vendor.urlSlug"><img [default]="" [src]="vendor.profilePicture" [alt]="vendor.businessName"></a>
         </div>
         <div class="p-food-content">
-            <h6><a [routerLink]="vendor.urlSlug">{{vendor.businessName}}</a></h6>
-            <ul class="del-time">
-                <li>
-                    <i [class.icofont-star]="vendor.certificate" [class.icofont-question]="!vendor.certificate"></i>
-                    <div class="time-tooltip">
-                        <div class="time-tooltip-holder">
-                            <span class="tooltip-label" [translate]="vendor.certificate ? 'ACCOUNT.CERTIFIED' : 'ACCOUNT.NOT_CERTIFIED'"></span>
-                            <span class="tooltip-info" [translate]="vendor.certificate ? 'ACCOUNT.CERTIFIED_TEXT' : 'ACCOUNT.NOT_CERTIFIED_TEXT'"></span>
+                <h6><a [routerLink]="vendor.urlSlug" class="text-center">{{vendor.businessName}}</a></h6>
+                <ul class="del-time" *ngIf="false">
+                    <li>
+                        <i [class.icofont-star]="vendor.certificate" [class.icofont-question]="!vendor.certificate"></i>
+                        <div class="time-tooltip">
+                            <div class="time-tooltip-holder">
+                                <span class="tooltip-label" [translate]="vendor.certificate ? 'ACCOUNT.CERTIFIED' : 'ACCOUNT.NOT_CERTIFIED'"></span>
+                                <span class="tooltip-info" [translate]="vendor.certificate ? 'ACCOUNT.CERTIFIED_TEXT' : 'ACCOUNT.NOT_CERTIFIED_TEXT'"></span>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
             <div class="p-food-footer">
-                <div class="left">
+                <div class="left" *ngIf="false">
                     <app-rating [rating]="vendor.rating"></app-rating>
                 </div>
                 <div class="right"><i class="icofont-home"></i>{{vendor.address}}</div>
