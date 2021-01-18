@@ -33,13 +33,13 @@ export class AlertService {
     });
   }
 
-  showError(message: string) {
+  showError(message: string, timer: number = 1500) {
     this.show({
       position: 'center',
       icon: 'error',
       title: message,
       showConfirmButton: false,
-      timer: 1500
+      timer
     });
   }
 }

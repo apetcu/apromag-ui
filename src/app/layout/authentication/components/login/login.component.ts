@@ -33,8 +33,12 @@ export class LoginComponent implements OnInit {
             timeOut: 3000
           });
         },
-        () => {
-          this.alertService.showError('Autentificarea a esuat');
+        (error) => {
+          if (error.status === 403) {
+            this.alertService.showError('Contul a fost suspendat.', 5000);
+          } else {
+            this.alertService.showError('Autentificarea a esuat');
+          }
         }
       );
     }

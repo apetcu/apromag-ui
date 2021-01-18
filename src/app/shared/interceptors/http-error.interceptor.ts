@@ -9,7 +9,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       catchError((err: any) => {
-        if (err instanceof HttpErrorResponse) {
+        if (err instanceof HttpErrorResponse && !ignorableUrls.includes(req.url)) {
           this.toasterService.error(err.message, 'Server error', {
             positionClass: 'toast-bottom-right',
             timeOut: 5000
@@ -20,3 +20,5 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     );
   }
 }
+
+const ignorableUrls = ['api/auth/login', 'api/auth/register'];
