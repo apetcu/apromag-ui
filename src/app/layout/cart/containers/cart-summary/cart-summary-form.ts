@@ -17,7 +17,7 @@ export class CartSummaryForm extends BaseForm<CartSummaryFields> {
   constructor() {
     super({
       email: new FormControl('', [Validators.email, Validators.required]),
-      phone: new FormControl('', [Validators.required, Validators.pattern('^[0-9 .-/]+$')]),
+      phone: new FormControl('', [Validators.required, Validators.minLength(5), Validators.pattern('^[0-9 .-/]+$')]),
       location: new FormControl('', [Validators.required]),
       shippingAddress: new FormControl('', [Validators.required]),
       remarks: new FormControl(''),
