@@ -11,6 +11,9 @@
         }
         .footer-area {
             .footer-logo {
+                img {
+                    image-rendering: -webkit-optimize-contrast;
+                }
                 a {
                     margin-bottom: 25px;
                 }
