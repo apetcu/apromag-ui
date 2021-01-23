@@ -36,8 +36,8 @@ export class RegisterComponent implements OnInit {
       this.authenticationFacadeService.register(this.registerForm.value).subscribe(
         (data) => {
           this.alertService.show({
-            title: 'Felicitari',
-            text: 'Contul tau a fost creat cu succes. Te rugam sa-ti verifici casuta de mail pentru activarea contului',
+            title: 'Felicitări',
+            text: 'Contul tău a fost creat cu succes. Pe adresa de e-mail introdusă a fost trimis un e-mail de confirmare.',
             icon: 'success'
           });
           this.router.navigate(['/home']);
@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
               this.setError('Exista deja un cont creat cu acest e-mail');
             }
           } else {
-            this.setError('A aparut o eroare la crearea contului');
+            this.setError('A apărut o eroare la crearea contului');
           }
         }
       );
