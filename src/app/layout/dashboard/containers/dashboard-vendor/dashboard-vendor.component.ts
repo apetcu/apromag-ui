@@ -21,6 +21,7 @@ export class DashboardVendorComponent implements OnInit {
   vendorDetailsForm: VendorDetailsForm;
   currentImages: Array<Image> = null;
   galleryUploading: boolean = false;
+  profilePictureUploading: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -44,8 +45,11 @@ export class DashboardVendorComponent implements OnInit {
   }
 
   changeProfilePicture() {
+    this.profilePictureUploading = true;
     this.dashboardFacadeService.updateProfilePicture(this.vendorProfilePictureForm.value).subscribe((user: User) => {
       this.alertService.showSuccess('Fotografia de profil a fost actualizata');
+      this.profilePictureUploading = false;
+
       this.vendorProfilePictureForm.reset();
       this.currentUser.vendor.profilePicture = user.vendor.profilePicture;
     });

@@ -51,8 +51,9 @@
                                accept="image/*"
                                (change)="handleFileInput($event.target.files[0])"
                                type="file">
-                        <button type="submit" class="food-btn style-3" [disabled]="vendorProfilePictureForm.invalid"><span><i
+                        <button type="submit" class="food-btn style-3" [disabled]="vendorProfilePictureForm.invalid" *ngIf="!profilePictureUploading"><span><i
                                 class="icofont-upload mr-1"></i> {{'GENERAL.BUTTONS.UPLOAD' | translate}}</span></button>
+                        <span class="theme-color" *ngIf="profilePictureUploading">Va rugam asteptati. Fotografia se incarca...</span>
                     </div>
                 </form>
 
