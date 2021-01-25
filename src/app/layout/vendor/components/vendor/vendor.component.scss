@@ -1,5 +1,10 @@
 .p-food-content {
   padding-top: 0!important;
+  h6 {
+    a {
+      word-break: break-word;
+    }
+  }
 }
 
 .p-food-footer {

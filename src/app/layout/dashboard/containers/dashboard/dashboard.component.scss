@@ -2,7 +2,9 @@
 @import "mixins";
 
 .info-container {
-  flex-direction: column;
+  @include breakpoint(max-md){
+    flex-direction: column;
+  }
 }
 
 .notifications {
