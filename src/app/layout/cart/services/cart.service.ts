@@ -108,6 +108,9 @@ export class CartService {
     const cartItems = this.getLocalStorageItems();
     const foundItemIndex = cartItems.findIndex((entry) => entry.id === cartItem.id);
     cartItems.splice(foundItemIndex, 1);
+    if (cartItems.length === 0) {
+      this.setCurrentVendor(null);
+    }
     this.setCart(cartItems);
   }
 
@@ -120,6 +123,10 @@ export class CartService {
         break;
       case CartOperations.SUBSTRACT:
         cartItems[foundItemIndex].quantity--;
+        if (cartItems[foundItemIndex].quantity === 0) {
+          this.removeItem(cartItem);
+          return false;
+        }
         break;
       case CartOperations.SET:
         cartItems[foundItemIndex].quantity = quantity;

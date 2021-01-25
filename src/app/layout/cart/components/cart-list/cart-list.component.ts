@@ -19,7 +19,7 @@ export class CartListComponent implements OnInit {
     this.cartService.modifyItem(cartItem, CartOperations.ADD);
   }
 
-  onCartSubstract(cartItem: CartItem) {
+  onCartSubtract(cartItem: CartItem) {
     this.cartService.modifyItem(cartItem, CartOperations.SUBSTRACT);
   }
 

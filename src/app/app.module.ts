@@ -17,6 +17,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UserService } from './layout/user/services/user.service';
 import { NgcCookieConsentConfig, NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { LightboxModule } from 'ngx-lightbox';
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -73,7 +74,8 @@ const cookieConfig: NgcCookieConsentConfig = {
         deps: [HttpClient]
       }
     }),
-    NgcCookieConsentModule.forRoot(cookieConfig)
+    NgcCookieConsentModule.forRoot(cookieConfig),
+    RecaptchaV3Module
   ],
   providers: [
     {
@@ -86,7 +88,8 @@ const cookieConfig: NgcCookieConsentConfig = {
       useClass: JwtInterceptor,
       multi: true
     },
-    { provide: APP_INITIALIZER, useFactory: initializeApp1, deps: [UserService], multi: true }
+    { provide: APP_INITIALIZER, useFactory: initializeApp1, deps: [UserService], multi: true },
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6LfBATwaAAAAABKGl_0R_rDt423GVCfvlqDr1FD0' }
   ],
   bootstrap: [AppComponent]
 })

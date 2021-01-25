@@ -21,7 +21,7 @@
         <td>{{cartItem.price | aproCurrency: cartItem.currency}} / {{cartItem.unit}}</td>
         <td>
             <div class="cart-plus-minus">
-                <div class="dec qtybutton" (click)="onCartSubstract(cartItem)">-</div>
+                <div class="dec qtybutton" (click)="onCartSubtract(cartItem)">-</div>
                 <input class="cart-plus-minus-box" type="text" name="qtybutton" [value]="cartItem.quantity" (blur)="onCartBlur($event.target.value, cartItem)">
                 <div class="inc qtybutton" (click)="onCartAdd(cartItem)">+</div>
             </div>
@@ -44,7 +44,7 @@
             <div><a [routerLink]="cartItem.urlSlug">{{cartItem.name}}</a></div>
             <div>{{cartItem.price | aproCurrency: cartItem.currency}} / {{cartItem.unit}}</div>
             <div class="cart-plus-minus m-0 my-1">
-                <div class="dec qtybutton" (click)="onCartSubstract(cartItem)">-</div>
+                <div class="dec qtybutton" (click)="onCartSubtract(cartItem)">-</div>
                 <input class="cart-plus-minus-box" type="text" name="qtybutton" [value]="cartItem.quantity" (blur)="onCartBlur($event.target.value, cartItem)">
                 <div class="inc qtybutton" (click)="onCartAdd(cartItem)">+</div>
             </div>
