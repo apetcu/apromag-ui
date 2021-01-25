@@ -11,8 +11,11 @@
     </div>
 </div>
 <ul class="d-block d-md-none" *ngIf="loggedIn">
+    <li class="px-3">
+        <a routerLink="/user" [routerLinkActive]="'active'" translate=""><i class="icofont-user"></i> {{'GENERAL.MY_ACCOUNT' | translate}} </a>
+    </li>
     <li class="bg-success px-3">
         <span class="notification fixed mobile" *ngIf="notificationCount | async">{{notificationCount | async}}</span>
-        <a routerLink="/user" [routerLinkActive]="'active'" translate="GENERAL.MY_ACCOUNT" class="theme-color text-white"> </a>
+        <a routerLink="/dashboard" *ngIf="currentUser.isUserOfTypeVendor()" class="theme-color text-white"><i class="icofont-user"></i> {{"GENERAL.VENDOR_PANEL" | translate}} </a>
     </li>
 </ul>

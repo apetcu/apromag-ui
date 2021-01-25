@@ -1,4 +1,4 @@
-<table>
+<table class="d-none d-sm-block">
     <thead>
     <tr>
         <th translate="CART.PRODUCT"></th>
@@ -33,3 +33,22 @@
     </tr>
     </tbody>
 </table>
+
+<div class="d-block d-sm-none px-1">
+    <h4>Produse</h4>
+    <div *ngFor="let cartItem of cartProducts" class="row d-flex align-items-center mb-4">
+        <div class="col-3">
+            <a [routerLink]="cartItem.urlSlug"><img [src]="cartItem.imageFullPath" [alt]="cartItem.name"></a>
+        </div>
+        <div class="col-8">
+            <div><a [routerLink]="cartItem.urlSlug">{{cartItem.name}}</a></div>
+            <div>{{cartItem.price | aproCurrency: cartItem.currency}} / {{cartItem.unit}}</div>
+            <div class="cart-plus-minus m-0 my-1">
+                <div class="dec qtybutton" (click)="onCartSubstract(cartItem)">-</div>
+                <input class="cart-plus-minus-box" type="text" name="qtybutton" [value]="cartItem.quantity" (blur)="onCartBlur($event.target.value, cartItem)">
+                <div class="inc qtybutton" (click)="onCartAdd(cartItem)">+</div>
+            </div>
+            <a (click)="onCartRemove(cartItem)" class="delete-item text-danger">Sterge din cos</a>
+        </div>
+    </div>
+</div>
