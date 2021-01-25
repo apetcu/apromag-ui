@@ -1,6 +1,6 @@
 <a href="#" class="food-btn" *ngIf="!loggedIn" routerLink="/auth/login"><span translate="GENERAL.LOGIN"></span></a>
-<div class="author-icon d-none d-md-block" *ngIf="loggedIn" appClickOutside (clickOutside)="onClickOutside()">
-    <img [src]="currentUser.profilePicture" [default]="" class="d-lg-none" alt="author" (click)="profileMenuDisplayed =!profileMenuDisplayed">
+<div class="author-icon d-none d-lg-block" *ngIf="loggedIn" appClickOutside (clickOutside)="onClickOutside()">
+    <img [src]="currentUser.profilePicture" [default]="" class="d-none d-lg-block" alt="author" (click)="profileMenuDisplayed =!profileMenuDisplayed">
     <span class="notification fixed d-lg-none" *ngIf="notificationCount | async">{{notificationCount | async}}</span>
     <div class="dropdown-menu dropdown-menu-right animate slideIn" [class.show]="profileMenuDisplayed">
         <a class="dropdown-item" routerLink="/user/orders" *ngIf="currentUser.isUserOfTypeCustomer()"><i class="icofont-food-cart"></i>{{"GENERAL.ORDERS" | translate}}</a>

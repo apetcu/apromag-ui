@@ -20,6 +20,10 @@
         @include breakpoint(xxl) {
             width: calc(100% - 812px);
         }
+        @include breakpoint(xl) {
+            width: 37%;
+        }
+
         ul {
             align-items: center;
             justify-content: center;
@@ -114,6 +118,12 @@
         @include breakpoint(xxl) {
             display: block;
         }
+
+        @include breakpoint(xl) {
+            display: block;
+            width: 24%;
+        }
+
         .author-area {
             display: flex;
             flex-wrap: wrap;
@@ -733,12 +743,18 @@
     }
     .header-section .main-menu {
         width: calc(100% - 760px);
+        @include breakpoint(lg){
+            width: 34%;
+        }
         ul {
             padding-right: 20px;
         }
     }
     .header-section .author-option {
         width: 400px;
+        @include breakpoint(lg){
+            width: 32%;
+        }
         display: block;
     }
 }
