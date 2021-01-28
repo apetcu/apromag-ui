@@ -32,7 +32,8 @@ export class OrderApiService {
       { label: 'SUBMITTED', value: 'SUBMITTED' },
       { label: 'IN_PROGRESS', value: 'IN_PROGRESS' },
       { label: 'SHIPPED', value: 'SHIPPED' },
-      { label: 'COMPLETED', value: 'COMPLETED' }
+      { label: 'COMPLETED', value: 'COMPLETED' },
+      { label: 'CANCELED', value: 'CANCELED' }
     ]);
   }
 }

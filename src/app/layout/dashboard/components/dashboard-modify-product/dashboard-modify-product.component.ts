@@ -6,6 +6,7 @@ import { Category } from '../../../categories/models/category.model';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../../user/services/user.service';
 import { CategoriesFacadeService } from '../../../categories/services/categories-facade.service';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard-modify-product',
@@ -98,6 +99,7 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
     this.modifyProductForm.controls['unit'].valueChanges.subscribe((value) => {
       if (!value) {
         this.altUnit = true;
+        this.modifyProductForm.get('altUnit').setValidators([Validators.required]);
       }
     });
 
@@ -111,6 +113,7 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
       this.formMode = 'EDIT';
       this.editProductId = editProduct.id;
       this.altUnit = true;
+      this.modifyProductForm.get('altUnit').setValidators([Validators.required]);
     }
 
     this.modifyProductForm = new ModifyProductForm(editProduct || new Product({}));

@@ -110,7 +110,7 @@ export class DashboardFacadeService {
     Object.keys(modifyProductBody).forEach((key) => {
       if (!excludedKeys.includes(key)) {
         if (key === 'unit' && !modifyProductBody[key]) {
-          formData.append('unit', modifyProductBody['altUnit']);
+          formData.append('unit', modifyProductBody['altUnit'] || 'kg');
         } else if (key === 'stock') {
           formData.append('stock', (modifyProductBody['stock'] ? 1 : 0).toString());
         } else {

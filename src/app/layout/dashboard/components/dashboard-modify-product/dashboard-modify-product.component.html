@@ -56,7 +56,7 @@
                                                 <option value="buc">buc</option>
                                                 <option value="">alta unitate</option>
                                             </select>
-                                            <input type="text" name="altUnit" class="form-control" *ngIf="altUnit" formControlName="altUnit" maxlength="10"
+                                            <input type="text" name="altUnit" class="form-control" *ngIf="altUnit"  [class.invalid]="modifyProductForm.controls['altUnit'].invalid && formErrors" formControlName="altUnit" maxlength="10"
                                                    placeholder="buc, kg, legatura">
                                         </div>
                                     </div>
