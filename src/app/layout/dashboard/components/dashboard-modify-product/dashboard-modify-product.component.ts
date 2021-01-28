@@ -109,14 +109,13 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
   }
 
   private initProductEdit(editProduct: Product) {
+    this.modifyProductForm = new ModifyProductForm(editProduct || new Product({}));
     if (editProduct) {
       this.formMode = 'EDIT';
       this.editProductId = editProduct.id;
       this.altUnit = true;
       this.modifyProductForm.get('altUnit').setValidators([Validators.required]);
     }
-
-    this.modifyProductForm = new ModifyProductForm(editProduct || new Product({}));
     this.listenForFormChanges();
   }
 }
