@@ -9,8 +9,8 @@ export class DashboardApiService {
   domainUrl: string = 'account/vendor/';
   constructor(private api: ApiService) {}
 
-  getOrders(query: object): Observable<any> {
-    return this.api.get(`${this.domainUrl}orders`, query);
+  getOrders(query: object, status: string): Observable<any> {
+    return this.api.get(`${this.domainUrl}orders`, { ...query, status });
   }
 
   getProducts(vendorId: number, query: object): Observable<any> {

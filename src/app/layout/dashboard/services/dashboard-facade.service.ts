@@ -17,8 +17,8 @@ import { OrdersSummary } from '../models/orders-summary.model';
 export class DashboardFacadeService {
   constructor(private dashboardApiService: DashboardApiService, private userService: UserService) {}
 
-  getOrders(paginationInfo: PaginationInfo): Observable<PaginatedResponse<Order>> {
-    return this.dashboardApiService.getOrders(paginationInfo).pipe(this.mapCompaniesToDomainModel());
+  getOrders(paginationInfo: PaginationInfo, status: string): Observable<PaginatedResponse<Order>> {
+    return this.dashboardApiService.getOrders(paginationInfo, status).pipe(this.mapCompaniesToDomainModel());
   }
 
   getSummary(): Observable<OrdersSummary> {

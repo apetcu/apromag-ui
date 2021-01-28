@@ -3,6 +3,8 @@ import { DashboardFacadeService } from '../../services/dashboard-facade.service'
 import { PaginationInfo } from '../../../../shared/models/pagination-info.model';
 import { Order } from '../../../../shared/models/order.model';
 import { Router } from '@angular/router';
+import { OrderFacadeService } from '../../../../shared/services/order/order-facade.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-orders',
@@ -15,14 +17,22 @@ export class DashboardOrdersComponent implements OnInit {
   loading: boolean = true;
   rowsPerPage: number = 25;
 
-  constructor(private dashboardFacadeService: DashboardFacadeService, private router: Router) {}
+  statuses: Observable<Array<any>>;
+
+  constructor(
+    private dashboardFacadeService: DashboardFacadeService,
+    private router: Router,
+    private orderFacadeService: OrderFacadeService
+  ) {}
 
   ngOnInit() {
     this.loadData(1);
+
+    this.statuses = this.orderFacadeService.getStatuses();
   }
 
-  loadData(pageNo: number) {
-    this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage, 'createdAt', 'desc')).subscribe((data) => {
+  loadData(pageNo: number, status = '') {
+    this.dashboardFacadeService.getOrders(new PaginationInfo(pageNo, this.rowsPerPage, 'createdAt', 'desc'), status).subscribe((data) => {
       this.orders = data.data;
       this.totalRecords = data.pagination.totalCount;
       this.loading = false;

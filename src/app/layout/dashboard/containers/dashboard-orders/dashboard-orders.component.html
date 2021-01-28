@@ -1,4 +1,11 @@
-<h5 class="admin-title">{{'VENDOR.ORDERS.TITLE' | translate}} ({{totalRecords}})</h5>
+<h5 class="admin-title">{{'VENDOR.ORDERS.TITLE' | translate}} ({{totalRecords}})
+    <select class="form-control float-right w-auto" (change)="loadData(1, $event.target.value)">
+        <option value="">Toate comenzile</option>
+        <option *ngFor="let status of statuses | async"
+                [value]="status.value">{{"ORDERS.STATUSES." + status.label | translate}}
+        </option>
+    </select>
+</h5>
 
 <div class="row">
     <div class="col-md-12">
