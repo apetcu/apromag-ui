@@ -18,6 +18,8 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
   onSaveComplete: EventEmitter<any> = new EventEmitter<any>(null);
   @Output()
   onDeleteProduct: EventEmitter<any> = new EventEmitter<any>(null);
+  @Output()
+  onWindowClose: EventEmitter<any> = new EventEmitter<any>(null);
 
   @Input()
   editProduct: Product = null;
@@ -93,6 +95,10 @@ export class DashboardModifyProductComponent implements OnInit, OnChanges {
         this.toastrService.error('A aparut o eroare la stergerea fotografiei');
       }
     );
+  }
+
+  closeWindow() {
+    this.onWindowClose.next(true);
   }
 
   private listenForFormChanges() {

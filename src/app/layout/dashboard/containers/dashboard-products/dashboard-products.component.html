@@ -10,10 +10,11 @@
           [autoZIndex]="true"
           [focusOnShow]="true"
           [draggable]="false"
-          [dismissableMask]="true"
-          [resizable]="false">
+          [dismissableMask]="false"
+          [resizable]="true">
     <app-dashboard-modify-product (onSaveComplete)="onSaveComplete($event)"
                                   (onDeleteProduct)="onDeleteProduct($event)"
+                                  (onWindowClose)="onWindowClose($event)"
                                   *ngIf="addProductToggled"
                                   [editProduct]="editProduct">
     </app-dashboard-modify-product>

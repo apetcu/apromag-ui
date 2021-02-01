@@ -1,6 +1,9 @@
 <div class="card">
     <div class="card-body">
-        <h5 class="text-green">{{'VENDOR.PRODUCTS.BUTTONS.' + formMode | translate}} {{editProductId ? '#' + editProductId : ''}}</h5>
+        <h5 class="text-green">
+            {{'VENDOR.PRODUCTS.BUTTONS.' + formMode | translate}} {{editProductId ? '#' + editProductId : ''}}
+            <a class="text-danger float-right text-white close-btn" (click)="closeWindow()"><i class="icofont-close"></i></a>
+        </h5>
         <app-info-box title="Eroare" type="danger" *ngIf="formErrors">
             {{'VENDOR.PRODUCTS.ERRORS.INVALID_FIELDS' | translate}}
         </app-info-box>
