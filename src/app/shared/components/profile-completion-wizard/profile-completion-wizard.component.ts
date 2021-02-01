@@ -26,10 +26,17 @@ export class ProfileCompletionWizardComponent implements OnInit {
       completed: true
     },
     {
-      id: 'details',
-      name: 'Adauga poza de profil si certificatul de producator',
+      id: 'details.profilepicture',
+      name: 'Adauga poza de profil',
       action: 'vendor',
       weight: 3,
+      completed: false
+    },
+    {
+      id: 'details.certificate',
+      name: 'Adauga certificatul de producator',
+      action: 'vendor',
+      weight: 2,
       completed: false
     },
     {
@@ -82,8 +89,12 @@ export class ProfileCompletionWizardComponent implements OnInit {
     }
     const actualSteps = [...this.defaultSteps];
 
-    if (vendor.profilePicture && vendor.certificate) {
-      actualSteps[actualSteps.findIndex((el) => el.id === 'details')].completed = true;
+    if (vendor.certificate) {
+      actualSteps[actualSteps.findIndex((el) => el.id === 'details.certificate')].completed = true;
+    }
+
+    if (vendor.profilePicture) {
+      actualSteps[actualSteps.findIndex((el) => el.id === 'details.profilepicture')].completed = true;
     }
 
     if (vendor.shippingPreferences.length && vendor.shippingCost) {
