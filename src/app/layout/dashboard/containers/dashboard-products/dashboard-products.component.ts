@@ -17,6 +17,7 @@ export class DashboardProductsComponent implements OnInit {
   editProduct: Product = null;
   loading: boolean = true;
   rowsPerPage: number = 15;
+  currentPage: number = 0;
   totalRecords: number;
   products: Array<Product>;
 
@@ -41,6 +42,7 @@ export class DashboardProductsComponent implements OnInit {
   }
 
   loadData(pageNo: number) {
+    this.currentPage = pageNo - 1;
     this.dashboardFacadeService.getProducts(new PaginationInfo(pageNo, this.rowsPerPage)).subscribe((data) => {
       this.products = data.data;
       this.totalRecords = data.pagination.totalCount;

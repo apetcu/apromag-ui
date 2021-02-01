@@ -38,8 +38,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor="let product of products" style="cursor:pointer;" (click)="onEditProduct(product)" [class.disabled]="product.status==='DISABLED'">
-                        <td class="text-center text-muted">{{product.id}}</td>
+                    <tr *ngFor="let product of products; let i = index" style="cursor:pointer;" (click)="onEditProduct(product)" [class.disabled]="product.status==='DISABLED'">
+                        <td class="text-center text-muted">{{(i+1) + currentPage*rowsPerPage}}</td>
                         <td>
                             <div class="product-details p-0">
                                 <div class="row">
