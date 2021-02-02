@@ -14,7 +14,7 @@
         <div *ngIf="modifyProductForm">
             <form [formGroup]="modifyProductForm" (ngSubmit)="onSubmit()">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-md-8">
                         <div class="form-group" [class.invalid]="modifyProductForm.controls['name'].invalid && formErrors">
                             <label for="title" translate="VENDOR.PRODUCTS.FORM.NAME"></label>
                             <input type="text" class="form-control" id="title" formControlName="name">
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <div class="form-group" [class.invalid]="modifyProductForm.controls['price'].invalid && formErrors">
                                     <label translate="VENDOR.PRODUCTS.FORM.PRICE"></label>
                                     <div class="row">
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-md-4">
                         <app-file-upload formControlName="images" [currentImages]="editProduct?.images || []"
                                          (onDeleteImage)="deleteImage($event)"></app-file-upload>
                     </div>
@@ -77,10 +77,10 @@
                         <div class="requestPending" *ngIf="modifyLoading">
                             <app-loading></app-loading>
                         </div>
-                        <div *ngIf="!modifyLoading">
+                        <div *ngIf="!modifyLoading" class="action-buttons">
                             <button type="submit" class="food-btn style-3"><span><i
                                     class="icofont-save mr-1"></i> {{'VENDOR.PRODUCTS.BUTTONS.' + formMode | translate}}</span></button>
-                            <button type="button" (click)="deleteProduct(editProduct)" class="food-btn style-danger float-right" *ngIf="editProductId"><span><i
+                            <button type="button" (click)="deleteProduct(editProduct)" class="food-btn style-danger float-md-right mb-sm-0" *ngIf="editProductId"><span><i
                                     class="icofont-trash mr-1"></i> {{'VENDOR.PRODUCTS.BUTTONS.DELETE' | translate}}</span></button>
                         </div>
                     </div>

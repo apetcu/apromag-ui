@@ -1,3 +1,5 @@
+@import "mixins";
+
 .requestPending {
   height: 120px;
 }
@@ -6,4 +8,13 @@
 .close-btn {
   font-size: 22px;
   cursor: pointer;
+}
+
+.action-buttons {
+  button {
+    @include breakpoint(max-md) {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
 }
