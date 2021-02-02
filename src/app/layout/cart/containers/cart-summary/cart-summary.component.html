@@ -54,7 +54,7 @@
 
                         <div class="calculate-shiping" *ngIf="!(vendor.minOrder && (cartTotal | async)?.totalProductsPrice < vendor.minOrder)">
                             <h4>Livrare la adresa</h4>
-                            <label>Oras / Sector</label>
+                            <label>Oras / Sector (<i>Doar locatiile in care livreaza furnizorul</i>)</label>
                             <div class="outline-select">
                                 <select formControlName="location">
                                     <option value="">{{'GENERAL.SHIPPING_TO' | translate}}</option>
