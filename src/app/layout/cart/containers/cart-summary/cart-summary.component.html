@@ -35,7 +35,8 @@
                                     <div>Pret standard livrare: <strong>{{vendor.shippingCost | aproCurrency: vendor?.currency}}</strong></div>
                                     <div *ngIf="vendor.freeShippingOver">Livrare gratuita pentru comenzi peste
                                         <strong>{{vendor.freeShippingOver | aproCurrency: vendor?.currency}}</strong></div>
-                                    <code>{{vendor.shippingRemarks}}</code>
+                                    <br/><strong>Informatii livrare producator:</strong><br/>
+                                    <span class="text-green">{{vendor.shippingRemarks}}</span>
                                 </div>
 
                                 <h4 class="mt-5" translate="CART.PAYMENT_METHOD"></h4>
