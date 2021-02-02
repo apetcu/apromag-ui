@@ -9,8 +9,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let product of orderInfo?.products">
-        <td class="text-md-center text-muted">#{{product.productId}}</td>
+    <tr *ngFor="let product of orderInfo?.products; let i = index;">
+        <td class="text-md-center text-muted">{{i+1}}</td>
         <td>
             <div class="widget-content p-0">
                 <div class="widget-content-wrapper">

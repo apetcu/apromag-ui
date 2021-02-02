@@ -94,6 +94,7 @@ export class DashboardProductsComponent implements OnInit {
 
   onWindowClose(event) {
     this.addProductToggled = false;
+    this.editProduct = null;
   }
 
   onEditProduct(product: Product) {
