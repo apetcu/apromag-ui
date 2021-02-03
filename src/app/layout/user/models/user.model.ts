@@ -27,7 +27,7 @@ export class User {
     this.fullName = userResponse.firstName + ' ' + userResponse.lastName;
 
     this.phone = userResponse.phone;
-    this.address = userResponse.address;
+    this.address = userResponse.address || '';
 
     this.profilePicture = userResponse.profilePicture || 'assets/images/default_profile.png';
     if (userResponse.vendor) {
