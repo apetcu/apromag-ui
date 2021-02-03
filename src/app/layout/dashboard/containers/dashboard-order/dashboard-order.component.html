@@ -43,6 +43,7 @@
     </div>
     <div class="col-md-5">
         <app-order-summary [orderInfo]="orderInfo"></app-order-summary>
+        <app-order-status-history [orderId]="orderInfo?.id" *ngIf="orderInfo"></app-order-status-history>
 
     </div>
 </div>

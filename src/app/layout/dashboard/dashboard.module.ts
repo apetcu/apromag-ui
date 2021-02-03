@@ -33,6 +33,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { FilterModule } from '../../shared/pipes/filter/filter.module';
 import { ChartModule } from 'primeng/chart';
 import { WidgetModule } from '../../shared/components/widget/widget.module';
+import { OrderStatusHistoryModule } from '../../shared/components/order-status-history/order-status-history.module';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { WidgetModule } from '../../shared/components/widget/widget.module';
     MultiSelectModule,
     FilterModule,
     ChartModule,
-    WidgetModule
+    WidgetModule,
+    OrderStatusHistoryModule
   ]
 })
 export class DashboardModule {}
