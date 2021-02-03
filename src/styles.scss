@@ -32,7 +32,7 @@
   }
 }
 
-::ng-deep {
+body {
   .ui-dialog {
     position:static!important;
 
@@ -40,9 +40,6 @@
       width: 90%
     }
   }
-}
-
-body {
   .ui-paginator {
     border: 0;
     .ui-paginator-pages {
