@@ -8,9 +8,20 @@ import { CategoriesRoutingModule } from './categories-routing.module';
 import { CategoryProductsComponent } from './components/category-products/category-products.component';
 import { ProductListModule } from '../../shared/components/product-list/product-list.module';
 import { InfoBoxModule } from '../../shared/components/info-box/info-box.module';
+import { VendorInfoFlatModule } from '../../shared/components/vendor-info-flat/vendor-info-flat.module';
+import { ProductItemSkeletonModule } from '../../shared/components/product-item-skeleton/product-item-skeleton.module';
 
 @NgModule({
   declarations: [CategoriesComponent, CategoryListComponent, CategoryProductsComponent],
-  imports: [CommonModule, RouterModule, PageTitleModule, CategoriesRoutingModule, ProductListModule, InfoBoxModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    PageTitleModule,
+    CategoriesRoutingModule,
+    ProductListModule,
+    InfoBoxModule,
+    VendorInfoFlatModule,
+    ProductItemSkeletonModule
+  ]
 })
 export class CategoriesModule {}

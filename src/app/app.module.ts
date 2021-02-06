@@ -18,6 +18,7 @@ import { UserService } from './layout/user/services/user.service';
 import { NgcCookieConsentConfig, NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { LightboxModule } from 'ngx-lightbox';
 import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+import { VendorInfoFlatComponent } from './shared/components/vendor-info-flat/vendor-info-flat.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {

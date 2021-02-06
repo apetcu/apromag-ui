@@ -1,4 +1,4 @@
 <div class="alert-message" [ngClass]="type">
-    <h4>{{title | translate}}</h4>
+    <h4 *ngIf="title">{{title | translate}}</h4>
     <p><ng-content></ng-content></p>
 </div>

@@ -7,6 +7,7 @@ import { PaginatedResponse } from '../../../shared/models/paginated-response';
 import { Product } from '../../product/models/product';
 import { PaginationInfo } from '../../../shared/models/pagination-info.model';
 import { ProductsFacadeService } from '../../product/services/products-facade.service';
+import { VendorProductsGroup } from '../models/category-products.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,13 @@ export class CategoriesFacadeService {
       return of(this.flattenedCategories.value.find((category) => category.id === id));
     }
     return this.categoriesApiService.getById(id).pipe(map((category) => new Category(category)));
+  }
+
+  getCategoryProductsGroupedByVendor(id: number, pagination: PaginationInfo): Observable<Array<VendorProductsGroup>> {
+    return this.categoriesApiService.getProducts(id, pagination).pipe(
+      this.productsFacadeService.mapProductsToDomainModel(),
+      this.productsFacadeService.mapGroupProductsByVendor()
+    );
   }
 
   getCategoryProducts(id: number): Observable<PaginatedResponse<Product>> {

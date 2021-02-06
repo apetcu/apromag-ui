@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { ProductsApiService } from './products-api.service';
 import { Product } from '../models/product';
 import { PaginatedResponse } from '../../../shared/models/paginated-response';
+import { VendorProductsGroup } from '../../categories/models/category-products.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,23 @@ export class ProductsFacadeService {
     return map((productsResponse) => {
       productsResponse.data = productsResponse.data.map((entry) => new Product(entry));
       return productsResponse;
+    });
+  }
+  // Used by other facades as well
+  public mapGroupProductsByVendor(): OperatorFunction<PaginatedResponse<Product>, Array<VendorProductsGroup>> {
+    return map((productsResponse) => {
+      let groups = {};
+      productsResponse.data.forEach((product) => {
+        if (groups[product.vendorId]) {
+          groups[product.vendorId].products.push(product);
+        } else {
+          groups[product.vendorId] = {
+            vendor: product.vendor,
+            products: [product]
+          };
+        }
+      });
+      return Object.values(groups);
     });
   }
 }

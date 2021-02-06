@@ -3,6 +3,7 @@
 .location {
   color: $theme-color;
   font-size: 16px;
+  position: relative;
 
   .remove {
     color: gray;
@@ -16,5 +17,33 @@
 
   a {
     cursor: pointer;
+  }
+
+  .bubble {
+    position: absolute;
+    cursor: default;
+    user-select: none;
+    top: 150%;
+    width: 180px;
+    background: $theme-color;
+    padding: 6px;
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 0 10px 10px;
+      border-color: $theme-color transparent;
+      display: block;
+      width: 0;
+      z-index: 1;
+      top: -9px;
+      left: 40px;
+    }
+
   }
 }

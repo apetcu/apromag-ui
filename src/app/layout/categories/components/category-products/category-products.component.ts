@@ -8,6 +8,8 @@ import { Subscription } from 'rxjs';
 import { Lightbox } from 'ngx-lightbox';
 import { Title } from '@angular/platform-browser';
 import { environment } from '../../../../../environments/environment';
+import { VendorProductsGroup } from '../../models/category-products.model';
+import { PaginationInfo } from '../../../../shared/models/pagination-info.model';
 
 @Component({
   selector: 'app-category-products',
@@ -17,6 +19,8 @@ import { environment } from '../../../../../environments/environment';
 export class CategoryProductsComponent implements OnInit, OnDestroy {
   category: Category;
   products: Array<Product>;
+  vendorProductGroups: Array<VendorProductsGroup>;
+
   totalProducts: number;
   productsLoading: boolean = true;
   categoryInfoLoading: boolean = true;
@@ -27,10 +31,10 @@ export class CategoryProductsComponent implements OnInit, OnDestroy {
 
   productListConfig: ProductListConfig = {
     totalPages: 100,
-    totalRecords: 1000,
+    totalRecords: 10000,
     currentPage: 1,
     defaultDisplayMode: ProductListDisplayModes.GRID,
-    displayHeader: true,
+    displayHeader: false,
     paginated: false,
     itemsPerRow: 4
   };
@@ -61,10 +65,12 @@ export class CategoryProductsComponent implements OnInit, OnDestroy {
   }
   private getCategoryProducts(id: number) {
     this.productsLoading = true;
-    this.productsSubscription = this.categoriesFacadeService.getCategoryProducts(id).subscribe((products) => {
-      this.productsLoading = false;
-      this.products = products.data;
-      this.totalProducts = products.pagination.totalCount;
-    });
+    this.productsSubscription = this.categoriesFacadeService
+      .getCategoryProductsGroupedByVendor(id, new PaginationInfo(1, 10000))
+      .subscribe((products) => {
+        this.productsLoading = false;
+        this.vendorProductGroups = products;
+        this.totalProducts = 100;
+      });
   }
 }

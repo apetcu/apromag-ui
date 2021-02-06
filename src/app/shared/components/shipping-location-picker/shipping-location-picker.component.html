@@ -1,3 +1,6 @@
 <div class="location">
     <a (click)="onChangeLocation()"><i class="icofont-google-map"></i> {{currentLocation.name | translate}}</a>
+    <div class="bubble" *ngIf="!currentLocation.id">
+        Nu uita sa alegi locatia de livrare!
+    </div>
 </div>

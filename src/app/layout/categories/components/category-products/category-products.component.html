@@ -1,11 +1,22 @@
 <app-page-title [heading]="category?.name" [contentLoading]="categoryInfoLoading"></app-page-title>
 <div class="shop-page single padding-tb">
     <div class="container">
+        <app-info-box type="info" *ngIf="!productsLoading && vendorProductGroups && vendorProductGroups.length">
+            Producatorii din lista de mai jos vand legume din categoria <strong>{{category?.name}}</strong>
+        </app-info-box>
+        <div class="shop-product-wrap row" *ngIf="productsLoading">
+            <div class="col-12 col-md-3" *ngFor="let number of [0,1,2,3,4,5,6,7,8]">
+                <app-product-item-skeleton [displayType]="'grid'"></app-product-item-skeleton>
+            </div>
+        </div>
         <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-12" *ngFor="let group of vendorProductGroups">
+                <app-vendor-info-flat [vendor]="group.vendor"></app-vendor-info-flat>
                 <app-product-list [listLoading]="productsLoading" [pagination]="{totalElements: totalProducts}" [config]="productListConfig"
-                                  [products]="products"></app-product-list>
-                <app-info-box title="Ne pare rau" type="danger" *ngIf="!productsLoading && !(products && products.length)">
+                                  [products]="group.products"></app-product-list>
+            </div>
+            <div class="col-12">
+                <app-info-box title="Ne pare rau" type="danger" *ngIf="!productsLoading && !(vendorProductGroups && vendorProductGroups.length)">
                     Nu exista produse adaugate in aceasta categorie
                 </app-info-box>
             </div>
