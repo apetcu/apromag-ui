@@ -4,6 +4,13 @@
         <div class="alert alert-warning text-center m-2" *ngIf="vendor.freeShippingOver - (cartTotal | async)?.totalProductsPrice > 0">
             {{'CART.ORDER_MORE' | translate: { orderMore: (vendor.freeShippingOver - (cartTotal | async)?.totalProductsPrice) | number: '1.2-2' } }}
         </div>
+
+        <div class="mt-4">
+            <app-info-box type="warning" title="Informare">
+                Confirmarea comenzii va fi facuta de catre producator dupa primirea acesteia intrucat stocul poate fluctua in anumite perioade.
+            </app-info-box>
+        </div>
+
     </div>
     <div class="cart-bottom">
         <form action="" [formGroup]="cartSummaryForm" (ngSubmit)="onCartSubmit()">
@@ -80,7 +87,8 @@
                             <textarea formControlName="remarks" id="" cols="30" rows="5"></textarea>
                             <label>
                                 <p-checkbox formControlName="terms" [binary]="true"></p-checkbox>
-                                Am citit si sunt de acord cu <a routerLink="/static/1/terms-and-conditions" target="_blank">termenii si conditiile</a> acestui site</label>
+                                Am citit si sunt de acord cu <a routerLink="/static/1/terms-and-conditions" target="_blank">termenii si conditiile</a> acestui
+                                site</label>
                         </div>
                     </div>
                 </div>
