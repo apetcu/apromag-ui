@@ -19,7 +19,9 @@ export class MobileCartComponent implements OnInit {
     this.cartDisplayed = this.router.url !== '/cart';
     this.initTotalListeners();
     this.router.events.forEach((event) => {
-      this.cartDisplayed = event instanceof NavigationEnd && event.url !== '/cart';
+      if (event instanceof NavigationEnd) {
+        this.cartDisplayed = event.url !== '/cart';
+      }
     });
   }
 
