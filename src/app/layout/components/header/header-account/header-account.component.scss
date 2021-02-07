@@ -4,6 +4,21 @@
   position: relative;
 }
 
+.user-area {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+
+  .my-account {
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-left: 10px;
+    &:hover {
+      color: $theme-color;
+    }
+  }
+}
+
 .author-icon img {
   cursor: pointer;
 }
